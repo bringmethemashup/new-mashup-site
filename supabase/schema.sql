@@ -39,7 +39,11 @@ $$;
 create or replace function public.protect_admin_flag()
 returns trigger language plpgsql security definer set search_path = public as $$
 begin
-  if new.is_admin is distinct from old.is_admin and not public.is_admin() then
+  -- auth.uid() is null for direct SQL-editor/service-role queries, which are
+  -- allowed to change the flag; signed-in users can never grant themselves admin
+  if new.is_admin is distinct from old.is_admin
+     and auth.uid() is not null
+     and not public.is_admin() then
     new.is_admin := old.is_admin;
   end if;
   return new;

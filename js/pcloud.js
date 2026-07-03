@@ -54,8 +54,14 @@ export async function resolveAudioUrl(publicLink, { force = false } = {}) {
       // last resort: some ISP DNS servers can't resolve api.pcloud.com at
       // all — let our own backend do the lookup server-side instead.
       if (!SUPABASE_URL) throw e2;
-      const r = await fetch(`${SUPABASE_URL}/functions/v1/pcloud-resolve?code=${code}`, {
-        headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+      const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/pcloud_resolve`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ link_code: code }),
       });
       j = await r.json();
       if (j.result !== 0 || !j.hosts?.length) throw new Error(`pCloud proxy result ${j.result}`);
