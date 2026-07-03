@@ -13,19 +13,19 @@ Checkpoint file. If resuming: read this + `git log --oneline` before touching co
 - [x] git init (sandbox repo, synced to user folder), .gitignore excludes .env, key in .env only
 
 ## Stage 1 — Core site
-- [ ] 1. Audio-reactive visualizer (AnalyserNode; full player + mini form)
-- [ ] 2. Searchable catalogue (title / source artist / mashup artist)
-- [ ] 3. Mashup Explorer — Miller columns over co-occurrence index (built once at load)
-- [ ] 4. Shuffle/queue system with visible queue UI
-- [ ] 5. pCloud-audio-primary playback + YouTube video toggle (Spotify-podcast style)
-- [ ] 6. catalog.json population script (`scripts/build_catalog.mjs`) + punch-list output
+- [x] 1. Audio-reactive visualizer (AnalyserNode; full player + mini form)
+- [x] 2. Searchable catalogue (title / source artist / mashup artist)
+- [x] 3. Mashup Explorer — Miller columns over co-occurrence index (built once at load)
+- [x] 4. Shuffle/queue system with visible queue UI
+- [x] 5. pCloud-audio-primary playback + YouTube video toggle (Spotify-podcast style)
+- [x] 6. catalog.json population script (`scripts/build_catalog.mjs`) + punch-list output
 
 ## Stage 2 — Aggregator
-- [ ] 7. `isOwnUpload:false` entries — YouTube/TikTok embed-only (hard constraint: never rehost)
-- [ ] 8. Editor tool (`editor.html`): add entries, edit sourceSongs rows, link YT IDs; exports catalog.json
+- [x] 7. `isOwnUpload:false` entries — YouTube/TikTok embed-only (hard constraint: never rehost)
+- [x] 8. Editor tool (`editor.html`): add entries, edit sourceSongs rows, link YT IDs; exports catalog.json
 
 ## Stage 3 — Polish & ship
-- [ ] 9. Mobile pass, README (deploy steps, per-platform playback behavior notes)
+- [x] 9. Mobile pass, README (deploy steps, per-platform playback behavior notes)
 
 ## Definition of done
 Local run: `python3 -m http.server` (or any static server) from repo root.
