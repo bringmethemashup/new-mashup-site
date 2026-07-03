@@ -73,6 +73,10 @@ create table public.tracks (
   updated_at timestamptz not null default now()
 );
 
+-- second FK to profiles so PostgREST can embed owner profiles in queries
+alter table public.tracks add constraint tracks_owner_profiles_fkey
+  foreign key (owner) references public.profiles (id) on delete set null;
+
 create index tracks_status_idx on public.tracks (status);
 create index tracks_owner_idx on public.tracks (owner);
 

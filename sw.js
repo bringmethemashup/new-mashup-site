@@ -8,7 +8,7 @@
  *    last-known catalog when offline.
  *  - Audio streams / Supabase API calls: never intercepted (network only).
  */
-const VERSION = 'bmtm-v1';
+const VERSION = 'bmtm-v2'; // bump whenever shell files change — forces every client to refetch
 const SHELL = [
   './',
   './index.html',
@@ -27,7 +27,13 @@ const SHELL = [
 ];
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  // cache:'reload' bypasses the HTTP cache so a new SW version always
+  // installs genuinely fresh copies of the shell
+  e.waitUntil(
+    caches.open(VERSION)
+      .then((c) => c.addAll(SHELL.map((u) => new Request(u, { cache: 'reload' }))))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', (e) => {
