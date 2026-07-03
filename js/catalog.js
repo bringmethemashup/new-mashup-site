@@ -29,8 +29,29 @@ function addNode(key, kind, name, trackId) {
 }
 
 export async function loadCatalog(url = 'data/catalog.json') {
-  const res = await fetch(url);
-  tracks = await res.json();
+  // Backend (Supabase) is the single source of truth when configured;
+  // catalog.json remains the offline/no-backend fallback.
+  let list = null;
+  try {
+    const backend = await import('./backend.js');
+    if (backend.enabled()) {
+      await backend.init();
+      list = await backend.fetchTracks();
+    }
+  } catch (e) {
+    console.warn('Backend unavailable, falling back to catalog.json', e);
+  }
+  if (!list || !list.length) {
+    const res = await fetch(url);
+    list = await res.json();
+  }
+  tracks = list;
+  reindex();
+  return tracks;
+}
+
+function reindex() {
+  byId.clear(); nodes.clear(); edges.clear();
 
   for (const t of tracks) {
     byId.set(t.id, t);
@@ -59,7 +80,6 @@ export async function loadCatalog(url = 'data/catalog.json') {
       }
     }
   }
-  return tracks;
 }
 
 export const all = () => tracks;

@@ -31,6 +31,32 @@ Checkpoint file. If resuming: read this + `git log --oneline` before touching co
 Local run: `python3 -m http.server` (or any static server) from repo root.
 Search/shuffle/play polished; aggregator test entries render; PLAN + commits show state; README has deploy steps.
 
+## Prompt 2 — accounts, playlists, backend & app (built 2026-07-03)
+Backend: **Supabase** (auth + Postgres + storage on one free tier; no custom auth).
+- [x] `supabase/schema.sql` — profiles (listener/artist role, is_admin), tracks
+      (full catalog entry in `data` jsonb, status pending/approved/rejected),
+      likes, plays, playlists (+tracks, private default), storage bucket +
+      RLS everywhere. Admin promoted by one SQL line (see SETUP-PROMPT2.md).
+- [x] `js/config.js` (Ian pastes URL + anon key), `js/backend.js` wrapper.
+      Empty config = site runs exactly like Prompt 1 (catalog.json fallback).
+- [x] Auth UI + account menu in index.html/app.js; likes & play counts sync
+      (one-time local merge, then write-through); Playlists tab (create/
+      rename/delete/reorder/remove, private); ＋-to-playlist on every row.
+- [x] `submit.html` — artist submissions: upload to storage OR own-host link
+      (YouTube/TikTok/pCloud), REQUIRED structured sourceSongs rows; lands
+      status=pending, visible only to submitter. Listener→artist self-toggle.
+- [x] `admin.html` — review queue approve/reject, edit ANY track anytime
+      (independent of approval), one-click catalog.json import (attributed to
+      admin, approved). DB = single source of truth after import.
+- [x] PWA: manifest.webmanifest, icons/, sw.js (shell cache + catalog
+      network-first). iPhone = Add to Home Screen.
+- [x] Android: capacitor.config.json (wraps live site URL) +
+      .github/workflows/build-apk.yml (manual trigger → signed APK on release
+      `app-latest`). Keystore in git-ignored android-signing/ → GitHub secrets.
+- [ ] Ian's one-time setup: SETUP-PROMPT2.md (Supabase project, keys, SQL,
+      admin promotion, catalog import, APK secrets + first build).
+
 ## Future ideas (not this pass)
 - ID3 harvest pass when mp3 folder is shareable; remote ID3 via ranged pCloud reads in editor
-- Prompt 2: Supabase/Firebase accounts, playlists, review queue, Capacitor APK + PWA
+- Social login (Google/Apple); public/shared playlists (is_public column already there)
+- Refetch catalog on sign-in so an artist's pending tracks appear without reload

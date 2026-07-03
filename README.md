@@ -4,6 +4,14 @@ A static, no-framework music site for the Bring Me The Mashup catalog: 965+ mash
 streamed **directly from pCloud audio** with a real-time audio-reactive visualizer,
 plus an aggregator schema for other artists' work (embed-only).
 
+**Prompt 2 additions:** free accounts (listener / mashup artist) on Supabase,
+likes + private playlists synced across web and app, artist submissions with a
+review queue (`submit.html`), an admin console (`admin.html`), a PWA
+(installable on iPhone via Add to Home Screen), and an Android APK built by
+GitHub Actions. One-time setup steps live in **`SETUP-PROMPT2.md`**. With
+`js/config.js` left empty the site runs in Prompt 1 mode (catalog.json, no
+accounts) — nothing breaks.
+
 ## Run locally
 
 Any static server from the repo root works:

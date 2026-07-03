@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submit a Mashup — Bring Me The Mashup</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { overflow: auto; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 24px 20px 90px; }
+  h1 { font-size: 24px; letter-spacing: -.02em; }
+  .card { border: 1px solid var(--line); background: var(--bg-elev); border-radius: 18px; padding: 22px; margin: 16px 0; }
+  .f { margin-bottom: 12px; }
+  .f label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; }
+  .f input, .f select { width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); outline: none; font-size: 14px; box-sizing: border-box; }
+  .f input:focus { border-color: var(--accent); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .songrow { display: grid; grid-template-columns: 1fr 1fr 34px; gap: 8px; margin-bottom: 8px; }
+  .songrow button { border-radius: 8px; background: var(--bg-soft); font-size: 14px; color: var(--text-dim); }
+  .chip { padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 13px; background: var(--bg-soft); color: var(--text); border: none; cursor: pointer; }
+  .chip.primary { background: var(--accent); color: #fff; }
+  .note { font-size: 12.5px; color: var(--text-dim); line-height: 1.55; background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
+  .err { background: #b3261e22; color: #e4573d; font-size: 13px; padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
+  .ok { background: #1e8e3e22; color: #34a853; font-size: 13px; padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
+  .hidden { display: none !important; }
+  .tf-hint { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+  .mine-row { display: flex; gap: 12px; align-items: center; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; }
+  .mine-row .t { flex: 1; min-width: 0; }
+  .mine-row .t b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .mine-row .t span { font-size: 12px; color: var(--text-dim); }
+  .pill { font-size: 10px; font-weight: 800; letter-spacing: .05em; padding: 3px 9px; border-radius: 99px; text-transform: uppercase; }
+  .pill.pending { background: #b3862622; color: #d99a2b; }
+  .pill.approved { background: #1e8e3e22; color: #34a853; }
+  .pill.rejected { background: #b3261e22; color: #e4573d; }
+  a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  progress { width: 100%; }
+</style>
+</head>
+<body>
+<div id="ambient"></div>
+<div class="wrap">
+  <a class="back" href="index.html">‹ Back to the site</a>
+  <h1>Submit a Mashup</h1>
+
+  <div id="gate" class="note">Checking your account…</div>
+
+  <div id="formwrap" class="hidden">
+    <div class="note">
+      Your submission goes into a <b>review queue</b> first — only you can see it until it's approved.
+      Source songs are required, one artist/title pair per row: that's what powers the Mashup Explorer.
+    </div>
+    <div class="card">
+      <div id="tform"></div>
+      <div class="err hidden" id="s-err"></div>
+      <div class="ok hidden" id="s-ok"></div>
+      <progress id="s-prog" class="hidden"></progress>
+      <div style="display:flex; justify-content:flex-end; margin-top:14px">
+        <button class="chip primary" id="s-go">Submit for review</button>
+      </div>
+    </div>
+
+    <h1 id="mine" style="font-size:19px; margin-top:34px">My submissions</h1>
+    <div id="mine-list"></div>
+  </div>
+</div>
+
+<script type="module">
+import * as backend from './js/backend.js';
+import { formHtml, bindForm, readForm } from './js/trackform.js';
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+async function boot() {
+  if (!backend.enabled()) { $('#gate').innerHTML = 'Accounts are not configured yet.'; return; }
+  await backend.init();
+  render();
+  backend.onAuth(render);
+}
+
+function render() {
+  const u = backend.user();
+  if (!u) {
+    $('#gate').innerHTML = 'You need to <a href="index.html">sign in on the main site</a> first (use the account button, top right).';
+    $('#formwrap').classList.add('hidden');
+    return;
+  }
+  if (!backend.isArtist()) {
+    $('#gate').innerHTML = `You're signed in as a listener. <button class="chip primary" id="become">🎛 Become a mashup artist</button> to submit your own tracks — it's free and instant.`;
+    $('#formwrap').classList.add('hidden');
+    $('#become').onclick = async () => { await backend.setRole('artist'); render(); };
+    return;
+  }
+  $('#gate').classList.add('hidden');
+  $('#formwrap').classList.remove('hidden');
+  if (!$('#tform').innerHTML) {
+    $('#tform').innerHTML = formHtml({});
+    bindForm($('#tform'));
+  }
+  loadMine();
+}
+
+$('#s-go').addEventListener('click', async () => {
+  const err = $('#s-err'), ok = $('#s-ok'), prog = $('#s-prog');
+  err.classList.add('hidden'); ok.classList.add('hidden');
+  let parsed;
+  try { parsed = readForm($('#tform')); }
+  catch (e) { err.textContent = e.message; err.classList.remove('hidden'); return; }
+
+  const { entry, file, mediaKind } = parsed;
+  entry.mashupArtist = backend.getProfile()?.display_name || backend.user().email;
+  entry.isOwnUpload = true;
+
+  try {
+    $('#s-go').disabled = true;
+    if (mediaKind === 'upload' && file) {
+      prog.classList.remove('hidden');
+      const url = await backend.uploadMedia(file);
+      prog.classList.add('hidden');
+      entry.audio = { type: 'url', url };
+      if (file.type.startsWith('video/')) entry.uploadKind = 'video';
+    }
+    await backend.submitTrack(entry);
+    ok.textContent = 'Submitted! Your mashup is in the review queue — you can see it below, nobody else can until it\'s approved.';
+    ok.classList.remove('hidden');
+    $('#tform').innerHTML = formHtml({});
+    bindForm($('#tform'));
+    loadMine();
+  } catch (e) {
+    err.textContent = e.message || 'Submission failed.';
+    err.classList.remove('hidden');
+  } finally { $('#s-go').disabled = false; prog.classList.add('hidden'); }
+});
+
+async function loadMine() {
+  const { data, error } = await backend.client().from('tracks')
+    .select('id, status, data, created_at')
+    .eq('owner', backend.user().id).order('created_at', { ascending: false });
+  if (error) { $('#mine-list').innerHTML = '<div class="note">Could not load submissions.</div>'; return; }
+  $('#mine-list').innerHTML = data.length ? data.map((r) => `
+    <div class="mine-row">
+      <div class="t"><b>${esc(r.data.displayTitle)}</b>
+        <span>${(r.data.sourceSongs || []).map((s) => esc(s.artist)).join(' × ') || '—'}</span></div>
+      <span class="pill ${r.status}">${r.status}</span>
+      ${r.status === 'pending' ? `<button class="chip" data-del="${esc(r.id)}">Delete</button>` : ''}
+    </div>`).join('')
+    : '<div class="note">Nothing submitted yet.</div>';
+}
+$('#mine-list').addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-del]'); if (!b) return;
+  if (!confirm('Delete this pending submission?')) return;
+  await backend.client().from('tracks').delete().eq('id', b.dataset.del);
+  loadMine();
+});
+
+boot();
+</script>
+</body>
+</html>

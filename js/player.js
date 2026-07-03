@@ -62,7 +62,7 @@ async function loadAndPlay(track, { retried = false } = {}) {
   emit('trackchange', track);
   updateMediaSession(track);
 
-  if (!track.audio?.publicLink) { // embed-only entry: full player shows video
+  if (!track.audio?.publicLink && !track.audio?.url) { // embed-only entry
     audio.pause(); audio.removeAttribute('src');
     viz.setPlaying(false);
     emit('embedonly', track);
@@ -70,7 +70,10 @@ async function loadAndPlay(track, { retried = false } = {}) {
   }
 
   try {
-    const url = await resolveAudioUrl(track.audio.publicLink, { force: retried });
+    // direct url (artist uploads on Supabase storage) or pCloud publink
+    const url = track.audio.url
+      ? track.audio.url
+      : await resolveAudioUrl(track.audio.publicLink, { force: retried });
     if (token !== loadToken) return;                 // user skipped meanwhile
     if (!S.corsBlocked) audio.crossOrigin = 'anonymous';
     else audio.removeAttribute('crossorigin');
@@ -96,7 +99,7 @@ async function loadAndPlay(track, { retried = false } = {}) {
 
 audio.addEventListener('error', () => {
   const t = current();
-  if (t?.audio) { invalidate(t.audio.publicLink); }
+  if (t?.audio?.publicLink) { invalidate(t.audio.publicLink); }
 });
 audio.addEventListener('play', () => { viz.setPlaying(true); emit('play'); });
 audio.addEventListener('pause', () => { viz.setPlaying(false); emit('pause'); });

@@ -1,0 +1,12 @@
+{
+  "appId": "com.bringmethemashup.app",
+  "appName": "Bring Me The Mashup",
+  "webDir": "www",
+  "server": {
+    "url": "https://bringmethemashup.github.io/new-mashup-site/",
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#0e0f13"
+  }
+}

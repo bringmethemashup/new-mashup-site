@@ -6,6 +6,9 @@
 <title>Bring Me The Mashup</title>
 <meta name="description" content="Hundreds of mashups — free to stream. Search the catalogue or explore song connections.">
 <link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0e0f13">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎛️</text></svg>">
 </head>
 <body>
@@ -24,8 +27,12 @@
       <button class="tab" data-view="browse">Browse</button>
       <button class="tab" data-view="explorer">Explorer</button>
       <button class="tab" data-view="liked">Liked</button>
+      <button class="tab authonly" data-view="playlists">Playlists</button>
     </nav>
     <button class="iconbtn" id="theme" title="Toggle theme"><span id="theme-icon"></span></button>
+    <button class="iconbtn hidden" id="account" title="Account">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"/></svg>
+    </button>
   </header>
 
   <main>
@@ -48,6 +55,9 @@
 
     <!-- Browse: albums + recommendations -->
     <section class="view hidden" id="view-browse"></section>
+
+    <!-- Playlists (signed-in) -->
+    <section class="view hidden" id="view-playlists"></section>
 
     <!-- Mashup Explorer -->
     <section class="view hidden" id="view-explorer">
@@ -128,6 +138,57 @@
 
 <div id="toast"></div>
 
+<!-- auth: sign in / sign up -->
+<dialog id="auth-dlg" class="dlg">
+  <h2 id="auth-title">Sign in</h2>
+  <div class="f"><label>Email</label><input id="auth-email" type="email" autocomplete="email"></div>
+  <div class="f"><label>Password</label><input id="auth-pass" type="password" autocomplete="current-password"></div>
+  <div class="f hidden" id="auth-name-f"><label>Display name</label><input id="auth-name" placeholder="How you'll appear on the site"></div>
+  <div class="dlg-err hidden" id="auth-err"></div>
+  <div class="auth-or"><span>or</span></div>
+  <button class="chip gbtn" id="auth-google">
+    <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 0 0 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+    Continue with Google
+  </button>
+  <div class="dlg-actions">
+    <button class="chip" id="auth-switch">Need an account? Sign up</button>
+    <span class="spacer"></span>
+    <button class="chip" id="auth-cancel">Cancel</button>
+    <button class="chip primary" id="auth-go">Sign in</button>
+  </div>
+</dialog>
+
+<!-- account menu -->
+<dialog id="acct-dlg" class="dlg">
+  <h2>Account</h2>
+  <p class="dlg-sub" id="acct-who"></p>
+  <div class="acct-actions">
+    <button class="chip" id="acct-role"></button>
+    <button class="chip artistonly" id="acct-yt"></button>
+    <a class="chip artistonly" href="submit.html">🎚 Submit a mashup</a>
+    <a class="chip artistonly" href="submit.html#mine">My submissions</a>
+    <a class="chip adminonly" href="admin.html">🛠 Admin</a>
+    <a class="chip" id="acct-app" href="#" target="_blank" rel="noopener">📱 Get the Android app</a>
+    <button class="chip" id="acct-signout">Sign out</button>
+  </div>
+  <div class="dlg-actions"><button class="chip" id="acct-close">Close</button></div>
+</dialog>
+
+<!-- add to playlist -->
+<dialog id="pladd-dlg" class="dlg">
+  <h2>Add to playlist</h2>
+  <div id="pladd-list" class="pladd-list"></div>
+  <div class="f" style="margin-top:10px"><label>New playlist</label>
+    <div class="newpl"><input id="pladd-new" placeholder="Playlist name"><button class="chip primary" id="pladd-create">Create & add</button></div>
+  </div>
+  <div class="dlg-actions"><button class="chip" id="pladd-close">Close</button></div>
+</dialog>
+
 <script type="module" src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
 </body>
 </html>

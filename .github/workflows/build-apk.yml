@@ -1,0 +1,92 @@
+# Builds the Android APK with Capacitor and publishes it as a GitHub release
+# (tag: app-latest). The site then links to the release download — no Play
+# Store involved.
+#
+# How to run: GitHub → Actions tab → "Build Android APK" → Run workflow.
+#
+# Signing: add two repository secrets (Settings → Secrets and variables →
+# Actions) so every build has the SAME signature and installs update over
+# each other:
+#   ANDROID_KEYSTORE_B64  — contents of android-signing/KEYSTORE_BASE64.txt
+#   ANDROID_KEYSTORE_PASS — contents of android-signing/KEYSTORE_PASSWORD.txt
+# Without the secrets a debug-signed APK is built (works, but users must
+# uninstall before installing an update).
+name: Build Android APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write   # needed to create/update the release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HAS_KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_B64 != '' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install Capacitor
+        run: npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest
+
+      - name: Assemble web assets (fallback bundle; app loads the live site)
+        run: |
+          mkdir -p www
+          cp -r css js data icons index.html submit.html admin.html editor.html manifest.webmanifest sw.js www/
+
+      - name: Add Android platform
+        run: npx cap add android && npx cap sync android
+
+      - name: Generate app icons
+        run: |
+          mkdir -p assets
+          cp icons/icon-1024.png assets/icon-only.png
+          npx @capacitor/assets generate --android --iconBackgroundColor '#0e0f13' --splashBackgroundColor '#0e0f13' || echo "icon generation skipped"
+
+      - name: Decode signing keystore
+        if: ${{ env.HAS_KEYSTORE == 'true' }}
+        run: echo "${{ secrets.ANDROID_KEYSTORE_B64 }}" | base64 -d > android/app/bmtm-release.keystore
+
+      - name: Build APK
+        env:
+          KS_PASS: ${{ secrets.ANDROID_KEYSTORE_PASS }}
+        run: |
+          cd android
+          if [ "$HAS_KEYSTORE" = "true" ]; then
+            ./gradlew assembleRelease \
+              -Pandroid.injected.signing.store.file=$PWD/app/bmtm-release.keystore \
+              -Pandroid.injected.signing.store.password="$KS_PASS" \
+              -Pandroid.injected.signing.key.alias=bmtm \
+              -Pandroid.injected.signing.key.password="$KS_PASS"
+            cp app/build/outputs/apk/release/app-release.apk ../bring-me-the-mashup.apk
+          else
+            ./gradlew assembleDebug
+            cp app/build/outputs/apk/debug/app-debug.apk ../bring-me-the-mashup.apk
+          fi
+
+      - name: Upload APK as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: bring-me-the-mashup-apk
+          path: bring-me-the-mashup.apk
+
+      - name: Publish to release "app-latest"
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: app-latest
+          name: Bring Me The Mashup — Android app
+          body: |
+            Download **bring-me-the-mashup.apk** below and open it on your Android
+            phone to install (allow "install from unknown sources" when asked).
+            iPhone users: open the website in Safari → Share → Add to Home Screen.
+          files: bring-me-the-mashup.apk

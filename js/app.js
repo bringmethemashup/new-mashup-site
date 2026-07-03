@@ -5,6 +5,8 @@
 import { loadCatalog, all, get, search, searchNodes, connectionsOf, getNode, albumsByYear, specialAlbums, relatedTo } from './catalog.js';
 import * as player from './player.js';
 import * as viz from './visualizer.js';
+import * as backend from './backend.js';
+import { APK_URL } from './config.js';
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -38,7 +40,62 @@ const saveLikes = () => localStorage.setItem(LIKES_KEY, JSON.stringify([...likes
 const PLAYS_KEY = 'bmtm.plays.v1';
 let plays = {};
 try { plays = JSON.parse(localStorage.getItem(PLAYS_KEY) || '{}') || {}; } catch {}
-const bumpPlay = (id) => { plays[id] = (plays[id] || 0) + 1; localStorage.setItem(PLAYS_KEY, JSON.stringify(plays)); };
+const bumpPlay = (id) => {
+  plays[id] = (plays[id] || 0) + 1;
+  localStorage.setItem(PLAYS_KEY, JSON.stringify(plays));
+  if (backend.user()) backend.syncPlays({ [id]: plays[id] }).catch(() => {});
+};
+
+/* ---------------- account state (synced when signed in) ---------------- */
+let playlists = [];          // [{id, name, isPublic, trackIds:[]}]
+let openPlaylist = null;     // playlist currently open in the Playlists view
+let pendingAdd = null;       // track id waiting for "add to playlist" choice
+
+function setAuthUi() {
+  const u = backend.user();
+  document.body.classList.toggle('cloud', backend.enabled());
+  document.body.classList.toggle('authed', !!u);
+  document.body.classList.toggle('artist', backend.isArtist());
+  document.body.classList.toggle('admin', backend.isAdmin());
+  $('#account').classList.toggle('hidden', !backend.enabled());
+  $('#account').classList.toggle('on', !!u);
+}
+
+/** Called on sign-in / sign-out: pull server likes, playlists, plays. */
+async function syncAccountState() {
+  setAuthUi();
+  if (!backend.user()) { playlists = []; openPlaylist = null; rerender(); return; }
+  try {
+    // one-time merge of pre-account local likes into the server
+    const mergeFlag = 'bmtm.merged.' + backend.user().id;
+    if (!localStorage.getItem(mergeFlag)) {
+      await backend.mergeLikes([...likes]);
+      await backend.syncPlays(plays);
+      localStorage.setItem(mergeFlag, '1');
+    }
+    likes = new Set(await backend.fetchLikes());
+    saveLikes();
+    const serverPlays = await backend.fetchPlays();
+    for (const [id, n] of Object.entries(serverPlays)) plays[id] = Math.max(plays[id] || 0, n);
+    localStorage.setItem(PLAYS_KEY, JSON.stringify(plays));
+    playlists = await backend.fetchPlaylists();
+  } catch (e) { console.warn('account sync failed', e); }
+  rerender();
+}
+
+function rerender() {
+  if (view === 'playlists') renderPlaylists();
+  else if (view === 'browse') renderBrowse();
+  else if (view !== 'explorer') renderLibrary();
+}
+
+function toggleLike(id) {
+  const had = likes.has(id);
+  had ? likes.delete(id) : likes.add(id);
+  saveLikes();
+  if (backend.user()) (had ? backend.removeLike(id) : backend.addLike(id)).catch(() => {});
+  return !had;
+}
 
 let view = 'library';
 let sort = 'new';
@@ -75,7 +132,8 @@ function rowHtml(t, i) {
       <div class="ttitle">${esc(t.displayTitle)}</div>
       <div class="tsub">${esc(songsSummary(t))}</div>
     </div>
-    <div class="tyear">${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}</div>
+    <div class="tyear">${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
+    <button class="plusbtn authonly" title="Add to playlist"><svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg></button>
     <button class="heartbtn${liked ? ' liked' : ''}" title="Save to Liked">${I.heart}</button>
     <button class="rowplay" title="Play">${I.play}${I.pause}</button>
   </div>`;
@@ -111,10 +169,13 @@ function onRowClick(e) {
   const row = e.target.closest('.trow'); if (!row) return;
   const id = row.dataset.id;
   if (e.target.closest('.heartbtn')) {
-    likes.has(id) ? likes.delete(id) : likes.add(id);
-    saveLikes();
+    toggleLike(id);
     e.target.closest('.heartbtn').classList.toggle('liked');
     if (view === 'liked') renderLibrary();
+    return;
+  }
+  if (e.target.closest('.plusbtn')) {
+    openAddToPlaylist(id);
     return;
   }
   if (e.target.closest('.rowplay')) {
@@ -320,12 +381,15 @@ browseEl.addEventListener('click', (e) => {
 
 /* ---------------- views / tabs ---------------- */
 function show(v) {
+  if (v === 'playlists' && !backend.user()) { openAuth(); return; }
   view = v;
   $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.view === v));
-  $('#view-library').classList.toggle('hidden', v === 'explorer' || v === 'browse');
+  $('#view-library').classList.toggle('hidden', v === 'explorer' || v === 'browse' || v === 'playlists');
   $('#view-explorer').classList.toggle('hidden', v !== 'explorer');
   $('#view-browse').classList.toggle('hidden', v !== 'browse');
+  $('#view-playlists').classList.toggle('hidden', v !== 'playlists');
   if (v === 'browse') renderBrowse();
+  else if (v === 'playlists') renderPlaylists();
   else if (v !== 'explorer') renderLibrary();
 }
 $$('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
@@ -403,8 +467,7 @@ $('#pl-repeat').addEventListener('click', (e) => {
 });
 $('#pl-like').addEventListener('click', (e) => {
   const t = player.current(); if (!t) return;
-  likes.has(t.id) ? likes.delete(t.id) : likes.add(t.id);
-  saveLikes();
+  toggleLike(t.id);
   e.currentTarget.classList.toggle('liked', likes.has(t.id));
   if (view === 'liked') renderLibrary();
 });
@@ -515,6 +578,246 @@ function renderNowRows() {
   });
 }
 
+/* ---------------- playlists view ---------------- */
+const plView = $('#view-playlists');
+
+function renderPlaylists() {
+  if (openPlaylist) return renderPlaylistDetail();
+  plView.innerHTML = `
+    <div class="listhead">
+      <h1>Playlists</h1>
+      <span class="count">${playlists.length || 'none yet'}</span>
+      <span class="spacer"></span>
+      <button class="chip primary" id="pl-new">＋ New playlist</button>
+    </div>
+    ${playlists.length ? `<div class="pllist">${playlists.map((p) => `
+      <button class="plcard" data-pl="${esc(p.id)}" style="--hue:${hashHue(p.id)}deg">
+        <div class="art"><span>${esc(p.name.slice(0, 2).toUpperCase())}</span></div>
+        <div class="anm">${esc(p.name)}</div>
+        <div class="acnt">${p.trackIds.length} track${p.trackIds.length === 1 ? '' : 's'} · private</div>
+      </button>`).join('')}</div>`
+      : '<div class="empty">No playlists yet — create one, or use the ＋ button on any track.</div>'}`;
+}
+
+function renderPlaylistDetail() {
+  const p = playlists.find((x) => x.id === openPlaylist);
+  if (!p) { openPlaylist = null; return renderPlaylists(); }
+  const list = p.trackIds.map(get).filter(Boolean);
+  visible = list;
+  plView.innerHTML = `
+    <div class="listhead">
+      <button class="chip" id="pld-back">‹ Playlists</button>
+      <h1>${esc(p.name)}</h1>
+      <span class="count">${list.length} track${list.length === 1 ? '' : 's'}</span>
+      <span class="spacer"></span>
+      <button class="chip" id="pld-playall">▶ Play all</button>
+      <button class="chip" id="pld-rename">Rename</button>
+      <button class="chip danger" id="pld-delete">Delete</button>
+    </div>
+    <div class="tracklist">${list.map((t, i) => plRowHtml(t, i, list.length)).join('')
+      || '<div class="empty">Empty playlist — use the ＋ button on any track to add it here.</div>'}</div>`;
+}
+
+function plRowHtml(t, i, n) {
+  const cur = player.current()?.id === t.id;
+  return `<div class="trow${cur ? ' current' : ''}" data-id="${t.id}" data-i="${i}">
+    <div class="num">${i + 1}</div>
+    <div class="tmain">
+      <div class="ttitle">${esc(t.displayTitle)}</div>
+      <div class="tsub">${esc(songsSummary(t))}</div>
+    </div>
+    <button class="ordbtn" data-move="up" title="Move up" ${i === 0 ? 'disabled' : ''}>↑</button>
+    <button class="ordbtn" data-move="down" title="Move down" ${i === n - 1 ? 'disabled' : ''}>↓</button>
+    <button class="ordbtn" data-move="out" title="Remove from playlist">✕</button>
+    <button class="rowplay" title="Play">${I.play}${I.pause}</button>
+  </div>`;
+}
+
+plView.addEventListener('click', async (e) => {
+  if (e.target.closest('#pl-new')) {
+    const name = prompt('Playlist name');
+    if (!name?.trim()) return;
+    try {
+      const id = await backend.createPlaylist(name.trim());
+      playlists = await backend.fetchPlaylists();
+      openPlaylist = id; renderPlaylists();
+    } catch (err) { toast('Could not create playlist'); }
+    return;
+  }
+  const card = e.target.closest('.plcard');
+  if (card) { openPlaylist = card.dataset.pl; renderPlaylistDetail(); return; }
+  if (e.target.closest('#pld-back')) { openPlaylist = null; renderPlaylists(); return; }
+
+  const p = playlists.find((x) => x.id === openPlaylist);
+  if (!p) return;
+  if (e.target.closest('#pld-playall')) {
+    if (p.trackIds.length) { player.playNow([...p.trackIds], 0); openFullPlayer(); }
+    return;
+  }
+  if (e.target.closest('#pld-rename')) {
+    const name = prompt('Rename playlist', p.name);
+    if (!name?.trim() || name.trim() === p.name) return;
+    try { await backend.renamePlaylist(p.id, name.trim()); p.name = name.trim(); renderPlaylistDetail(); }
+    catch { toast('Rename failed'); }
+    return;
+  }
+  if (e.target.closest('#pld-delete')) {
+    if (!confirm(`Delete playlist "${p.name}"?`)) return;
+    try {
+      await backend.deletePlaylist(p.id);
+      playlists = playlists.filter((x) => x.id !== p.id);
+      openPlaylist = null; renderPlaylists();
+    } catch { toast('Delete failed'); }
+    return;
+  }
+  const ord = e.target.closest('.ordbtn');
+  if (ord) {
+    const row = ord.closest('.trow');
+    const i = +row.dataset.i, id = row.dataset.id;
+    if (ord.dataset.move === 'out') {
+      p.trackIds = p.trackIds.filter((x) => x !== id);
+      renderPlaylistDetail();
+      backend.removeFromPlaylist(p.id, id).catch(() => toast('Remove failed'));
+    } else {
+      const j = ord.dataset.move === 'up' ? i - 1 : i + 1;
+      if (j < 0 || j >= p.trackIds.length) return;
+      [p.trackIds[i], p.trackIds[j]] = [p.trackIds[j], p.trackIds[i]];
+      renderPlaylistDetail();
+      backend.reorderPlaylist(p.id, p.trackIds).catch(() => toast('Reorder failed'));
+    }
+    return;
+  }
+  // play a row
+  const row = e.target.closest('.trow');
+  if (row) {
+    const idx = p.trackIds.indexOf(row.dataset.id);
+    const curId = player.current()?.id;
+    if (e.target.closest('.rowplay') && curId === row.dataset.id) { player.toggle(); return; }
+    player.playNow([...p.trackIds], idx);
+    if (e.target.closest('.rowplay')) openFullPlayer();
+  }
+});
+
+/* ---------------- add-to-playlist dialog ---------------- */
+const plAddDlg = $('#pladd-dlg');
+
+function openAddToPlaylist(trackId) {
+  if (!backend.user()) { openAuth(); return; }
+  pendingAdd = trackId;
+  $('#pladd-list').innerHTML = playlists.length
+    ? playlists.map((p) => {
+        const has = p.trackIds.includes(trackId);
+        return `<button class="pladd-row${has ? ' has' : ''}" data-pl="${esc(p.id)}" ${has ? 'disabled' : ''}>
+          <span>${esc(p.name)}</span><span class="cnt">${has ? 'added ✓' : p.trackIds.length}</span></button>`;
+      }).join('')
+    : '<div class="empty" style="padding:14px">No playlists yet — create one below.</div>';
+  $('#pladd-new').value = '';
+  plAddDlg.showModal();
+}
+
+$('#pladd-list').addEventListener('click', async (e) => {
+  const b = e.target.closest('.pladd-row'); if (!b || b.disabled) return;
+  const p = playlists.find((x) => x.id === b.dataset.pl); if (!p) return;
+  try {
+    await backend.addToPlaylist(p.id, pendingAdd, p.trackIds.length);
+    p.trackIds.push(pendingAdd);
+    toast(`Added to "${p.name}"`);
+    plAddDlg.close();
+  } catch { toast('Could not add track'); }
+});
+$('#pladd-create').addEventListener('click', async () => {
+  const name = $('#pladd-new').value.trim(); if (!name) return;
+  try {
+    const id = await backend.createPlaylist(name);
+    await backend.addToPlaylist(id, pendingAdd, 0);
+    playlists = await backend.fetchPlaylists();
+    toast(`Added to "${name}"`);
+    plAddDlg.close();
+  } catch { toast('Could not create playlist'); }
+});
+$('#pladd-close').addEventListener('click', () => plAddDlg.close());
+
+/* ---------------- auth + account dialogs ---------------- */
+const authDlg = $('#auth-dlg'), acctDlg = $('#acct-dlg');
+let authMode = 'in'; // 'in' | 'up'
+
+function openAuth() {
+  if (!backend.enabled()) { toast('Accounts are not set up yet'); return; }
+  authMode = 'in'; syncAuthMode();
+  $('#auth-err').classList.add('hidden');
+  authDlg.showModal();
+}
+function syncAuthMode() {
+  const up = authMode === 'up';
+  $('#auth-title').textContent = up ? 'Create your free account' : 'Sign in';
+  $('#auth-go').textContent = up ? 'Sign up' : 'Sign in';
+  $('#auth-switch').textContent = up ? 'Have an account? Sign in' : 'Need an account? Sign up';
+  $('#auth-name-f').classList.toggle('hidden', !up);
+}
+$('#auth-switch').addEventListener('click', () => { authMode = authMode === 'in' ? 'up' : 'in'; syncAuthMode(); });
+$('#auth-google').addEventListener('click', async () => {
+  try { await backend.signInWithGoogle(); } // redirects away; no close needed
+  catch (err) {
+    $('#auth-err').textContent = err?.message || 'Google sign-in failed.';
+    $('#auth-err').classList.remove('hidden');
+  }
+});
+$('#auth-cancel').addEventListener('click', () => authDlg.close());
+$('#auth-go').addEventListener('click', async () => {
+  const email = $('#auth-email').value.trim(), pass = $('#auth-pass').value;
+  const errEl = $('#auth-err');
+  errEl.classList.add('hidden');
+  if (!email || !pass) { errEl.textContent = 'Email and password required.'; errEl.classList.remove('hidden'); return; }
+  try {
+    $('#auth-go').disabled = true;
+    if (authMode === 'up') {
+      await backend.signUp(email, pass, $('#auth-name').value.trim());
+      toast('Account created — check your email if confirmation is required');
+    } else {
+      await backend.signIn(email, pass);
+      toast('Signed in');
+    }
+    authDlg.close();
+  } catch (err) {
+    errEl.textContent = err?.message || 'Something went wrong.';
+    errEl.classList.remove('hidden');
+  } finally { $('#auth-go').disabled = false; }
+});
+
+function openAccount() {
+  const p = backend.getProfile();
+  $('#acct-who').textContent = `${p?.display_name || ''} · ${backend.user()?.email || ''}` +
+    (backend.isAdmin() ? ' · admin' : p?.role === 'artist' ? ' · mashup artist' : '');
+  $('#acct-role').textContent = backend.isArtist()
+    ? 'Switch to listener account' : '🎛 Become a mashup artist';
+  $('#acct-yt').textContent = p?.youtube_channel
+    ? '▶ YouTube channel linked ✓ (change)' : '▶ Link your YouTube channel';
+  $('#acct-app').href = APK_URL;
+  acctDlg.showModal();
+}
+$('#acct-yt').addEventListener('click', async () => {
+  const cur = backend.getProfile()?.youtube_channel || '';
+  const url = prompt('Your YouTube channel link (e.g. https://youtube.com/@yourname)', cur);
+  if (url === null) return;
+  const v = url.trim();
+  if (v && !/^https?:\/\/(www\.)?youtube\.com\//.test(v)) { toast('That does not look like a YouTube channel link'); return; }
+  try {
+    await backend.updateProfile({ youtube_channel: v || null });
+    toast(v ? 'YouTube channel linked' : 'YouTube channel removed');
+    openAccount();
+  } catch { toast('Could not save channel'); }
+});
+$('#account').addEventListener('click', () => backend.user() ? openAccount() : openAuth());
+$('#acct-close').addEventListener('click', () => acctDlg.close());
+$('#acct-signout').addEventListener('click', async () => { acctDlg.close(); await backend.signOut(); toast('Signed out'); });
+$('#acct-role').addEventListener('click', async () => {
+  try {
+    await backend.setRole(backend.isArtist() ? 'listener' : 'artist');
+    toast(backend.isArtist() ? 'You are now a mashup artist — you can submit tracks!' : 'Switched to listener');
+    openAccount();
+  } catch { toast('Could not change role'); }
+});
+
 /* ---------------- toast ---------------- */
 let toastH;
 function toast(msg) {
@@ -538,9 +841,14 @@ document.addEventListener('keydown', (e) => {
   $('#theme').addEventListener('click', () =>
     setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
 
+  await backend.init().catch((e) => console.warn('backend init failed', e));
+  backend.onAuth(() => syncAccountState());
+  setAuthUi();
+
   await loadCatalog();
   renderLibrary();
   show('library');
+  if (backend.user()) syncAccountState();
 
   viz.attach($('#viz-full'), 'full');
   viz.attach($('#viz-mini'), 'mini');

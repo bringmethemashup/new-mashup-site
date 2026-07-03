@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin — Bring Me The Mashup</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { overflow: auto; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 24px 20px 90px; }
+  h1 { font-size: 24px; letter-spacing: -.02em; }
+  .bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 14px 0 18px; }
+  .bar input[type=search] { flex: 1; min-width: 200px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-elev); color: var(--text); outline: none; }
+  .chip { padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 13px; background: var(--bg-soft); color: var(--text); border: none; cursor: pointer; }
+  .chip.primary { background: var(--accent); color: #fff; }
+  .chip.ok { background: #1e8e3e22; color: #34a853; }
+  .chip.danger { background: #b3261e22; color: #e4573d; }
+  .chip.tabb.on { background: var(--accent); color: #fff; }
+  .arow { display: flex; gap: 12px; align-items: center; padding: 10px 14px; border: 1px solid var(--line); background: var(--bg-elev); border-radius: 12px; margin-bottom: 8px; }
+  .arow .t { flex: 1; min-width: 0; cursor: pointer; }
+  .arow .t b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .arow .t span { font-size: 12px; color: var(--text-dim); }
+  .pill { font-size: 10px; font-weight: 800; letter-spacing: .05em; padding: 3px 9px; border-radius: 99px; text-transform: uppercase; background: var(--bg-soft); color: var(--text-dim); white-space: nowrap; }
+  .note { font-size: 12.5px; color: var(--text-dim); line-height: 1.55; background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
+  .err { background: #b3261e22; color: #e4573d; font-size: 13px; padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
+  .hidden { display: none !important; }
+  dialog { border: 1px solid var(--line); background: var(--bg-elev); color: var(--text); border-radius: 20px; padding: 26px; width: min(680px, 94vw); box-shadow: var(--shadow); }
+  dialog::backdrop { background: rgba(0,0,0,.5); backdrop-filter: blur(6px); }
+  dialog h2 { margin: 0 0 16px; font-size: 18px; }
+  .f { margin-bottom: 12px; }
+  .f label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; }
+  .f input, .f select { width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); outline: none; font-size: 14px; box-sizing: border-box; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .songrow { display: grid; grid-template-columns: 1fr 1fr 34px; gap: 8px; margin-bottom: 8px; }
+  .songrow button { border-radius: 8px; background: var(--bg-soft); font-size: 14px; color: var(--text-dim); }
+  .dlg-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  .counts { font-size: 12.5px; color: var(--text-dim); margin: 6px 0 12px; }
+  a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  progress { width: 100%; }
+  .tf-hint { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
+</style>
+</head>
+<body>
+<div id="ambient"></div>
+<div class="wrap">
+  <a class="back" href="index.html">‹ Back to the site</a>
+  <h1>Admin</h1>
+  <div id="gate" class="note">Checking your account…</div>
+
+  <div id="panel" class="hidden">
+    <div class="bar">
+      <button class="chip tabb on" data-tab="pending">Review queue</button>
+      <button class="chip tabb" data-tab="approved">All tracks</button>
+      <button class="chip tabb" data-tab="rejected">Rejected</button>
+      <span style="flex:1"></span>
+      <button class="chip" id="import">⬆ Import catalog.json</button>
+    </div>
+    <div class="note" id="import-note" style="display:none"></div>
+    <progress id="import-prog" class="hidden"></progress>
+    <input type="search" id="q" placeholder="Filter by title, artist, song…" style="width:100%;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg-elev);color:var(--text);outline:none;box-sizing:border-box">
+    <div class="counts" id="counts"></div>
+    <div id="list"></div>
+  </div>
+</div>
+
+<dialog id="dlg">
+  <h2>Edit track</h2>
+  <div id="tform"></div>
+  <div class="err hidden" id="e-err"></div>
+  <div class="dlg-actions">
+    <button class="chip" id="e-cancel">Cancel</button>
+    <button class="chip primary" id="e-save">Save</button>
+  </div>
+</dialog>
+
+<script type="module">
+import * as backend from './js/backend.js';
+import { formHtml, bindForm, readForm } from './js/trackform.js';
+
+const $ = (s) => document.querySelector(s);
+const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+let tab = 'pending';
+let rows = [];
+let editing = null;
+
+async function boot() {
+  if (!backend.enabled()) { $('#gate').textContent = 'Accounts are not configured yet (fill in js/config.js).'; return; }
+  await backend.init();
+  gate();
+  backend.onAuth(gate);
+}
+function gate() {
+  if (!backend.user()) { $('#gate').innerHTML = 'Sign in on the <a href="index.html">main site</a> first.'; $('#panel').classList.add('hidden'); return; }
+  if (!backend.isAdmin()) { $('#gate').textContent = 'This page is for the site admin only.'; $('#panel').classList.add('hidden'); return; }
+  $('#gate').classList.add('hidden');
+  $('#panel').classList.remove('hidden');
+  load();
+}
+
+async function load() {
+  $('#counts').textContent = 'Loading…';
+  try {
+    rows = await backend.adminListByStatus(tab);
+    renderList();
+  } catch (e) { $('#counts').textContent = 'Load failed: ' + (e.message || e); }
+}
+
+function renderList() {
+  const q = $('#q').value.trim().toLowerCase();
+  const filtered = q ? rows.filter((r) => JSON.stringify(r.data).toLowerCase().includes(q)) : rows;
+  $('#counts').textContent = `${filtered.length} of ${rows.length} ${tab} track${rows.length === 1 ? '' : 's'}`;
+  $('#list').innerHTML = filtered.map((r) => {
+    const d = r.data;
+    const media = d.audio?.url ? 'uploaded file' : d.audio?.publicLink ? 'pCloud' : d.video?.type || 'no media';
+    const by = r.profiles?.display_name || '—';
+    return `<div class="arow" data-id="${esc(r.id)}">
+      <div class="t" data-edit="${esc(r.id)}">
+        <b>${esc(d.displayTitle)}</b>
+        <span>${(d.sourceSongs || []).map((s) => `${esc(s.artist)} – ${esc(s.title)}`).join('  ×  ') || 'no song data'}</span>
+      </div>
+      <span class="pill">${esc(by)}</span>
+      ${r.profiles?.youtube_channel ? `<a class="pill" href="${esc(r.profiles.youtube_channel)}" target="_blank" rel="noopener" style="text-decoration:none">▶ channel</a>` : ''}
+      <span class="pill">${esc(media)}</span>
+      ${d.audio?.url || d.video?.type === 'youtube' ? `<button class="chip" data-preview="${esc(r.id)}">▶</button>` : ''}
+      <button class="chip" data-edit2="${esc(r.id)}">Edit</button>
+      ${tab === 'pending' ? `<button class="chip ok" data-approve="${esc(r.id)}">Approve</button>
+                             <button class="chip danger" data-reject="${esc(r.id)}">Reject</button>` : ''}
+      ${tab === 'rejected' ? `<button class="chip ok" data-approve="${esc(r.id)}">Approve</button>` : ''}
+      ${tab === 'approved' ? `<button class="chip danger" data-unpub="${esc(r.id)}">Unpublish</button>` : ''}
+    </div>`;
+  }).join('') || '<div class="note">Nothing here.</div>';
+}
+
+$('#q').addEventListener('input', renderList);
+document.querySelectorAll('.tabb').forEach((b) => b.addEventListener('click', () => {
+  tab = b.dataset.tab;
+  document.querySelectorAll('.tabb').forEach((x) => x.classList.toggle('on', x === b));
+  load();
+}));
+
+$('#list').addEventListener('click', async (e) => {
+  const approve = e.target.closest('[data-approve]');
+  const reject = e.target.closest('[data-reject]');
+  const unpub = e.target.closest('[data-unpub]');
+  const edit = e.target.closest('[data-edit], [data-edit2]');
+  const preview = e.target.closest('[data-preview]');
+  try {
+    if (approve) { await backend.adminSetStatus(approve.dataset.approve, 'approved'); return load(); }
+    if (reject) { await backend.adminSetStatus(reject.dataset.reject, 'rejected'); return load(); }
+    if (unpub) { await backend.adminSetStatus(unpub.dataset.unpub, 'pending'); return load(); }
+    if (preview) {
+      const r = rows.find((x) => x.id === preview.dataset.preview);
+      const d = r?.data;
+      if (d?.audio?.url) new Audio(d.audio.url).play();
+      else if (d?.video?.type === 'youtube') window.open('https://youtu.be/' + d.video.sourceId, '_blank');
+      return;
+    }
+    if (edit) {
+      const id = edit.dataset.edit || edit.dataset.edit2;
+      editing = rows.find((x) => x.id === id);
+      $('#tform').innerHTML = formHtml(editing.data);
+      bindForm($('#tform'));
+      $('#e-err').classList.add('hidden');
+      document.getElementById('dlg').showModal();
+    }
+  } catch (err) { alert(err.message || err); }
+});
+
+$('#e-cancel').addEventListener('click', () => document.getElementById('dlg').close());
+$('#e-save').addEventListener('click', async () => {
+  try {
+    const { entry, file, mediaKind } = readForm($('#tform'), editing.data);
+    if (mediaKind === 'upload' && file) {
+      entry.audio = { type: 'url', url: await backend.uploadMedia(file) };
+    }
+    await backend.adminUpdateTrack(editing.id, entry);
+    document.getElementById('dlg').close();
+    load();
+  } catch (e) {
+    $('#e-err').textContent = e.message || 'Save failed';
+    $('#e-err').classList.remove('hidden');
+  }
+});
+
+/* ---------- one-time catalog.json import ---------- */
+$('#import').addEventListener('click', async () => {
+  const note = $('#import-note'), prog = $('#import-prog');
+  if (!confirm('Import data/catalog.json into the database, attributed to your account? Existing rows with the same id are overwritten.')) return;
+  try {
+    note.style.display = 'block';
+    note.textContent = 'Fetching catalog.json…';
+    const entries = await (await fetch('data/catalog.json')).json();
+    prog.classList.remove('hidden');
+    prog.max = entries.length;
+    const n = await backend.adminImportCatalog(entries, (done, total) => {
+      prog.value = done;
+      note.textContent = `Importing… ${done} / ${total}`;
+    });
+    note.textContent = `Done — ${n} tracks imported as approved, attributed to your account. The database is now the single source of truth.`;
+    load();
+  } catch (e) { note.textContent = 'Import failed: ' + (e.message || e); }
+  finally { prog.classList.add('hidden'); }
+});
+
+boot();
+</script>
+</body>
+</html>
