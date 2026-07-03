@@ -26648,5 +26648,61 @@
    "file": "We Found Maturity.mp3",
    "folder": "Mashups 2026"
   }
+ },
+ {
+  "id": "demo-other-artist-youtube",
+  "mashupArtist": "Demo Artist (replace me)",
+  "sourceSongs": [
+   {
+    "title": "Locked Away",
+    "artist": "R. City ft. Adam Levine"
+   },
+   {
+    "title": "Sorry",
+    "artist": "Justin Bieber"
+   }
+  ],
+  "displayTitle": "DEMO — aggregator entry (YouTube embed only)",
+  "isOwnUpload": false,
+  "video": {
+   "type": "youtube",
+   "sourceId": "m0kGLZGH88E"
+  },
+  "tags": [
+   "demo"
+  ],
+  "year": "2026",
+  "dateAdded": "2026-07-02",
+  "meta": {
+   "songSource": "manual",
+   "needsMetadata": false,
+   "demo": true
+  }
+ },
+ {
+  "id": "demo-other-artist-tiktok",
+  "mashupArtist": "Demo Artist (replace me)",
+  "sourceSongs": [
+   {
+    "title": "",
+    "artist": "Example Artist"
+   }
+  ],
+  "displayTitle": "DEMO — aggregator entry (TikTok embed only)",
+  "isOwnUpload": false,
+  "video": {
+   "type": "tiktok",
+   "sourceId": "https://www.tiktok.com/@scout2015/video/6718335390845095173"
+  },
+  "tags": [
+   "demo"
+  ],
+  "year": "2026",
+  "dateAdded": "2026-07-02",
+  "meta": {
+   "songSource": "manual",
+   "needsMetadata": false,
+   "demo": true
+  }
  }
 ]

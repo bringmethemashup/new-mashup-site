@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catalog Editor — Bring Me The Mashup</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { overflow: auto; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 24px 20px 80px; }
+  h1 { font-size: 24px; letter-spacing: -.02em; }
+  .bar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin: 14px 0 20px; }
+  .bar input[type=search] { flex: 1; min-width: 220px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg-elev); color: var(--text); outline: none; }
+  .btn { padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 13px; background: var(--bg-soft); transition: all .2s; }
+  .btn:hover { transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); color: #fff; box-shadow: 0 4px 16px var(--glow-a); }
+  .erow { display: flex; gap: 12px; align-items: center; padding: 10px 14px; border: 1px solid var(--line); background: var(--bg-elev); border-radius: 12px; margin-bottom: 8px; cursor: pointer; }
+  .erow:hover { background: var(--row-hover); }
+  .erow .t { flex: 1; min-width: 0; }
+  .erow .t b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .erow .t span { font-size: 12px; color: var(--text-dim); }
+  .pill { font-size: 10px; font-weight: 800; letter-spacing: .05em; padding: 3px 9px; border-radius: 99px; text-transform: uppercase; background: var(--bg-soft); color: var(--text-dim); white-space: nowrap; }
+  .pill.warn { background: #b3261e22; color: #e4573d; }
+  .pill.ok { background: #1e8e3e22; color: #34a853; }
+  dialog { border: 1px solid var(--line); background: var(--bg-elev); color: var(--text); border-radius: 20px; padding: 26px; width: min(680px, 94vw); box-shadow: var(--shadow); }
+  dialog::backdrop { background: rgba(0,0,0,.5); backdrop-filter: blur(6px); }
+  dialog h2 { margin: 0 0 16px; font-size: 18px; }
+  .f { margin-bottom: 12px; }
+  .f label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; }
+  .f input, .f select { width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); outline: none; font-size: 14px; }
+  .f input:focus { border-color: var(--accent); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .songrow { display: grid; grid-template-columns: 1fr 1fr 34px; gap: 8px; margin-bottom: 8px; }
+  .songrow button { border-radius: 8px; background: var(--bg-soft); font-size: 15px; }
+  .dlg-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+  .note { font-size: 12.5px; color: var(--text-dim); line-height: 1.55; background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
+  .counts { font-size: 12.5px; color: var(--text-dim); }
+</style>
+</head>
+<body>
+<div id="ambient"></div>
+<div class="wrap">
+  <h1>Catalog Editor</h1>
+  <div class="note">
+    Edits happen <b>in your browser only</b>. When you're done, hit <b>Download catalog.json</b> and replace
+    <code>data/catalog.json</code> in the repo, then commit &amp; push. Unsaved work is kept in this browser
+    (localStorage draft) until you download or discard it. Aggregator rule: for other artists
+    (<code>isOwnUpload:false</code>) only YouTube/TikTok embed references are allowed — never a rehosted file.
+  </div>
+  <div class="bar">
+    <input type="search" id="q" placeholder="Filter by title, artist, song…">
+    <select id="filter" class="btn">
+      <option value="all">All entries</option>
+      <option value="nosongs">No song data</option>
+      <option value="needs">Needs metadata review</option>
+      <option value="novideo">No video linked</option>
+      <option value="other">Other artists (aggregator)</option>
+    </select>
+    <button class="btn" id="add">＋ Add entry</button>
+    <button class="btn" id="discard">Discard draft</button>
+    <button class="btn primary" id="dl">⬇ Download catalog.json</button>
+  </div>
+  <div class="counts" id="counts"></div>
+  <div id="list" style="margin-top:12px"></div>
+</div>
+
+<dialog id="dlg">
+  <h2 id="dlg-title">Edit entry</h2>
+  <div class="f"><label>Display title</label><input id="e-title"></div>
+  <div class="grid2">
+    <div class="f"><label>Mashup artist</label><input id="e-artist"></div>
+    <div class="f"><label>Year</label><input id="e-year" placeholder="2024"></div>
+  </div>
+  <div class="f"><label>Source songs — one row per song</label><div id="songs"></div>
+    <button class="btn" id="addsong" style="margin-top:4px">＋ Add song</button>
+  </div>
+  <div class="grid2">
+    <div class="f"><label>Video type</label>
+      <select id="e-vtype"><option value="">none</option><option value="youtube">youtube</option><option value="tiktok">tiktok</option></select>
+    </div>
+    <div class="f"><label>Video ID / URL</label><input id="e-vid" placeholder="YouTube ID or TikTok URL"></div>
+  </div>
+  <div class="grid2">
+    <div class="f"><label>Ownership</label>
+      <select id="e-own"><option value="true">My upload (pCloud audio)</option><option value="false">Other artist (embed only)</option></select>
+    </div>
+    <div class="f"><label>pCloud public link (own uploads)</label><input id="e-plink" placeholder="https://u.pcloud.link/publink/show?code=…"></div>
+  </div>
+  <div class="f"><label>Tags (comma separated)</label><input id="e-tags"></div>
+  <div class="dlg-actions">
+    <button class="btn" id="dlg-cancel">Cancel</button>
+    <button class="btn primary" id="dlg-save">Save</button>
+  </div>
+</dialog>
+
+<script type="module">
+const $ = (s, el=document) => el.querySelector(s);
+const esc = (s) => (s||'').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const DRAFT_KEY = 'bmtm.editor.draft.v1';
+
+let catalog = [];
+let editing = null; // index or null(new)
+
+async function boot() {
+  const draft = localStorage.getItem(DRAFT_KEY);
+  if (draft) { catalog = JSON.parse(draft); }
+  else { catalog = await (await fetch('data/catalog.json')).json(); }
+  render();
+}
+const saveDraft = () => localStorage.setItem(DRAFT_KEY, JSON.stringify(catalog));
+
+function status(t) {
+  if (!t.isOwnUpload) return '<span class="pill">aggregator</span>';
+  if (!t.sourceSongs?.length) return '<span class="pill warn">no songs</span>';
+  if (t.meta?.needsMetadata) return '<span class="pill warn">review</span>';
+  return '<span class="pill ok">ok</span>';
+}
+
+function render() {
+  const q = $('#q').value.toLowerCase();
+  const f = $('#filter').value;
+  const rows = [];
+  catalog.forEach((t, i) => {
+    if (f === 'nosongs' && t.sourceSongs?.length) return;
+    if (f === 'needs' && !(t.meta?.needsMetadata)) return;
+    if (f === 'novideo' && t.video) return;
+    if (f === 'other' && t.isOwnUpload) return;
+    const hay = (t.displayTitle + ' ' + t.mashupArtist + ' ' + (t.sourceSongs||[]).map(s=>s.artist+' '+s.title).join(' ')).toLowerCase();
+    if (q && !hay.includes(q)) return;
+    rows.push(`<div class="erow" data-i="${i}">
+      <div class="t"><b>${esc(t.displayTitle)}</b><span>${esc(t.mashupArtist)} · ${(t.sourceSongs||[]).length} songs · ${t.year||'—'}${t.video ? ' · '+t.video.type : ''}</span></div>
+      ${status(t)}
+    </div>`);
+  });
+  $('#list').innerHTML = rows.join('') || '<div class="empty">No entries match.</div>';
+  const missing = catalog.filter(t=>!t.sourceSongs?.length).length;
+  const review = catalog.filter(t=>t.meta?.needsMetadata && t.sourceSongs?.length).length;
+  $('#counts').textContent = `${catalog.length} entries · ${missing} without song data · ${review} auto-parsed (worth reviewing)`;
+}
+
+$('#q').addEventListener('input', render);
+$('#filter').addEventListener('change', render);
+$('#list').addEventListener('click', (e) => {
+  const r = e.target.closest('.erow'); if (!r) return;
+  openDialog(+r.dataset.i);
+});
+
+function songRow(s = {artist:'',title:''}) {
+  const d = document.createElement('div');
+  d.className = 'songrow';
+  d.innerHTML = `<input placeholder="Artist" value="${esc(s.artist)}"><input placeholder="Song title" value="${esc(s.title)}"><button title="Remove">✕</button>`;
+  d.querySelector('button').onclick = () => d.remove();
+  return d;
+}
+$('#addsong').addEventListener('click', () => $('#songs').appendChild(songRow()));
+
+function openDialog(i) {
+  editing = i;
+  const t = i == null ? { displayTitle:'', mashupArtist:'', sourceSongs:[], isOwnUpload:true, tags:[] } : catalog[i];
+  $('#dlg-title').textContent = i == null ? 'Add entry' : 'Edit entry';
+  $('#e-title').value = t.displayTitle || '';
+  $('#e-artist').value = t.mashupArtist || '';
+  $('#e-year').value = t.year || '';
+  $('#e-vtype').value = t.video?.type || '';
+  $('#e-vid').value = t.video?.sourceId || '';
+  $('#e-own').value = String(!!t.isOwnUpload);
+  $('#e-plink').value = t.audio?.publicLink || '';
+  $('#e-tags').value = (t.tags||[]).join(', ');
+  const songs = $('#songs'); songs.innerHTML = '';
+  (t.sourceSongs?.length ? t.sourceSongs : [{artist:'',title:''},{artist:'',title:''}]).forEach(s => songs.appendChild(songRow(s)));
+  $('#dlg').showModal();
+}
+$('#add').addEventListener('click', () => openDialog(null));
+$('#dlg-cancel').addEventListener('click', () => $('#dlg').close());
+
+$('#dlg-save').addEventListener('click', () => {
+  const own = $('#e-own').value === 'true';
+  const vtype = $('#e-vtype').value;
+  const plink = $('#e-plink').value.trim();
+  const t = editing == null ? {} : catalog[editing];
+  t.displayTitle = $('#e-title').value.trim();
+  t.mashupArtist = $('#e-artist').value.trim() || 'Unknown';
+  t.year = $('#e-year').value.trim() || null;
+  t.dateAdded = t.dateAdded || new Date().toISOString().slice(0,10);
+  t.isOwnUpload = own;
+  t.sourceSongs = [...$('#songs').children].map(r => {
+    const [a, s] = r.querySelectorAll('input');
+    return { artist: a.value.trim(), title: s.value.trim() };
+  }).filter(s => s.artist || s.title);
+  t.tags = $('#e-tags').value.split(',').map(x=>x.trim()).filter(Boolean);
+  if (vtype && $('#e-vid').value.trim()) t.video = { type: vtype, sourceId: $('#e-vid').value.trim() };
+  else delete t.video;
+  if (own && plink) t.audio = { type: 'pcloud', publicLink: plink };
+  else delete t.audio;                       // aggregator entries: embed only, never a file
+  if (!t.id) t.id = (t.mashupArtist + '-' + t.displayTitle).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'') + '-' + Date.now().toString(36);
+  t.meta = { ...(t.meta||{}), songSource: 'manual', needsMetadata: false };
+  if (editing == null) catalog.unshift(t);
+  saveDraft();
+  $('#dlg').close();
+  render();
+});
+
+$('#dl').addEventListener('click', () => {
+  const blob = new Blob([JSON.stringify(catalog, null, 1)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'catalog.json';
+  a.click();
+});
+$('#discard').addEventListener('click', async () => {
+  if (!confirm('Throw away all local edits and reload the committed catalog.json?')) return;
+  localStorage.removeItem(DRAFT_KEY);
+  catalog = await (await fetch('data/catalog.json')).json();
+  render();
+});
+boot();
+</script>
+</body>
+</html>
