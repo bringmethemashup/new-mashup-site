@@ -86,7 +86,10 @@
     </div>
     <div class="f"><label>pCloud public link (own uploads)</label><input id="e-plink" placeholder="https://u.pcloud.link/publink/show?code=…"></div>
   </div>
-  <div class="f"><label>Tags (comma separated)</label><input id="e-tags"></div>
+  <div class="grid2">
+    <div class="f"><label>Special album (curated collection, optional)</label><input id="e-special" placeholder="Holiday Mashups 2024"></div>
+    <div class="f"><label>Tags (comma separated)</label><input id="e-tags"></div>
+  </div>
   <div class="dlg-actions">
     <button class="btn" id="dlg-cancel">Cancel</button>
     <button class="btn primary" id="dlg-save">Save</button>
@@ -165,6 +168,7 @@ function openDialog(i) {
   $('#e-vid').value = t.video?.sourceId || '';
   $('#e-own').value = String(!!t.isOwnUpload);
   $('#e-plink').value = t.audio?.publicLink || '';
+  $('#e-special').value = t.specialAlbum || '';
   $('#e-tags').value = (t.tags||[]).join(', ');
   const songs = $('#songs'); songs.innerHTML = '';
   (t.sourceSongs?.length ? t.sourceSongs : [{artist:'',title:''},{artist:'',title:''}]).forEach(s => songs.appendChild(songRow(s)));
@@ -188,6 +192,8 @@ $('#dlg-save').addEventListener('click', () => {
     return { artist: a.value.trim(), title: s.value.trim() };
   }).filter(s => s.artist || s.title);
   t.tags = $('#e-tags').value.split(',').map(x=>x.trim()).filter(Boolean);
+  const sp = $('#e-special').value.trim();
+  if (sp) t.specialAlbum = sp; else delete t.specialAlbum;
   if (vtype && $('#e-vid').value.trim()) t.video = { type: vtype, sourceId: $('#e-vid').value.trim() };
   else delete t.video;
   if (own && plink) t.audio = { type: 'pcloud', publicLink: plink };

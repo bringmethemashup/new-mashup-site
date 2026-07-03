@@ -1,8 +1,8 @@
 /**
- * app.js — UI: views (Library / Explorer / Liked), track rows, queue drawer,
+ * app.js — UI: views (Library / Browse / Explorer / Liked), track rows, queue drawer,
  * mini + full player, theme toggle, ambient background, YouTube video toggle.
  */
-import { loadCatalog, all, get, search, searchNodes, connectionsOf, getNode } from './catalog.js';
+import { loadCatalog, all, get, search, searchNodes, connectionsOf, getNode, albumsByYear, specialAlbums, relatedTo } from './catalog.js';
 import * as player from './player.js';
 import * as viz from './visualizer.js';
 
@@ -33,8 +33,16 @@ let likes = new Set();
 try { likes = new Set(JSON.parse(localStorage.getItem(LIKES_KEY) || '[]')); } catch {}
 const saveLikes = () => localStorage.setItem(LIKES_KEY, JSON.stringify([...likes]));
 
+/* local play history: simple id -> count map. (Prompt 2 note: when accounts
+   arrive, this map is the thing that syncs to the server — keep it flat.) */
+const PLAYS_KEY = 'bmtm.plays.v1';
+let plays = {};
+try { plays = JSON.parse(localStorage.getItem(PLAYS_KEY) || '{}') || {}; } catch {}
+const bumpPlay = (id) => { plays[id] = (plays[id] || 0) + 1; localStorage.setItem(PLAYS_KEY, JSON.stringify(plays)); };
+
 let view = 'library';
 let sort = 'new';
+let browseAlbum = null;      // currently open album on the Browse page
 let visible = [];            // tracks currently listed (drives play-context + shuffle-all)
 let expPath = [];            // explorer column path [nodeKey,...]
 
@@ -205,13 +213,120 @@ colsEl.addEventListener('click', (e) => {
   rcol && $$('.conn', rcol).forEach((c) => { if (c.dataset.key === conn.dataset.key) c.classList.add('open', 'sel'); });
 });
 
+/* ---------------- browse: albums + recommendations ---------------- */
+const browseEl = $('#view-browse');
+
+function albumCardHtml(a, i) {
+  const n = a.tracks.length;
+  return `<button class="albumcard" data-album="${esc(a.key)}" style="--hue:${(i * 47) % 360}deg;--d:${Math.min(i * 35, 420)}ms">
+    <div class="art"><span>${esc(a.name)}</span></div>
+    <div class="anm">${esc(a.name)}</div>
+    <div class="acnt">${n} mashup${n === 1 ? '' : 's'}</div>
+  </button>`;
+}
+
+function recCardHtml(t, i) {
+  return `<button class="reccard" data-id="${esc(t.id)}" style="--hue:${(hashHue(t.id))}deg;--d:${Math.min(i * 30, 360)}ms">
+    <div class="rart">${I.play}</div>
+    <div class="rt">${esc(t.displayTitle)}</div>
+    <div class="rs">${esc(songsSummary(t))}</div>
+  </button>`;
+}
+function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
+
+/* "Because you liked/played [X]" rows — seeds come from Likes + local play
+   history; related tracks come straight from the Explorer's co-occurrence
+   index via relatedTo(). */
+function recommendationRows(maxRows = 3) {
+  const likeQ = [...likes].reverse().map((id) => ({ id, why: 'liked' }));
+  const playQ = Object.entries(plays).filter(([, n]) => n >= 2)
+    .sort((a, b) => b[1] - a[1]).map(([id]) => ({ id, why: 'played' }));
+  const cands = [];
+  for (let i = 0; i < Math.max(likeQ.length, playQ.length); i++) {
+    if (likeQ[i]) cands.push(likeQ[i]);
+    if (playQ[i]) cands.push(playQ[i]);
+  }
+  const rows = [], seen = new Set();
+  for (const c of cands) {
+    if (rows.length >= maxRows) break;
+    if (seen.has(c.id) || !get(c.id)) continue;
+    seen.add(c.id);
+    const rel = relatedTo(c.id, 12).map((r) => r.track).filter(Boolean);
+    if (rel.length >= 3) rows.push({ seed: get(c.id), why: c.why, tracks: rel });
+  }
+  return rows;
+}
+
+function renderBrowse() {
+  if (browseAlbum) return renderAlbumDetail();
+  const years = albumsByYear();
+  const specials = specialAlbums();
+  const recs = recommendationRows();
+  browseEl.innerHTML = `
+    <div class="listhead"><h1>Browse</h1></div>
+    ${recs.map((r) => `
+      <section class="brsec">
+        <h2 class="brh">Because you ${r.why} <em>${esc(r.seed.displayTitle)}</em></h2>
+        <div class="reccards">${r.tracks.map(recCardHtml).join('')}</div>
+      </section>`).join('')}
+    ${recs.length ? '' : '<div class="brhint">Recommended-for-you rows appear here once you like or replay a few tracks.</div>'}
+    ${specials.length ? `<section class="brsec">
+      <h2 class="brh">Special Collections</h2>
+      <div class="albumgrid">${specials.map(albumCardHtml).join('')}</div>
+    </section>` : ''}
+    ${years.length ? `<section class="brsec">
+      <h2 class="brh">By Year</h2>
+      <div class="albumgrid">${years.map(albumCardHtml).join('')}</div>
+    </section>` : ''}`;
+}
+
+function renderAlbumDetail() {
+  const a = browseAlbum;
+  const list = sortTracks(a.tracks);
+  visible = list;
+  browseEl.innerHTML = `
+    <div class="listhead">
+      <button class="chip" id="br-back">‹ Browse</button>
+      <h1>${esc(a.name)}</h1>
+      <span class="count">${list.length} mashup${list.length === 1 ? '' : 's'}</span>
+      <span class="spacer"></span>
+      <button class="chip" id="br-playall">▶ Play all</button>
+    </div>
+    <div class="tracklist">${list.map(rowHtml).join('')}</div>`;
+}
+
+browseEl.addEventListener('click', (e) => {
+  if (e.target.closest('#br-back')) { browseAlbum = null; renderBrowse(); return; }
+  if (e.target.closest('#br-playall')) {
+    if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
+    return;
+  }
+  const card = e.target.closest('.albumcard');
+  if (card) {
+    const a = [...specialAlbums(), ...albumsByYear()].find((x) => x.key === card.dataset.album);
+    if (a) { browseAlbum = a; renderAlbumDetail(); }
+    return;
+  }
+  const rec = e.target.closest('.reccard');
+  if (rec) {
+    const ids = $$('.reccard', rec.closest('.reccards')).map((c) => c.dataset.id);
+    visible = ids.map(get).filter(Boolean);
+    player.playNow(ids, ids.indexOf(rec.dataset.id));
+    openFullPlayer();
+    return;
+  }
+  onRowClick(e); // album track rows reuse the library row behaviour
+});
+
 /* ---------------- views / tabs ---------------- */
 function show(v) {
   view = v;
   $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.view === v));
-  $('#view-library').classList.toggle('hidden', v === 'explorer');
+  $('#view-library').classList.toggle('hidden', v === 'explorer' || v === 'browse');
   $('#view-explorer').classList.toggle('hidden', v !== 'explorer');
-  if (v !== 'explorer') renderLibrary();
+  $('#view-browse').classList.toggle('hidden', v !== 'browse');
+  if (v === 'browse') renderBrowse();
+  else if (v !== 'explorer') renderLibrary();
 }
 $$('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
 
@@ -353,6 +468,7 @@ function mountEmbed(t) {
 
 /* ---------------- player events -> UI ---------------- */
 player.on('trackchange', (t) => {
+  bumpPlay(t.id);
   document.body.classList.add('playing');
   $('#mini .info .t').textContent = t.displayTitle;
   $('#mini .info .s').textContent = songsSummary(t);

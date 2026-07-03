@@ -1,5 +1,5 @@
 /* ============================================================
-   BRING ME THE MASHUP — design system
+   BRING ME THE MASHUP — design system (v1.5: browse albums + recs)
    Spotify-like density, more air, softer edges.
    Light + dark themes via [data-theme] on <html>.
    ============================================================ */
@@ -190,6 +190,72 @@ select.sort {
 
 .empty { padding: 60px 20px; text-align: center; color: var(--text-dim); font-size: 14px; }
 
+/* ---------- browse: albums + recommendation rows ---------- */
+.brsec { padding: 4px 0 10px; }
+.brh {
+  font-size: 17px; font-weight: 800; letter-spacing: -.01em;
+  margin: 10px 16px 12px; color: var(--text);
+}
+.brh em { font-style: normal; color: var(--accent); }
+.brhint { padding: 26px 20px; color: var(--text-dim); font-size: 13.5px; }
+
+.albumgrid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  gap: 14px; padding: 0 16px 10px;
+}
+.albumcard {
+  text-align: left; padding: 10px; border-radius: var(--radius-m);
+  background: var(--bg-elev); border: 1px solid var(--line);
+  transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease-out), background .25s;
+  position: relative;
+  animation: cardin .5s var(--ease-spring) both; animation-delay: var(--d, 0ms);
+}
+@keyframes cardin { from { opacity: 0; transform: translateY(14px) scale(.97); } }
+.albumcard::after { /* sunset hover glow, same language as track rows */
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  opacity: 0; transition: opacity .35s var(--ease-out);
+  background: radial-gradient(80% 90% at 30% 20%, var(--glow-b), transparent 70%);
+  box-shadow: inset 0 0 0 1px var(--glow-b);
+}
+.albumcard:hover { transform: translateY(-3px); box-shadow: var(--shadow); background: var(--bg-soft); }
+.albumcard:hover::after { opacity: 1; }
+.albumcard .art {
+  aspect-ratio: 1; border-radius: var(--radius-s); display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  filter: hue-rotate(var(--hue, 0deg)) saturate(.9);
+  overflow: hidden; margin-bottom: 10px;
+}
+.albumcard .art span {
+  font-weight: 800; color: rgba(255, 255, 255, .92); text-align: center;
+  font-size: clamp(13px, 1.6vw, 22px); padding: 10px; line-height: 1.2;
+  letter-spacing: -.01em; text-shadow: 0 2px 12px rgba(0, 0, 0, .25);
+  word-break: break-word;
+}
+.albumcard .anm { font-weight: 700; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.albumcard .acnt { color: var(--text-dim); font-size: 11.5px; margin-top: 2px; }
+
+.reccards {
+  display: flex; gap: 12px; overflow-x: auto; padding: 2px 16px 14px;
+  scrollbar-width: thin; scroll-behavior: smooth;
+}
+.reccard {
+  width: 168px; flex: none; text-align: left; padding: 10px; border-radius: var(--radius-m);
+  background: var(--bg-elev); border: 1px solid var(--line); position: relative;
+  transition: transform .3s var(--ease-spring), box-shadow .3s var(--ease-out), background .25s;
+  animation: cardin .5s var(--ease-spring) both; animation-delay: var(--d, 0ms);
+}
+.reccard:hover { transform: translateY(-3px); box-shadow: var(--shadow); background: var(--bg-soft); }
+.reccard .rart {
+  aspect-ratio: 1; border-radius: var(--radius-s); display: grid; place-items: center;
+  background: linear-gradient(150deg, var(--accent), var(--accent-2));
+  filter: hue-rotate(var(--hue, 0deg)) saturate(.85);
+  margin-bottom: 9px; position: relative;
+}
+.reccard .rart svg { width: 30px; height: 30px; fill: rgba(255,255,255,.95); filter: drop-shadow(0 2px 8px rgba(0,0,0,.3)); transform: scale(.85); transition: transform .28s var(--ease-spring); }
+.reccard:hover .rart svg { transform: scale(1.05); }
+.reccard .rt { font-weight: 700; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reccard .rs { color: var(--text-dim); font-size: 11px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
 /* ---------- explorer (Miller columns) ---------- */
 #view-explorer { display: flex; flex-direction: column; }
 .exp-intro { padding: 10px 16px 6px; }
@@ -374,6 +440,8 @@ select.sort {
   .heartbtn { opacity: 1; }
   .rowplay { opacity: 1; transform: scale(.92); width: 36px; height: 36px; }
   .col { width: 240px; }
+  .albumgrid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
+  .reccard { width: 140px; }
   #queue { width: min(340px, calc(100vw - 24px)); }
   #mini { left: 8px; right: 8px; bottom: 8px; }
   .transport { gap: 8px; }

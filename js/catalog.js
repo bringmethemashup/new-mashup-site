@@ -1,5 +1,5 @@
 /**
- * catalog.js — load catalog.json, provide search + the Mashup Explorer
+ * catalog.js — load catalog.json, provide search, browse albums + the Mashup Explorer
  * co-occurrence index (computed ONCE at load, per the project brief).
  */
 let tracks = [];
@@ -102,3 +102,54 @@ export function connectionsOf(key) {
 }
 
 export const getNode = (key) => nodes.get(key);
+
+/* ---------------- browse: albums derived from catalog fields -------------
+   Auto-generated — one album per distinct `year`, one per distinct
+   `specialAlbum`. No manual lists to maintain. */
+export function albumsByYear() {
+  const m = new Map();
+  for (const t of tracks) {
+    const y = String(t.year || '').trim();
+    if (!y) continue;
+    if (!m.has(y)) m.set(y, []);
+    m.get(y).push(t);
+  }
+  return [...m.entries()]
+    .map(([year, list]) => ({ key: 'y:' + year, name: year, tracks: list }))
+    .sort((a, b) => b.name.localeCompare(a.name, undefined, { numeric: true }));
+}
+
+export function specialAlbums() {
+  const m = new Map();
+  for (const t of tracks) {
+    const name = (t.specialAlbum || '').trim();
+    if (!name) continue;
+    if (!m.has(name)) m.set(name, []);
+    m.get(name).push(t);
+  }
+  return [...m.entries()]
+    .map(([name, list]) => ({ key: 'sp:' + name, name, tracks: list }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+}
+
+/* ---------------- recommendations: REUSES the Explorer index -------------
+   Tracks related to a seed track = every track sharing an artist/song node
+   with it, scored by how many nodes they share. Reads the `nodes` map built
+   once at load — no separate recommendation structure. */
+export function relatedTo(trackId, limit = 12) {
+  const t = byId.get(trackId);
+  if (!t) return [];
+  const scores = new Map();
+  for (const key of nodeKeysForTrack(t)) {
+    const n = nodes.get(key);
+    if (!n) continue;
+    for (const id of n.trackIds) {
+      if (id === trackId) continue;
+      scores.set(id, (scores.get(id) || 0) + 1);
+    }
+  }
+  return [...scores.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, limit)
+    .map(([id, score]) => ({ track: byId.get(id), score }));
+}

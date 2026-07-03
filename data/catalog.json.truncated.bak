@@ -1727,7 +1727,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1759,7 +1759,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1791,7 +1791,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1823,7 +1823,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1855,7 +1855,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1887,7 +1887,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1919,7 +1919,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -1951,7 +1951,7 @@
    "1989-Night Visions Mashup Album",
    "1989"
   ],
-  "year": "2015",
+  "year": "1989",
   "dateAdded": "1989-01-01",
   "meta": {
    "songSource": "manual",
@@ -24526,28 +24526,7 @@
  {
   "id": "mashups-2023-34-35-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Ariana Grande",
-    "title": "34+35"
-   },
-   {
-    "artist": "Taylor Swift",
-    "title": "Anti-Hero"
-   },
-   {
-    "artist": "Jennifer Lopez",
-    "title": "I'm Real"
-   },
-   {
-    "artist": "Charlie Puth",
-    "title": "Who Knows"
-   },
-   {
-    "artist": "Katy Perry",
-    "title": "Small Talk"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "34+35 Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -24561,8 +24540,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "34+35 Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -24570,16 +24549,7 @@
  {
   "id": "mashups-2023-a-year-without-satellites",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Selena Gomez",
-    "title": "A Year Without Rain"
-   },
-   {
-    "artist": "Bebe Rexha ft. Snoop Dogg",
-    "title": "Satellite"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "A Year Without Satellites",
   "isOwnUpload": true,
   "audio": {
@@ -24593,8 +24563,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "A Year Without Satellites.mp3",
    "folder": "Mashups 2023"
   }
@@ -24602,16 +24572,7 @@
  {
   "id": "mashups-2023-apologize-to-ms-jackson",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Hollywood Undead",
-    "title": "Apologize"
-   },
-   {
-    "artist": "Panic! At the Disco",
-    "title": "Miss Jackson"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Apologize to Ms. Jackson",
   "isOwnUpload": true,
   "audio": {
@@ -24625,29 +24586,16 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Apologize to Ms. Jackson.mp3",
    "folder": "Mashups 2023"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "X-sMidVkamg"
   }
  },
  {
   "id": "mashups-2023-blah-idea-right",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kesha",
-    "title": "blah blah blah (ft. 3OH!3)"
-   },
-   {
-    "artist": "Olivia Rodrigo",
-    "title": "bad idea right"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "blah idea right",
   "isOwnUpload": true,
   "audio": {
@@ -24661,8 +24609,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "blah idea right.mp3",
    "folder": "Mashups 2023"
   }
@@ -24670,16 +24618,7 @@
  {
   "id": "mashups-2023-body-do-telephone",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Lady Gaga & Beyonce",
-    "title": "Telephone"
-   },
-   {
-    "artist": "Chloe",
-    "title": "Body Do"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Body Do Telephone",
   "isOwnUpload": true,
   "audio": {
@@ -24693,8 +24632,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Body Do Telephone.mp3",
    "folder": "Mashups 2023"
   }
@@ -24702,28 +24641,7 @@
  {
   "id": "mashups-2023-cuff-it-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Beyonce",
-    "title": "Cuff It"
-   },
-   {
-    "artist": "Miley Cyrus",
-    "title": "Midnight Sky"
-   },
-   {
-    "artist": "Kesha",
-    "title": "Woman"
-   },
-   {
-    "artist": "Lady Gaga",
-    "title": "Babylon"
-   },
-   {
-    "artist": "Dua Lipa",
-    "title": "Break My Heart"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Cuff It Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -24737,8 +24655,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Cuff It Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -24746,16 +24664,7 @@
  {
   "id": "mashups-2023-cut-the-applause",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Lady Gaga",
-    "title": "Applause"
-   },
-   {
-    "artist": "Tori Kelly",
-    "title": "cut"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "cut the applause",
   "isOwnUpload": true,
   "audio": {
@@ -24769,8 +24678,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "cut the applause.mp3",
    "folder": "Mashups 2023"
   }
@@ -24778,16 +24687,7 @@
  {
   "id": "mashups-2023-death-by-handstand",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Miley Cyrus",
-    "title": "Handstand"
-   },
-   {
-    "artist": "Melanie Martinez",
-    "title": "DEATH"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Death by Handstand",
   "isOwnUpload": true,
   "audio": {
@@ -24801,8 +24701,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Death by Handstand.mp3",
    "folder": "Mashups 2023"
   }
@@ -24810,28 +24710,7 @@
  {
   "id": "mashups-2023-easy-mixed-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Troye Sivan ft. Kacey Musgraves",
-    "title": "Easy"
-   },
-   {
-    "artist": "Kesha",
-    "title": "Animal"
-   },
-   {
-    "artist": "Panic! At the Disco",
-    "title": "Girls/Girls/Boys"
-   },
-   {
-    "artist": "Charli xcx",
-    "title": "Silver Cross"
-   },
-   {
-    "artist": "Hilary Duff",
-    "title": "What Dreams Are Made Of"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Easy Mixed Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -24845,8 +24724,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Easy Mixed Mashup.mp3",
    "folder": "Mashups 2023"
   }
@@ -24854,16 +24733,7 @@
  {
   "id": "mashups-2023-greedy-after-dark",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Timbaland",
-    "title": "Morning After Dark (ft. Nelly Furtado)"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "Greedy"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Greedy After Dark",
   "isOwnUpload": true,
   "audio": {
@@ -24877,8 +24747,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Greedy After Dark.mp3",
    "folder": "Mashups 2023"
   }
@@ -24886,28 +24756,7 @@
  {
   "id": "mashups-2023-human-touch-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Betty Who",
-    "title": "Human Touch"
-   },
-   {
-    "artist": "Charlie Puth",
-    "title": "Left & Right"
-   },
-   {
-    "artist": "Dua Lipa",
-    "title": "Levitating"
-   },
-   {
-    "artist": "Troye Sivan",
-    "title": "My My My"
-   },
-   {
-    "artist": "Harry Styles",
-    "title": "Adore You"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Human Touch Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -24921,8 +24770,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Human Touch Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -24930,28 +24779,7 @@
  {
   "id": "mashups-2023-i-wanna-dance-with-somebody-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Whitney Houston",
-    "title": "I Wanna Dance With Somebody"
-   },
-   {
-    "artist": "Carly Rae Jepsen",
-    "title": "I Didn't Just Come Here to Dance"
-   },
-   {
-    "artist": "Cher",
-    "title": "Believe"
-   },
-   {
-    "artist": "Kylie Minogue and Years & Years",
-    "title": "A Second to Midnight"
-   },
-   {
-    "artist": "Kesha",
-    "title": "Your Love is My Drug"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "I Wanna Dance With Somebody Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -24965,8 +24793,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "I Wanna Dance With Somebody Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -24974,28 +24802,7 @@
  {
   "id": "mashups-2023-judas-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Lady Gaga",
-    "title": "Judas"
-   },
-   {
-    "artist": "Rihanna",
-    "title": "Where Have You Been"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Till the World Ends"
-   },
-   {
-    "artist": "David Guetta",
-    "title": "Turn Me On (ft. Nicki Minaj)"
-   },
-   {
-    "artist": "Whitney Houston",
-    "title": "It's Not Right, But It's Okay"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Judas Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25009,8 +24816,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Judas Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25018,28 +24825,7 @@
  {
   "id": "mashups-2023-late-night-talking-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Harry Styles",
-    "title": "Late Night Talking"
-   },
-   {
-    "artist": "Carly Rae Jepsen",
-    "title": "Talking to Yourself"
-   },
-   {
-    "artist": "Maroon 5",
-    "title": "What Lovers Do"
-   },
-   {
-    "artist": "Troye Sivan",
-    "title": "Dance to This (ft. Ariana Grande)"
-   },
-   {
-    "artist": "P!nk",
-    "title": "Never Gonna Not Dance Again"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Late Night Talking Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25053,8 +24839,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Late Night Talking Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25062,28 +24848,7 @@
  {
   "id": "mashups-2023-like-a-virgin-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Madonna",
-    "title": "Like a Virgin"
-   },
-   {
-    "artist": "Cyndi Lauper",
-    "title": "Girls Just Wanna Have Fun"
-   },
-   {
-    "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
-   },
-   {
-    "artist": "La Roux",
-    "title": "Bulletproof"
-   },
-   {
-    "artist": "Rihanna",
-    "title": "We Found Love"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Like A Virgin Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25097,8 +24862,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Like A Virgin Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25106,16 +24871,7 @@
  {
   "id": "mashups-2023-love-cut-again",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Dua Lipa",
-    "title": "Love Again"
-   },
-   {
-    "artist": "Tori Kelly",
-    "title": "cut"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Love Cut Again",
   "isOwnUpload": true,
   "audio": {
@@ -25129,8 +24885,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Love Cut Again.mp3",
    "folder": "Mashups 2023"
   }
@@ -25138,28 +24894,7 @@
  {
   "id": "mashups-2023-made-you-look-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Meghan Trainor",
-    "title": "Made You Look"
-   },
-   {
-    "artist": "Melanie Martinez",
-    "title": "Sippy Cup"
-   },
-   {
-    "artist": "Ariana Grande",
-    "title": "Break Free"
-   },
-   {
-    "artist": "Cobra Starship ft. Sabi",
-    "title": "You Make Me Feel"
-   },
-   {
-    "artist": "All-American Rejects",
-    "title": "Dirty Little Secret"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Made You Look Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25173,8 +24908,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Made You Look Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25182,28 +24917,7 @@
  {
   "id": "mashups-2023-make-me-feel-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Janelle Monae",
-    "title": "Make Me Feel"
-   },
-   {
-    "artist": "Justin Timberlake",
-    "title": "SexyBack"
-   },
-   {
-    "artist": "Dua Lipa",
-    "title": "Future Nostalgia"
-   },
-   {
-    "artist": "Lizzo",
-    "title": "Juice"
-   },
-   {
-    "artist": "Pussycat Dolls",
-    "title": "When I Grow Up"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Make Me Feel Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25217,8 +24931,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Make Me Feel Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25226,28 +24940,7 @@
  {
   "id": "mashups-2023-mamma-mia-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "ABBA",
-    "title": "Mamma Mia"
-   },
-   {
-    "artist": "Walk the Moon",
-    "title": "Shut Up and Dance"
-   },
-   {
-    "artist": "Megan Thee Stallion & Dua Lipa",
-    "title": "Sweetest Pie"
-   },
-   {
-    "artist": "Marina & the Diamonds",
-    "title": "How to be a Heartbreaker"
-   },
-   {
-    "artist": "Nicki Minaj",
-    "title": "Starships"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Mamma Mia Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25261,8 +24954,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Mamma Mia Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25270,28 +24963,7 @@
  {
   "id": "mashups-2023-million-dollar-baby-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Ava Max",
-    "title": "Million Dollar Baby"
-   },
-   {
-    "artist": "Selena Gomez",
-    "title": "Round & Round"
-   },
-   {
-    "artist": "Madonna",
-    "title": "Hung Up"
-   },
-   {
-    "artist": "Lady Gaga & Ariana Grande",
-    "title": "Rain On Me"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "I Wanna Go"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Million Dollar Baby Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25305,8 +24977,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Million Dollar Baby Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25422,16 +25094,7 @@
  {
   "id": "mashups-2023-never-be-the-ooh-la-la",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Britney Spears",
-    "title": "Ooh La La"
-   },
-   {
-    "artist": "Olivia O'Brien",
-    "title": "Never Be the One"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Never Be The Ooh La La",
   "isOwnUpload": true,
   "audio": {
@@ -25445,8 +25108,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Never Be The Ooh La La.mp3",
    "folder": "Mashups 2023"
   }
@@ -25490,28 +25153,7 @@
  {
   "id": "mashups-2023-only-girl-in-the-world-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Rihanna",
-    "title": "Only Girl in the World"
-   },
-   {
-    "artist": "Dua Lipa",
-    "title": "Don't Start Now"
-   },
-   {
-    "artist": "Demi Lovato",
-    "title": "Skin of My Teeth"
-   },
-   {
-    "artist": "Pussycat Dolls",
-    "title": "React"
-   },
-   {
-    "artist": "Hilary Duff",
-    "title": "Sparks"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Only Girl In the World Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25525,8 +25167,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Only Girl In the World Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25534,28 +25176,7 @@
  {
   "id": "mashups-2023-padam-padam-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kylie Minogue",
-    "title": "Padam Padam"
-   },
-   {
-    "artist": "Rihanna",
-    "title": "Cockiness"
-   },
-   {
-    "artist": "Backstreet Boys",
-    "title": "Larger Than Life"
-   },
-   {
-    "artist": "Nicki Minaj",
-    "title": "Va Va Voom"
-   },
-   {
-    "artist": "Lady Gaga",
-    "title": "911"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Padam Padam Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25569,8 +25190,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Padam Padam Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25578,16 +25199,7 @@
  {
   "id": "mashups-2023-peaches-boyfriend",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Justin Bieber",
-    "title": "Boyfriend"
-   },
-   {
-    "artist": "Jack Black",
-    "title": "Peaches (Mario Movie)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Peaches + Boyfriend",
   "isOwnUpload": true,
   "audio": {
@@ -25601,8 +25213,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Peaches + Boyfriend.mp3",
    "folder": "Mashups 2023"
   }
@@ -25610,28 +25222,7 @@
  {
   "id": "mashups-2023-psycho-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Anne-Marie",
-    "title": "Psycho"
-   },
-   {
-    "artist": "Karmin",
-    "title": "Acapella"
-   },
-   {
-    "artist": "Twentyonepilots",
-    "title": "Lane Boy"
-   },
-   {
-    "artist": "Panic! At the Disco",
-    "title": "I Write Sins Not Tragedies"
-   },
-   {
-    "artist": "Billie Eilish",
-    "title": "you should see me in a crown"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Psycho Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25645,8 +25236,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Psycho Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25654,16 +25245,7 @@
  {
   "id": "mashups-2023-remember-the-acid",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Fort Minor",
-    "title": "Remember the Name"
-   },
-   {
-    "artist": "Kesha",
-    "title": "Eat the Acid"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Remember the Acid",
   "isOwnUpload": true,
   "audio": {
@@ -25677,8 +25259,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Remember the Acid.mp3",
    "folder": "Mashups 2023"
   }
@@ -25686,28 +25268,7 @@
  {
   "id": "mashups-2023-river-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Miley Cyrus",
-    "title": "River"
-   },
-   {
-    "artist": "Pat Benatar",
-    "title": "Hit Me with Your Best Shot"
-   },
-   {
-    "artist": "Lady Gaga",
-    "title": "Just Dance"
-   },
-   {
-    "artist": "Hilary Duff",
-    "title": "With Love"
-   },
-   {
-    "artist": "Kesha",
-    "title": "C'Mon"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "River Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25721,8 +25282,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "River Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25730,16 +25291,7 @@
  {
   "id": "mashups-2023-rose-colored-style",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Taylor Swift",
-    "title": "Style"
-   },
-   {
-    "artist": "Miley Cyrus",
-    "title": "Rose Colored Lenses"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Rose Colored Style",
   "isOwnUpload": true,
   "audio": {
@@ -25753,8 +25305,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Rose Colored Style.mp3",
    "folder": "Mashups 2023"
   }
@@ -25762,28 +25314,7 @@
  {
   "id": "mashups-2023-rumors-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Lindsay Lohan",
-    "title": "Rumors"
-   },
-   {
-    "artist": "BANKS",
-    "title": "Gimme"
-   },
-   {
-    "artist": "Ariana Grande",
-    "title": "Greedy"
-   },
-   {
-    "artist": "Pussycat Dolls",
-    "title": "Buttons"
-   },
-   {
-    "artist": "Liam Payne",
-    "title": "Strip That Down"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Rumors Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25797,8 +25328,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Rumors Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25806,16 +25337,7 @@
  {
   "id": "mashups-2023-s-m-alone",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Rihanna",
-    "title": "S&M"
-   },
-   {
-    "artist": "Kim Petras",
-    "title": "Alone (ft. Nicki Minaj)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "S&M Alone",
   "isOwnUpload": true,
   "audio": {
@@ -25829,8 +25351,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "S&M Alone.mp3",
    "folder": "Mashups 2023"
   }
@@ -25874,28 +25396,7 @@
  {
   "id": "mashups-2023-stars-are-blind-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Paris Hilton",
-    "title": "Stars Are Blind"
-   },
-   {
-    "artist": "The Chainsmokers",
-    "title": "Paris"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Lucky"
-   },
-   {
-    "artist": "Lindsay Lohan",
-    "title": "Back to Me"
-   },
-   {
-    "artist": "Melanie Martinez",
-    "title": "Battle of the Larynx"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Stars Are Blind Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -25909,8 +25410,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Stars Are Blind Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -25918,16 +25419,7 @@
  {
   "id": "mashups-2023-still-officially-got-it",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Charli xcx",
-    "title": "Official"
-   },
-   {
-    "artist": "Troye Sivan",
-    "title": "Still Got It"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Still Officially Got It",
   "isOwnUpload": true,
   "audio": {
@@ -25941,8 +25433,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Still Officially Got It.mp3",
    "folder": "Mashups 2023"
   }
@@ -25950,16 +25442,7 @@
  {
   "id": "mashups-2023-take-my-pynk",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Aly & AJ",
-    "title": "Take Me"
-   },
-   {
-    "artist": "Janelle Monae",
-    "title": "Pynk"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Take My Pynk",
   "isOwnUpload": true,
   "audio": {
@@ -25973,8 +25456,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Take My Pynk.mp3",
    "folder": "Mashups 2023"
   }
@@ -25982,28 +25465,7 @@
  {
   "id": "mashups-2023-treat-me-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Chloe",
-    "title": "Treat Me"
-   },
-   {
-    "artist": "Fergie",
-    "title": "London Bridge"
-   },
-   {
-    "artist": "BLACKPINK",
-    "title": "Pink Venom"
-   },
-   {
-    "artist": "P!nk",
-    "title": "Most Girls"
-   },
-   {
-    "artist": "3LW",
-    "title": "No More (Baby I'ma Do Right)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Treat Me Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26017,8 +25479,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Treat Me Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -26026,28 +25488,7 @@
  {
   "id": "mashups-2023-trustfall-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "P!nk",
-    "title": "Trustfall"
-   },
-   {
-    "artist": "Robyn",
-    "title": "Dancing on My Own"
-   },
-   {
-    "artist": "Katy Perry",
-    "title": "Firework"
-   },
-   {
-    "artist": "Madonna",
-    "title": "Living for Love"
-   },
-   {
-    "artist": "MUNA",
-    "title": "What I Want"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Trustfall Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26061,8 +25502,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Trustfall Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -26070,16 +25511,7 @@
  {
   "id": "mashups-2023-trustfalling-on-my-own",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Robyn",
-    "title": "Dancing on My Own"
-   },
-   {
-    "artist": "P!nk",
-    "title": "Trustfall"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Trustfalling On My Own",
   "isOwnUpload": true,
   "audio": {
@@ -26093,8 +25525,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Trustfalling On My Own.mp3",
    "folder": "Mashups 2023"
   }
@@ -26102,16 +25534,7 @@
  {
   "id": "mashups-2023-turn-my-rush-on",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "David Guetta",
-    "title": "Turn Me On (ft. Nicki Minaj)"
-   },
-   {
-    "artist": "Troye Sivan",
-    "title": "Rush"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Turn My Rush On",
   "isOwnUpload": true,
   "audio": {
@@ -26125,8 +25548,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Turn My Rush On.mp3",
    "folder": "Mashups 2023"
   }
@@ -26134,28 +25557,7 @@
  {
   "id": "mashups-2023-we-belong-together-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Mariah Carey",
-    "title": "We Belong Together"
-   },
-   {
-    "artist": "Bruno Mars",
-    "title": "That's What I Like"
-   },
-   {
-    "artist": "Tegan and Sara",
-    "title": "Closer"
-   },
-   {
-    "artist": "Fifth Harmony",
-    "title": "He Like It"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Slumber Party"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "We Belong Together Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -26169,8 +25571,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "We Belong Together Mashup.mp3",
    "folder": "Mashups 2023"
   }
@@ -26178,28 +25580,7 @@
  {
   "id": "mashups-2023-we-r-who-we-r-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kesha",
-    "title": "We R Who We R"
-   },
-   {
-    "artist": "BTS",
-    "title": "Boy With Luv (ft. Halsey)"
-   },
-   {
-    "artist": "Owl City & Carly Rae Jepsen",
-    "title": "Good Time"
-   },
-   {
-    "artist": "Demi Lovato",
-    "title": "Cool for the Summer"
-   },
-   {
-    "artist": "Bebe Rexha",
-    "title": "Sacrifice"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "We R Who We R Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26213,8 +25594,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "We R Who We R Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -26222,32 +25603,7 @@
  {
   "id": "mashups-2023-what-i-want-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "MUNA",
-    "title": "What I Want"
-   },
-   {
-    "artist": "Karmin",
-    "title": "I Want It All"
-   },
-   {
-    "artist": "Kesha",
-    "title": "Take It Off"
-   },
-   {
-    "artist": "Breathe Carolina",
-    "title": "Blackout"
-   },
-   {
-    "artist": "Kylie Minogue",
-    "title": "Real Groove"
-   },
-   {
-    "artist": "Charli xcx",
-    "title": "Used to Know Me"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "What I Want Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26261,8 +25617,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "What I Want Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   }
@@ -26270,16 +25626,7 @@
  {
   "id": "mashups-2023-wish-i-could-forget-rivers",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "SLANDER ft. Blackbear & Oli Sykes",
-    "title": "Wish I Could Forget"
-   },
-   {
-    "artist": "Miley Cyrus",
-    "title": "Rivers"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Wish I Could Forget Rivers",
   "isOwnUpload": true,
   "audio": {
@@ -26293,8 +25640,8 @@
   "year": "2023",
   "dateAdded": "2023-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Wish I Could Forget Rivers.mp3",
    "folder": "Mashups 2023"
   }
@@ -26302,24 +25649,7 @@
  {
   "id": "mashups-2024-360-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Charli xcx",
-    "title": "360"
-   },
-   {
-    "artist": "Jennifer Lopez",
-    "title": "Ain't Your Mana"
-   },
-   {
-    "artist": "Lindsay Lohan",
-    "title": "Bossy"
-   },
-   {
-    "artist": "Little Mix",
-    "title": "Confetti"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "360 Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26333,8 +25663,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "360 Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -26342,28 +25672,7 @@
  {
   "id": "mashups-2024-boss-bitch-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Doja Cat",
-    "title": "Boss Bitch"
-   },
-   {
-    "artist": "Beyonce",
-    "title": "Pure Honey"
-   },
-   {
-    "artist": "Nelly Furtado",
-    "title": "Promiscuous (ft. Timbaland)"
-   },
-   {
-    "artist": "Pussycat Dolls",
-    "title": "React"
-   },
-   {
-    "artist": "Ariana Grande",
-    "title": "yes, and"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Boss Bitch Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26377,8 +25686,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Boss Bitch Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -26386,24 +25695,7 @@
  {
   "id": "mashups-2024-bye-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Ariana Grande",
-    "title": "bye"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Anticipating"
-   },
-   {
-    "artist": "Panic! At the Disco",
-    "title": "Hey Look Ma, I Made It"
-   },
-   {
-    "artist": "Jennifer Lopez",
-    "title": "I'm Real"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "bye Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -26417,8 +25709,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "bye Mashup.mp3",
    "folder": "Mashups 2024"
   }
@@ -26426,16 +25718,7 @@
  {
   "id": "mashups-2024-delusional-crush",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kesha",
-    "title": "Delusional"
-   },
-   {
-    "artist": "David Archuleta",
-    "title": "Crush"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Delusional Crush",
   "isOwnUpload": true,
   "audio": {
@@ -26449,8 +25732,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Delusional Crush.mp3",
    "folder": "Mashups 2024"
   }
@@ -26458,28 +25741,7 @@
  {
   "id": "mashups-2024-espresso-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Sabrina Carpenter",
-    "title": "Espresso"
-   },
-   {
-    "artist": "Jennifer Lopez",
-    "title": "Jenny From the Block"
-   },
-   {
-    "artist": "Katy Perry",
-    "title": "This is How We Do"
-   },
-   {
-    "artist": "Tove Lo",
-    "title": "Cool Girl"
-   },
-   {
-    "artist": "Christina Aguilera",
-    "title": "Your Body"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Espresso Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26493,8 +25755,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Espresso Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -26502,20 +25764,7 @@
  {
   "id": "mashups-2024-exes-cut-good-music",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Tate McRae",
-    "title": "exes"
-   },
-   {
-    "artist": "Tori Kelly",
-    "title": "cut"
-   },
-   {
-    "artist": "Madonna",
-    "title": "Music"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Exes Cut Good Music",
   "isOwnUpload": true,
   "audio": {
@@ -26529,8 +25778,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Exes Cut Good Music.mp3",
    "folder": "Mashups 2024"
   }
@@ -26538,28 +25787,7 @@
  {
   "id": "mashups-2024-exes-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Tate McRae",
-    "title": "exes"
-   },
-   {
-    "artist": "Kesha",
-    "title": "Crazy Kids"
-   },
-   {
-    "artist": "will.i.am & Britney Spears",
-    "title": "Scream & Shout"
-   },
-   {
-    "artist": "Miley Cyrus",
-    "title": "On a Roll (Ashley O)"
-   },
-   {
-    "artist": "Troye Sivan",
-    "title": "Got Me Started"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Exes Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26573,8 +25801,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Exes Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -26582,16 +25810,7 @@
  {
   "id": "mashups-2024-exes-positions",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Ariana Grande",
-    "title": "positions"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "exes"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Exes Positions",
   "isOwnUpload": true,
   "audio": {
@@ -26605,8 +25824,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Exes Positions.mp3",
    "folder": "Mashups 2024"
   }
@@ -26614,28 +25833,7 @@
  {
   "id": "mashups-2024-gameboy-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "ROSE",
-    "title": "Gameboy"
-   },
-   {
-    "artist": "Mariah Carey",
-    "title": "Touch My Body"
-   },
-   {
-    "artist": "Fall Out Boy",
-    "title": "Sugar, We're Going Down"
-   },
-   {
-    "artist": "Adele",
-    "title": "Send My Love (To  Your New Lover)"
-   },
-   {
-    "artist": "Christina Grimmie",
-    "title": "Without You"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Gameboy Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -26649,8 +25847,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Gameboy Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -26658,16 +25856,7 @@
  {
   "id": "mashups-2024-hollywood-maria",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Madonna",
-    "title": "Hollywood"
-   },
-   {
-    "artist": "Dua Lipa",
-    "title": "Maria"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Hollywood Maria",
   "isOwnUpload": true,
   "audio": {
@@ -26681,8 +25870,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Hollywood Maria.mp3",
    "folder": "Mashups 2024"
   }
@@ -26690,16 +25879,7 @@
  {
   "id": "mashups-2024-its-okay-im-bringing-sexyback",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Justin Timberlake",
-    "title": "SexyBack"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "it's okay i'm okay"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "it's okay i'm bringing sexyback",
   "isOwnUpload": true,
   "audio": {
@@ -26713,8 +25893,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "it's okay i'm bringing sexyback.mp3",
    "folder": "Mashups 2024"
   }
@@ -26722,16 +25902,7 @@
  {
   "id": "mashups-2024-its-okay-with-love",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Hilary Duff",
-    "title": "With Love"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "it's okay i'm okay"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "its okay with love",
   "isOwnUpload": true,
   "audio": {
@@ -26745,14 +25916,10 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "its okay with love.mp3",
    "folder": "Mashups 2024"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "qw8cBf6A5mY"
   }
  },
  {
@@ -26794,24 +25961,7 @@
  {
   "id": "mashups-2024-love-on-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Selena Gomez",
-    "title": "Love On"
-   },
-   {
-    "artist": "Kim Petras",
-    "title": "Coconuts"
-   },
-   {
-    "artist": "Taylor Swift",
-    "title": "New Romantics"
-   },
-   {
-    "artist": "Carly Rae Jepsen",
-    "title": "Boy Problems"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Love On Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -26825,8 +25975,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Love On Mashup.mp3",
    "folder": "Mashups 2024"
   }
@@ -26834,16 +25984,7 @@
  {
   "id": "mashups-2024-midnight-circus-cowboy",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Britney Spears",
-    "title": "Circus"
-   },
-   {
-    "artist": "JADE",
-    "title": "Midnight Cowboy"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Midnight Circus Cowboy",
   "isOwnUpload": true,
   "audio": {
@@ -26857,8 +25998,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Midnight Circus Cowboy.mp3",
    "folder": "Mashups 2024"
   }
@@ -26866,28 +26007,7 @@
  {
   "id": "mashups-2024-morning-after-dark-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Timbaland",
-    "title": "Morning After Dark (ft. Nelly Furtado)"
-   },
-   {
-    "artist": "Beyonce",
-    "title": "BREAK MY SOUL"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "Greedy"
-   },
-   {
-    "artist": "JISOO",
-    "title": "All Eyes On Me"
-   },
-   {
-    "artist": "Madonna",
-    "title": "4 Minutes (ft. Justin Timberlake & Timberland)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Morning After Dark Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -26901,8 +26021,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Morning After Dark Mashup.mp3",
    "folder": "Mashups 2024"
   }
@@ -26946,16 +26066,7 @@
  {
   "id": "mashups-2024-my-oh-my-stay-the-night",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kylie Minogue, Tove Lo & Bebe Rexha",
-    "title": "My Oh My"
-   },
-   {
-    "artist": "Zedd",
-    "title": "Stay the Night (ft. Hayley Williams)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "My Oh My Stay the Night",
   "isOwnUpload": true,
   "audio": {
@@ -26969,8 +26080,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "My Oh My Stay the Night.mp3",
    "folder": "Mashups 2024"
   }
@@ -26978,28 +26089,7 @@
  {
   "id": "mashups-2024-obsessed-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Mariah Carey",
-    "title": "Obsessed"
-   },
-   {
-    "artist": "Miley Cyrus",
-    "title": "Gimme What I Want"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Overprotected"
-   },
-   {
-    "artist": "Selena Gomez",
-    "title": "Good For You"
-   },
-   {
-    "artist": "Fifth Harmony",
-    "title": "Down"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Obsessed Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -27013,8 +26103,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Obsessed Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -27058,28 +26148,7 @@
  {
   "id": "mashups-2024-rush-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Troye Sivan",
-    "title": "Rush"
-   },
-   {
-    "artist": "Enrique Iglesias",
-    "title": "Tonight (I'm Fuckin You)"
-   },
-   {
-    "artist": "Whitney Houston",
-    "title": "It's Not Right But It's Okay"
-   },
-   {
-    "artist": "Destiny's Child",
-    "title": "Say My Name"
-   },
-   {
-    "artist": "Lady Gaga",
-    "title": "G.U.Y."
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Rush Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -27093,8 +26162,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Rush Mashup Mixed.mp3",
    "folder": "Mashups 2024"
   }
@@ -27102,20 +26171,7 @@
  {
   "id": "mashups-2024-taboo-toxic-rockstar",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Britney Spears",
-    "title": "Toxic"
-   },
-   {
-    "artist": "LISA",
-    "title": "Rockstar"
-   },
-   {
-    "artist": "Kylie Minogue",
-    "title": "Taboo"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Taboo Toxic Rockstar",
   "isOwnUpload": true,
   "audio": {
@@ -27129,8 +26185,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Taboo Toxic Rockstar.mp3",
    "folder": "Mashups 2024"
   }
@@ -27138,16 +26194,7 @@
  {
   "id": "mashups-2024-touch-my-gameboy",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "ROSE",
-    "title": "Gameboy"
-   },
-   {
-    "artist": "Mariah Carey",
-    "title": "Touch My Body"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Touch My Gameboy",
   "isOwnUpload": true,
   "audio": {
@@ -27161,8 +26208,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Touch My Gameboy.mp3",
    "folder": "Mashups 2024"
   }
@@ -27170,16 +26217,7 @@
  {
   "id": "mashups-2024-toxic-rockstar",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Britney Spears",
-    "title": "Toxic"
-   },
-   {
-    "artist": "LISA",
-    "title": "Rockstar"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Toxic Rockstar",
   "isOwnUpload": true,
   "audio": {
@@ -27193,8 +26231,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Toxic Rockstar.mp3",
    "folder": "Mashups 2024"
   }
@@ -27202,16 +26240,7 @@
  {
   "id": "mashups-2024-toxic-taboo",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Britney Spears",
-    "title": "Toxic"
-   },
-   {
-    "artist": "Kylie Minogue",
-    "title": "Taboo"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Toxic Taboo",
   "isOwnUpload": true,
   "audio": {
@@ -27225,8 +26254,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Toxic Taboo.mp3",
    "folder": "Mashups 2024"
   }
@@ -27234,28 +26263,7 @@
  {
   "id": "mashups-2024-training-season-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Dua Lipa",
-    "title": "Training Season"
-   },
-   {
-    "artist": "Nicole Scherzinger",
-    "title": "Don't Hold Your Breath"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Break the Ice"
-   },
-   {
-    "artist": "Kylie Minogue",
-    "title": "Real Groove"
-   },
-   {
-    "artist": "Lady Gaga & Beyonce",
-    "title": "Telephone"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Training Season Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -27269,8 +26277,8 @@
   "year": "2024",
   "dateAdded": "2024-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Training Season Mashup.mp3",
    "folder": "Mashups 2024"
   }
@@ -27278,16 +26286,7 @@
  {
   "id": "mashups-2025-2-my-my-mys",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Troye Sivan",
-    "title": "My My My"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "2 hands"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "2 my my mys",
   "isOwnUpload": true,
   "audio": {
@@ -27301,8 +26300,8 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "2 my my mys.mp3",
    "folder": "Mashups 2025"
   }
@@ -27382,16 +26381,7 @@
  {
   "id": "mashups-2025-bloodonmycheck-v2",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "FLO",
-    "title": "Check"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "bloodonmyhands"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Bloodonmycheck v2",
   "isOwnUpload": true,
   "audio": {
@@ -27405,8 +26395,8 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Bloodonmycheck v2.mp3",
    "folder": "Mashups 2025"
   }
@@ -27414,16 +26404,7 @@
  {
   "id": "mashups-2025-boy-crazy-apologies",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Hollywood Undead",
-    "title": "Apologize"
-   },
-   {
-    "artist": "Kesha",
-    "title": "BOY CRAZY (ft. JADE)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Boy Crazy Apologies",
   "isOwnUpload": true,
   "audio": {
@@ -27437,8 +26418,8 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Boy Crazy Apologies.mp3",
    "folder": "Mashups 2025"
   }
@@ -27482,16 +26463,7 @@
  {
   "id": "mashups-2025-dear-the-one-god",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Betty Who",
-    "title": "The One"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "dear god"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Dear The One God",
   "isOwnUpload": true,
   "audio": {
@@ -27505,8 +26477,8 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Dear The One God.mp3",
    "folder": "Mashups 2025"
   }
@@ -27550,16 +26522,7 @@
  {
   "id": "mashups-2025-dynamite-heat",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Taio Cruz",
-    "title": "Dynamite"
-   },
-   {
-    "artist": "Rita Ora",
-    "title": "Heat"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Dynamite Heat",
   "isOwnUpload": true,
   "audio": {
@@ -27573,14 +26536,10 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Dynamite Heat.mp3",
    "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "PlMz6yDXUoo"
   }
  },
  {
@@ -27766,16 +26725,7 @@
  {
   "id": "mashups-2025-im-a-out-of-body-slave-4-u",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Britney Spears",
-    "title": "I'm a Slave 4 U"
-   },
-   {
-    "artist": "Khalid",
-    "title": "out of body"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "I'm a Out of Body Slave 4 U",
   "isOwnUpload": true,
   "audio": {
@@ -27789,8 +26739,8 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "I'm a Out of Body Slave 4 U.mp3",
    "folder": "Mashups 2025"
   }
@@ -27870,16 +26820,7 @@
  {
   "id": "mashups-2025-jealous-tik-tok-type",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kesha",
-    "title": "TiK ToK"
-   },
-   {
-    "artist": "Doja Cat",
-    "title": "Jealous Type"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Jealous TiK ToK Type",
   "isOwnUpload": true,
   "audio": {
@@ -27893,29 +26834,16 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Jealous TiK ToK Type.mp3",
    "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "2GzucbGJ5SU"
   }
  },
  {
   "id": "mashups-2025-jet-packs-in-my-bag",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Fall Out Boy",
-    "title": "Jet Pack Blues"
-   },
-   {
-    "artist": "FLO",
-    "title": "In My Bag (ft. GloRilla)"
-   }
-  ],
+  "sourceSongs": [],
   "displayTitle": "Jet Packs in my Bag",
   "isOwnUpload": true,
   "audio": {
@@ -27929,8 +26857,8 @@
   "year": "2025",
   "dateAdded": "2025-01-01",
   "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
+   "songSource": null,
+   "needsMetadata": true,
    "file": "Jet Packs in my Bag.mp3",
    "folder": "Mashups 2025"
   }
@@ -27976,12 +26904,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "artist": "Gym Class Heroes ft. Adam Levine",
-    "title": "Stereo Hearts"
+    "title": "Stereo Hearts",
+    "artist": "Gym Class Heroes ft. Adam Levine"
    },
    {
-    "artist": "Renee Rapp",
-    "title": "Mad"
+    "title": "Mad",
+    "artist": "Renee Rapp"
    }
   ],
   "displayTitle": "Mad Stereo Hearts",
@@ -27991,1168 +26919,4 @@
    "publicLink": "https://u.pcloud.link/publink/show?code=XZnQ8B5Z04D76bzVyLkPR6cOdOLQOH6WruEV"
   },
   "video": {
-   "type": "youtube",
-   "sourceId": "sVgg31mVMJo"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Mad Stereo Hearts.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-miss-goodies-possessive",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Ciara",
-    "title": "Goodies"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "miss possessive"
-   }
-  ],
-  "displayTitle": "miss goodies possessive",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZlcCh5ZIXqky0UD3NhEkIoM3Edr2fKeYj6k"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "miss goodies possessive.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "dzwrnc7I6Cc"
-  }
- },
- {
-  "id": "mashups-2025-most-sports-car-girls",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "P!nk",
-    "title": "Most Girls"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "sports car"
-   }
-  ],
-  "displayTitle": "Most Sports Car Girls",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZGSMq5Z04WyK8rQGtjHIsBwivW5Y8f7dvOy"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Most Sports Car Girls.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-mystical-come-clean",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Mystical Magical",
-    "artist": "Benson Boone"
-   },
-   {
-    "title": "Come Clean",
-    "artist": "Hilary Duff"
-   }
-  ],
-  "displayTitle": "Mystical Come Clean",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZiSMq5ZiF7tFQWMPsphGMouyiaFDbbFIwJ7"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "vPgRi_Kv__Y"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Mystical Come Clean.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-mystical-timber",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Timber",
-    "artist": "Pitbull & Kesha"
-   },
-   {
-    "title": "Mystical Magical",
-    "artist": "Benson Boone"
-   }
-  ],
-  "displayTitle": "Mystical Timber",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZvSMq5ZMtbSrvBtFohDkRNfpAbCsXzQXYkk"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "HK7P5r3TVBc"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Mystical Timber.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-no-im-not-larger-than-life",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Backstreet Boys",
-    "title": "Larger Than Life"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "no i'm not in love"
-   }
-  ],
-  "displayTitle": "No I'm Not Larger Than Life",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZrSMq5ZdG1pqI4csOVdTb86HL3TlBeiiiX7"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "No I'm Not Larger Than Life.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "AmrfvUNNt6M"
-  }
- },
- {
-  "id": "mashups-2025-nobodys-lovegame",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Lady Gaga",
-    "title": "Lovegame"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "NOBODY'S GIRL"
-   }
-  ],
-  "displayTitle": "Nobody's Lovegame",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZcSMq5ZHLsoJTqvrA4wN2IXs6O9q8LucsFV"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Nobody's Lovegame.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "AgZ6zitsIVE"
-  }
- },
- {
-  "id": "mashups-2025-only-hot-sexy-girl-in-the-world",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Rihanna",
-    "title": "Only Girl in the World"
-   },
-   {
-    "artist": "Zara Larsson",
-    "title": "Hot & Sexy"
-   }
-  ],
-  "displayTitle": "Only Hot & Sexy Girl in the World",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZoSMq5Zs89Q1ipMgVQCzRh0QFoP2pvVdb3X"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Only Hot & Sexy Girl in the World.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "dw97Wdn0KnU"
-  }
- },
- {
-  "id": "mashups-2025-party-freqency-anthem",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "LMFAO",
-    "title": "Party Rock Anthem"
-   },
-   {
-    "artist": "Demi Lovato",
-    "title": "Frequency"
-   }
-  ],
-  "displayTitle": "Party Freqency Anthem",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZyjMq5ZmdnfXDiV1H4DoRRfPkvUb8KjYGO7"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Party Freqency Anthem.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "My6GXW0gIZI"
-  }
- },
- {
-  "id": "mashups-2025-potential-breakup-song-all-night",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Aly & AJ",
-    "title": "Potential Breakup Song"
-   },
-   {
-    "artist": "Demi Lovato",
-    "title": "Here All Night"
-   }
-  ],
-  "displayTitle": "Potential Breakup Song All Night",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZ7jMq5ZQgHmtIJq3OL7bRHyatgbqLUtJhuX"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Potential Breakup Song All Night.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "XaqFk_dLmZA"
-  }
- },
- {
-  "id": "mashups-2025-raise-your-manchild",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Raise Your Glass",
-    "artist": "P!nk"
-   },
-   {
-    "title": "Manchild",
-    "artist": "Sabrina Carpenter"
-   }
-  ],
-  "displayTitle": "Raise Your Manchild",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZkjMq5ZMvhYyWREMT7TYzvOAJXWdVXE1Wty"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "0GI_GE-2fdA"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Raise Your Manchild.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-red-flag-mashup-mixed",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Kesha",
-    "title": "Red Flag"
-   },
-   {
-    "artist": "Charli xcx",
-    "title": "Sympathy is a Knife"
-   },
-   {
-    "artist": "Rita Ora",
-    "title": "Feel It"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Hold It Against Me"
-   },
-   {
-    "artist": "JADE",
-    "title": "Plastic Box"
-   }
-  ],
-  "displayTitle": "RED FLAG Mashup",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZXjMq5ZPetPON18UNh4MJn8MOPdzuSDdA6k"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "RED FLAG Mashup Mixed.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-romeos-sports-car",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Tate McRae",
-    "title": "sports car"
-   },
-   {
-    "artist": "Dove Cameron",
-    "title": "Romeo"
-   }
-  ],
-  "displayTitle": "Romeo's Sports Car",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZVjMq5ZiWN9CKSYi68BdljVY0e0t8Jqub7y"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Romeo's Sports Car.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "U0_PNA3pmsk"
-  }
- },
- {
-  "id": "mashups-2025-shut-up-sports-car",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Black Eyed Peas",
-    "title": "Shut Up"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "sports car"
-   }
-  ],
-  "displayTitle": "Shut Up Sports Car",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZ0jMq5ZQ4yh2G0HcYuOtJdrR8kjd77vhRFV"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Shut Up Sports Car.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-signs-from-work",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Tate McRae",
-    "title": "signs"
-   },
-   {
-    "artist": "Fifth Harmony",
-    "title": "Work From Home"
-   }
-  ],
-  "displayTitle": "Signs from Work",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZ5jMq5Z7BHAeF77BGj4K77N3wNFgSR5GngX"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Signs from Work.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-sports-car-extended",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Tate McRae",
-    "title": "sports car"
-   }
-  ],
-  "displayTitle": "sports car extended",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZ143h5Z3DW75SYoJEjpOdx2mbOt38SgTiIy"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "sports car extended.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-this-is-what-3-dance-for",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "3",
-    "artist": "Britney Spears"
-   },
-   {
-    "title": "This is What We Dance For",
-    "artist": "JADE"
-   }
-  ],
-  "displayTitle": "This is What 3 Dance For",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZJjMq5ZFNxUo4UXzY0iJSjdPmNunBFjR99y"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "HUP3E4tnRqY"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "This is What 3 Dance For.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-touch-on-it",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Touch",
-    "artist": "KATSEYE"
-   },
-   {
-    "title": "Check On It",
-    "artist": "Beyonce"
-   }
-  ],
-  "displayTitle": "Touch On It",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZFjMq5ZDaS3fFGVVpuUsdOTiaOm3XOSKB4X"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "YhU8Prrsl_I"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Touch On It.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-unusual-box",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "JADE",
-    "title": "Plastic Box"
-   },
-   {
-    "artist": "Britney Spears",
-    "title": "Unusual You"
-   }
-  ],
-  "displayTitle": "Unusual Box",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZpjMq5ZHIfjUMQhJsp4I7Q2Akd3AQyQT5r7"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Unusual Box.mp3",
-   "folder": "Mashups 2025"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "8-c2W4mp8Jw"
-  }
- },
- {
-  "id": "mashups-2025-where-is-my-prerogative",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "My Prerogative",
-    "artist": "Britney Spears"
-   },
-   {
-    "title": "Where Is My Husband?",
-    "artist": "RAYE"
-   }
-  ],
-  "displayTitle": "Where Is My Prerogative",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZzjMq5ZVRGQOVzxeLb2kKK8QmUqQLobvUIy"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "7mKL29kbZWw"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Where Is My Prerogative.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-wildest-purple-lace-bra",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Taylor Swift",
-    "title": "Wildest Dreams"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "purple lace bra"
-   }
-  ],
-  "displayTitle": "wildest purple lace bra",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZRjMq5Z0rlL2dNmM7jPPTBlPAU0s5DQ7KnV"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "wildest purple lace bra.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2025-yes-baby-another-day",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Die Another Day",
-    "artist": "Madonna"
-   },
-   {
-    "title": "Yes Baby",
-    "artist": "Madison Beer"
-   }
-  ],
-  "displayTitle": "Yes Baby Another Day",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZLjMq5ZQiTwxDyS4gzju62dzTFiqXa5YRNy"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "wPMrt09iN2o"
-  },
-  "tags": [
-   "Mashups 2025",
-   "2025"
-  ],
-  "year": "2025",
-  "dateAdded": "2025-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Yes Baby Another Day.mp3",
-   "folder": "Mashups 2025"
-  }
- },
- {
-  "id": "mashups-2026-bad-enough-pov",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "pov",
-    "artist": "Ariana Grande"
-   },
-   {
-    "title": "Bad Enough",
-    "artist": "Madison Beer"
-   }
-  ],
-  "displayTitle": "Bad Enough POV",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZ4jMq5ZW3380H6aQDQHkgJXaEr1pjyVAXLV"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "eaexrq6u5WA"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Bad Enough POV.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "mashups-2026-club-song-in-the-sports-car",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Pussycat Dolls",
-    "title": "Club Song"
-   },
-   {
-    "artist": "Tate McRae",
-    "title": "sports car"
-   }
-  ],
-  "displayTitle": "Club Song in the sports car",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZ8jMq5Z73x3wFJJVjVYoM5jCMhBpJvoID7X"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Club Song in the sports car.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "mashups-2026-just-keep-watching-my-new-religion",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Tate McRae",
-    "title": "Just Keep Watching"
-   },
-   {
-    "artist": "Bebe Rexha",
-    "title": "New Religion"
-   }
-  ],
-  "displayTitle": "Just Keep Watching My New Religion",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZQjMq5ZLMm5bzk6AauAIrB3rKyi5yo6CfOy"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Just Keep Watching My New Religion.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "mashups-2026-late-night-creme-brulee",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Late Night Talking",
-    "artist": "Harry Styles"
-   },
-   {
-    "title": "Creme Brulee",
-    "artist": "David Archuleta"
-   }
-  ],
-  "displayTitle": "Late Night Creme Brulee",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZYjMq5ZlzW4Yv3a5bQHmpxuFtM5xF77g3cX"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "nYwc89AyZco"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Late Night Creme Brulee.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "mashups-2026-move-thirst-traps-along",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Move Along",
-    "artist": "All-American Rejects"
-   },
-   {
-    "title": "Thirst Trap",
-    "artist": "Audrey Hobert"
-   }
-  ],
-  "displayTitle": "Move Thirst Traps Along",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZmjMq5Zkvzo2ddobH078Kop8gj4HXkdHzqy"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "0EnN2XnxRkg"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Move Thirst Traps Along.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "mashups-2026-somebody-that-we-dont-talk",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Gotye ft. Kimbra",
-    "title": "Somebody That I Used to Know"
-   },
-   {
-    "artist": "Hilary Duff",
-    "title": "We Don't Talk"
-   }
-  ],
-  "displayTitle": "Somebody We Don't Talk About",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZbjMq5ZyORjaNPOXRXCel8617Ja1bPR06py"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Somebody That We Don't Talk.mp3",
-   "folder": "Mashups 2026"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "N5LVzMbJXds"
-  }
- },
- {
-  "id": "mashups-2026-too-much-is-what-i-like",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "Bruna Mars",
-    "title": "That's What I Like"
-   },
-   {
-    "artist": "Dove Cameron",
-    "title": "Too Much"
-   }
-  ],
-  "displayTitle": "Too Much Is What I Like",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZhjMq5ZkXKGscz8b5uJWSmOKOON1SDaBYIy"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Too Much Is What I Like.mp3",
-   "folder": "Mashups 2026"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "IgaN1sjcldg"
-  }
- },
- {
-  "id": "mashups-2026-trap-gabriela",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "artist": "KATSEYE",
-    "title": "Gabreila"
-   },
-   {
-    "artist": "Fetty Wap",
-    "title": "Trap Queen"
-   }
-  ],
-  "displayTitle": "Trap Gabriela",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZSjMq5ZQbc1QRTf1WLhtH9gNWqsw8NWlLbX"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "file": "Trap Gabriela.mp3",
-   "folder": "Mashups 2026"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "08yyDe74P7M"
-  }
- },
- {
-  "id": "mashups-2026-walking-on-superscars",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "Walking on Air",
-    "artist": "Katy Perry"
-   },
-   {
-    "title": "SUPERSCAR",
-    "artist": "Adéla"
-   }
-  ],
-  "displayTitle": "Walking on Superscars",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZjjMq5Zn5M3FR94cGhJth5cNvoo7kJkfobV"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "WwJwg6r-giw"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "Walking on Superscars.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "mashups-2026-we-found-maturity",
-  "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [
-   {
-    "title": "We Found Love",
-    "artist": "Rihanna"
-   },
-   {
-    "title": "Mature",
-    "artist": "Hilary Duff"
-   }
-  ],
-  "displayTitle": "We Found Maturity",
-  "isOwnUpload": true,
-  "audio": {
-   "type": "pcloud",
-   "publicLink": "https://u.pcloud.link/publink/show?code=XZujMq5ZT7MXp2v8fr88cAuM0XqnmpmBPmn7"
-  },
-  "video": {
-   "type": "youtube",
-   "sourceId": "MbobABd6U-I"
-  },
-  "tags": [
-   "Mashups 2026",
-   "2026"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-01-01",
-  "meta": {
-   "songSource": "youtube-description",
-   "needsMetadata": false,
-   "file": "We Found Maturity.mp3",
-   "folder": "Mashups 2026"
-  }
- },
- {
-  "id": "demo-other-artist-youtube",
-  "mashupArtist": "Demo Artist (replace me)",
-  "sourceSongs": [
-   {
-    "title": "Locked Away",
-    "artist": "R. City ft. Adam Levine"
-   },
-   {
-    "title": "Sorry",
-    "artist": "Justin Bieber"
-   }
-  ],
-  "displayTitle": "DEMO — aggregator entry (YouTube embed only)",
-  "isOwnUpload": false,
-  "video": {
-   "type": "youtube",
-   "sourceId": "m0kGLZGH88E"
-  },
-  "tags": [
-   "demo"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-07-02",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "demo": true
-  }
- },
- {
-  "id": "demo-other-artist-tiktok",
-  "mashupArtist": "Demo Artist (replace me)",
-  "sourceSongs": [
-   {
-    "title": "",
-    "artist": "Example Artist"
-   }
-  ],
-  "displayTitle": "DEMO — aggregator entry (TikTok embed only)",
-  "isOwnUpload": false,
-  "video": {
-   "type": "tiktok",
-   "sourceId": "https://www.tiktok.com/@scout2015/video/6718335390845095173"
-  },
-  "tags": [
-   "demo"
-  ],
-  "year": "2026",
-  "dateAdded": "2026-07-02",
-  "meta": {
-   "songSource": "manual",
-   "needsMetadata": false,
-   "demo": true
-  }
- }
-]
+   "type":
