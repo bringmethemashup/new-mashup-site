@@ -17,7 +17,7 @@
  * Some accounts live on the EU cluster; if api.pcloud.com rejects the code we
  * retry against eapi.pcloud.com before giving up.
  */
-import { SUPABASE_URL } from './config.js';
+import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
 
 const CACHE_KEY = 'bmtm.pcloud.cache.v1';
 const SAFETY_MS = 10 * 60 * 1000; // treat links as dead 10 min before real expiry
@@ -54,7 +54,9 @@ export async function resolveAudioUrl(publicLink, { force = false } = {}) {
       // last resort: some ISP DNS servers can't resolve api.pcloud.com at
       // all — let our own backend do the lookup server-side instead.
       if (!SUPABASE_URL) throw e2;
-      const r = await fetch(`${SUPABASE_URL}/functions/v1/pcloud-resolve?code=${code}`);
+      const r = await fetch(`${SUPABASE_URL}/functions/v1/pcloud-resolve?code=${code}`, {
+        headers: { apikey: SUPABASE_ANON_KEY, Authorization: `Bearer ${SUPABASE_ANON_KEY}` },
+      });
       j = await r.json();
       if (j.result !== 0 || !j.hosts?.length) throw new Error(`pCloud proxy result ${j.result}`);
     }
