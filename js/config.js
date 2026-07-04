@@ -34,7 +34,7 @@ export const APK_URL = 'https://github.com/bringmethemashup/new-mashup-site/rele
  * This key ships in the browser, so lock it down in Google Cloud Console:
  *   APIs & Services → Credentials → your key →
  *     • Application restrictions: HTTP referrers → add
- *         https://bringmethemashup.github.io/*   (and http://localhost:*/ for testing)
+ *         https://bringmethemashup.github.io/*   (and http://localhost:* for testing)
  *     • API restrictions: restrict to "YouTube Data API v3"
  * Leave empty to hide the Autofill button entirely.
  */
