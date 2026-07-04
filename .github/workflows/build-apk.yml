@@ -94,7 +94,7 @@ jobs:
 
       - name: Decode signing keystore
         if: ${{ env.HAS_KEYSTORE == 'true' }}
-        run: echo "${{ secrets.ANDROID_KEYSTORE_B64 }}" | base64 -d > android/app/bmtm-release.keystore
+        run: echo "${{ secrets.ANDROID_KEYSTORE_B64 }}" | tr -d "[:space:]" | base64 -d > android/app/bmtm-release.keystore
 
       - name: Build APK
         env:
