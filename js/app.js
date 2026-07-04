@@ -1106,6 +1106,41 @@ if (CapApp?.addListener) {
   CapApp.addListener('backButton', () => { if (!handleBack()) CapApp.exitApp(); });
 }
 
+/* ---------------- app-update check (Android app shell only) ----------------
+   The app loads the live website, so web changes appear instantly. Only the
+   native APK needs a manual reinstall (e.g. new Capacitor plugins). On launch
+   we compare the installed APK version (App.getInfo) against app-version.txt on
+   the live site; if the site is newer, show a one-tap Download banner. */
+function verNewer(a, b) {
+  const pa = String(a).split('.').map((n) => parseInt(n, 10) || 0);
+  const pb = String(b).split('.').map((n) => parseInt(n, 10) || 0);
+  for (let i = 0; i < Math.max(pa.length, pb.length); i++) {
+    if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) > (pb[i] || 0);
+  }
+  return false;
+}
+async function checkForUpdate() {
+  if (!CapApp?.getInfo) return;                       // only inside the native app
+  try {
+    const info = await CapApp.getInfo();              // { version, build, ... }
+    const res = await fetch('app-version.txt?ts=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) return;
+    const latest = (await res.text()).trim();
+    if (latest && verNewer(latest, info.version)) showUpdateBanner(latest, info.version);
+  } catch {}
+}
+function showUpdateBanner(latest, current) {
+  if (document.getElementById('updbar')) return;
+  const bar = document.createElement('div');
+  bar.id = 'updbar';
+  bar.innerHTML = `<span class="ut">New version <b>${esc(latest)}</b> is ready — you have ${esc(current)}.</span>
+    <button id="upd-get">Download</button>
+    <button id="upd-later" title="Later">✕</button>`;
+  document.body.appendChild(bar);
+  bar.querySelector('#upd-get').addEventListener('click', () => window.open(APK_URL, '_blank'));
+  bar.querySelector('#upd-later').addEventListener('click', () => bar.remove());
+}
+
 /* ---------------- keyboard ---------------- */
 document.addEventListener('keydown', (e) => {
   if (e.target.matches('input, textarea, select')) return;
@@ -1132,4 +1167,6 @@ document.addEventListener('keydown', (e) => {
   viz.attach($('#viz-full'), 'full');
   viz.attach($('#viz-mini'), 'mini');
   viz.setAmbient(true);
+
+  checkForUpdate();
 })();

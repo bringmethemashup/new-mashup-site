@@ -68,8 +68,9 @@ export function parseSongLine(raw) {
   line = line.replace(new RegExp(`^\\d{1,2}:\\d{2}(?::\\d{2})?\\s*${DASH}?\\s*`), '');
   line = clean(line);
   if (!line || line.length > 120) return null;
-  // skip obvious non-song lines
-  if (/^(track\s?list|tracklist|songs?\s+used|sources?|credits?|follow|subscribe|instagram|tiktok|spotify|download|buy|©|all rights)/i.test(line)) return null;
+  // skip obvious non-song / promo lines (either as a leading label or anywhere in the line)
+  if (/^(track\s?list|tracklist|songs?\s+used|sources?|credits?|follow|subscribe|instagram|tiktok|spotify|download|buy|listen|stream|watch|check\s+out|new\s+video|©|all rights)/i.test(line)) return null;
+  if (/\b(subscribe|instagram|tiktok|spotify|soundcloud|patreon|link\s+(below|in\s+bio)|all\s+rights\s+reserved|my\s+channel)\b/i.test(line)) return null;
   const m = line.match(new RegExp(`^(.*?)\\s+${DASH}\\s+(.*)$`));
   if (!m) return null;
   const artist = clean(m[1]);

@@ -18,11 +18,29 @@ const authListeners = [];
 
 export const enabled = () => !!(SUPABASE_URL && SUPABASE_ANON_KEY);
 
+/* ---- Capacitor native app detection + plugin access ----
+ * On the website window.Capacitor is undefined, so isNative() is false and
+ * every branch below falls back to the plain-web behaviour. Inside the
+ * Android app the OAuth round-trip must return via a custom URL scheme
+ * (an https redirect would just open the site in Chrome and never come
+ * back to the app). */
+const cap = () => (typeof window !== 'undefined' ? window.Capacitor : null);
+const isNative = () => !!cap()?.isNativePlatform?.();
+const capPlugin = (name) => cap()?.Plugins?.[name] || null;
+const NATIVE_REDIRECT = 'com.bringmethemashup.app://login-callback';
+
 export async function init() {
   if (!enabled()) return null;
   if (sb) return sb;
   const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
-  sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+  sb = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+    auth: {
+      flowType: 'pkce',        // works for both web redirect and native deep link
+      detectSessionInUrl: true, // web: auto-exchange the ?code= on return
+      persistSession: true,
+      autoRefreshToken: true,
+    },
+  });
   const { data } = await sb.auth.getSession();
   session = data.session || null;
   if (session) await loadProfile();
@@ -32,7 +50,39 @@ export async function init() {
     if (session) await loadProfile();
     authListeners.forEach((f) => f(user(), profile));
   });
+  if (isNative()) registerDeepLinkAuth();
   return sb;
+}
+
+/** Native only: catch the com.bringmethemashup.app://login-callback deep link
+ *  that Supabase redirects to after Google sign-in, and turn it into a
+ *  session. Without this the app has no way to receive the OAuth result. */
+function registerDeepLinkAuth() {
+  const App = capPlugin('App');
+  if (!App?.addListener) return;
+  App.addListener('appUrlOpen', async ({ url }) => {
+    if (!url || url.indexOf(NATIVE_REDIRECT) !== 0) return;
+    // Dismiss the in-app browser tab if it's still showing.
+    const Browser = capPlugin('Browser');
+    if (Browser?.close) { try { await Browser.close(); } catch (_) {} }
+    try {
+      const u = new URL(url);
+      const code = u.searchParams.get('code');
+      if (code) {
+        const { error } = await sb.auth.exchangeCodeForSession(code);
+        if (error) throw error;
+      } else if (u.hash && u.hash.includes('access_token')) {
+        const p = new URLSearchParams(u.hash.replace(/^#/, ''));
+        const { error } = await sb.auth.setSession({
+          access_token: p.get('access_token'),
+          refresh_token: p.get('refresh_token'),
+        });
+        if (error) throw error;
+      }
+    } catch (e) {
+      console.error('[auth] deep-link sign-in failed', e);
+    }
+  });
 }
 
 async function loadProfile() {
@@ -62,8 +112,22 @@ export async function signIn(email, password) {
 }
 export async function signOut() { await sb.auth.signOut(); }
 
-/** Google OAuth — redirects away and back; session is picked up on return. */
+/** Google OAuth.
+ *  Web: redirect away and back; supabase-js exchanges the ?code= on return.
+ *  Native app: open the consent page in the system browser and come back via
+ *  the custom-scheme deep link (see registerDeepLinkAuth). */
 export async function signInWithGoogle() {
+  if (isNative()) {
+    const { data, error } = await sb.auth.signInWithOAuth({
+      provider: 'google',
+      options: { redirectTo: NATIVE_REDIRECT, skipBrowserRedirect: true },
+    });
+    if (error) throw error;
+    const Browser = capPlugin('Browser');
+    if (Browser?.open) await Browser.open({ url: data.url });
+    else window.location.href = data.url; // fallback if Browser plugin missing
+    return;
+  }
   const { error } = await sb.auth.signInWithOAuth({
     provider: 'google',
     options: { redirectTo: location.origin + location.pathname },
