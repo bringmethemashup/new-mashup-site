@@ -201,8 +201,14 @@ function onRowClick(e) {
   player.playNow(visible.map((t) => t.id), idx);
 }
 
-/* ---------------- explorer (Miller columns) ---------------- */
+/* ---------------- explorer (single-column drill-down) ----------------
+   Flow (per Ian): pick an artist/song -> the screen lists the MASHUPS it
+   appears in -> tap a mashup to play it and see the OTHER songs inside ->
+   tap one of those to keep walking the web. One screen at a time, with a
+   back step + breadcrumb (also driven by the Android hardware back button).
+   expPath is a stack: node keys ('a:..'/'s:..') or track refs ('t:<id>'). */
 const expSearch = $('#exp-search'), expSugg = $('#exp-sugg'), colsEl = $('#columns');
+colsEl.classList.add('solo');
 
 expSearch.addEventListener('input', () => {
   const res = searchNodes(expSearch.value);
@@ -214,98 +220,138 @@ expSugg.addEventListener('click', (e) => {
   const b = e.target.closest('button[data-key]'); if (!b) return;
   expPath = [b.dataset.key];
   expSugg.classList.add('hidden');
-  expSearch.value = getNode(b.dataset.key)?.name || '';
-  renderColumns();
+  expSearch.value = '';
+  renderExplorer();
 });
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.exp-searchwrap')) expSugg.classList.add('hidden');
 });
 
-/* Narrowing flow (per Ian): pick an artist/song -> next column lists the
-   MASHUPS featuring it -> clicking a mashup plays it and opens what's inside
-   it -> pick another artist/song from it to keep exploring. expPath entries
-   are node keys ('a:..'/'s:..') or track refs ('t:<id>'). */
-
-function nodeItemHtml(n) {
-  return `<div class="conn" data-key="${esc(n.key)}">
-    <button class="head">
-      <span class="nm">${esc(n.name)}</span>
-      <span class="knd">${n.kind}</span>
-      <span class="cnt">${n.trackIds.size}</span>
-    </button>
-  </div>`;
+function expEntryName(entry) {
+  if (entry.startsWith('t:')) return get(entry.slice(2))?.displayTitle || 'mashup';
+  return getNode(entry)?.name || '';
 }
 
-function trackItemHtml(t) {
-  return `<div class="conn" data-track="${esc(t.id)}">
+function expTrackRowHtml(t) {
+  const cur = player.current()?.id === t.id, playing = cur && !player.audio.paused;
+  return `<div class="conn${cur ? ' sel' : ''}" data-track="${esc(t.id)}">
     <button class="head">
-      <svg class="tk" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <svg class="tk" viewBox="0 0 24 24" width="14" style="fill:var(--accent);flex:none">${playing ? '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>' : '<path d="M8 5v14l11-7z"/>'}</svg>
       <span class="nm">${esc(t.displayTitle)}</span>
       <span class="cnt">${t.year || ''}</span>
     </button>
   </div>`;
 }
 
-function colHtml(entry, depth) {
-  if (entry.startsWith('t:')) {
-    // a mashup: show the artists/songs inside it
-    const t = get(entry.slice(2));
-    if (!t) return '';
-    const cameFrom = expPath[depth - 1];
-    const inside = nodesOfTrack(t.id).filter((n) => n.key !== cameFrom);
-    return `<div class="col" data-depth="${depth}">
-      <header>
-        <div class="kind">mashup</div>
-        <h3>${esc(t.displayTitle)}</h3>
-        <div class="meta">${esc(t.mashupArtist || '')}${t.year ? ' · ' + t.year : ''} · inside it:</div>
-      </header>
-      <div class="items">${inside.map(nodeItemHtml).join('')
-        || '<div class="empty" style="padding:24px 10px">No song data for this mashup yet.</div>'}</div>
-    </div>`;
-  }
-  const node = getNode(entry);
-  if (!node) return '';
-  const list = sortTracks([...node.trackIds].map(get).filter(Boolean));
-  return `<div class="col" data-depth="${depth}">
-    <header>
-      <div class="kind">${node.kind}</div>
-      <h3>${esc(node.name)}</h3>
-      <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — click one to play it</div>
-    </header>
-    <div class="items">${list.map(trackItemHtml).join('')}</div>
+function expNodeRowHtml(n) {
+  return `<div class="conn" data-key="${esc(n.key)}">
+    <button class="head">
+      <span class="nm">${esc(n.name)}</span>
+      <span class="knd">${n.kind}</span>
+      <span class="cnt">${n.trackIds.size} ›</span>
+    </button>
   </div>`;
 }
 
-function renderColumns() {
-  colsEl.innerHTML = expPath.map((k, d) => colHtml(k, d)).join('');
-  // mark selected chain
-  expPath.forEach((k, d) => {
-    if (d + 1 < expPath.length) {
-      const col = colsEl.children[d];
-      col && $$('.conn', col).forEach((c) => c.classList.toggle('sel',
-        (c.dataset.key || 't:' + c.dataset.track) === expPath[d + 1]));
-    }
-  });
-  colsEl.scrollLeft = colsEl.scrollWidth;
+function expBreadcrumb() {
+  if (expPath.length <= 1) return '';
+  return `<div class="exp-crumbs">${expPath.map((e, i) =>
+    `<button class="crumb" data-depth="${i}">${esc(expEntryName(e))}</button>`)
+    .join('<span class="sep">›</span>')}</div>`;
+}
+
+/** Popular starting points shown when the Explorer is empty. */
+function renderExplorerStart() {
+  const top = nodesByKind('artist')
+    .map((n) => ({ key: n.key, name: n.name, count: n.trackIds.size }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+    .slice(0, 40);
+  colsEl.innerHTML = `<div class="col full" data-depth="0">
+    <header><div class="kind">start here</div><h3>Popular artists</h3>
+    <div class="meta">Pick an artist — or search above — to see every mashup it appears in</div></header>
+    <div class="items">${top.map((n) => `<div class="conn" data-key="${esc(n.key)}">
+      <button class="head"><span class="nm">${esc(n.name)}</span><span class="cnt">${n.count} ›</span></button>
+    </div>`).join('') || '<div class="empty" style="padding:24px 10px">Search for a song or artist above to begin.</div>'}</div>
+  </div>`;
+}
+
+function renderExplorer() {
+  if (!expPath.length) return renderExplorerStart();
+  const depth = expPath.length - 1;
+  const entry = expPath[depth];
+  let inner;
+  if (entry.startsWith('t:')) {
+    const t = get(entry.slice(2));
+    if (!t) { expPath.pop(); return renderExplorer(); }
+    const cameFrom = expPath[depth - 1];
+    const inside = nodesOfTrack(t.id).filter((n) => n.key !== cameFrom);
+    const cur = player.current()?.id === t.id, playing = cur && !player.audio.paused;
+    inner = `<div class="col full" data-depth="${depth}">
+      <header>
+        <div class="chead">
+          ${depth ? '<button class="expback" title="Back">‹</button>' : ''}
+          <div class="kind">mashup</div>
+          <button class="expplay${playing ? ' on' : ''}" data-play="${esc(t.id)}" title="Play this mashup">${playing ? I.pause : I.play}</button>
+        </div>
+        <h3>${esc(t.displayTitle)}</h3>
+        <div class="meta">${esc(t.mashupArtist || '')}${t.year ? ' · ' + t.year : ''} · tap a song to keep exploring</div>
+      </header>
+      <div class="items">${inside.map(expNodeRowHtml).join('')
+        || '<div class="empty" style="padding:24px 10px">No song data for this mashup yet.</div>'}</div>
+    </div>`;
+  } else {
+    const node = getNode(entry);
+    if (!node) { expPath.pop(); return renderExplorer(); }
+    const list = sortTracks([...node.trackIds].map(get).filter(Boolean));
+    inner = `<div class="col full" data-depth="${depth}">
+      <header>
+        <div class="chead">
+          ${depth ? '<button class="expback" title="Back">‹</button>' : ''}
+          <div class="kind">${node.kind}</div>
+        </div>
+        <h3>${esc(node.name)}</h3>
+        <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — tap one to play it</div>
+      </header>
+      <div class="items">${list.map(expTrackRowHtml).join('')}</div>
+    </div>`;
+  }
+  colsEl.innerHTML = expBreadcrumb() + inner;
+}
+
+/** Used by the hardware back button: step up one level. Returns true if it did. */
+function explorerBack() {
+  if (view !== 'explorer' || !expPath.length) return false;
+  expPath.pop();
+  renderExplorer();
+  return true;
 }
 
 colsEl.addEventListener('click', (e) => {
-  const conn = e.target.closest('.conn'); if (!conn) return;
-  const col = conn.closest('.col');
-  const depth = +col.dataset.depth;
-  if (conn.dataset.track) {
-    // a mashup: play it (queue = every mashup in this column) + open its contents
-    const id = conn.dataset.track;
-    const colIds = $$('.conn[data-track]', col).map((c) => c.dataset.track);
-    visible = colIds.map(get).filter(Boolean);
-    const cur = player.current();
-    if (cur?.id === id) player.toggle();
-    else player.playNow(colIds, colIds.indexOf(id));
-    expPath = [...expPath.slice(0, depth + 1), 't:' + id];
-  } else {
-    expPath = [...expPath.slice(0, depth + 1), conn.dataset.key];
+  if (e.target.closest('.expback')) { expPath.pop(); renderExplorer(); return; }
+  const crumb = e.target.closest('.crumb');
+  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); renderExplorer(); return; }
+  const playBtn = e.target.closest('.expplay');
+  if (playBtn) {
+    const id = playBtn.dataset.play;
+    if (player.current()?.id === id) player.toggle();
+    else { visible = [get(id)].filter(Boolean); player.playNow([id], 0); openFullPlayer(); }
+    renderExplorer();
+    return;
   }
-  renderColumns();
+  const conn = e.target.closest('.conn'); if (!conn) return;
+  if (conn.dataset.track) {
+    // a mashup: play it (queue = every mashup on this screen) + open its contents
+    const id = conn.dataset.track;
+    const colIds = $$('.conn[data-track]', colsEl).map((c) => c.dataset.track);
+    visible = colIds.map(get).filter(Boolean);
+    if (player.current()?.id === id) player.toggle();
+    else player.playNow(colIds, colIds.indexOf(id));
+    expPath = [...expPath, 't:' + id];
+    renderExplorer();
+  } else if (conn.dataset.key) {
+    expPath = [...expPath, conn.dataset.key];
+    renderExplorer();
+  }
 });
 
 /* ---------------- browse: albums + recommendations ---------------- */
@@ -452,6 +498,11 @@ function renderHome() {
   const greet = h < 5 ? 'Up late?' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
   homeEl.innerHTML = `
     <div class="listhead"><h1>${greet}</h1></div>
+    <div class="home-quick">
+      <button class="qbtn primary" id="hm-shuffle">⤨ Shuffle all mashups</button>
+      <button class="qbtn" id="hm-surprise">✨ Surprise me</button>
+      <button class="qbtn" data-cat="__explore">🕸 Explore connections</button>
+    </div>
     ${recentTracks.length ? `<section class="brsec">
       <h2 class="brh">Recently played</h2>
       <div class="reccards">${recentTracks.map(recCardHtml).join('')}</div>
@@ -524,6 +575,22 @@ function renderHomeTracks() {
 homeEl.addEventListener('click', (e) => {
   if (e.target.closest('#hm-back')) { homeNav = null; renderHome(); return; }
   if (e.target.closest('#hm-back-cat')) { homeNav = { cat: homeNav.cat }; renderHome(); return; }
+  if (e.target.closest('#hm-shuffle')) {
+    const ids = all().map((t) => t.id);
+    if (!ids.length) return;
+    player.setShuffle(true); $('#pl-shuffle')?.classList.add('on');
+    player.playNow(ids, Math.floor(Math.random() * ids.length));
+    openFullPlayer();
+    return;
+  }
+  if (e.target.closest('#hm-surprise')) {
+    const ids = all().map((t) => t.id);
+    if (!ids.length) return;
+    const i = Math.floor(Math.random() * ids.length);
+    visible = all(); player.playNow(ids, i); openFullPlayer();
+    return;
+  }
+  if (e.target.closest('[data-cat="__explore"]')) { show('explorer'); return; }
   if (e.target.closest('#hm-playall')) {
     if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
     return;
@@ -565,7 +632,8 @@ function show(v) {
   if (v === 'home') { homeNav = null; renderHome(); }
   else if (v === 'browse') renderBrowse();
   else if (v === 'playlists') renderPlaylists();
-  else if (v !== 'explorer') renderLibrary();
+  else if (v === 'explorer') renderExplorer();
+  else renderLibrary();
 }
 $$('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
 
@@ -762,6 +830,7 @@ function renderNowRows() {
     r.classList.toggle('current', isCur);
     r.classList.toggle('playing', isCur && !player.audio.paused);
   });
+  if (view === 'explorer') renderExplorer(); // refresh play/pause highlight
 }
 
 /* ---------------- playlists view ---------------- */
@@ -1012,13 +1081,38 @@ function toast(msg) {
   clearTimeout(toastH); toastH = setTimeout(() => el.classList.remove('show'), 2200);
 }
 
+/* ---------------- in-app back navigation ----------------
+   One place that decides what "back" means. The Android hardware back button
+   (via Capacitor's App plugin) and the Esc key both route through here, so back
+   walks the UI — close a dialog, collapse the player, step up a drill-down, or
+   return to Home — instead of instantly exiting the app. Returns true if it
+   consumed the action; false means "nothing left, allow exit". */
+function handleBack() {
+  const dlg = document.querySelector('dialog[open]');
+  if (dlg) { dlg.close(); return true; }
+  if (pl.classList.contains('show')) { pl.classList.remove('show'); return true; }
+  if ($('#queue').classList.contains('show')) { $('#queue').classList.remove('show'); return true; }
+  if (view === 'explorer' && expPath.length) { expPath.pop(); renderExplorer(); return true; }
+  if (view === 'home' && homeNav) { homeNav = homeNav.key ? { cat: homeNav.cat } : null; renderHome(); return true; }
+  if (view === 'browse' && browseAlbum) { browseAlbum = null; renderBrowse(); return true; }
+  if (view === 'playlists' && openPlaylist) { openPlaylist = null; renderPlaylists(); return true; }
+  if (view !== 'home') { show('home'); return true; }
+  return false;
+}
+
+/* Android hardware back button (only present inside the Capacitor app shell). */
+const CapApp = window.Capacitor?.Plugins?.App;
+if (CapApp?.addListener) {
+  CapApp.addListener('backButton', () => { if (!handleBack()) CapApp.exitApp(); });
+}
+
 /* ---------------- keyboard ---------------- */
 document.addEventListener('keydown', (e) => {
   if (e.target.matches('input, textarea, select')) return;
   if (e.code === 'Space') { e.preventDefault(); player.toggle(); }
   if (e.code === 'ArrowRight' && e.shiftKey) player.next();
   if (e.code === 'ArrowLeft' && e.shiftKey) player.prev();
-  if (e.code === 'Escape') { pl.classList.remove('show'); $('#queue').classList.remove('show'); }
+  if (e.code === 'Escape') { if (!handleBack()) { /* nothing to close */ } }
 });
 
 /* ---------------- boot ---------------- */

@@ -78,7 +78,9 @@ input { font-family: inherit; }
 
 header.topbar {
   display: flex; align-items: center; gap: 20px;
-  padding: 18px 28px 14px;
+  /* push the whole bar below the device status bar / notch on the app + PWA
+     (viewport-fit=cover lets the page draw under it, so add the safe inset) */
+  padding: calc(18px + env(safe-area-inset-top, 0px)) 28px 14px;
 }
 .brand {
   font-weight: 800; letter-spacing: .06em; font-size: 15px;
@@ -199,6 +201,16 @@ select.sort {
 .brh em { font-style: normal; color: var(--accent); }
 .brhint { padding: 26px 20px; color: var(--text-dim); font-size: 13.5px; }
 
+.home-quick { display: flex; flex-wrap: wrap; gap: 8px; padding: 2px 16px 10px; }
+.home-quick .qbtn {
+  padding: 9px 14px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  background: var(--bg-elev); border: 1px solid var(--line); color: var(--text);
+  transition: transform .2s var(--ease-spring), background .2s, border-color .2s;
+}
+.home-quick .qbtn:hover { transform: translateY(-1px); background: var(--row-hover); }
+.home-quick .qbtn.primary { background: var(--accent); border-color: transparent; color: #fff; }
+.home-quick .qbtn.primary:hover { filter: brightness(1.08); background: var(--accent); }
+
 .albumgrid {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
   gap: 14px; padding: 0 16px 10px;
@@ -308,6 +320,33 @@ select.sort {
 }
 .via button:hover { color: var(--text); background: var(--row-hover); }
 .via button svg { width: 11px; height: 11px; fill: var(--accent); flex: none; }
+
+/* single-column drill-down mode */
+.columns.solo { flex-direction: column; overflow-x: hidden; gap: 8px; }
+.col.full { width: 100%; max-width: 620px; margin: 0 auto; }
+.exp-crumbs {
+  width: 100%; max-width: 620px; margin: 0 auto; display: flex; flex-wrap: wrap;
+  align-items: center; gap: 3px; padding: 2px 6px; font-size: 12px; color: var(--text-dim);
+}
+.exp-crumbs .crumb {
+  color: var(--text-dim); padding: 3px 6px; border-radius: 7px; white-space: nowrap;
+  max-width: 150px; overflow: hidden; text-overflow: ellipsis;
+}
+.exp-crumbs .crumb:hover { color: var(--text); background: var(--row-hover); }
+.exp-crumbs .crumb:last-child { color: var(--text); font-weight: 600; }
+.exp-crumbs .sep { opacity: .45; }
+.col .chead { display: flex; align-items: center; gap: 10px; }
+.expback {
+  font-size: 22px; line-height: 1; color: var(--text); width: 30px; height: 30px;
+  border-radius: 8px; flex: none; margin-left: -6px;
+}
+.expback:hover { background: var(--row-hover); }
+.expplay {
+  margin-left: auto; width: 36px; height: 36px; border-radius: 50%; background: var(--accent);
+  color: #fff; display: flex; align-items: center; justify-content: center; flex: none;
+}
+.expplay svg { width: 18px; height: 18px; fill: #fff; }
+.conn .knd { flex: none; }
 
 /* ---------- mini player ---------- */
 #mini {

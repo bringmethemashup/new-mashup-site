@@ -128,6 +128,7 @@ function renderList() {
                              <button class="chip danger" data-reject="${esc(r.id)}">Reject</button>` : ''}
       ${tab === 'rejected' ? `<button class="chip ok" data-approve="${esc(r.id)}">Approve</button>` : ''}
       ${tab === 'approved' ? `<button class="chip danger" data-unpub="${esc(r.id)}">Unpublish</button>` : ''}
+      <button class="chip danger" data-delete="${esc(r.id)}" title="Delete permanently">🗑</button>
     </div>`;
   }).join('') || '<div class="note">Nothing here.</div>';
 }
@@ -143,12 +144,19 @@ $('#list').addEventListener('click', async (e) => {
   const approve = e.target.closest('[data-approve]');
   const reject = e.target.closest('[data-reject]');
   const unpub = e.target.closest('[data-unpub]');
+  const del = e.target.closest('[data-delete]');
   const edit = e.target.closest('[data-edit], [data-edit2]');
   const preview = e.target.closest('[data-preview]');
   try {
     if (approve) { await backend.adminSetStatus(approve.dataset.approve, 'approved'); return load(); }
     if (reject) { await backend.adminSetStatus(reject.dataset.reject, 'rejected'); return load(); }
     if (unpub) { await backend.adminSetStatus(unpub.dataset.unpub, 'pending'); return load(); }
+    if (del) {
+      const r = rows.find((x) => x.id === del.dataset.delete);
+      if (!confirm(`Permanently delete "${r?.data?.displayTitle || del.dataset.delete}"? This cannot be undone.`)) return;
+      await backend.adminDeleteTrack(del.dataset.delete);
+      return load();
+    }
     if (preview) {
       const r = rows.find((x) => x.id === preview.dataset.preview);
       const d = r?.data;

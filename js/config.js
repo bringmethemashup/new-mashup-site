@@ -25,3 +25,17 @@ export const PCLOUD_RELAY_URL = '';
  * stale — no hardcoded version, no per-release URL edits.
  */
 export const APK_URL = 'https://github.com/bringmethemashup/new-mashup-site/releases/latest/download/bring-me-the-mashup.apk';
+
+/**
+ * YouTube Data API v3 key — powers the "Autofill songs from YouTube" button
+ * in the submit / admin / editor forms. It reads a video's title + description
+ * and guesses the source songs.
+ *
+ * This key ships in the browser, so lock it down in Google Cloud Console:
+ *   APIs & Services → Credentials → your key →
+ *     • Application restrictions: HTTP referrers → add
+ *         https://bringmethemashup.github.io/*   (and http://localhost:*/ for testing)
+ *     • API restrictions: restrict to "YouTube Data API v3"
+ * Leave empty to hide the Autofill button entirely.
+ */
+export const YT_API_KEY = '';

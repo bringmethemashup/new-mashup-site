@@ -6,6 +6,8 @@
  * per row, matching the `sourceSongs` schema from Prompt 1 exactly. That's
  * what keeps the Mashup Explorer's connections accurate.
  */
+import { fetchVideoMeta, parseSourceSongs, ytEnabled } from './ytmeta.js';
+
 const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
 export function formHtml(entry = {}, { showMedia = true } = {}) {
@@ -39,6 +41,8 @@ export function formHtml(entry = {}, { showMedia = true } = {}) {
   </div>
   <div class="f tf-link-f hidden"><label class="tf-link-label">Link</label>
     <input class="tf-link" value="${esc(entry.audio?.publicLink || (entry.video?.type === 'tiktok' ? entry.video?.sourceId : '') || (entry.video?.type === 'youtube' && entry.video?.sourceId ? 'https://youtu.be/' + entry.video.sourceId : ''))}" placeholder="https://…">
+    <button type="button" class="chip tf-yt-autofill hidden" style="margin-top:8px">↧ Autofill songs from YouTube</button>
+    <div class="tf-yt-status" style="font-size:12px;color:var(--text-dim);margin-top:6px;min-height:1em"></div>
   </div>` : ''}`;
 }
 
@@ -50,14 +54,58 @@ export function songRowHtml(s = { artist: '', title: '' }) {
   </div>`;
 }
 
+/**
+ * Fill the source-song rows in `root` from parsed candidates WITHOUT
+ * overwriting anything the user already typed: blank rows get filled first,
+ * then extra candidates are appended as new rows. Returns how many were added.
+ */
+export function fillEmptySongRows(root, songs) {
+  const box = root.querySelector('.tf-songs');
+  let added = 0;
+  for (const s of songs) {
+    if (!s.artist && !s.title) continue;
+    let target = [...box.querySelectorAll('.songrow')].find((r) =>
+      !r.querySelector('.sr-artist').value.trim() && !r.querySelector('.sr-title').value.trim());
+    if (!target) {
+      box.insertAdjacentHTML('beforeend', songRowHtml());
+      target = box.lastElementChild;
+    }
+    target.querySelector('.sr-artist').value = s.artist || '';
+    target.querySelector('.sr-title').value = s.title || '';
+    added++;
+  }
+  return added;
+}
+
 /** Wire up add/remove song rows + media-kind switching inside `root`. */
 export function bindForm(root) {
-  root.addEventListener('click', (e) => {
+  root.addEventListener('click', async (e) => {
     if (e.target.closest('.tf-addsong')) {
       root.querySelector('.tf-songs').insertAdjacentHTML('beforeend', songRowHtml());
     }
     const del = e.target.closest('.sr-del');
     if (del && root.querySelectorAll('.songrow').length > 1) del.closest('.songrow').remove();
+
+    const auto = e.target.closest('.tf-yt-autofill');
+    if (auto) {
+      const status = root.querySelector('.tf-yt-status');
+      const say = (msg) => { if (status) status.textContent = msg; };
+      const id = parseYouTubeId(root.querySelector('.tf-link')?.value || '');
+      if (!id) return say('Paste a YouTube link above first.');
+      auto.disabled = true;
+      say('Reading the YouTube video…');
+      try {
+        const meta = await fetchVideoMeta(id);
+        const songs = parseSourceSongs(meta);
+        if (!songs.length) { say('Couldn’t find song info in that video’s title or description — add them by hand.'); return; }
+        const added = fillEmptySongRows(root, songs);
+        say(`Added ${added} song${added === 1 ? '' : 's'} from “${meta.title.slice(0, 60)}”. Please double-check them.`);
+      } catch (err) {
+        say(err.message || 'Autofill failed.');
+      } finally {
+        auto.disabled = false;
+      }
+    }
   });
   const media = root.querySelector('.tf-media');
   if (media) {
@@ -68,6 +116,9 @@ export function bindForm(root) {
       const lbl = root.querySelector('.tf-link-label');
       if (lbl) lbl.textContent = v === 'youtube' ? 'YouTube video link'
         : v === 'tiktok' ? 'TikTok video link' : 'pCloud public link';
+      // Autofill only makes sense for YouTube, and only if a key is configured.
+      root.querySelector('.tf-yt-autofill')?.classList.toggle('hidden', !(v === 'youtube' && ytEnabled()));
+      const st = root.querySelector('.tf-yt-status'); if (st) st.textContent = '';
     };
     media.addEventListener('change', sync);
     sync();

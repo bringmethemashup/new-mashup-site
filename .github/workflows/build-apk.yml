@@ -44,7 +44,7 @@ jobs:
           java-version: 21
 
       - name: Install Capacitor
-        run: npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest
+        run: npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest @capacitor/app@latest
 
       - name: Assemble web assets (fallback bundle; app loads the live site)
         run: |
