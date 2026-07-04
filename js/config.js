@@ -12,5 +12,12 @@
 export const SUPABASE_URL = 'https://txkmwsnvtwobhrdrablw.supabase.co';
 export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InR4a213c252dHdvYmhyZHJhYmx3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODMwOTY0MjQsImV4cCI6MjA5ODY3MjQyNH0.S4gQFyfNUhcUbIh5vBaNEj3VxQONTYcuc9VaSCxN74c';
 
+/**
+ * Audio relay for listeners whose ISP DNS blocks pCloud (see
+ * cloudflare/worker.js). Set to the deployed worker URL, e.g.
+ * 'https://bmtm-audio.yourname.workers.dev'. Empty = relay disabled.
+ */
+export const PCLOUD_RELAY_URL = '';
+
 /** GitHub release page that hosts the Android APK download. */
 export const APK_URL = 'https://github.com/bringmethemashup/new-mashup-site/releases/latest';

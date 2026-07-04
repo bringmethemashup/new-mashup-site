@@ -17,6 +17,8 @@
  * Some accounts live on the EU cluster; if api.pcloud.com rejects the code we
  * retry against eapi.pcloud.com before giving up.
  */
+import { PCLOUD_RELAY_URL } from './config.js';
+
 const CACHE_KEY = 'bmtm.pcloud.cache.v1';
 const SAFETY_MS = 10 * 60 * 1000; // treat links as dead 10 min before real expiry
 
@@ -31,7 +33,10 @@ export function extractCode(publicLink) {
 }
 
 async function callApi(host, code) {
-  const r = await fetch(`https://${host}/getpublinkdownload?code=${code}`);
+  // referrerPolicy is REQUIRED: as of mid-2026 pCloud rejects getpublinkdownload
+  // calls that carry a third-party Referer header with result 7010
+  // ("Invalid link referer."). Omitting the referer makes it work again.
+  const r = await fetch(`https://${host}/getpublinkdownload?code=${code}`, { referrerPolicy: 'no-referrer' });
   const j = await r.json();
   if (j.result !== 0 || !j.hosts?.length) throw new Error(`pCloud API result ${j.result}`);
   return j;
@@ -44,14 +49,22 @@ export async function resolveAudioUrl(publicLink, { force = false } = {}) {
   const hit = cache[code];
   if (!force && hit && hit.exp > Date.now() + SAFETY_MS) return hit.url;
 
-  // NOTE: server-side resolution CANNOT work as a fallback — pCloud locks
-  // the returned download URL to the IP that requested it ("This link was
-  // generated for another IP address"). Resolution must happen in the
-  // listener's own browser. If their DNS can't reach pCloud, the player
-  // falls back to the track's video (see player.js).
+  // NOTE: plain server-side *resolution* cannot work as a fallback — pCloud
+  // locks download URLs to the requesting IP. So when direct resolution
+  // fails (broken ISP DNS), we stream through our relay worker instead,
+  // which resolves AND serves the audio from the same IP.
   let j;
   try { j = await callApi('api.pcloud.com', code); }
-  catch { j = await callApi('eapi.pcloud.com', code); }
+  catch {
+    try { j = await callApi('eapi.pcloud.com', code); }
+    catch (e2) {
+      if (!PCLOUD_RELAY_URL) throw e2;
+      const url = `${PCLOUD_RELAY_URL.replace(/\/$/, '')}/?code=${code}`;
+      cache[code] = { url, exp: Date.now() + 24 * 60 * 60 * 1000 }; // relay URL is stable
+      persist();
+      return url;
+    }
+  }
 
   const url = 'https://' + j.hosts[0] + j.path;
   const exp = Date.parse(j.expires) || (Date.now() + 2 * 60 * 60 * 1000);
