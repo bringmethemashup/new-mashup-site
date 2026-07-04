@@ -17,8 +17,6 @@
  * Some accounts live on the EU cluster; if api.pcloud.com rejects the code we
  * retry against eapi.pcloud.com before giving up.
  */
-import { SUPABASE_URL, SUPABASE_ANON_KEY } from './config.js';
-
 const CACHE_KEY = 'bmtm.pcloud.cache.v1';
 const SAFETY_MS = 10 * 60 * 1000; // treat links as dead 10 min before real expiry
 
@@ -46,27 +44,14 @@ export async function resolveAudioUrl(publicLink, { force = false } = {}) {
   const hit = cache[code];
   if (!force && hit && hit.exp > Date.now() + SAFETY_MS) return hit.url;
 
+  // NOTE: server-side resolution CANNOT work as a fallback — pCloud locks
+  // the returned download URL to the IP that requested it ("This link was
+  // generated for another IP address"). Resolution must happen in the
+  // listener's own browser. If their DNS can't reach pCloud, the player
+  // falls back to the track's video (see player.js).
   let j;
   try { j = await callApi('api.pcloud.com', code); }
-  catch {
-    try { j = await callApi('eapi.pcloud.com', code); }
-    catch (e2) {
-      // last resort: some ISP DNS servers can't resolve api.pcloud.com at
-      // all — let our own backend do the lookup server-side instead.
-      if (!SUPABASE_URL) throw e2;
-      const r = await fetch(`${SUPABASE_URL}/rest/v1/rpc/pcloud_resolve`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
-        },
-        body: JSON.stringify({ link_code: code }),
-      });
-      j = await r.json();
-      if (j.result !== 0 || !j.hosts?.length) throw new Error(`pCloud proxy result ${j.result}`);
-    }
-  }
+  catch { j = await callApi('eapi.pcloud.com', code); }
 
   const url = 'https://' + j.hosts[0] + j.path;
   const exp = Date.parse(j.expires) || (Date.now() + 2 * 60 * 60 * 1000);

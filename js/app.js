@@ -552,6 +552,11 @@ player.on('trackchange', (t) => {
   renderNowRows();
 });
 player.on('embedonly', () => { openFullPlayer(); });
+player.on('videofallback', () => {
+  openFullPlayer();
+  setVideoMode(true, true);
+  toast('Audio host unreachable on your network — playing the video instead');
+});
 player.on('play', () => { syncPlayIcons(true); });
 player.on('pause', () => { syncPlayIcons(false); });
 player.on('queue', renderQueue);
@@ -561,7 +566,7 @@ player.on('time', ({ t, d }) => {
   $('#t-dur').textContent = fmt(d);
   $('#mini-prog .fill').style.width = d ? (t / d * 100) + '%' : '0%';
 });
-player.on('error', () => toast('Could not play this track — link may be offline'));
+player.on('error', () => toast('Could not reach the audio host (pCloud) — your network may be blocking it, and this track has no video version'));
 
 function syncPlayIcons(playing) {
   $('#pp').innerHTML = playing ? I.pause : I.play;

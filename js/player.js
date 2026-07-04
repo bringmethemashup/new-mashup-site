@@ -93,6 +93,9 @@ async function loadAndPlay(track, { retried = false } = {}) {
       return loadAndPlay(track, { retried: true });
     }
     console.error('Playback failed', err);
+    // audio unreachable (e.g. ISP DNS blocks pCloud) but the track has a
+    // video -> play that instead of failing
+    if (track.video) { emit('videofallback', track); return; }
     emit('error', { track, err });
   }
 }
