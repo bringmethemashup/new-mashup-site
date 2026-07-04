@@ -2,7 +2,8 @@
 # (tag: app-latest). The site then links to the release download — no Play
 # Store involved.
 #
-# How to run: GitHub → Actions tab → "Build Android APK" → Run workflow.
+# How to run: automatically on every push to `main` (that touches app files),
+# or manually via GitHub → Actions tab → "Build Android APK" → Run workflow.
 #
 # Signing: add two repository secrets (Settings → Secrets and variables →
 # Actions) so every build has the SAME signature and installs update over
@@ -15,6 +16,12 @@ name: Build Android APK
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'android-signing/**'
+      - '.gitignore'
 
 permissions:
   contents: write   # needed to create/update the release
@@ -29,7 +36,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22   # Capacitor CLI requires Node >= 22
 
       - uses: actions/setup-java@v4
         with:
