@@ -25,7 +25,8 @@
       <button id="search-clear" title="Clear">✕</button>
     </div>
     <nav class="tabs">
-      <button class="tab active" data-view="library">Library</button>
+      <button class="tab active" data-view="home">Home</button>
+      <button class="tab" data-view="library">Library</button>
       <button class="tab" data-view="browse">Browse</button>
       <button class="tab" data-view="explorer">Explorer</button>
       <button class="tab" data-view="liked">Liked</button>
@@ -38,8 +39,11 @@
   </header>
 
   <main>
+    <!-- Home: recently played, recommendations, browse categories -->
+    <section class="view" id="view-home"></section>
+
     <!-- Library / Liked -->
-    <section class="view" id="view-library">
+    <section class="view hidden" id="view-library">
       <div class="listhead">
         <h1 id="lib-title">Library</h1>
         <span class="count" id="lib-count"></span>
@@ -65,7 +69,7 @@
     <section class="view hidden" id="view-explorer">
       <div class="exp-intro">
         <h1>Mashup Explorer</h1>
-        <p>Pick a song or artist, then walk the web of everything it's been mashed with — column by column.</p>
+        <p>Pick a song or artist to see every mashup it appears in. Click a mashup to play it and open what's inside — then keep walking the web.</p>
       </div>
       <div class="exp-searchwrap">
         <input id="exp-search" type="search" placeholder="Start with a song or artist…" autocomplete="off">

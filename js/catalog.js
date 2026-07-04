@@ -123,6 +123,31 @@ export function connectionsOf(key) {
 
 export const getNode = (key) => nodes.get(key);
 
+/** Explorer: the artist/song nodes appearing in one track (for "inside this mashup"). */
+export function nodesOfTrack(trackId) {
+  const t = byId.get(trackId);
+  if (!t) return [];
+  return [...nodeKeysForTrack(t)].map((k) => nodes.get(k)).filter(Boolean);
+}
+
+/** All nodes of one kind ('artist' | 'song') — for the Home browse indexes. */
+export function nodesByKind(kind) {
+  return [...nodes.values()].filter((n) => n.kind === kind);
+}
+
+/** Distinct mashup artists with their tracks — for the Home browse index. */
+export function mashupArtists() {
+  const m = new Map();
+  for (const t of tracks) {
+    const name = (t.mashupArtist || '').trim();
+    if (!name) continue;
+    const k = norm(name);
+    if (!m.has(k)) m.set(k, { key: 'ma:' + k, name, tracks: [] });
+    m.get(k).tracks.push(t);
+  }
+  return [...m.values()];
+}
+
 /* ---------------- browse: albums derived from catalog fields -------------
    Auto-generated — one album per distinct `year`, one per distinct
    `specialAlbum`. No manual lists to maintain. */

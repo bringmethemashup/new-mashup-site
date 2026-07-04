@@ -19,5 +19,9 @@ export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiO
  */
 export const PCLOUD_RELAY_URL = '';
 
-/** GitHub release page that hosts the Android APK download. */
-export const APK_URL = 'https://github.com/bringmethemashup/new-mashup-site/releases/latest';
+/**
+ * Direct download of the newest APK. GitHub's `releases/latest/download/<name>`
+ * always redirects to the most recent release's asset, so this never goes
+ * stale — no hardcoded version, no per-release URL edits.
+ */
+export const APK_URL = 'https://github.com/bringmethemashup/new-mashup-site/releases/latest/download/bring-me-the-mashup.apk';

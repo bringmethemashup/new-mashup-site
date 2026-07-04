@@ -2,7 +2,7 @@
  * app.js — UI: views (Library / Browse / Explorer / Liked), track rows, queue drawer,
  * mini + full player, theme toggle, ambient background, YouTube video toggle.
  */
-import { loadCatalog, all, get, search, searchNodes, connectionsOf, getNode, albumsByYear, specialAlbums, relatedTo } from './catalog.js';
+import { loadCatalog, all, get, search, searchNodes, getNode, nodesOfTrack, nodesByKind, mashupArtists, albumsByYear, specialAlbums, relatedTo, norm } from './catalog.js';
 import * as player from './player.js';
 import * as viz from './visualizer.js';
 import * as backend from './backend.js';
@@ -46,6 +46,15 @@ const bumpPlay = (id) => {
   if (backend.user()) backend.syncPlays({ [id]: plays[id] }).catch(() => {});
 };
 
+/* recently played (ordered, newest first) — drives the Home page */
+const RECENTS_KEY = 'bmtm.recent.v1';
+let recents = [];
+try { recents = JSON.parse(localStorage.getItem(RECENTS_KEY) || '[]') || []; } catch {}
+const bumpRecent = (id) => {
+  recents = [id, ...recents.filter((x) => x !== id)].slice(0, 30);
+  localStorage.setItem(RECENTS_KEY, JSON.stringify(recents));
+};
+
 /* ---------------- account state (synced when signed in) ---------------- */
 let playlists = [];          // [{id, name, isPublic, trackIds:[]}]
 let openPlaylist = null;     // playlist currently open in the Playlists view
@@ -84,7 +93,8 @@ async function syncAccountState() {
 }
 
 function rerender() {
-  if (view === 'playlists') renderPlaylists();
+  if (view === 'home') renderHome();
+  else if (view === 'playlists') renderPlaylists();
   else if (view === 'browse') renderBrowse();
   else if (view !== 'explorer') renderLibrary();
 }
@@ -211,28 +221,58 @@ document.addEventListener('click', (e) => {
   if (!e.target.closest('.exp-searchwrap')) expSugg.classList.add('hidden');
 });
 
-function colHtml(key, depth) {
-  const node = getNode(key);
-  const conns = connectionsOf(key).filter((c) => !expPath.slice(0, depth + 1).includes(c.node.key));
-  const items = conns.map((c) => `
-    <div class="conn" data-key="${esc(c.node.key)}">
-      <button class="head">
-        <span class="nm">${esc(c.node.name)}</span>
-        <span class="knd">${c.node.kind}</span>
-        <span class="cnt">${c.via.length}</span>
-      </button>
-      <div class="via">${c.via.map((id) => {
-        const t = get(id);
-        return t ? `<button data-play="${esc(id)}"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg><span>${esc(t.displayTitle)}</span></button>` : '';
-      }).join('')}</div>
-    </div>`).join('');
+/* Narrowing flow (per Ian): pick an artist/song -> next column lists the
+   MASHUPS featuring it -> clicking a mashup plays it and opens what's inside
+   it -> pick another artist/song from it to keep exploring. expPath entries
+   are node keys ('a:..'/'s:..') or track refs ('t:<id>'). */
+
+function nodeItemHtml(n) {
+  return `<div class="conn" data-key="${esc(n.key)}">
+    <button class="head">
+      <span class="nm">${esc(n.name)}</span>
+      <span class="knd">${n.kind}</span>
+      <span class="cnt">${n.trackIds.size}</span>
+    </button>
+  </div>`;
+}
+
+function trackItemHtml(t) {
+  return `<div class="conn" data-track="${esc(t.id)}">
+    <button class="head">
+      <svg class="tk" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      <span class="nm">${esc(t.displayTitle)}</span>
+      <span class="cnt">${t.year || ''}</span>
+    </button>
+  </div>`;
+}
+
+function colHtml(entry, depth) {
+  if (entry.startsWith('t:')) {
+    // a mashup: show the artists/songs inside it
+    const t = get(entry.slice(2));
+    if (!t) return '';
+    const cameFrom = expPath[depth - 1];
+    const inside = nodesOfTrack(t.id).filter((n) => n.key !== cameFrom);
+    return `<div class="col" data-depth="${depth}">
+      <header>
+        <div class="kind">mashup</div>
+        <h3>${esc(t.displayTitle)}</h3>
+        <div class="meta">${esc(t.mashupArtist || '')}${t.year ? ' · ' + t.year : ''} · inside it:</div>
+      </header>
+      <div class="items">${inside.map(nodeItemHtml).join('')
+        || '<div class="empty" style="padding:24px 10px">No song data for this mashup yet.</div>'}</div>
+    </div>`;
+  }
+  const node = getNode(entry);
+  if (!node) return '';
+  const list = sortTracks([...node.trackIds].map(get).filter(Boolean));
   return `<div class="col" data-depth="${depth}">
     <header>
       <div class="kind">${node.kind}</div>
       <h3>${esc(node.name)}</h3>
-      <div class="meta">in ${node.trackIds.size} mashup${node.trackIds.size === 1 ? '' : 's'} · ${conns.length} connection${conns.length === 1 ? '' : 's'}</div>
+      <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — click one to play it</div>
     </header>
-    <div class="items">${items || '<div class="empty" style="padding:24px 10px">No further connections.</div>'}</div>
+    <div class="items">${list.map(trackItemHtml).join('')}</div>
   </div>`;
 }
 
@@ -242,36 +282,30 @@ function renderColumns() {
   expPath.forEach((k, d) => {
     if (d + 1 < expPath.length) {
       const col = colsEl.children[d];
-      col && $$('.conn', col).forEach((c) => c.classList.toggle('sel', c.dataset.key === expPath[d + 1]));
+      col && $$('.conn', col).forEach((c) => c.classList.toggle('sel',
+        (c.dataset.key || 't:' + c.dataset.track) === expPath[d + 1]));
     }
   });
   colsEl.scrollLeft = colsEl.scrollWidth;
 }
 
 colsEl.addEventListener('click', (e) => {
-  const playBtn = e.target.closest('[data-play]');
-  if (playBtn) {
-    const id = playBtn.dataset.play;
-    visible = [get(id)];
-    player.playNow([id], 0);
-    openFullPlayer();
-    return;
-  }
-  const head = e.target.closest('.conn > button.head'); if (!head) return;
-  const conn = head.closest('.conn');
+  const conn = e.target.closest('.conn'); if (!conn) return;
   const col = conn.closest('.col');
   const depth = +col.dataset.depth;
-  if (conn.classList.contains('sel')) { // toggle track list on re-click
-    conn.classList.toggle('open');
-    return;
+  if (conn.dataset.track) {
+    // a mashup: play it (queue = every mashup in this column) + open its contents
+    const id = conn.dataset.track;
+    const colIds = $$('.conn[data-track]', col).map((c) => c.dataset.track);
+    visible = colIds.map(get).filter(Boolean);
+    const cur = player.current();
+    if (cur?.id === id) player.toggle();
+    else player.playNow(colIds, colIds.indexOf(id));
+    expPath = [...expPath.slice(0, depth + 1), 't:' + id];
+  } else {
+    expPath = [...expPath.slice(0, depth + 1), conn.dataset.key];
   }
-  // first click: open next column AND expand its "via" list
-  conn.classList.add('open');
-  expPath = [...expPath.slice(0, depth + 1), conn.dataset.key];
   renderColumns();
-  // restore open state on the (re-rendered) selected conn
-  const rcol = colsEl.children[depth];
-  rcol && $$('.conn', rcol).forEach((c) => { if (c.dataset.key === conn.dataset.key) c.classList.add('open', 'sel'); });
 });
 
 /* ---------------- browse: albums + recommendations ---------------- */
@@ -379,22 +413,168 @@ browseEl.addEventListener('click', (e) => {
   onRowClick(e); // album track rows reuse the library row behaviour
 });
 
+/* ---------------- home (Spotify-style landing) ---------------- */
+const homeEl = $('#view-home');
+let homeNav = null; // null | {cat} | {cat, key, name}
+
+const HOME_CATS = [
+  { cat: 'artists', name: 'Artists', unit: 'artist' },
+  { cat: 'songs', name: 'Songs', unit: 'song' },
+  { cat: 'years', name: 'Years', unit: 'year' },
+  { cat: 'mashupArtists', name: 'Mashup Artists', unit: 'mashup artist' },
+];
+
+function homeCatItems(cat) {
+  const byCount = (a, b) => b.count - a.count || a.name.localeCompare(b.name);
+  if (cat === 'artists') return nodesByKind('artist').map((n) => ({ key: n.key, name: n.name, count: n.trackIds.size })).sort(byCount);
+  if (cat === 'songs') return nodesByKind('song').map((n) => ({ key: n.key, name: n.name, count: n.trackIds.size })).sort(byCount);
+  if (cat === 'years') return albumsByYear().map((a) => ({ key: a.key, name: a.name, count: a.tracks.length }));
+  if (cat === 'mashupArtists') return mashupArtists().map((a) => ({ key: a.key, name: a.name, count: a.tracks.length })).sort(byCount);
+  return [];
+}
+
+function homeItemTracks(cat, key) {
+  if (cat === 'artists' || cat === 'songs') {
+    const n = getNode(key);
+    return n ? [...n.trackIds].map(get).filter(Boolean) : [];
+  }
+  if (cat === 'years') return albumsByYear().find((a) => a.key === key)?.tracks || [];
+  if (cat === 'mashupArtists') return mashupArtists().find((a) => a.key === key)?.tracks || [];
+  return [];
+}
+
+function renderHome() {
+  if (homeNav?.key) return renderHomeTracks();
+  if (homeNav?.cat) return renderHomeCategory();
+  const recentTracks = recents.map(get).filter(Boolean).slice(0, 12);
+  const recs = recommendationRows(2);
+  const h = new Date().getHours();
+  const greet = h < 5 ? 'Up late?' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
+  homeEl.innerHTML = `
+    <div class="listhead"><h1>${greet}</h1></div>
+    ${recentTracks.length ? `<section class="brsec">
+      <h2 class="brh">Recently played</h2>
+      <div class="reccards">${recentTracks.map(recCardHtml).join('')}</div>
+    </section>` : ''}
+    ${recs.map((r) => `
+      <section class="brsec">
+        <h2 class="brh">Because you ${r.why} <em>${esc(r.seed.displayTitle)}</em></h2>
+        <div class="reccards">${r.tracks.map(recCardHtml).join('')}</div>
+      </section>`).join('')}
+    <section class="brsec">
+      <h2 class="brh">Browse</h2>
+      <div class="albumgrid">
+        ${HOME_CATS.map((c, i) => {
+          const n = homeCatItems(c.cat).length;
+          return `<button class="albumcard" data-cat="${c.cat}" style="--hue:${(i * 61 + 20) % 360}deg;--d:${Math.min(i * 35, 420)}ms">
+            <div class="art"><span>${c.name}</span></div>
+            <div class="anm">${c.name}</div>
+            <div class="acnt">${n} ${c.unit}${n === 1 ? '' : 's'}</div>
+          </button>`;
+        }).join('')}
+        <button class="albumcard" data-cat="all" style="--hue:300deg;--d:180ms">
+          <div class="art"><span>All</span></div>
+          <div class="anm">All mashups</div>
+          <div class="acnt">${all().length} mashups</div>
+        </button>
+      </div>
+    </section>
+    ${recentTracks.length ? '' : '<div class="brhint">Play a few tracks and your recent plays + recommendations will show up here.</div>'}`;
+}
+
+function renderHomeCategory() {
+  const cat = HOME_CATS.find((c) => c.cat === homeNav.cat);
+  const items = homeCatItems(homeNav.cat);
+  homeEl.innerHTML = `
+    <div class="listhead">
+      <button class="chip" id="hm-back">‹ Home</button>
+      <h1>${cat.name}</h1>
+      <span class="count">${items.length}</span>
+      <span class="spacer"></span>
+      <input class="catfilter" id="hm-filter" type="search" placeholder="Filter ${cat.name.toLowerCase()}…" autocomplete="off">
+    </div>
+    <div class="catlist">${items.map((i) => `
+      <button class="catitem" data-key="${esc(i.key)}" data-name="${esc(i.name)}">
+        <span class="nm">${esc(i.name)}</span><span class="cnt">${i.count}</span>
+      </button>`).join('')}</div>`;
+  const fi = $('#hm-filter');
+  fi.addEventListener('input', () => {
+    const q = norm(fi.value);
+    $$('.catitem', homeEl).forEach((el) =>
+      el.classList.toggle('hidden', !!q && !norm(el.dataset.name).includes(q)));
+  });
+  fi.focus();
+}
+
+function renderHomeTracks() {
+  const cat = HOME_CATS.find((c) => c.cat === homeNav.cat);
+  const list = sortTracks(homeItemTracks(homeNav.cat, homeNav.key));
+  visible = list;
+  homeEl.innerHTML = `
+    <div class="listhead">
+      <button class="chip" id="hm-back-cat">‹ ${cat.name}</button>
+      <h1>${esc(homeNav.name)}</h1>
+      <span class="count">${list.length} mashup${list.length === 1 ? '' : 's'}</span>
+      <span class="spacer"></span>
+      <button class="chip" id="hm-playall">▶ Play all</button>
+    </div>
+    <div class="tracklist">${list.map(rowHtml).join('')}</div>`;
+}
+
+homeEl.addEventListener('click', (e) => {
+  if (e.target.closest('#hm-back')) { homeNav = null; renderHome(); return; }
+  if (e.target.closest('#hm-back-cat')) { homeNav = { cat: homeNav.cat }; renderHome(); return; }
+  if (e.target.closest('#hm-playall')) {
+    if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
+    return;
+  }
+  const catCard = e.target.closest('[data-cat]');
+  if (catCard) {
+    if (catCard.dataset.cat === 'all') { show('library'); return; }
+    homeNav = { cat: catCard.dataset.cat };
+    renderHome();
+    return;
+  }
+  const item = e.target.closest('.catitem');
+  if (item) {
+    homeNav = { cat: homeNav.cat, key: item.dataset.key, name: item.dataset.name };
+    renderHome();
+    return;
+  }
+  const rec = e.target.closest('.reccard');
+  if (rec) {
+    const ids = $$('.reccard', rec.closest('.reccards')).map((c) => c.dataset.id);
+    visible = ids.map(get).filter(Boolean);
+    player.playNow(ids, ids.indexOf(rec.dataset.id));
+    openFullPlayer();
+    return;
+  }
+  onRowClick(e); // track rows reuse the library row behaviour
+});
+
 /* ---------------- views / tabs ---------------- */
 function show(v) {
   if (v === 'playlists' && !backend.user()) { openAuth(); return; }
   view = v;
   $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.view === v));
-  $('#view-library').classList.toggle('hidden', v === 'explorer' || v === 'browse' || v === 'playlists');
+  $('#view-home').classList.toggle('hidden', v !== 'home');
+  $('#view-library').classList.toggle('hidden', v !== 'library' && v !== 'liked');
   $('#view-explorer').classList.toggle('hidden', v !== 'explorer');
   $('#view-browse').classList.toggle('hidden', v !== 'browse');
   $('#view-playlists').classList.toggle('hidden', v !== 'playlists');
-  if (v === 'browse') renderBrowse();
+  if (v === 'home') { homeNav = null; renderHome(); }
+  else if (v === 'browse') renderBrowse();
   else if (v === 'playlists') renderPlaylists();
   else if (v !== 'explorer') renderLibrary();
 }
 $$('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
 
-$('#search').addEventListener('input', debounce(() => { $('#search-clear').style.display = $('#search').value ? 'block' : 'none'; renderLibrary(); }, 120));
+$('#search').addEventListener('input', debounce(() => {
+  $('#search-clear').style.display = $('#search').value ? 'block' : 'none';
+  // typing a search from Home/Browse jumps to the results list
+  if ($('#search').value && (view === 'home' || view === 'browse')) show('library');
+  else renderLibrary();
+}, 120));
 $('#search-clear').addEventListener('click', () => { $('#search').value = ''; $('#search-clear').style.display = 'none'; renderLibrary(); });
 $('#sort').addEventListener('change', (e) => { sort = e.target.value; renderLibrary(); });
 $('#shuffle-all').addEventListener('click', () => {
@@ -532,6 +712,7 @@ function mountEmbed(t) {
 /* ---------------- player events -> UI ---------------- */
 player.on('trackchange', (t) => {
   bumpPlay(t.id);
+  bumpRecent(t.id);
   document.body.classList.add('playing');
   $('#mini .info .t').textContent = t.displayTitle;
   $('#mini .info .s').textContent = songsSummary(t);
@@ -851,8 +1032,7 @@ document.addEventListener('keydown', (e) => {
   setAuthUi();
 
   await loadCatalog();
-  renderLibrary();
-  show('library');
+  show('home');
   if (backend.user()) syncAccountState();
 
   viz.attach($('#viz-full'), 'full');
