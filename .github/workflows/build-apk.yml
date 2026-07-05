@@ -94,7 +94,11 @@ jobs:
 
       - name: Decode signing keystore
         if: ${{ env.HAS_KEYSTORE == 'true' }}
-        run: echo "${{ secrets.ANDROID_KEYSTORE_B64 }}" | tr -d "[:space:]" | base64 -d > android/app/bmtm-release.keystore
+        run: |
+          CLEAN=$(printf '%s' "${{ secrets.ANDROID_KEYSTORE_B64 }}" | tr -d '[:space:]')
+          echo "cleaned base64 length: ${#CLEAN} (expected 3632)"
+          printf '%s' "$CLEAN" | base64 -d -i > android/app/bmtm-release.keystore
+          echo "keystore bytes: $(wc -c < android/app/bmtm-release.keystore) (expected 2724)"
 
       - name: Build APK
         env:
