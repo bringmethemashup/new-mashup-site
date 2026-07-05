@@ -12,10 +12,14 @@ const edges = new Map(); // key -> Map(otherKey -> Set(trackId))
 export const norm = (s) => (s || '').toLowerCase().normalize('NFKD')
   .replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim();
 
+/** "Artist A; Artist B" -> ["Artist A","Artist B"]. Semicolon ONLY — commas
+    appear inside real artist names (Tyler, The Creator), so never split on them. */
+export const splitArtists = (s) => (s || '').split(';').map((p) => p.trim()).filter(Boolean);
+
 function nodeKeysForTrack(t) {
   const keys = new Set();
   for (const s of t.sourceSongs || []) {
-    if (s.artist) keys.add('a:' + norm(s.artist));
+    for (const a of splitArtists(s.artist)) keys.add('a:' + norm(a));
     if (s.title) keys.add('s:' + norm(s.title) + '' + norm(s.artist));
   }
   return keys;
@@ -63,7 +67,7 @@ function reindex() {
 
     // build nodes
     for (const s of t.sourceSongs || []) {
-      if (s.artist) addNode('a:' + norm(s.artist), 'artist', s.artist, t.id);
+      for (const a of splitArtists(s.artist)) addNode('a:' + norm(a), 'artist', a, t.id);
       if (s.title) addNode('s:' + norm(s.title) + '' + norm(s.artist), 'song',
         s.title + (s.artist ? ` — ${s.artist}` : ''), t.id);
     }

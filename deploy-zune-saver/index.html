@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- no-referrer: pCloud rejects API calls AND audio streams that carry a third-party Referer (error 7010) -->
+<meta name="referrer" content="no-referrer">
+<title>Bring Me The Mashup</title>
+<meta name="description" content="Hundreds of mashups — free to stream. Search the catalogue or explore song connections.">
+<link rel="stylesheet" href="css/style.css">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0e0f13">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎛️</text></svg>">
+</head>
+<body>
+<div id="ambient"></div>
+
+<div id="app">
+  <header class="topbar">
+    <div class="brand" onclick="location.hash=''">BRING ME THE <em class="beat">MASHUP</em></div>
+    <div class="searchwrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="Search mashups, songs, artists…" autocomplete="off">
+      <button id="search-clear" title="Clear">✕</button>
+    </div>
+    <nav class="tabs">
+      <button class="tab active" data-view="home">Home</button>
+      <button class="tab" data-view="library">Library</button>
+      <button class="tab" data-view="browse">Browse</button>
+      <button class="tab" data-view="explorer">Explorer</button>
+      <button class="tab" data-view="artists">Artists</button>
+      <button class="tab" data-view="liked">Liked</button>
+      <button class="tab authonly" data-view="playlists">Playlists</button>
+    </nav>
+    <button class="iconbtn" id="theme" title="Toggle theme"><span id="theme-icon"></span></button>
+    <button class="iconbtn hidden" id="account" title="Account">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4 0-8 2-8 5v2h16v-2c0-3-4-5-8-5z"/></svg>
+    </button>
+  </header>
+
+  <main>
+    <!-- Home: recently played, recommendations, browse categories -->
+    <section class="view" id="view-home"></section>
+
+    <!-- Library / Liked -->
+    <section class="view hidden" id="view-library">
+      <div class="listhead">
+        <h1 id="lib-title">Library</h1>
+        <span class="count" id="lib-count"></span>
+        <span class="spacer"></span>
+        <button class="chip" id="shuffle-all">⤨ Shuffle all</button>
+        <select class="sort" id="sort">
+          <option value="new">Newest first</option>
+          <option value="old">Oldest first</option>
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+        </select>
+      </div>
+      <div class="tracklist" id="tracklist"></div>
+    </section>
+
+    <!-- Browse: albums + recommendations -->
+    <section class="view hidden" id="view-browse"></section>
+
+    <!-- Playlists (signed-in) -->
+    <section class="view hidden" id="view-playlists"></section>
+
+    <!-- Account: your page + settings -->
+    <section class="view hidden" id="view-account"></section>
+
+    <!-- Mashup Artists: profile pages with bios -->
+    <section class="view hidden" id="view-artists"></section>
+
+    <!-- Mashup Explorer -->
+    <section class="view hidden" id="view-explorer">
+      <div class="exp-intro">
+        <h1>Mashup Explorer</h1>
+        <p>Pick a song or artist to see every mashup it appears in. Click a mashup to play it and open what's inside — then keep walking the web.</p>
+      </div>
+      <div class="exp-searchwrap">
+        <input id="exp-search" type="search" placeholder="Start with a song or artist…" autocomplete="off">
+        <div class="exp-sugg hidden" id="exp-sugg"></div>
+      </div>
+      <div class="columns" id="columns"></div>
+    </section>
+  </main>
+</div>
+
+<!-- queue drawer -->
+<aside id="queue">
+  <header>
+    <h3>Queue</h3>
+    <span class="count" id="q-count" style="color:var(--text-dim);font-size:12px;margin-right:10px"></span>
+    <button class="iconbtn" id="q-close" title="Close"><svg viewBox="0 0 24 24" fill="currentColor" width="16"><path d="m6.4 5 5.6 5.6L17.6 5 19 6.4 13.4 12l5.6 5.6-1.4 1.4-5.6-5.6L6.4 19 5 17.6 10.6 12 5 6.4z"/></svg></button>
+  </header>
+  <div class="qlist" id="qlist"></div>
+</aside>
+
+<!-- mini player -->
+<div id="mini">
+  <div id="mini-prog"><div class="fill"></div></div>
+  <div class="viz" title="Open player"><canvas id="viz-mini"></canvas></div>
+  <div class="info"><div class="t"></div><div class="s"></div></div>
+  <div class="ctr">
+    <button class="iconbtn" id="mini-prev" title="Previous"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 6h2v12H6zM20 6v12L9.5 12z"/></svg></button>
+    <button class="playbtn" id="mini-play" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="iconbtn" id="mini-next" title="Next"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6h2v12h-2zM4 6v12l10.5-6z"/></svg></button>
+    <button class="iconbtn" id="mini-queue" title="Queue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h13v2H3zm0 5h13v2H3zm0 5h9v2H3zm15-3v-7h2v7h3l-4 4-4-4h3z"/></svg></button>
+  </div>
+</div>
+
+<!-- full player -->
+<section id="player">
+  <div class="pmain">
+  <div class="pbg"></div>
+  <div id="pl-art" aria-hidden="true"></div>
+  <div class="phead">
+    <button class="iconbtn" id="pl-collapse" title="Minimize"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 15.5 4.5 8l1.4-1.4L12 12.7l6.1-6.1L19.5 8z"/></svg></button>
+    <div class="ttl">Now Playing</div>
+    <button class="iconbtn" id="pl-settings" title="Playback settings"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.4 13a7.7 7.7 0 0 0 .1-1 7.7 7.7 0 0 0-.1-1l2.1-1.6a.5.5 0 0 0 .1-.7l-2-3.4a.5.5 0 0 0-.6-.2l-2.5 1a7.5 7.5 0 0 0-1.7-1l-.4-2.6a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 0-.5.5l-.4 2.6a7.5 7.5 0 0 0-1.7 1l-2.5-1a.5.5 0 0 0-.6.2l-2 3.4a.5.5 0 0 0 .1.7L4.5 11a7.7 7.7 0 0 0-.1 1 7.7 7.7 0 0 0 .1 1l-2.1 1.6a.5.5 0 0 0-.1.7l2 3.4c.1.2.4.3.6.2l2.5-1a7.5 7.5 0 0 0 1.7 1l.4 2.6c0 .3.2.5.5.5h4c.3 0 .5-.2.5-.5l.4-2.6a7.5 7.5 0 0 0 1.7-1l2.5 1c.2.1.5 0 .6-.2l2-3.4a.5.5 0 0 0-.1-.7L19.4 13zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z"/></svg></button>
+    <button class="iconbtn" id="pl-queue" title="Queue"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h13v2H3zm0 5h13v2H3zm0 5h9v2H3zm15-3v-7h2v7h3l-4 4-4-4h3z"/></svg></button>
+  </div>
+
+  <div class="stage">
+    <div id="viz-full-wrap"><canvas id="viz-full"></canvas></div>
+    <div id="yt-wrap" class="hidden"></div>
+    <div class="avtoggle hidden" id="av-toggle">
+      <button id="av-audio" class="on"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a5 5 0 0 0-5 5v4a5 5 0 0 0 10 0V8a5 5 0 0 0-5-5zm-7 9a7 7 0 0 0 14 0h2a9 9 0 0 1-8 8.94V23h-2v-2.06A9 9 0 0 1 3 12h2z"/></svg>Audio</button>
+      <button id="av-video"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h12a2 2 0 0 1 2 2v2.5l4-2.5v10l-4-2.5V17a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z"/></svg>Video</button>
+    </div>
+    <div class="meta">
+      <h2 id="pl-title"></h2>
+      <div class="songs" id="pl-songs"></div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="seekwrap">
+      <span class="time" id="t-cur">0:00</span>
+      <div id="seek"><div class="rail"><div class="fill"></div><div class="knob"></div></div></div>
+      <span class="time r" id="t-dur">0:00</span>
+    </div>
+    <div class="transport">
+      <button class="tbtn small" id="pl-shuffle" title="Shuffle"><svg viewBox="0 0 24 24"><path d="M17 4h4v4h-2V6.4l-4.6 4.6-1.4-1.4L17.6 5H17V4zm4 12v4h-4v-1h.6l-3.6-3.6 1.4-1.4L19 17.6V16h2zM3 6h4.2l3.2 3.2-1.4 1.4L6.2 8H3V6zm8.6 6.4 1.4 1.4L7.2 20H3v-2h3.2l5.4-5.6z"/></svg></button>
+      <button class="tbtn" id="pl-prev" title="Previous"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zM20 6v12L9.5 12z"/></svg></button>
+      <button id="pp" title="Play/Pause"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+      <button class="tbtn" id="pl-next" title="Next"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM4 6v12l10.5-6z"/></svg></button>
+      <button class="tbtn small" id="pl-repeat" title="Repeat"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg><span class="rep1"></span></button>
+      <button class="tbtn small heartbtn" id="pl-like" title="Like" style="opacity:1"><svg viewBox="0 0 24 24"><path d="M12 21c-4.8-3.6-9-6.9-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 4.1-4.2 7.4-9 11z"/></svg></button>
+    </div>
+    <button id="pl-hint" title="Explore this mashup">▾ Explore this mashup</button>
+  </div>
+  <div id="saver-crawl" aria-hidden="true"></div>
+  <div id="saver-meta"><b></b><span></span><em id="saver-time"></em></div>
+  </div><!-- /.pmain -->
+  <div class="pdetails"><div class="pdin" id="pl-details"></div></div>
+</section>
+
+<div id="toast"></div>
+
+<!-- auth: sign in / sign up -->
+<dialog id="auth-dlg" class="dlg">
+  <h2 id="auth-title">Sign in</h2>
+  <div class="f"><label>Email</label><input id="auth-email" type="email" autocomplete="email"></div>
+  <div class="f"><label>Password</label><input id="auth-pass" type="password" autocomplete="current-password"></div>
+  <div class="f hidden" id="auth-name-f"><label>Display name</label><input id="auth-name" placeholder="How you'll appear on the site"></div>
+  <div class="dlg-err hidden" id="auth-err"></div>
+  <div class="auth-or"><span>or</span></div>
+  <button class="chip gbtn" id="auth-google">
+    <svg viewBox="0 0 24 24" width="16" height="16"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M5.84 14.1a6.6 6.6 0 0 1 0-4.2V7.06H2.18a11 11 0 0 0 0 9.88l3.66-2.84z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A11 11 0 0 0 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+    Continue with Google
+  </button>
+  <div class="dlg-actions">
+    <button class="chip" id="auth-switch">Need an account? Sign up</button>
+    <span class="spacer"></span>
+    <button class="chip" id="auth-cancel">Cancel</button>
+    <button class="chip primary" id="auth-go">Sign in</button>
+  </div>
+</dialog>
+
+<!-- account menu -->
+<dialog id="acct-dlg" class="dlg">
+  <h2>Account</h2>
+  <p class="dlg-sub" id="acct-who"></p>
+  <div class="acct-actions">
+    <button class="chip" id="acct-role"></button>
+    <button class="chip artistonly" id="acct-yt"></button>
+    <a class="chip artistonly" href="submit.html">🎚 Submit a mashup</a>
+    <a class="chip artistonly" href="submit.html#mine">My submissions</a>
+    <a class="chip adminonly" href="admin.html">🛠 Admin</a>
+    <a class="chip" id="acct-app" href="#" target="_blank" rel="noopener">📱 Get the Android app</a>
+    <button class="chip" id="acct-signout">Sign out</button>
+  </div>
+  <div class="dlg-actions"><button class="chip" id="acct-close">Close</button></div>
+</dialog>
+
+<!-- mashup-artist page editor (bio) -->
+<dialog id="bio-dlg" class="dlg">
+  <h2>Artist page</h2>
+  <p class="dlg-sub" id="bio-who"></p>
+  <div class="f"><label>Bio</label><textarea id="bio-text" rows="6" placeholder="Who are you, what do you mash, where can people find you?"></textarea></div>
+  <div class="f"><label>YouTube channel (optional)</label><input id="bio-yt" placeholder="https://youtube.com/@you"></div>
+  <div class="dlg-err hidden" id="bio-err"></div>
+  <div class="dlg-actions">
+    <button class="chip" id="bio-cancel">Cancel</button>
+    <span class="spacer"></span>
+    <button class="chip primary" id="bio-save">Save</button>
+  </div>
+</dialog>
+
+<!-- add to playlist -->
+<dialog id="pladd-dlg" class="dlg">
+  <h2>Add to playlist</h2>
+  <div id="pladd-list" class="pladd-list"></div>
+  <div class="f" style="margin-top:10px"><label>New playlist</label>
+    <div class="newpl"><input id="pladd-new" placeholder="Playlist name"><button class="chip primary" id="pladd-create">Create & add</button></div>
+  </div>
+  <div class="dlg-actions"><button class="chip" id="pladd-close">Close</button></div>
+</dialog>
+
+<script type="module" src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>

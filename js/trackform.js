@@ -58,7 +58,7 @@ export function formHtml(entry = {}, { showMedia = true } = {}) {
 
 export function songRowHtml(s = { artist: '', title: '' }) {
   return `<div class="songrow">
-    <input class="sr-artist" placeholder="Song artist" value="${esc(s.artist)}">
+    <input class="sr-artist" placeholder="Song artist — use ; between multiple artists" value="${esc(s.artist)}">
     <input class="sr-title" placeholder="Song title" value="${esc(s.title)}">
     <button type="button" class="sr-del" title="Remove">✕</button>
   </div>`;

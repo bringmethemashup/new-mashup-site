@@ -1,0 +1,76 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Preview — montage + Zune HD saver</title>
+<style>
+  :root { --ease-out: cubic-bezier(.22,1,.36,1); --scrim: rgba(15,14,18,.85); --bg:#0f0e12; }
+  html,body{margin:0;height:100%;background:#0f0e12;color:#fff;font-family:system-ui,Segoe UI,Roboto,sans-serif}
+  #hint{position:fixed;top:10px;left:50%;transform:translateX(-50%);z-index:9;background:rgba(0,0,0,.55);padding:8px 16px;border-radius:999px;font-size:12.5px;backdrop-filter:blur(8px)}
+  #player{position:fixed;inset:0;overflow:hidden}
+  /* ---- montage (same rules as the patched style.css) ---- */
+  #pl-art{position:absolute;inset:0;z-index:0;opacity:0;overflow:hidden;transition:opacity 1.2s var(--ease-out)}
+  #pl-art.on{opacity:1}
+  #pl-art .slide{position:absolute;inset:0;opacity:0;transition:opacity 2.2s var(--ease-out)}
+  #pl-art .slide.live{opacity:1}
+  #pl-art .slide .blur,#pl-art .slide .pic{position:absolute;inset:0;background-repeat:no-repeat}
+  #pl-art .slide .blur{background-size:cover;background-position:center 22%;filter:blur(46px) saturate(1.15) brightness(.72);transform:scale(1.18)}
+  #pl-art .slide .pic{background-size:contain;background-position:center;animation:kenburns 26s ease-in-out infinite alternate}
+  @keyframes kenburns{from{transform:scale(1)}to{transform:scale(1.06)}}
+  #pl-art .scrim{position:absolute;inset:0;background:linear-gradient(180deg,var(--scrim) 0%,transparent 30%,transparent 52%,var(--scrim) 86%,var(--bg) 100%)}
+  #pl-art::after{content:"";position:absolute;inset:0;background:#000;opacity:0;transition:opacity 1.6s var(--ease-out);pointer-events:none}
+  body.saver #pl-art::after{opacity:.68}
+  /* ---- meta veil ---- */
+  .stage{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:16vh;z-index:1}
+  .meta{text-align:center;max-width:720px;position:relative;z-index:1;transition:opacity 1.4s var(--ease-out)}
+  .meta::before{content:"";position:absolute;inset:-64px -100vw -40px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.34) 40%,rgba(0,0,0,.5) 100%)}
+  .meta h2{margin:0;font-size:clamp(20px,3.2vw,30px);font-weight:800;letter-spacing:-.02em;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.55)}
+  .meta .songs{color:rgba(255,255,255,.82);font-size:13.5px;margin-top:8px;line-height:1.6}
+  .meta .songs b{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.5)}
+  body.saver .meta{opacity:0}
+  /* ---- saver ---- */
+  #saver-meta{position:absolute;left:6%;bottom:12%;z-index:3;pointer-events:none;opacity:0;transition:opacity 1.5s var(--ease-out)}
+  #saver-meta b{display:block;font-size:clamp(26px,5vw,54px);font-weight:800;letter-spacing:-.02em;text-shadow:0 4px 30px rgba(0,0,0,.55)}
+  #saver-meta span{font-size:clamp(13px,2vw,18px);color:rgba(255,255,255,.85);text-shadow:0 2px 16px rgba(0,0,0,.6)}
+  #saver-meta em{display:block;margin-top:6px;font-style:normal;font-weight:600;font-size:clamp(15px,2.4vw,22px);color:rgba(255,255,255,.92);font-variant-numeric:tabular-nums;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+  body.saver #saver-meta{opacity:1;animation:saverdrift 46s ease-in-out infinite alternate}
+  @keyframes saverdrift{0%{transform:translate(0,0)}33%{transform:translate(6vw,-16vh)}66%{transform:translate(1vw,-34vh)}100%{transform:translate(8vw,-6vh)}}
+  #saver-crawl{position:absolute;inset:0;z-index:2;overflow:hidden;pointer-events:none;opacity:0;transition:opacity 1.2s var(--ease-out)}
+  body.saver #saver-crawl{opacity:1}
+  #saver-crawl .cline{position:absolute;left:0;white-space:nowrap;color:#fff;line-height:.92;will-change:transform;text-shadow:0 2px 24px rgba(0,0,0,.45)}
+  @keyframes crawlR{from{transform:translateX(-100%)}to{transform:translateX(100vw)}}
+  @keyframes crawlL{from{transform:translateX(100vw)}to{transform:translateX(-100%)}}
+  body.saver{cursor:none}
+</style></head><body>
+<div id="hint">Click anywhere to toggle the screensaver — montage rotates every 9s</div>
+<div id="player">
+  <div id="pl-art"></div>
+  <div class="stage"><div class="meta">
+    <h2>Toxic Pony</h2>
+    <div class="songs"><b>Britney Spears</b> – Toxic <span style="opacity:.4">×</span> <b>Ginuwine</b> – Pony <span style="opacity:.4">×</span> <b>Kelis</b> – Milkshake</div>
+  </div></div>
+  <div id="saver-crawl" aria-hidden="true"></div>
+  <div id="saver-meta"><b>Toxic Pony</b><span>Altégo</span><em id="saver-time">1:47 / 3:58</em></div>
+</div>
+<script>
+const $=s=>document.querySelector(s);
+// fake artist "photos" (canvas gradients w/ portrait shapes) so the preview works offline
+function fakePhoto(hue,w,h){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');
+const g=x.createLinearGradient(0,0,w,h);g.addColorStop(0,`hsl(${hue},60%,62%)`);g.addColorStop(1,`hsl(${hue+70},55%,25%)`);x.fillStyle=g;x.fillRect(0,0,w,h);
+x.fillStyle='rgba(255,255,255,.28)';x.beginPath();x.arc(w/2,h*0.36,w*0.16,0,7);x.fill();
+x.beginPath();x.ellipse(w/2,h*0.78,w*0.26,h*0.3,0,0,7);x.fill();return c.toDataURL()}
+const urls=[fakePhoto(210,900,1200),fakePhoto(330,1200,800),fakePhoto(120,1000,1000)];
+const artEl=$('#pl-art');
+artEl.innerHTML=urls.map(u=>`<div class="slide"><div class="blur" style="background-image:url('${u}')"></div><div class="pic" style="background-image:url('${u}')"></div></div>`).join('')+'<div class="scrim"></div>';
+const slides=[...artEl.querySelectorAll('.slide')];let cur=0;slides[0].classList.add('live');
+setInterval(()=>{slides[cur].classList.remove('live');cur=(cur+1)%slides.length;slides[cur].classList.add('live')},9000);
+artEl.classList.add('on');
+// crawl
+const LINES=['Altégo','Britney Spears','Toxic','Ginuwine','Pony','Kelis','Milkshake','Toxic Pony'];
+const STYLES=['font-weight:900;letter-spacing:-.03em;text-transform:uppercase','font-weight:200;letter-spacing:.28em;text-transform:uppercase','font-weight:800;font-style:italic;letter-spacing:-.01em',"font-family:Georgia,'Times New Roman',serif;font-weight:700",'font-family:Georgia,serif;font-style:italic;font-weight:400',"font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-weight:600;letter-spacing:.05em","font-family:'Arial Narrow',sans-serif-condensed,sans-serif;font-weight:700;text-transform:uppercase",'font-weight:300;text-transform:lowercase;letter-spacing:.12em'];
+let crawlT=0,seq=0;
+function startCrawl(){stopCrawl();const box=$('#saver-crawl');const spawn=()=>{if(box.children.length>=7)return;const el=document.createElement('span');const huge=Math.random()<0.28;el.className='cline';el.textContent=LINES[seq++%LINES.length];
+el.style.cssText=STYLES[Math.floor(Math.random()*STYLES.length)]+`;top:${(-6+Math.random()*90).toFixed(1)}%;font-size:${(huge?16+Math.random()*18:4.5+Math.random()*8).toFixed(1)}vmin;opacity:${(0.35+Math.random()*0.6).toFixed(2)};animation:${Math.random()<0.5?'crawlL':'crawlR'} ${(16+Math.random()*16).toFixed(1)}s linear both`;
+el.addEventListener('animationend',()=>el.remove());box.appendChild(el)};spawn();spawn();crawlT=setInterval(spawn,2400)}
+function stopCrawl(){clearInterval(crawlT);$('#saver-crawl').innerHTML=''}
+// fake ticking timestamp
+let t=107;setInterval(()=>{t=(t+1)%238;$('#saver-time').textContent=`${Math.floor(t/60)}:${String(t%60).padStart(2,'0')} / 3:58`},1000);
+document.addEventListener('click',()=>{const on=document.body.classList.toggle('saver');on?startCrawl():stopCrawl()});
+</script></body></html>
