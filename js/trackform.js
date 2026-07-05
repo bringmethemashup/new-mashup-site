@@ -45,7 +45,7 @@ export function formHtml(entry = {}, { showMedia = true } = {}) {
       <option value="direct" ${mediaKind === 'direct' ? 'selected' : ''}>Direct file URL (S3 · R2 · B2 · any host)</option>
     </select>
   </div>
-  <div class="f tf-file-f"><label>File (mp3, m4a, wav, ogg, mp4 — max 100 MB)</label>
+  <div class="f tf-file-f"><label>File (mp3, m4a, wav, ogg, mp4 — max 50 MB on our current storage plan)</label>
     <input type="file" class="tf-file" accept="audio/*,video/mp4,video/webm">
     ${entry.audio?.url ? `<div class="tf-hint">Current file stays unless you pick a new one.</div>` : ''}
   </div>

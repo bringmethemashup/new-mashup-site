@@ -5270,7 +5270,16 @@
  {
   "id": "mashups-2012-turn-up-the-scream-and-shout",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Chris Brown",
+    "title": "Turn Up the Music"
+   },
+   {
+    "artist": "will.i.am & Britney Spears",
+    "title": "Scream & Shout"
+   }
+  ],
   "displayTitle": "Turn Up the Scream and Shout",
   "isOwnUpload": true,
   "audio": {
@@ -5284,8 +5293,8 @@
   "year": "2012",
   "dateAdded": "2012-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Turn Up the Scream and Shout.mp3",
    "folder": "Mashups 2012"
   }
@@ -22469,7 +22478,16 @@
  {
   "id": "mashups-2020-thats-what-i-shut-up",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Bruna Mars",
+    "title": "That's What I Like"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "shut up"
+   }
+  ],
   "displayTitle": "That's What I Shut Up",
   "isOwnUpload": true,
   "audio": {
@@ -22483,17 +22501,58 @@
   "year": "2020",
   "dateAdded": "2020-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "That's What I Shut Up.mp3",
    "folder": "Mashups 2020"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "8f5VUKXdiR8"
   }
  },
  {
   "id": "mashups-2020-the-one-mashup-version-2",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
-  "displayTitle": "The One Mashup Version 2",
+  "sourceSongs": [
+   {
+    "artist": "Betty Who",
+    "title": "The One"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Oops! I Did It Again"
+   },
+   {
+    "artist": "Jennifer Lopez",
+    "title": "Love Don't Cost a Thing"
+   },
+   {
+    "artist": "Aaliyah",
+    "title": "Try Again"
+   },
+   {
+    "artist": "P!nk",
+    "title": "Most Girls"
+   },
+   {
+    "artist": "*NSYNC",
+    "title": "It's Gonna Be More"
+   },
+   {
+    "artist": "Meghan Tranior",
+    "title": "Nice To Meet Ya"
+   },
+   {
+    "artist": "Samantha Mumba",
+    "title": "Baby Come Over"
+   },
+   {
+    "artist": "Backstreet Boys",
+    "title": "Larger Than Life"
+   }
+  ],
+  "displayTitle": "The One Mashup (Version 2)",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -22506,8 +22565,8 @@
   "year": "2020",
   "dateAdded": "2020-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "The One Mashup Version 2.mp3",
    "folder": "Mashups 2020"
   }
@@ -22551,7 +22610,16 @@
  {
   "id": "mashups-2020-touch-my-irresistible-body",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Mariah Carey",
+    "title": "Touch My Body"
+   },
+   {
+    "artist": "Fall Out Boy",
+    "title": "Irresistible"
+   }
+  ],
   "displayTitle": "Touch My Irresistible Body",
   "isOwnUpload": true,
   "audio": {
@@ -22565,16 +22633,29 @@
   "year": "2020",
   "dateAdded": "2020-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Touch My Irresistible Body.mp3",
    "folder": "Mashups 2020"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "rMDofP75ek0"
   }
  },
  {
   "id": "mashups-2020-whats-your-fantasy-for-a-wap",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Ludacris",
+    "title": "What's Your Fantasy"
+   },
+   {
+    "artist": "Cardi B & Megan Thee Stallion",
+    "title": "WAP"
+   }
+  ],
   "displayTitle": "What's Your Fantasy for a WAP",
   "isOwnUpload": true,
   "audio": {
@@ -22588,8 +22669,8 @@
   "year": "2020",
   "dateAdded": "2020-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "What's Your Fantasy for a WAP.mp3",
    "folder": "Mashups 2020"
   }
@@ -22633,7 +22714,12 @@
  {
   "id": "mashups-2021-bad-to-you-with-dua",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Ariana Grande",
+    "title": "Bad To You"
+   }
+  ],
   "displayTitle": "Bad To You with Dua",
   "isOwnUpload": true,
   "audio": {
@@ -22647,8 +22733,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Bad To You with Dua.mp3",
    "folder": "Mashups 2021"
   }
@@ -22656,7 +22742,16 @@
  {
   "id": "mashups-2021-beautiful-montero",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Shakira & Beyonce",
+    "title": "Beautiful Liar"
+   },
+   {
+    "artist": "LIl Nas X",
+    "title": "Montero"
+   }
+  ],
   "displayTitle": "Beautiful Montero",
   "isOwnUpload": true,
   "audio": {
@@ -22670,8 +22765,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Beautiful Montero.mp3",
    "folder": "Mashups 2021"
   }
@@ -22679,7 +22774,16 @@
  {
   "id": "mashups-2021-cant-hold-industry-baby",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Macklemore & Ryan Lewis",
+    "title": "Can't Hold Us"
+   },
+   {
+    "artist": "Lil Nax X",
+    "title": "Industry Baby (ft. Jack Harlow)"
+   }
+  ],
   "displayTitle": "Can't Hold Industry Baby",
   "isOwnUpload": true,
   "audio": {
@@ -22693,17 +22797,30 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Can't Hold Industry Baby.mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "epD1brNj-_0"
   }
  },
  {
   "id": "mashups-2021-come-back-to-the-blinding-light-fixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
-  "displayTitle": "Come Back to the Blinding Light (Fixed)",
+  "sourceSongs": [
+   {
+    "artist": "The Weeknd",
+    "title": "Blinding Lights"
+   },
+   {
+    "artist": "Player",
+    "title": "Baby Come Back"
+   }
+  ],
+  "displayTitle": "Come Back to the Blinding Light",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -22716,8 +22833,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Come Back to the Blinding Light (Fixed).mp3",
    "folder": "Mashups 2021"
   }
@@ -22725,7 +22842,24 @@
  {
   "id": "mashups-2021-enigma-mashup-bmtm-pride-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Lady Gaga",
+    "title": "Enigma"
+   },
+   {
+    "artist": "Gloria Gaynor",
+    "title": "I Will Survive"
+   },
+   {
+    "artist": "The Weeknd",
+    "title": "Can't Feel My Face"
+   },
+   {
+    "artist": "The Commodores",
+    "title": "Brick House"
+   }
+  ],
   "displayTitle": "Enigma Mashup (BMTM Pride Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -22739,8 +22873,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Enigma Mashup (BMTM Pride Solo Version).mp3",
    "folder": "Mashups 2021"
   }
@@ -22748,7 +22882,16 @@
  {
   "id": "mashups-2021-exaholic-sacrifice",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Bebe Rexha",
+    "title": "Sacrifice"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Exaholic"
+   }
+  ],
   "displayTitle": "Exaholic Sacrifice",
   "isOwnUpload": true,
   "audio": {
@@ -22762,8 +22905,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Exaholic Sacrifice.mp3",
    "folder": "Mashups 2021"
   }
@@ -22771,7 +22914,32 @@
  {
   "id": "mashups-2021-get-outta-my-way-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Kylie Minogue",
+    "title": "Get Outta My Way"
+   },
+   {
+    "artist": "Nicole Scherzinger",
+    "title": "Don't Hold Your Breath"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "Neon Lights"
+   },
+   {
+    "artist": "Troye Sivan",
+    "title": "Bloom"
+   },
+   {
+    "artist": "Carly Rae Jepsen",
+    "title": "Cut to the Feeling"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "Love Again"
+   }
+  ],
   "displayTitle": "Get Outta My Way Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -22785,8 +22953,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Get Outta My Way Mashup.mp3",
    "folder": "Mashups 2021"
   }
@@ -22830,7 +22998,16 @@
  {
   "id": "mashups-2021-give-monsters-what-i-want",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Miley Cyrus",
+    "title": "Gimme What I Want"
+   },
+   {
+    "artist": "All Time Low",
+    "title": "Monsters (ft. Blackbear & Demi Lovato)"
+   }
+  ],
   "displayTitle": "Give Monsters What I Want",
   "isOwnUpload": true,
   "audio": {
@@ -22844,8 +23021,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Give Monsters What I Want.mp3",
    "folder": "Mashups 2021"
   }
@@ -22853,7 +23030,32 @@
  {
   "id": "mashups-2021-good-ones-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Charli xcx",
+    "title": "Good Ones"
+   },
+   {
+    "artist": "MUNA",
+    "title": "Number One Fan"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "No Tears Left to Cry"
+   },
+   {
+    "artist": "Cobra Starship",
+    "title": "You Make Me Feel (ft. Sabi)"
+   },
+   {
+    "artist": "Christina Aguilera",
+    "title": "Primadonna"
+   },
+   {
+    "artist": "Eiffel 65",
+    "title": "Blue (Da Be Dee)"
+   }
+  ],
   "displayTitle": "Good Ones Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -22867,16 +23069,29 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Good Ones Mashup Mixed.mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "RvsZ1Af6n8I"
   }
  },
  {
   "id": "mashups-2021-hey-look-ma-i-34-35d",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Panic! At the Disco",
+    "title": "Hey Look Ma, I Made It"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "34 + 35"
+   }
+  ],
   "displayTitle": "Hey Look Ma, I 34 + 35'd",
   "isOwnUpload": true,
   "audio": {
@@ -22890,17 +23105,30 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Hey Look Ma, I 34 + 35'd.mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "nnefekp4_F4"
   }
  },
  {
   "id": "mashups-2021-hurts-like-ice-cream-retimed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
-  "displayTitle": "Hurts Like Ice Cream (Retimed)",
+  "sourceSongs": [
+   {
+    "artist": "Madison Beer",
+    "title": "Hurts Like Hell"
+   },
+   {
+    "artist": "BLACKPINK",
+    "title": "Ice Cream (ft. Selena Gomez)"
+   }
+  ],
+  "displayTitle": "Hurts Like Ice Cream",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -22913,10 +23141,14 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Hurts Like Ice Cream (Retimed).mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "3-S5fhgrO3Y"
   }
  },
  {
@@ -22994,7 +23226,24 @@
  {
   "id": "mashups-2021-im-ready-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Sam Smith & Demi Lovato",
+    "title": "I'm Ready"
+   },
+   {
+    "artist": "Panic! At the Disco",
+    "title": "Miss Jackson"
+   },
+   {
+    "artist": "Katy Perry",
+    "title": "Not the End of the World"
+   },
+   {
+    "artist": "Kesha",
+    "title": "Tonight"
+   }
+  ],
   "displayTitle": "I'm Ready Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -23008,8 +23257,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "I'm Ready Mashup Mixed.mp3",
    "folder": "Mashups 2021"
   }
@@ -23017,7 +23266,16 @@
  {
   "id": "mashups-2021-ice-cream-girlfriend",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Avril Lavigne",
+    "title": "Girlfriend"
+   },
+   {
+    "artist": "BLACKPINK",
+    "title": "Ice Cream (ft. Selena Gomez)"
+   }
+  ],
   "displayTitle": "Ice Cream Girlfriend",
   "isOwnUpload": true,
   "audio": {
@@ -23031,8 +23289,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Ice Cream Girlfriend.mp3",
    "folder": "Mashups 2021"
   }
@@ -23076,7 +23334,28 @@
  {
   "id": "mashups-2021-its-gonna-be-may-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "*NSYNC",
+    "title": "It's Gonna Be Me"
+   },
+   {
+    "artist": "Destiny's Child",
+    "title": "Say My Name"
+   },
+   {
+    "artist": "NIck Jonas",
+    "title": "Chains"
+   },
+   {
+    "artist": "The Weeknd",
+    "title": "Blinding Lights"
+   },
+   {
+    "artist": "Dream",
+    "title": "He Loves U Not"
+   }
+  ],
   "displayTitle": "It's Gonna Be May Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -23090,16 +23369,41 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "It's Gonna Be May Mashup.mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "XwNR7rhTPHk"
   }
  },
  {
   "id": "mashups-2021-kiss-me-more-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Doja Cat & SZA",
+    "title": "Kiss Me More"
+   },
+   {
+    "artist": "P!nk",
+    "title": "(Blow Me) One Last Kiss"
+   },
+   {
+    "artist": "Michelle Branche",
+    "title": "All You Wanted"
+   },
+   {
+    "artist": "Nicole Scherzinger",
+    "title": "Don't Hold Your Breath"
+   },
+   {
+    "artist": "Maroon 5",
+    "title": "Misery"
+   }
+  ],
   "displayTitle": "Kiss Me More Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -23113,8 +23417,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Kiss Me More Mashup Mixed.mp3",
    "folder": "Mashups 2021"
   }
@@ -23158,7 +23462,16 @@
  {
   "id": "mashups-2021-map-of-the-911",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Muse",
+    "title": "Map of the Problematique"
+   },
+   {
+    "artist": "Lady Gaga",
+    "title": "911"
+   }
+  ],
   "displayTitle": "Map of the 911",
   "isOwnUpload": true,
   "audio": {
@@ -23172,8 +23485,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Map of the 911.mp3",
    "folder": "Mashups 2021"
   }
@@ -23181,7 +23494,16 @@
  {
   "id": "mashups-2021-monsters-one-more-time-reversed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "All Time Low",
+    "title": "Monsters"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "...Baby One More Time"
+   }
+  ],
   "displayTitle": "Monsters One More Time (Reversed)",
   "isOwnUpload": true,
   "audio": {
@@ -23195,8 +23517,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Monsters One More Time (Reversed).mp3",
    "folder": "Mashups 2021"
   }
@@ -23204,7 +23526,24 @@
  {
   "id": "mashups-2021-montero-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Lil Nas X",
+    "title": "Montero"
+   },
+   {
+    "artist": "TLC",
+    "title": "No Scrubs"
+   },
+   {
+    "artist": "My Chemical Romance",
+    "title": "Na Na Na"
+   },
+   {
+    "artist": "Billie Eilish",
+    "title": "All the Good Girls Go to Hell"
+   }
+  ],
   "displayTitle": "Montero Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -23218,8 +23557,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Montero Mashup.mp3",
    "folder": "Mashups 2021"
   }
@@ -23227,7 +23566,24 @@
  {
   "id": "mashups-2021-my-humps-wap-booty-milkshakes",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Black Eyed Peas",
+    "title": "My Humps"
+   },
+   {
+    "artist": "Cardi B & Megan Thee Stallion",
+    "title": "WAP"
+   },
+   {
+    "artist": "Jennifer Lopez",
+    "title": "Booty (ft. Iggy Azalea)"
+   },
+   {
+    "artist": "Kelis",
+    "title": "Milkshakes"
+   }
+  ],
   "displayTitle": "My Humps, WAP, Booty & Milkshakes",
   "isOwnUpload": true,
   "audio": {
@@ -23241,8 +23597,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "My Humps, WAP, Booty & Milkshakes.mp3",
    "folder": "Mashups 2021"
   }
@@ -23250,7 +23606,28 @@
  {
   "id": "mashups-2021-plastic-hearts-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Miley Cyrus",
+    "title": "Plastic Hearts"
+   },
+   {
+    "artist": "Green Day",
+    "title": "Holiday"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "La La Land"
+   },
+   {
+    "artist": "Hall & Oats",
+    "title": "Maneater"
+   },
+   {
+    "artist": "Selena Gomez",
+    "title": "Come & Get It"
+   }
+  ],
   "displayTitle": "Plastic Hearts Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -23264,8 +23641,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Plastic Hearts Mashup.mp3",
    "folder": "Mashups 2021"
   }
@@ -23309,7 +23686,36 @@
  {
   "id": "mashups-2021-prima-donna-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Christina Aguilera",
+    "title": "Primadonna"
+   },
+   {
+    "artist": "Lady Gaga",
+    "title": "Bad Romance"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "Break Free"
+   },
+   {
+    "artist": "Madonna ft. Justin Timbalake",
+    "title": "4 Minutes"
+   },
+   {
+    "artist": "Miley Cyrus",
+    "title": "On A Roll (Ashley O)"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Gimme More"
+   },
+   {
+    "artist": "Kesha",
+    "title": "Take It Off"
+   }
+  ],
   "displayTitle": "Prima Donna Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -23323,8 +23729,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Prima Donna Mashup Mixed.mp3",
    "folder": "Mashups 2021"
   }
@@ -23332,7 +23738,28 @@
  {
   "id": "mashups-2021-real-groove-mashup-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Kylie Minogue",
+    "title": "Real Groove"
+   },
+   {
+    "artist": "Karmin",
+    "title": "I Want It All"
+   },
+   {
+    "artist": "Kesha",
+    "title": "Take It Off"
+   },
+   {
+    "artist": "Katy Perry",
+    "title": "Tucked"
+   },
+   {
+    "artist": "Madonna",
+    "title": "Living for Love"
+   }
+  ],
   "displayTitle": "Real Groove Mashup Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -23346,8 +23773,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Real Groove Mashup Mixed.mp3",
    "folder": "Mashups 2021"
   }
@@ -23355,7 +23782,44 @@
  {
   "id": "mashups-2021-sacrifice-the-megamix",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Bebe Rexha",
+    "title": "Sacrifice"
+   },
+   {
+    "artist": "Daft Punk",
+    "title": "One More Time"
+   },
+   {
+    "artist": "Pussycat Dolls",
+    "title": "React"
+   },
+   {
+    "artist": "All-American Rejects",
+    "title": "Move Along"
+   },
+   {
+    "artist": "Hilary Duff",
+    "title": "Sparks"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "Don't Start Now"
+   },
+   {
+    "artist": "Selena Gomez",
+    "title": "Look At Her Now"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "Cool For the Summer"
+   },
+   {
+    "artist": "Walk the Moon",
+    "title": "Shut Up and Dance"
+   }
+  ],
   "displayTitle": "Sacrifice - The Megamix",
   "isOwnUpload": true,
   "audio": {
@@ -23369,10 +23833,14 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Sacrifice - The Megamix.mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "https://www.youtube.com/watch?v=6s-cs9sGjQA"
   }
  },
  {
@@ -23424,7 +23892,16 @@
  {
   "id": "mashups-2021-somebody-to-tell-me-old-habits-die-hard",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Allie X",
+    "title": "Old Habits Die Hard"
+   },
+   {
+    "artist": "Tyler Glenn",
+    "title": "Somebody to Tell Me"
+   }
+  ],
   "displayTitle": "Somebody to Tell Me Old Habits Die Hard",
   "isOwnUpload": true,
   "audio": {
@@ -23438,8 +23915,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Somebody to Tell Me Old Habits Die Hard.mp3",
    "folder": "Mashups 2021"
   }
@@ -23447,7 +23924,20 @@
  {
   "id": "mashups-2021-the-beast-ghost-bites",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Justin Bieber",
+    "title": "Ghost"
+   },
+   {
+    "artist": "Avril Lavigne",
+    "title": "Bite Me"
+   },
+   {
+    "artist": "David Archuleta",
+    "title": "Beast"
+   }
+  ],
   "displayTitle": "The Beast Ghost Bites",
   "isOwnUpload": true,
   "audio": {
@@ -23461,10 +23951,14 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "The Beast Ghost Bites.mp3",
    "folder": "Mashups 2021"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "xoEVRBsisyI"
   }
  },
  {
@@ -23506,7 +24000,36 @@
  {
   "id": "mashups-2021-want-to-be-cool-for-the-summer-extended-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Jason Derulo",
+    "title": "Want to Want Me"
+   },
+   {
+    "artist": "Justin Timberlake",
+    "title": "Don't Stop the Music"
+   },
+   {
+    "artist": "Maty Noyes",
+    "title": "in my miNd"
+   },
+   {
+    "artist": "Jess Glynne",
+    "title": "Hold My Hand"
+   },
+   {
+    "artist": "Hilary Duff",
+    "title": "Sparks"
+   },
+   {
+    "artist": "Sia",
+    "title": "Summer Rain"
+   },
+   {
+    "artist": "Meghan Trainor",
+    "title": "Genetics (ft. Pussycat Dolls)"
+   }
+  ],
   "displayTitle": "Want to be Cool for the Summer Extended Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -23520,8 +24043,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Want to be Cool for the Summer Extended Mixed.mp3",
    "folder": "Mashups 2021"
   }
@@ -23529,7 +24052,16 @@
  {
   "id": "mashups-2021-were-good-ooh-la-la",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Britney Spears",
+    "title": "Ooh La La"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "We're Good"
+   }
+  ],
   "displayTitle": "We're Good Ooh La La",
   "isOwnUpload": true,
   "audio": {
@@ -23543,8 +24075,8 @@
   "year": "2021",
   "dateAdded": "2021-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "We're Good Ooh La La.mp3",
    "folder": "Mashups 2021"
   }
@@ -23588,7 +24120,16 @@
  {
   "id": "mashups-2022-a-second-to-go-your-own-way",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Fleetwood Mac",
+    "title": "Go Your Own Way"
+   },
+   {
+    "artist": "Kylie Minogue and Years & Years",
+    "title": "A Second to Midnight"
+   }
+  ],
   "displayTitle": "A Second to Go Your Own Way",
   "isOwnUpload": true,
   "audio": {
@@ -23602,8 +24143,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "A Second to Go Your Own Way.mp3",
    "folder": "Mashups 2022"
   }
@@ -23611,7 +24152,16 @@
  {
   "id": "mashups-2022-ay-boys",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Machine Gun Kelly",
+    "title": "Ay (ft. Lil Wayne)"
+   },
+   {
+    "artist": "Charli xcx",
+    "title": "Boys"
+   }
+  ],
   "displayTitle": "Ay Boys",
   "isOwnUpload": true,
   "audio": {
@@ -23625,8 +24175,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Ay Boys.mp3",
    "folder": "Mashups 2022"
   }
@@ -23634,7 +24184,28 @@
  {
   "id": "mashups-2022-big-energy-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Latto ft. Mariah Carey",
+    "title": "Big Energy"
+   },
+   {
+    "artist": "Fifth Harmony",
+    "title": "Work From Home"
+   },
+   {
+    "artist": "Janet Jackson",
+    "title": "All For You"
+   },
+   {
+    "artist": "Smash Mouth",
+    "title": "All Star"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "IDGAF"
+   }
+  ],
   "displayTitle": "Big Energy Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -23648,8 +24219,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Big Energy Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -23729,7 +24300,16 @@
  {
   "id": "mashups-2022-celebrity-skin-of-my-teeth",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Hole",
+    "title": "Celebrity Skin"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "Skin of My Teeth"
+   }
+  ],
   "displayTitle": "Celebrity Skin of My Teeth",
   "isOwnUpload": true,
   "audio": {
@@ -23743,16 +24323,41 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Celebrity Skin of My Teeth.mp3",
    "folder": "Mashups 2022"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "urc31U9EChQ"
   }
  },
  {
   "id": "mashups-2022-circus-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Britney Spears",
+    "title": "Circus"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "Into You"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "Love Again"
+   },
+   {
+    "artist": "Kesha",
+    "title": "Woman"
+   },
+   {
+    "artist": "Michael Jackson",
+    "title": "Billie Jean"
+   }
+  ],
   "displayTitle": "Circus Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -23766,8 +24371,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Circus Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -23775,7 +24380,16 @@
  {
   "id": "mashups-2022-come-along-together",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "All-American Rejects",
+    "title": "Move Along"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "Come Together"
+   }
+  ],
   "displayTitle": "Come Along Together",
   "isOwnUpload": true,
   "audio": {
@@ -23789,8 +24403,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Come Along Together.mp3",
    "folder": "Mashups 2022"
   }
@@ -23798,7 +24412,28 @@
  {
   "id": "mashups-2022-do-me-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Kim Petras",
+    "title": "Do Me"
+   },
+   {
+    "artist": "Zendaya",
+    "title": "Replay"
+   },
+   {
+    "artist": "Kelly Clarkson",
+    "title": "Catching My Breath"
+   },
+   {
+    "artist": "Melanie Martinez",
+    "title": "Pity Party"
+   },
+   {
+    "artist": "Taylor Swift",
+    "title": "Wildest Dreams"
+   }
+  ],
   "displayTitle": "Do Me Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -23812,8 +24447,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Do Me Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -23821,7 +24456,32 @@
  {
   "id": "mashups-2022-dont-start-now-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Dua Lipa",
+    "title": "Don't Start Now"
+   },
+   {
+    "artist": "Rihanna",
+    "title": "Disturbia"
+   },
+   {
+    "artist": "P!nk",
+    "title": "Get the Party Started"
+   },
+   {
+    "artist": "Charli xcx & Troye Sivan",
+    "title": "1999"
+   },
+   {
+    "artist": "Bonnie McKee",
+    "title": "American Girl"
+   },
+   {
+    "artist": "Bebe Rexha",
+    "title": "Sacrifice"
+   }
+  ],
   "displayTitle": "Don't Start Now Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -23835,8 +24495,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Don't Start Now Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -23844,7 +24504,16 @@
  {
   "id": "mashups-2022-dont-threaten-me-with-pink-venom",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Panic! At the Disco",
+    "title": "Don't Threaten Me With a Good Time"
+   },
+   {
+    "artist": "BLACKPINK",
+    "title": "Pink Venom"
+   }
+  ],
   "displayTitle": "Don't Threaten Me With Pink Venom",
   "isOwnUpload": true,
   "audio": {
@@ -23858,8 +24527,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Don't Threaten Me With Pink Venom.mp3",
    "folder": "Mashups 2022"
   }
@@ -23903,7 +24572,28 @@
  {
   "id": "mashups-2022-easy-on-me-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Adele",
+    "title": "Easy On Me"
+   },
+   {
+    "artist": "Shawn Mendes",
+    "title": "In My Blood"
+   },
+   {
+    "artist": "Katy Perry",
+    "title": "Part of Me"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "Here We Go Again"
+   },
+   {
+    "artist": "Avril Lavigne",
+    "title": "Head Above Water"
+   }
+  ],
   "displayTitle": "Easy On Me Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -23917,8 +24607,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Easy On Me Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -23926,7 +24616,28 @@
  {
   "id": "mashups-2022-girl-like-me-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Dove Cameron",
+    "title": "Girl Like Me"
+   },
+   {
+    "artist": "Enrique Iglesias",
+    "title": "Tonight (I'm Fuckin' You)"
+   },
+   {
+    "artist": "Lady Gaga",
+    "title": "G.U.Y."
+   },
+   {
+    "artist": "Madonna",
+    "title": "Die Another Day"
+   },
+   {
+    "artist": "Rihanna",
+    "title": "Cockiness"
+   }
+  ],
   "displayTitle": "Girl Like Me Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -23940,8 +24651,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Girl Like Me Mashup.mp3",
    "folder": "Mashups 2022"
   }
@@ -24033,7 +24744,16 @@
  {
   "id": "mashups-2022-i-love-it-when-you-hate-21-guns",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Green Day",
+    "title": "21 Guns"
+   },
+   {
+    "artist": "Avril Lavigne",
+    "title": "I Love It When You Hate Me (ft. Blackbear)"
+   }
+  ],
   "displayTitle": "I Love It When You Hate 21 Guns",
   "isOwnUpload": true,
   "audio": {
@@ -24047,8 +24767,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "I Love It When You Hate 21 Guns.mp3",
    "folder": "Mashups 2022"
   }
@@ -24056,7 +24776,16 @@
  {
   "id": "mashups-2022-im-a-messy-piece-of-me",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Ashlee Simpson",
+    "title": "Pieces of Me"
+   },
+   {
+    "artist": "Avril Lavigne & YUNGBLUD",
+    "title": "I'm a Mess"
+   }
+  ],
   "displayTitle": "I'm a Messy Piece of Me",
   "isOwnUpload": true,
   "audio": {
@@ -24070,16 +24799,41 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "I'm a Messy Piece of Me.mp3",
    "folder": "Mashups 2022"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "_Jd_GXBPKs0"
   }
  },
  {
   "id": "mashups-2022-its-not-u-its-me-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Bea Miller",
+    "title": "it's not u it's me"
+   },
+   {
+    "artist": "Nicki Minaj",
+    "title": "Get on Your Knees (ft. Ariana Grande)"
+   },
+   {
+    "artist": "Destiny's Child",
+    "title": "Say My Name"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Hold It Against Me"
+   },
+   {
+    "artist": "Chloe",
+    "title": "Have Mercy"
+   }
+  ],
   "displayTitle": "it's not u it's me Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -24093,8 +24847,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "it's not u it's me Mashup.mp3",
    "folder": "Mashups 2022"
   }
@@ -24102,7 +24856,24 @@
  {
   "id": "mashups-2022-me-myself-i-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Jivejones",
+    "title": "Me, Myself & I"
+   },
+   {
+    "artist": "Rihanna",
+    "title": "What's My Name (ft. Drake)"
+   },
+   {
+    "artist": "Bruno Mars",
+    "title": "24K Magic"
+   },
+   {
+    "artist": "Kim Petras",
+    "title": "I Don't Want It At All"
+   }
+  ],
   "displayTitle": "Me Myself & I Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -24116,8 +24887,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Me Myself & I Mashup.mp3",
    "folder": "Mashups 2022"
   }
@@ -24125,7 +24896,28 @@
  {
   "id": "mashups-2022-music-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Madonna",
+    "title": "Music"
+   },
+   {
+    "artist": "Christina Aguilera",
+    "title": "Dirrrty"
+   },
+   {
+    "artist": "Britney Spears ft. Madonna",
+    "title": "Me Against the Music"
+   },
+   {
+    "artist": "Meghan Trainor ft. Pussycat Dolls",
+    "title": "Genetics"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "Step It Up"
+   }
+  ],
   "displayTitle": "Music Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -24139,8 +24931,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Music Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -24184,7 +24976,16 @@
  {
   "id": "mashups-2022-no-lovegame-ideas",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Lady Gaga",
+    "title": "Lovegame"
+   },
+   {
+    "artist": "MUNA",
+    "title": "No Idea"
+   }
+  ],
   "displayTitle": "No Lovegame Ideas",
   "isOwnUpload": true,
   "audio": {
@@ -24198,10 +24999,14 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "No Lovegame Ideas.mp3",
    "folder": "Mashups 2022"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "O34rI3ZYZxU"
   }
  },
  {
@@ -24279,7 +25084,28 @@
  {
   "id": "mashups-2022-ready-for-it-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Taylor Swift",
+    "title": "Ready For It"
+   },
+   {
+    "artist": "Kesha",
+    "title": "Backstabber"
+   },
+   {
+    "artist": "Madonna",
+    "title": "Bitch I'm Madonna"
+   },
+   {
+    "artist": "P!nk",
+    "title": "Just Like Fire"
+   },
+   {
+    "artist": "The Carters",
+    "title": "APESHIT"
+   }
+  ],
   "displayTitle": "Ready For It Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -24293,8 +25119,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Ready For It Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -24302,7 +25128,16 @@
  {
   "id": "mashups-2022-real-groove-baby-mixed",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Charli xcx",
+    "title": "Baby"
+   },
+   {
+    "artist": "Kylie Minogue",
+    "title": "Real Groove"
+   }
+  ],
   "displayTitle": "Real Groove Baby Mixed",
   "isOwnUpload": true,
   "audio": {
@@ -24316,16 +25151,29 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Real Groove Baby Mixed.mp3",
    "folder": "Mashups 2022"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "ZTl-I1MGoN4"
   }
  },
  {
   "id": "mashups-2022-sleepwalking-fireflies",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Owl City",
+    "title": "Fireflies"
+   },
+   {
+    "artist": "All Time Low",
+    "title": "Sleepwalking"
+   }
+  ],
   "displayTitle": "Sleepwalking Fireflies",
   "isOwnUpload": true,
   "audio": {
@@ -24343,8 +25191,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Sleepwalking Fireflies.mp3",
    "folder": "Mashups 2022"
   }
@@ -24354,12 +25202,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Disturbia",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "title": "Disturbia"
    },
    {
-    "title": "Sweetest Pie",
-    "artist": "Megan Thee Stallion & Dua Lipa"
+    "artist": "Megan Thee Stallion & Dua Lipa",
+    "title": "Sweetest Pie"
    }
   ],
   "displayTitle": "Sweetest Disturbia",
@@ -24379,7 +25227,7 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Sweetest Disturbia.mp3",
    "folder": "Mashups 2022"
@@ -24388,7 +25236,16 @@
  {
   "id": "mashups-2022-take-my-anti-hero",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Aly & AJ",
+    "title": "Take Me"
+   },
+   {
+    "artist": "Taylor Swift",
+    "title": "Anti-Hero"
+   }
+  ],
   "displayTitle": "Take My Anti-Hero",
   "isOwnUpload": true,
   "audio": {
@@ -24402,8 +25259,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Take My Anti-Hero.mp3",
    "folder": "Mashups 2022"
   }
@@ -24411,7 +25268,24 @@
  {
   "id": "mashups-2022-taste-so-good-minimix",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Vincint, MNEK, Hayley Kiyoko & Kesha",
+    "title": "Taste So Good (The Cann Song)"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "Levitating"
+   },
+   {
+    "artist": "Little Mix",
+    "title": "Confetti"
+   },
+   {
+    "artist": "Clean Bandit",
+    "title": "Solo (ft. Demi Lovato)"
+   }
+  ],
   "displayTitle": "Taste So Good Minimix",
   "isOwnUpload": true,
   "audio": {
@@ -24425,16 +25299,37 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Taste So Good Minimix.mp3",
    "folder": "Mashups 2022"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "mye2nklPjuY"
   }
  },
  {
   "id": "mashups-2022-thats-what-i-want-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Lil Nas X",
+    "title": "That's What I Want"
+   },
+   {
+    "artist": "Normani",
+    "title": "Motivation"
+   },
+   {
+    "artist": "Anitta",
+    "title": "Boys Don't Cry"
+   },
+   {
+    "artist": "Blink-182",
+    "title": "Feeling This"
+   }
+  ],
   "displayTitle": "That's What I Want Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -24448,8 +25343,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "That's What I Want Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -24457,7 +25352,24 @@
  {
   "id": "mashups-2022-unholy-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Sam Smith & Kim Petras",
+    "title": "Unholy"
+   },
+   {
+    "artist": "Rihanna",
+    "title": "Pour It Up"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Freakshow"
+   },
+   {
+    "artist": "Beyonce",
+    "title": "Formation"
+   }
+  ],
   "displayTitle": "Unholy Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -24471,16 +25383,41 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Unholy Mashup.mp3",
    "folder": "Mashups 2022"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "XH8BOU-r7j0"
   }
  },
  {
   "id": "mashups-2022-used-to-know-me-mashup-2022-pride-bmtm-solo-version",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Charli xcx",
+    "title": "Used to Know Me"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Break The Ice"
+   },
+   {
+    "artist": "Sam Smith & Normani",
+    "title": "Dancing With a Stranger"
+   },
+   {
+    "artist": "Katy Perry",
+    "title": "Swish Swish"
+   },
+   {
+    "artist": "Doja Cat & SZA",
+    "title": "Kiss Me More"
+   }
+  ],
   "displayTitle": "Used to Know Me Mashup (2022 Pride - BMTM Solo Version)",
   "isOwnUpload": true,
   "audio": {
@@ -24494,8 +25431,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Used to Know Me Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
   }
@@ -24503,7 +25440,36 @@
  {
   "id": "mashups-2022-want-u-back-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Cher Lloyd",
+    "title": "Want U Back"
+   },
+   {
+    "artist": "Olivia O'Brien",
+    "title": "Bitch Back (ft. FLETCHER)"
+   },
+   {
+    "artist": "Bebe Rexha",
+    "title": "I'm A Mess"
+   },
+   {
+    "artist": "Dinah Jane",
+    "title": "Bottled Up (ft. Ty Dolla $ign and Mark E. Bassy)"
+   },
+   {
+    "artist": "Daya",
+    "title": "Hideaway"
+   },
+   {
+    "artist": "Selena Gomez",
+    "title": "Same Old Love"
+   },
+   {
+    "artist": "Jennifer Lopez",
+    "title": "I'm Real (Remix ft. Ja Rule)"
+   }
+  ],
   "displayTitle": "Want U Back Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -24517,8 +25483,8 @@
   "year": "2022",
   "dateAdded": "2022-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Want U Back Mashup.mp3",
    "folder": "Mashups 2022"
   }
@@ -26097,6 +27063,10 @@
    "needsMetadata": false,
    "file": "Trustfalling On My Own.mp3",
    "folder": "Mashups 2023"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "waovLRmmcCk"
   }
  },
  {

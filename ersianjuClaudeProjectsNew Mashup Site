@@ -1,0 +1,123 @@
+warning: in the working copy of 'js/trackform.js', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/js/trackform.js b/js/trackform.js[m
+[1mindex 2eb7759..8e7c369 100644[m
+[1m--- a/js/trackform.js[m
+[1m+++ b/js/trackform.js[m
+[36m@@ -12,8 +12,14 @@[m [mconst esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;[m
+ [m
+ export function formHtml(entry = {}, { showMedia = true } = {}) {[m
+   const songs = entry.sourceSongs?.length ? entry.sourceSongs : [{ artist: '', title: '' }, { artist: '', title: '' }];[m
+[31m-  const mediaKind = entry.audio?.url ? 'upload'[m
+[32m+[m[32m  const at = entry.audio?.type;[m
+[32m+[m[32m  const mediaKind = at === 'pcloud' ? 'pcloud'[m
+[32m+[m[32m    : at === 'dropbox' ? 'dropbox'[m
+[32m+[m[32m    : at === 'onedrive' ? 'onedrive'[m
+[32m+[m[32m    : at === 'gdrive' ? 'gdrive'[m
+[32m+[m[32m    : at === 'direct' ? 'direct'[m
+     : entry.audio?.publicLink ? 'pcloud'[m
+[32m+[m[32m    : entry.audio?.url ? 'upload'[m
+     : entry.video?.type === 'youtube' ? 'youtube'[m
+     : entry.video?.type === 'tiktok' ? 'tiktok' : 'upload';[m
+   return `[m
+[36m@@ -33,6 +39,10 @@[m [mexport function formHtml(entry = {}, { showMedia = true } = {}) {[m
+       <option value="youtube" ${mediaKind === 'youtube' ? 'selected' : ''}>YouTube link (my own channel)</option>[m
+       <option value="tiktok" ${mediaKind === 'tiktok' ? 'selected' : ''}>TikTok link (my own account)</option>[m
+       <option value="pcloud" ${mediaKind === 'pcloud' ? 'selected' : ''}>pCloud public link (my own hosting)</option>[m
+[32m+[m[32m      <option value="dropbox" ${mediaKind === 'dropbox' ? 'selected' : ''}>Dropbox share link</option>[m
+[32m+[m[32m      <option value="onedrive" ${mediaKind === 'onedrive' ? 'selected' : ''}>OneDrive share link</option>[m
+[32m+[m[32m      <option value="gdrive" ${mediaKind === 'gdrive' ? 'selected' : ''}>Google Drive share link</option>[m
+[32m+[m[32m      <option value="direct" ${mediaKind === 'direct' ? 'selected' : ''}>Direct file URL (S3 · R2 · B2 · any host)</option>[m
+     </select>[m
+   </div>[m
+   <div class="f tf-file-f"><label>File (mp3, m4a, wav, ogg, mp4 — max 100 MB)</label>[m
+[36m@@ -114,8 +124,11 @@[m [mexport function bindForm(root) {[m
+       root.querySelector('.tf-file-f')?.classList.toggle('hidden', v !== 'upload');[m
+       root.querySelector('.tf-link-f')?.classList.toggle('hidden', v === 'upload');[m
+       const lbl = root.querySelector('.tf-link-label');[m
+[31m-      if (lbl) lbl.textContent = v === 'youtube' ? 'YouTube video link'[m
+[31m-        : v === 'tiktok' ? 'TikTok video link' : 'pCloud public link';[m
+[32m+[m[32m      const LABELS = { youtube: 'YouTube video link', tiktok: 'TikTok video link',[m
+[32m+[m[32m        pcloud: 'pCloud public link', dropbox: 'Dropbox share link',[m
+[32m+[m[32m        onedrive: 'OneDrive share link', gdrive: 'Google Drive share link',[m
+[32m+[m[32m        direct: 'Direct file URL' };[m
+[32m+[m[32m      if (lbl) lbl.textContent = LABELS[v] || 'Link';[m
+       // Autofill only makes sense for YouTube, and only if a key is configured.[m
+       root.querySelector('.tf-yt-autofill')?.classList.toggle('hidden', !(v === 'youtube' && ytEnabled()));[m
+       const st = root.querySelector('.tf-yt-status'); if (st) st.textContent = '';[m
+[36m@@ -174,6 +187,27 @@[m [mexport function readForm(root, base = {}) {[m
+   } else if (mediaKind === 'pcloud') {[m
+     if (!/pcloud\.(link|com)\//.test(link)) throw new Error('That does not look like a pCloud public link.');[m
+     entry.audio = { type: 'pcloud', publicLink: link };[m
+[32m+[m[32m    delete entry.video;[m
+[32m+[m[32m  } else if (mediaKind === 'dropbox') {[m
+[32m+[m[32m    const url = dropboxDirect(link);[m
+[32m+[m[32m    if (!url) throw new Error('That does not look like a Dropbox share link.');[m
+[32m+[m[32m    entry.audio = { type: 'dropbox', publicLink: link, url };[m
+[32m+[m[32m    delete entry.video;[m
+[32m+[m[32m  } else if (mediaKind === 'onedrive') {[m
+[32m+[m[32m    const url = oneDriveDirect(link);[m
+[32m+[m[32m    if (!url) throw new Error('That does not look like a OneDrive share link.');[m
+[32m+[m[32m    entry.audio = { type: 'onedrive', publicLink: link, url };[m
+[32m+[m[32m    delete entry.video;[m
+[32m+[m[32m  } else if (mediaKind === 'gdrive') {[m
+[32m+[m[32m    const url = googleDriveDirect(link);[m
+[32m+[m[32m    if (!url) throw new Error('That does not look like a Google Drive file link.');[m
+[32m+[m[32m    entry.audio = { type: 'gdrive', publicLink: link, url };[m
+[32m+[m[32m    delete entry.video;[m
+[32m+[m[32m  } else if (mediaKind === 'direct') {[m
+[32m+[m[32m    const url = directUrl(link);[m
+[32m+[m[32m    if (!url) throw new Error('Paste a direct https:// link to an audio or video file.');[m
+[32m+[m[32m    entry.audio = { type: 'direct', publicLink: link, url };[m
+[32m+[m[32m    delete entry.video;[m
+   }[m
+   return { entry, file, mediaKind };[m
+ }[m
+[36m@@ -182,3 +216,48 @@[m [mexport function parseYouTubeId(url) {[m
+   const m = (url || '').match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,20})/);[m
+   return m ? m[1] : null;[m
+ }[m
+[32m+[m
+[32m+[m[32m/* ---------------- cloud-drive link → direct streamable URL ----------------[m
+[32m+[m[32m   The player streams any `audio.url` directly (see player.js), so for these[m
+[32m+[m[32m   hosts we transform the share link into a direct, range-capable file URL at[m
+[32m+[m[32m   submit time and store it as `audio.url`. `audio.publicLink` keeps the[m
+[32m+[m[32m   original link so the edit form can show it again. */[m
+[32m+[m
+[32m+[m[32m/** Dropbox: a share link → direct download host (streams + supports seeking). */[m
+[32m+[m[32mexport function dropboxDirect(url) {[m
+[32m+[m[32m  const v = (url || '').trim();[m
+[32m+[m[32m  if (!/dropbox\.com\//.test(v)) return null;[m
+[32m+[m[32m  let u = v[m
+[32m+[m[32m    .replace('www.dropbox.com', 'dl.dropboxusercontent.com')[m
+[32m+[m[32m    .replace('://dropbox.com', '://dl.dropboxusercontent.com');[m
+[32m+[m[32m  u = u.replace(/([?&])dl=0(&|$)/, '$1dl=1$2');[m
+[32m+[m[32m  if (!/[?&]dl=1(&|$)/.test(u)) u += (u.includes('?') ? '&' : '?') + 'dl=1';[m
+[32m+[m[32m  return u;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/** OneDrive: encode the share URL the way Microsoft's "shares" API expects,[m
+[32m+[m[32m    then hit the anonymous content endpoint that 302s to the real file. */[m
+[32m+[m[32mexport function oneDriveDirect(url) {[m
+[32m+[m[32m  const v = (url || '').trim();[m
+[32m+[m[32m  if (!/1drv\.ms\/|onedrive\.live\.com\/|sharepoint\.com\//.test(v)) return null;[m
+[32m+[m[32m  let b64 = btoa(unescape(encodeURIComponent(v)))[m
+[32m+[m[32m    .replace(/=+$/, '').replace(/\//g, '_').replace(/\+/g, '-');[m
+[32m+[m[32m  return `https://api.onedrive.com/v1.0/shares/u!${b64}/root/content`;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/** Google Drive: pull the file id out of any of its share-link shapes.[m
+[32m+[m[32m    NOTE: Google throttles hotlinking and big files hit a scan interstitial —[m
+[32m+[m[32m    fine as a secondary source, not something to rely on at scale. */[m
+[32m+[m[32mexport function googleDriveDirect(url) {[m
+[32m+[m[32m  const v = url || '';[m
+[32m+[m[32m  const m = v.match(/\/file\/d\/([\w-]+)/) || v.match(/[?&]id=([\w-]+)/);[m
+[32m+[m[32m  const id = m ? m[1] : null;[m
+[32m+[m[32m  if (!id) return null;[m
+[32m+[m[32m  return `https://drive.google.com/uc?export=download&id=${id}`;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32m/** Generic: the link already points straight at the file (S3, R2, B2, …). */[m
+[32m+[m[32mexport function directUrl(url) {[m
+[32m+[m[32m  const v = (url || '').trim();[m
+[32m+[m[32m  return /^https:\/\/\S+$/i.test(v) ? v : null;[m
+[32m+[m[32m}[m

@@ -157,6 +157,7 @@ async function loadMine() {
     .eq('owner', backend.user().id).order('created_at', { ascending: false });
   if (error) { $('#mine-list').innerHTML = '<div class="note">Could not load submissions.</div>'; return; }
   mineRows = data;
+  checkEditHash();
   $('#mine-list').innerHTML = data.length ? data.map((r) => `
     <div class="mine-row">
       <div class="t"><b>${esc(r.data.displayTitle)}</b>
@@ -167,16 +168,29 @@ async function loadMine() {
     </div>`).join('')
     : '<div class="note">Nothing submitted yet.</div>';
 }
+function openEdit(row) {
+  editingMine = row;
+  if (!editingMine) return;
+  $('#etform').innerHTML = formHtml(editingMine.data);
+  bindForm($('#etform'));
+  $('#e-err').classList.add('hidden');
+  $('#e-live-note').style.display = editingMine.status === 'approved' ? 'block' : 'none';
+  $('#edit-dlg').showModal();
+}
+
+/* Deep link from the main site's ✎ button: submit.html#edit=<trackId> */
+function checkEditHash() {
+  const m = location.hash.match(/^#edit=(.+)$/);
+  if (!m) return;
+  const row = mineRows.find((x) => x.id === decodeURIComponent(m[1]));
+  if (row) openEdit(row);
+  history.replaceState(null, '', '#mine');
+}
+
 $('#mine-list').addEventListener('click', async (e) => {
   const ed = e.target.closest('[data-edit]');
   if (ed) {
-    editingMine = mineRows.find((x) => x.id === ed.dataset.edit);
-    if (!editingMine) return;
-    $('#etform').innerHTML = formHtml(editingMine.data);
-    bindForm($('#etform'));
-    $('#e-err').classList.add('hidden');
-    $('#e-live-note').style.display = editingMine.status === 'approved' ? 'block' : 'none';
-    $('#edit-dlg').showModal();
+    openEdit(mineRows.find((x) => x.id === ed.dataset.edit));
     return;
   }
   const b = e.target.closest('[data-del]'); if (!b) return;

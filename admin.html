@@ -96,6 +96,24 @@ function gate() {
   $('#gate').classList.add('hidden');
   $('#panel').classList.remove('hidden');
   load();
+  openDeepLinkEdit();
+}
+
+/* Deep link from the main site's ✎ button: admin.html?edit=<trackId> */
+let deepLinkDone = false;
+async function openDeepLinkEdit() {
+  if (deepLinkDone) return;
+  const id = new URLSearchParams(location.search).get('edit');
+  if (!id) return;
+  deepLinkDone = true;
+  const { data, error } = await backend.client().from('tracks')
+    .select('id, owner, status, data').eq('id', id).single();
+  if (error || !data) { alert('Track not found: ' + id); return; }
+  editing = data;
+  $('#tform').innerHTML = formHtml(editing.data);
+  bindForm($('#tform'));
+  $('#e-err').classList.add('hidden');
+  document.getElementById('dlg').showModal();
 }
 
 async function load() {

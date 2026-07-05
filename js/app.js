@@ -6,6 +6,7 @@ import { loadCatalog, all, get, search, searchNodes, getNode, nodesOfTrack, node
 import * as player from './player.js';
 import * as viz from './visualizer.js';
 import * as backend from './backend.js';
+import * as artwork from './artwork.js';
 import { APK_URL } from './config.js';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -73,6 +74,17 @@ function setAuthUi() {
 /** Called on sign-in / sign-out: pull server likes, playlists, plays. */
 async function syncAccountState() {
   setAuthUi();
+  // Google OAuth lands back here with the dialog still open (native app) or
+  // after a redirect (web) — close it / confirm so it's clear you're in.
+  const su = backend.user();
+  if (su) {
+    const dlg = $('#auth-dlg');
+    if (dlg?.open) { dlg.close(); toast('✓ Signed in'); }
+    else if (sessionStorage.getItem('bmtm.oauth')) {
+      toast('✓ Signed in as ' + (backend.getProfile()?.display_name || su.email));
+    }
+    sessionStorage.removeItem('bmtm.oauth');
+  }
   if (!backend.user()) { playlists = []; openPlaylist = null; rerender(); return; }
   try {
     // one-time merge of pre-account local likes into the server
@@ -96,6 +108,8 @@ function rerender() {
   if (view === 'home') renderHome();
   else if (view === 'playlists') renderPlaylists();
   else if (view === 'browse') renderBrowse();
+  else if (view === 'account') renderAccount();
+  else if (view === 'artists') renderArtistsView();
   else if (view !== 'explorer') renderLibrary();
 }
 
@@ -112,6 +126,8 @@ let sort = 'new';
 let browseAlbum = null;      // currently open album on the Browse page
 let visible = [];            // tracks currently listed (drives play-context + shuffle-all)
 let expPath = [];            // explorer column path [nodeKey,...]
+let artistPages = {};        // norm(name) -> { name, bio, youtube } from Supabase
+let artistNav = null;        // null = grid, or the open mashup-artist key ('ma:...')
 
 /* ---------------- theme + ambient ---------------- */
 const THEME_KEY = 'bmtm.theme';
@@ -133,19 +149,30 @@ function songsSummary(t) {
   return parts.join('  ×  ');
 }
 
+function canEditTrack(t) {
+  if (backend.isAdmin()) return 'admin';
+  if (backend.isArtist() && t._owner && t._owner === backend.user()?.id) return 'own';
+  return null;
+}
+
 function rowHtml(t, i) {
   const liked = likes.has(t.id);
   const cur = player.current()?.id === t.id;
-  return `<div class="trow${cur ? ' current' : ''}${cur && !player.audio.paused ? ' playing' : ''}" data-id="${t.id}" data-i="${i}">
+  const edit = canEditTrack(t);
+  return `<div class="trow lib${cur ? ' current' : ''}${cur && !player.audio.paused ? ' playing' : ''}" data-id="${t.id}" data-i="${i}">
     <div class="num">${i + 1}</div>
     <div class="tmain">
       <div class="ttitle">${esc(t.displayTitle)}</div>
       <div class="tsub">${esc(songsSummary(t))}</div>
     </div>
     <div class="tyear">${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
-    <button class="plusbtn authonly" title="Add to playlist"><svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg></button>
-    <button class="heartbtn${liked ? ' liked' : ''}" title="Save to Liked">${I.heart}</button>
-    <button class="rowplay" title="Play">${I.play}${I.pause}</button>
+    <div class="rowbtns">
+      ${edit ? `<button class="editbtn" data-editkind="${edit}" title="Edit this track"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></button>` : ''}
+      <button class="qaddbtn" title="Add to queue"><svg viewBox="0 0 24 24"><path d="M3 6h13v2H3zm0 5h13v2H3zm0 5h7v2H3zm14 0v-4h2v4h4v2h-4v4h-2v-4h-4v-2h4z"/></svg></button>
+      <button class="plusbtn authonly" title="Add to playlist"><svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg></button>
+      <button class="heartbtn${liked ? ' liked' : ''}" title="Save to Liked">${I.heart}</button>
+      <button class="rowplay" title="Play">${I.play}${I.pause}</button>
+    </div>
   </div>`;
 }
 const esc = (s) => (s || '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -178,6 +205,18 @@ $('#view-library').addEventListener('click', onRowClick);
 function onRowClick(e) {
   const row = e.target.closest('.trow'); if (!row) return;
   const id = row.dataset.id;
+  if (e.target.closest('.qaddbtn')) {
+    player.enqueue(id);
+    toast('Added to queue');
+    return;
+  }
+  const eb = e.target.closest('.editbtn');
+  if (eb) {
+    location.href = eb.dataset.editkind === 'admin'
+      ? 'admin.html?edit=' + encodeURIComponent(id)
+      : 'submit.html#edit=' + encodeURIComponent(id);
+    return;
+  }
   if (e.target.closest('.heartbtn')) {
     toggleLike(id);
     e.target.closest('.heartbtn').classList.toggle('liked');
@@ -232,14 +271,33 @@ function expEntryName(entry) {
   return getNode(entry)?.name || '';
 }
 
+/* Mashup rows in the Explorer: the play button PLAYS, the chevron opens a
+   preview dropdown (Artists / Songs broken out) so you can see what's inside
+   — and keep exploring from there — before anything starts playing. */
+const expOpen = new Set();  // track ids with their dropdown expanded
+
 function expTrackRowHtml(t) {
   const cur = player.current()?.id === t.id, playing = cur && !player.audio.paused;
-  return `<div class="conn${cur ? ' sel' : ''}" data-track="${esc(t.id)}">
-    <button class="head">
-      <svg class="tk" viewBox="0 0 24 24" width="14" style="fill:var(--accent);flex:none">${playing ? '<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>' : '<path d="M8 5v14l11-7z"/>'}</svg>
+  const open = expOpen.has(t.id);
+  const inside = nodesOfTrack(t.id);
+  const artists = inside.filter((n) => n.kind === 'artist');
+  const songs = inside.filter((n) => n.kind === 'song');
+  const linkHtml = (n) => `<button class="vialink" data-key="${esc(n.key)}">
+      <span>${esc(n.name)}</span>
+      <span class="vcnt">${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
+    </button>`;
+  return `<div class="conn exptrack${cur ? ' sel' : ''}${open ? ' open' : ''}" data-track="${esc(t.id)}">
+    <div class="head">
+      <button class="tplay" data-play="${esc(t.id)}" title="${playing ? 'Pause' : 'Play this mashup'}">${playing ? I.pause : I.play}</button>
       <span class="nm">${esc(t.displayTitle)}</span>
       <span class="cnt">${t.year || ''}</span>
-    </button>
+      <button class="tmore" title="See the artists & songs inside">▾</button>
+    </div>
+    <div class="via">
+      ${artists.length ? `<div class="viagrp">Artists</div>${artists.map(linkHtml).join('')}` : ''}
+      ${songs.length ? `<div class="viagrp">Songs</div>${songs.map(linkHtml).join('')}` : ''}
+      ${!inside.length ? '<div class="dhint">No song data for this mashup yet.</div>' : ''}
+    </div>
   </div>`;
 }
 
@@ -310,7 +368,7 @@ function renderExplorer() {
           <div class="kind">${node.kind}</div>
         </div>
         <h3>${esc(node.name)}</h3>
-        <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — tap one to play it</div>
+        <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — ▶ plays it, tapping the row shows the artists &amp; songs inside</div>
       </header>
       <div class="items">${list.map(expTrackRowHtml).join('')}</div>
     </div>`;
@@ -327,9 +385,9 @@ function explorerBack() {
 }
 
 colsEl.addEventListener('click', (e) => {
-  if (e.target.closest('.expback')) { expPath.pop(); renderExplorer(); return; }
+  if (e.target.closest('.expback')) { expPath.pop(); expOpen.clear(); renderExplorer(); return; }
   const crumb = e.target.closest('.crumb');
-  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); renderExplorer(); return; }
+  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); expOpen.clear(); renderExplorer(); return; }
   const playBtn = e.target.closest('.expplay');
   if (playBtn) {
     const id = playBtn.dataset.play;
@@ -338,18 +396,34 @@ colsEl.addEventListener('click', (e) => {
     renderExplorer();
     return;
   }
-  const conn = e.target.closest('.conn'); if (!conn) return;
-  if (conn.dataset.track) {
-    // a mashup: play it (queue = every mashup on this screen) + open its contents
-    const id = conn.dataset.track;
+  // play button on a mashup row: play it (queue = this screen), stay here
+  const tplay = e.target.closest('.tplay');
+  if (tplay) {
+    const id = tplay.dataset.play;
+    if (player.current()?.id === id) { player.toggle(); renderExplorer(); return; }
     const colIds = $$('.conn[data-track]', colsEl).map((c) => c.dataset.track);
     visible = colIds.map(get).filter(Boolean);
-    if (player.current()?.id === id) player.toggle();
-    else player.playNow(colIds, colIds.indexOf(id));
-    expPath = [...expPath, 't:' + id];
+    player.playNow(colIds, colIds.indexOf(id));
     renderExplorer();
+    return;
+  }
+  // artist/song inside the preview dropdown: keep walking the web
+  const via = e.target.closest('.vialink');
+  if (via?.dataset.key) {
+    expPath = [...expPath, via.dataset.key];
+    expOpen.clear();
+    renderExplorer();
+    return;
+  }
+  const conn = e.target.closest('.conn'); if (!conn) return;
+  if (conn.dataset.track) {
+    // tap the row (or its chevron) = toggle the what's-inside preview
+    const id = conn.dataset.track;
+    expOpen.has(id) ? expOpen.delete(id) : expOpen.add(id);
+    conn.classList.toggle('open', expOpen.has(id));
   } else if (conn.dataset.key) {
     expPath = [...expPath, conn.dataset.key];
+    expOpen.clear();
     renderExplorer();
   }
 });
@@ -459,6 +533,121 @@ browseEl.addEventListener('click', (e) => {
   onRowClick(e); // album track rows reuse the library row behaviour
 });
 
+/* ---------------- mashup artists: profile pages with bios ---------------- */
+const artistsEl = $('#view-artists');
+const maKey = (name) => norm(name);                  // DB key (no prefix)
+
+function canEditArtistPage(name) {
+  if (backend.isAdmin()) return true;
+  const p = backend.getProfile();
+  return backend.isArtist() && (p?.display_name || '').toLowerCase() === (name || '').toLowerCase();
+}
+
+function renderArtistsView() {
+  if (artistNav) return renderArtistDetail();
+  const list = mashupArtists().sort((a, b) => b.tracks.length - a.tracks.length || a.name.localeCompare(b.name));
+  artistsEl.innerHTML = `
+    <div class="listhead">
+      <h1>Mashup Artists</h1>
+      <span class="count">${list.length}</span>
+      <span class="spacer"></span>
+      <input class="catfilter" id="ma-filter" type="search" placeholder="Filter artists…" autocomplete="off">
+    </div>
+    <div class="albumgrid">${list.map((a, i) => {
+      const page = artistPages[maKey(a.name)];
+      return `<button class="albumcard macard" data-ma="${esc(a.key)}" data-name="${esc(a.name)}" style="--hue:${hashHue(a.name)}deg;--d:${Math.min(i * 30, 420)}ms">
+        <div class="art"><span>${esc(a.name)}</span></div>
+        <div class="anm">${esc(a.name)}</div>
+        <div class="acnt">${a.tracks.length} mashup${a.tracks.length === 1 ? '' : 's'}${page?.bio ? ' · bio' : ''}</div>
+      </button>`;
+    }).join('')}</div>`;
+  const fi = $('#ma-filter');
+  fi.addEventListener('input', () => {
+    const q = norm(fi.value);
+    $$('.macard', artistsEl).forEach((el) =>
+      el.classList.toggle('hidden', !!q && !norm(el.dataset.name).includes(q)));
+  });
+  fillArtistCardArt();
+}
+
+/** Try real photos on the artist cards (many mashup artists exist on Deezer). */
+function fillArtistCardArt() {
+  $$('.macard', artistsEl).slice(0, 60).forEach((card) => {
+    artwork.artistImage(card.dataset.name).then((u) => {
+      if (!u || !card.isConnected) return;
+      const art = $('.art', card);
+      art.style.background = `url('${u.replace(/'/g, '%27')}') center/cover`;
+      art.style.filter = 'none';
+      $('span', art).style.opacity = '0';
+    }).catch(() => {});
+  });
+}
+
+function renderArtistDetail() {
+  const a = mashupArtists().find((x) => x.key === artistNav);
+  if (!a) { artistNav = null; return renderArtistsView(); }
+  const page = artistPages[maKey(a.name)];
+  const list = sortTracks(a.tracks);
+  visible = list;
+  artistsEl.innerHTML = `
+    <div class="listhead">
+      <button class="chip" id="ma-back">‹ Artists</button>
+      <h1>${esc(a.name)}</h1>
+      <span class="count">${list.length} mashup${list.length === 1 ? '' : 's'}</span>
+      <span class="spacer"></span>
+      <button class="chip" id="ma-playall">▶ Play all</button>
+      ${page?.youtube ? `<a class="chip" href="${esc(page.youtube)}" target="_blank" rel="noopener">▶ YouTube</a>` : ''}
+      ${canEditArtistPage(a.name) ? `<button class="chip" id="ma-edit" data-name="${esc(a.name)}">✎ Edit page</button>` : ''}
+    </div>
+    ${page?.bio ? `<div class="acct-card"><div class="sub" style="margin:0;white-space:pre-wrap">${esc(page.bio)}</div></div>`
+      : `<div class="brhint">${canEditArtistPage(a.name) ? 'No bio yet — tap “Edit page” to write one.' : ''}</div>`}
+    <div class="tracklist">${list.map(rowHtml).join('')}</div>`;
+}
+
+artistsEl.addEventListener('click', (e) => {
+  if (e.target.closest('#ma-back')) { artistNav = null; renderArtistsView(); return; }
+  if (e.target.closest('#ma-playall')) {
+    if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
+    return;
+  }
+  const ed = e.target.closest('#ma-edit');
+  if (ed) { openBioDlg(ed.dataset.name); return; }
+  const card = e.target.closest('.macard');
+  if (card) { artistNav = card.dataset.ma; renderArtistDetail(); return; }
+  onRowClick(e); // track rows reuse the library row behaviour
+});
+
+/* bio editor dialog */
+const bioDlg = $('#bio-dlg');
+let bioEditing = null;
+function openBioDlg(name) {
+  bioEditing = name;
+  const page = artistPages[maKey(name)];
+  $('#bio-who').textContent = name;
+  $('#bio-text').value = page?.bio || '';
+  $('#bio-yt').value = page?.youtube || '';
+  $('#bio-err').classList.add('hidden');
+  bioDlg.showModal();
+}
+$('#bio-cancel').addEventListener('click', () => bioDlg.close());
+$('#bio-save').addEventListener('click', async () => {
+  const err = $('#bio-err');
+  err.classList.add('hidden');
+  const yt = $('#bio-yt').value.trim();
+  if (yt && !/^https?:\/\//.test(yt)) { err.textContent = 'The YouTube link should start with https://'; err.classList.remove('hidden'); return; }
+  try {
+    $('#bio-save').disabled = true;
+    await backend.saveArtistPage(maKey(bioEditing), bioEditing, $('#bio-text').value.trim(), yt);
+    artistPages[maKey(bioEditing)] = { key: maKey(bioEditing), name: bioEditing, bio: $('#bio-text').value.trim() || null, youtube: yt || null };
+    bioDlg.close();
+    toast('Artist page saved');
+    if (view === 'artists') renderArtistsView();
+  } catch (e2) {
+    err.textContent = e2?.message || 'Could not save (has the artist_pages table been created?)';
+    err.classList.remove('hidden');
+  } finally { $('#bio-save').disabled = false; }
+});
+
 /* ---------------- home (Spotify-style landing) ---------------- */
 const homeEl = $('#view-home');
 let homeNav = null; // null | {cat} | {cat, key, name}
@@ -502,6 +691,7 @@ function renderHome() {
       <button class="qbtn primary" id="hm-shuffle">⤨ Shuffle all mashups</button>
       <button class="qbtn" id="hm-surprise">✨ Surprise me</button>
       <button class="qbtn" data-cat="__explore">🕸 Explore connections</button>
+      ${window.Capacitor?.isNativePlatform?.() ? '' : `<a class="qbtn" href="${APK_URL}" style="text-decoration:none">📱 Get the Android app</a>`}
     </div>
     ${recentTracks.length ? `<section class="brsec">
       <h2 class="brh">Recently played</h2>
@@ -629,10 +819,14 @@ function show(v) {
   $('#view-explorer').classList.toggle('hidden', v !== 'explorer');
   $('#view-browse').classList.toggle('hidden', v !== 'browse');
   $('#view-playlists').classList.toggle('hidden', v !== 'playlists');
+  $('#view-account').classList.toggle('hidden', v !== 'account');
+  $('#view-artists').classList.toggle('hidden', v !== 'artists');
   if (v === 'home') { homeNav = null; renderHome(); }
   else if (v === 'browse') renderBrowse();
   else if (v === 'playlists') renderPlaylists();
   else if (v === 'explorer') renderExplorer();
+  else if (v === 'account') renderAccount();
+  else if (v === 'artists') renderArtistsView();
   else renderLibrary();
 }
 $$('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
@@ -666,26 +860,46 @@ $('#mini-next').addEventListener('click', (e) => { e.stopPropagation(); player.n
 $('#mini-queue').addEventListener('click', (e) => { e.stopPropagation(); $('#queue').classList.toggle('show'); });
 $('#mini-prog').addEventListener('click', (e) => {
   const r = e.currentTarget.getBoundingClientRect();
-  if (player.audio.duration) player.seek(((e.clientX - r.left) / r.width) * player.audio.duration);
+  const p = (e.clientX - r.left) / r.width;
+  if (videoMode && ytDur) { ytCur = p * ytDur; ytCmd('seekTo', [ytCur, true]); return; }
+  if (player.audio.duration) player.seek(p * player.audio.duration);
 });
 
 /* ---------------- queue drawer ---------------- */
 function renderQueue() {
   const q = player.state.queue;
+  const pos = player.state.pos;
   $('#q-count').textContent = q.length ? `${q.length} track${q.length === 1 ? '' : 's'}` : '';
-  $('#qlist').innerHTML = q.length ? q.map((id, i) => {
+  const rowFor = (id, i) => {
     const t = get(id);
-    const cur = i === player.state.pos;
+    const cur = i === pos;
     return `<div class="qrow${cur ? ' current' : ''}" data-i="${i}">
       <span class="qn">${i + 1}</span><span class="qt">${esc(t?.displayTitle || id)}</span>
-      ${cur ? '' : `<button class="qx" title="Remove">${I.close}</button>`}
+      <span class="qbtns">
+        <button class="qmv" data-mv="-1" title="Move up" ${i === 0 ? 'disabled' : ''}>↑</button>
+        <button class="qmv" data-mv="1" title="Move down" ${i === q.length - 1 ? 'disabled' : ''}>↓</button>
+        <button class="qx2" title="Remove from queue">✕</button>
+      </span>
     </div>`;
-  }).join('') : '<div class="empty">Queue is empty — play something.</div>';
+  };
+  let html = '';
+  if (q.length) {
+    if (pos >= 0) {
+      html += `<div class="qhead">Now playing</div>` + rowFor(q[pos], pos);
+      const rest = q.map((id, i) => ({ id, i })).filter((x) => x.i !== pos);
+      if (rest.length) html += `<div class="qhead">Next up</div>` + rest.map((x) => rowFor(x.id, x.i)).join('');
+    } else {
+      html = q.map(rowFor).join('');
+    }
+  }
+  $('#qlist').innerHTML = html || '<div class="empty">Queue is empty — play something, or use the ⊕ button on any track.</div>';
 }
 $('#qlist').addEventListener('click', (e) => {
   const row = e.target.closest('.qrow'); if (!row) return;
   const i = +row.dataset.i;
-  if (e.target.closest('.qx')) { player.removeAt(i); return; }
+  const mv = e.target.closest('.qmv');
+  if (mv) { player.moveInQueue(i, i + (+mv.dataset.mv)); return; }
+  if (e.target.closest('.qx2')) { player.removeAt(i); return; }
   player.jumpTo(i);
 });
 $('#q-close').addEventListener('click', () => $('#queue').classList.remove('show'));
@@ -736,6 +950,7 @@ seekEl.addEventListener('pointermove', (e) => { if (seeking) updateSeekUi(seekFr
 seekEl.addEventListener('pointerup', (e) => {
   if (!seeking) return; seeking = false;
   const p = seekFromEvent(e);
+  if (videoMode && ytDur) { ytCur = p * ytDur; ytCmd('seekTo', [ytCur, true]); return; }
   if (player.audio.duration) player.seek(p * player.audio.duration);
 });
 function updateSeekUi(p) {
@@ -749,6 +964,40 @@ const avToggle = $('#av-toggle'), ytWrap = $('#yt-wrap'), vizWrap = $('#viz-full
 $('#av-audio').addEventListener('click', () => setVideoMode(false));
 $('#av-video').addEventListener('click', () => setVideoMode(true));
 
+/* ---- YouTube position sync (Spotify-style audio<->video handoff) ----
+   The embed is loaded with enablejsapi=1 so we can talk to it over
+   postMessage: we ask it to start reporting (event:"listening") and it sends
+   "infoDelivery" messages with currentTime/duration several times a second.
+   Switching audio->video passes the audio position via &start=; switching
+   video->audio seeks the audio element to the video's last reported time. */
+let ytCur = 0, ytDur = 0;
+
+function ytPost(msg) {
+  const f = ytWrap.querySelector('iframe');
+  try { f?.contentWindow?.postMessage(JSON.stringify(msg), '*'); } catch {}
+}
+const ytListen = () => ytPost({ event: 'listening', id: 'bmtm', channel: 'widget' });
+const ytCmd = (func, args = []) => ytPost({ event: 'command', func, args, id: 'bmtm', channel: 'widget' });
+
+window.addEventListener('message', (e) => {
+  let host = '';
+  try { host = new URL(e.origin).hostname; } catch { return; }
+  if (!/(^|\.)youtube(-nocookie)?\.com$/.test(host)) return;
+  let d; try { d = JSON.parse(e.data); } catch { return; }
+  if (d?.event === 'onReady') ytListen();
+  if (d?.event !== 'infoDelivery' || !d.info) return;
+  if (typeof d.info.currentTime === 'number') ytCur = d.info.currentTime;
+  if (typeof d.info.duration === 'number' && d.info.duration > 0) ytDur = d.info.duration;
+  if (videoMode) {
+    // keep the timers + progress bars in step with the video
+    if (!seeking && ytDur) updateSeekUi(ytCur / ytDur);
+    $('#t-cur').textContent = fmt(ytCur);
+    $('#t-dur').textContent = fmt(ytDur);
+    $('#mini-prog .fill').style.width = ytDur ? (ytCur / ytDur * 100) + '%' : '0%';
+    if (d.info.playerState === 0) player.next(true);      // video ended -> next track
+  }
+});
+
 function setVideoMode(v, force = false) {
   const t = player.current();
   if (v && !t?.video) return;
@@ -760,16 +1009,28 @@ function setVideoMode(v, force = false) {
   ytWrap.classList.toggle('hidden', !v);
   if (v) {
     player.audio.pause();
-    mountEmbed(t);
+    mountEmbed(t, player.audio.currentTime || 0);          // video picks up where audio was
   } else {
+    const back = ytCur;
     ytWrap.innerHTML = '';                    // stop embed
-    if (t?.audio) player.audio.play().catch(() => {});
+    ytCur = 0; ytDur = 0;
+    if (t?.audio) {
+      if (back > 1 && Number.isFinite(back)) player.seek(back);  // audio picks up where video was
+      player.audio.play().catch(() => {});
+    }
   }
 }
-function mountEmbed(t) {
+function mountEmbed(t, startAt = 0) {
   if (!t?.video) return;
+  ytCur = startAt; ytDur = 0;
   if (t.video.type === 'youtube') {
-    ytWrap.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(t.video.sourceId)}?autoplay=1&rel=0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="YouTube video"></iframe>`;
+    // referrerpolicy override: the page sets meta referrer=no-referrer for pCloud
+    // (which rejects any third-party Referer, error 7010), but YouTube's player
+    // needs the origin or it fails with "Error 153". Send just the origin here.
+    const start = Math.max(0, Math.floor(startAt));
+    ytWrap.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(t.video.sourceId)}?autoplay=1&rel=0&enablejsapi=1&playsinline=1&start=${start}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="YouTube video"></iframe>`;
+    const f = ytWrap.querySelector('iframe');
+    f.addEventListener('load', () => { ytListen(); setTimeout(ytListen, 700); setTimeout(ytListen, 2000); });
   } else if (t.video.type === 'tiktok') {
     // official TikTok embed (embed-only constraint: never rehost)
     const url = t.video.sourceId.startsWith('http') ? t.video.sourceId : `https://www.tiktok.com/embed/v2/${encodeURIComponent(t.video.sourceId)}`;
@@ -797,6 +1058,14 @@ player.on('trackchange', (t) => {
   if (!hasAudio && hasVideo) setVideoMode(true, true); // embed-only entries
   else setVideoMode(false, true);
 
+  // screensaver text + reset the details scroll to the top for the new track
+  $('#saver-meta b').textContent = t.displayTitle;
+  $('#saver-meta span').textContent = t.mashupArtist || '';
+  pl.scrollTop = 0;
+
+  applyArtwork(t);
+  renderDetails(t);
+  armSaver();
   renderQueue();
   renderNowRows();
 });
@@ -809,6 +1078,7 @@ player.on('videofallback', () => {
 player.on('play', () => { syncPlayIcons(true); });
 player.on('pause', () => { syncPlayIcons(false); });
 player.on('queue', renderQueue);
+player.on('radio', (n) => toast(`Radio: added ${n} similar mashup${n === 1 ? '' : 's'} to the queue`));
 player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
   $('#t-cur').textContent = fmt(t);
@@ -832,6 +1102,114 @@ function renderNowRows() {
   });
   if (view === 'explorer') renderExplorer(); // refresh play/pause highlight
 }
+
+/* ---------------- artist artwork background (with collage layouts) -------- */
+let artToken = 0;
+function applyArtwork(t) {
+  const token = ++artToken;
+  const artEl = $('#pl-art');
+  artEl.classList.remove('on');
+  pl.classList.remove('hasart');
+  mini.classList.remove('hasart');
+  $('#mini .viz').style.backgroundImage = '';
+  artwork.collageFor(t).then((urls) => {
+    if (token !== artToken) return;           // track changed while fetching
+    if (!urls.length) { artEl.innerHTML = ''; artEl.removeAttribute('data-n'); return; }
+    const n = Math.min(urls.length, 6);
+    artEl.dataset.n = n;
+    artEl.innerHTML = urls.slice(0, n).map((u, i) =>
+      `<div class="cell" style="background-image:url('${u.replace(/'/g, '%27')}');--kd:${22 + i * 6}s;animation-delay:-${i * 7}s"></div>`
+    ).join('') + '<div class="scrim"></div>';
+    artEl.classList.add('on');
+    pl.classList.add('hasart');
+    mini.classList.add('hasart');
+    $('#mini .viz').style.backgroundImage = `url('${urls[0].replace(/'/g, '%27')}')`;
+    armSaver();   // artwork just arrived — the screensaver is worth arming now
+  }).catch(() => {});
+}
+
+/* ---------------- now-playing details (scroll down, Spotify-style) -------- */
+function renderDetails(t) {
+  const box = $('#pl-details');
+  if (!t) { box.innerHTML = ''; return; }
+  const inside = nodesOfTrack(t.id);
+  const artists = inside.filter((n) => n.kind === 'artist');
+  const songs = inside.filter((n) => n.kind === 'song');
+  const maName = (t.mashupArtist || '').trim();
+  const maList = maName ? mashupArtists().find((a) => a.name.toLowerCase() === maName.toLowerCase()) : null;
+  const rel = relatedTo(t.id, 10).map((r) => r.track).filter(Boolean);
+  const chip = (n) => `<button class="dchip" data-key="${esc(n.key)}">
+      ${esc(n.name)} <span class="dc">${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
+    </button>`;
+  box.innerHTML = `
+    ${maName ? `<h3>Mashup by</h3>
+    <div class="dchips"><button class="dchip ma" data-ma="${esc('ma:' + norm(maName))}" data-name="${esc(maName)}">
+      <span class="ic">🎛</span> ${esc(maName)} <span class="dc">${maList ? maList.tracks.length + ' mashup' + (maList.tracks.length === 1 ? '' : 's') + ' on the site ›' : ''}</span>
+    </button></div>` : ''}
+    ${artists.length ? `<h3>Artists in this mashup</h3>
+    <div class="dchips">${artists.map(chip).join('')}</div>` : ''}
+    ${songs.length ? `<h3>Songs in this mashup</h3>
+    <div class="dsonglist">${songs.map((n) => `
+      <button class="dsong" data-key="${esc(n.key)}">
+        <div class="dt"><b>${esc(n.name)}</b></div>
+        <span class="dc">in ${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
+      </button>`).join('')}</div>` : ''}
+    ${(artists.length || songs.length) ? '<div class="dhint">Tap any artist or song to jump into the Explorer and find every mashup it appears in.</div>' : ''}
+    ${rel.length ? `<h3>More mashups like this</h3>
+    <div class="reccards">${rel.map(recCardHtml).join('')}</div>` : ''}`;
+  $('#pl-hint').style.display = box.innerHTML.trim() ? '' : 'none';
+}
+
+$('#pl-details').addEventListener('click', (e) => {
+  const rec = e.target.closest('.reccard');
+  if (rec) {
+    const ids = $$('.reccard', rec.closest('.reccards')).map((c) => c.dataset.id);
+    visible = ids.map(get).filter(Boolean);
+    player.playNow(ids, ids.indexOf(rec.dataset.id));
+    return;
+  }
+  const ma = e.target.closest('[data-ma]');
+  if (ma) {
+    pl.classList.remove('show');
+    artistNav = ma.dataset.ma;       // open the artist's profile page
+    show('artists');
+    return;
+  }
+  const k = e.target.closest('[data-key]');
+  if (k) {
+    pl.classList.remove('show');
+    expPath = [k.dataset.key];
+    expOpen.clear();
+    show('explorer');
+  }
+});
+$('#pl-hint').addEventListener('click', () => {
+  pl.scrollTo({ top: pl.clientHeight * 0.92, behavior: 'smooth' });
+});
+$('#pl-settings').addEventListener('click', () => {
+  pl.classList.remove('show');
+  show('account');
+});
+
+/* ---------------- Zune-HD-style screensaver ----------------
+   After a little idle time with the full player open and music playing, the
+   chrome fades away and the artist imagery + drifting title take over.
+   Any touch / mouse move / key brings the UI back. */
+let saverT = 0;
+function exitSaver() { document.body.classList.remove('saver'); }
+function armSaver() {
+  clearTimeout(saverT);
+  exitSaver();
+  const s = player.settings;
+  if (s.saver === false) return;
+  if (!pl.classList.contains('show') || player.audio.paused || videoMode) return;
+  if (!pl.classList.contains('hasart')) return;   // needs imagery to be worth it
+  saverT = setTimeout(() => document.body.classList.add('saver'), (s.saverDelay || 30) * 1000);
+}
+['pointermove', 'pointerdown', 'keydown', 'touchstart', 'wheel'].forEach((ev) =>
+  window.addEventListener(ev, () => { if (document.body.classList.contains('saver')) exitSaver(); clearTimeout(saverT); saverT = setTimeout(armSaver, 250); }, { passive: true }));
+player.on('play', armSaver);
+player.on('pause', () => { clearTimeout(saverT); exitSaver(); });
 
 /* ---------------- playlists view ---------------- */
 const plView = $('#view-playlists');
@@ -992,6 +1370,163 @@ $('#pladd-create').addEventListener('click', async () => {
 });
 $('#pladd-close').addEventListener('click', () => plAddDlg.close());
 
+/* ---------------- account page: your stats + settings ---------------- */
+const acctView = $('#view-account');
+
+function renderAccount() {
+  const u = backend.user(), p = backend.getProfile();
+  const s = player.settings;
+  const played = Object.entries(plays).map(([id, n]) => ({ t: get(id), n })).filter((x) => x.t).sort((a, b) => b.n - a.n);
+  const total = played.reduce((sum, x) => sum + x.n, 0);
+  const top = played.slice(0, 10);
+  const eqOk = player.eqAvailable();
+  visible = top.map((x) => x.t);
+  acctView.innerHTML = `
+    <div class="listhead"><h1>${u ? 'Your page' : 'Settings'}</h1></div>
+
+    <div class="acct-card">
+      <h2>${esc(p?.display_name || (u ? u.email : 'Not signed in'))}</h2>
+      <div class="sub">${u ? esc(u.email) + (backend.isAdmin() ? ' · admin' : backend.isArtist() ? ' · mashup artist' : ' · listener') : 'Sign in to sync your likes, playlists and play counts across devices.'}</div>
+      <div class="rowchips">
+        ${u ? `
+        <button class="chip" id="ac-role">${backend.isArtist() ? 'Switch to listener account' : '🎛 Become a mashup artist'}</button>
+        <button class="chip artistonly" id="ac-yt">${p?.youtube_channel ? '▶ YouTube channel linked ✓ (change)' : '▶ Link your YouTube channel'}</button>
+        <a class="chip artistonly" href="submit.html">🎚 Submit a mashup</a>
+        <a class="chip artistonly" href="submit.html#mine">✎ My submissions — edit your tracks</a>
+        <button class="chip artistonly" id="ac-bio">📝 Edit my artist page (bio)</button>
+        <a class="chip adminonly" href="admin.html">🛠 Admin</a>
+        <button class="chip" id="ac-signout">Sign out</button>`
+      : `<button class="chip primary" id="ac-signin">Sign in / create account</button>`}
+        <a class="chip" href="${APK_URL}">📱 Download the Android app</a>
+      </div>
+    </div>
+
+    <div class="acct-card">
+      <h2>Listening stats</h2>
+      <div class="sub">${u ? 'Synced to your account.' : 'Stored on this device — sign in to keep them everywhere.'}</div>
+      <div class="statgrid">
+        <div class="stat"><b>${total}</b><span>total plays</span></div>
+        <div class="stat"><b>${played.length}</b><span>different mashups</span></div>
+        <div class="stat"><b>${likes.size}</b><span>liked</span></div>
+      </div>
+      ${top.length ? `<div class="tracklist">${top.map((x, i) => rowHtml(x.t, i)).join('')}</div>`
+        : '<div class="dhint">Play some mashups and your most-played will show up here.</div>'}
+    </div>
+
+    <div class="acct-card">
+      <h2>Playback</h2>
+      <div class="setrow">
+        <div class="sl"><b>Autoplay radio</b><span>When the queue ends, keep going with related mashups</span></div>
+        <label class="swtch"><input type="checkbox" id="set-autoplay" ${s.autoplay ? 'checked' : ''}><span class="kn"></span></label>
+      </div>
+      <div class="setrow">
+        <div class="sl"><b>Crossfade</b><span>Fade tracks out and in at the edges</span></div>
+        <input type="range" id="set-crossfade" min="0" max="12" step="1" value="${s.crossfade || 0}">
+        <span class="val" id="set-cf-val">${s.crossfade ? s.crossfade + 's' : 'Off'}</span>
+      </div>
+      <div class="setrow">
+        <div class="sl"><b>Gapless prep</b><span>Fetch the next track's stream link before the current one ends</span></div>
+        <label class="swtch"><input type="checkbox" id="set-prewarm" ${s.prewarm ? 'checked' : ''}><span class="kn"></span></label>
+      </div>
+      <div class="setrow">
+        <div class="sl"><b>Screensaver</b><span>Zune-style artwork takeover when the full player sits idle</span></div>
+        <select id="set-saverdelay">
+          ${[15, 30, 60, 120].map((v) => `<option value="${v}" ${(s.saverDelay || 30) === v ? 'selected' : ''}>${v < 60 ? v + 's' : (v / 60) + ' min'}</option>`).join('')}
+        </select>
+        <label class="swtch"><input type="checkbox" id="set-saver" ${s.saver !== false ? 'checked' : ''}><span class="kn"></span></label>
+      </div>
+    </div>
+
+    <div class="acct-card">
+      <h2>Equalizer</h2>
+      <div class="setrow">
+        <div class="sl"><b>Enable EQ</b><span>5-band equalizer${eqOk ? '' : ' — kicks in while a track is playing with the visualizer active'}</span></div>
+        <label class="swtch"><input type="checkbox" id="set-eq" ${s.eq ? 'checked' : ''}><span class="kn"></span></label>
+      </div>
+      <div class="eqwrap">${player.EQ_FREQS.map((f, i) => `
+        <div class="eqband">
+          <input type="range" class="eqs" data-band="${i}" min="-12" max="12" step="1" value="${s.eqBands[i] || 0}" ${s.eq ? '' : 'disabled'}>
+          <label>${f >= 1000 ? (f / 1000) + 'k' : f}</label>
+        </div>`).join('')}</div>
+      <div class="eqpresets">${Object.keys(player.EQ_PRESETS).map((k) =>
+        `<button class="chip eqp" data-preset="${esc(k)}" ${s.eq ? '' : 'disabled'}>${esc(k)}</button>`).join('')}</div>
+      <div class="eqnote">On tracks whose audio host blocks cross-origin reads the EQ can't touch the stream — playback simply continues without it.</div>
+    </div>
+
+    <div class="acct-card">
+      <h2>Appearance</h2>
+      <div class="setrow">
+        <div class="sl"><b>Theme</b><span>Dark / light</span></div>
+        <button class="chip" id="ac-theme">Toggle theme</button>
+      </div>
+    </div>`;
+}
+
+acctView.addEventListener('click', async (e) => {
+  if (e.target.closest('#ac-signin')) { openAuth(); return; }
+  if (e.target.closest('#ac-bio')) {
+    const name = backend.getProfile()?.display_name;
+    if (!name) { toast('Set a display name first (it identifies your artist page)'); return; }
+    openBioDlg(name);
+    return;
+  }
+  if (e.target.closest('#ac-signout')) { await backend.signOut(); toast('Signed out'); renderAccount(); return; }
+  if (e.target.closest('#ac-theme')) {
+    setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+    return;
+  }
+  if (e.target.closest('#ac-role')) {
+    try {
+      await backend.setRole(backend.isArtist() ? 'listener' : 'artist');
+      toast(backend.isArtist() ? 'You are now a mashup artist — you can submit tracks!' : 'Switched to listener');
+      renderAccount();
+    } catch { toast('Could not change role'); }
+    return;
+  }
+  if (e.target.closest('#ac-yt')) {
+    const cur = backend.getProfile()?.youtube_channel || '';
+    const url = prompt('Your YouTube channel link (e.g. https://youtube.com/@yourname)', cur);
+    if (url === null) return;
+    const v = url.trim();
+    if (v && !/^https?:\/\/(www\.)?youtube\.com\//.test(v)) { toast('That does not look like a YouTube channel link'); return; }
+    try {
+      await backend.updateProfile({ youtube_channel: v || null });
+      toast(v ? 'YouTube channel linked' : 'YouTube channel removed');
+      renderAccount();
+    } catch { toast('Could not save channel'); }
+    return;
+  }
+  const preset = e.target.closest('.eqp');
+  if (preset && !preset.disabled) {
+    const bands = player.EQ_PRESETS[preset.dataset.preset];
+    if (bands) {
+      player.saveSettings({ eqBands: [...bands] });
+      $$('.eqs', acctView).forEach((sl, i) => { sl.value = bands[i]; });
+      toast('EQ: ' + preset.dataset.preset);
+    }
+    return;
+  }
+  onRowClick(e); // top-played rows behave like library rows
+});
+
+acctView.addEventListener('input', (e) => {
+  const id = e.target.id;
+  if (id === 'set-autoplay') player.saveSettings({ autoplay: e.target.checked });
+  else if (id === 'set-prewarm') player.saveSettings({ prewarm: e.target.checked });
+  else if (id === 'set-saver') { player.saveSettings({ saver: e.target.checked }); armSaver(); }
+  else if (id === 'set-saverdelay') { player.saveSettings({ saverDelay: +e.target.value }); armSaver(); }
+  else if (id === 'set-crossfade') {
+    const v = +e.target.value;
+    player.saveSettings({ crossfade: v });
+    $('#set-cf-val').textContent = v ? v + 's' : 'Off';
+  } else if (id === 'set-eq') {
+    player.saveSettings({ eq: e.target.checked });
+    $$('.eqs, .eqp', acctView).forEach((el) => { el.disabled = !e.target.checked; });
+  } else if (e.target.classList.contains('eqs')) {
+    player.setEqBand(+e.target.dataset.band, +e.target.value);
+  }
+});
+
 /* ---------------- auth + account dialogs ---------------- */
 const authDlg = $('#auth-dlg'), acctDlg = $('#acct-dlg');
 let authMode = 'in'; // 'in' | 'up'
@@ -1011,7 +1546,10 @@ function syncAuthMode() {
 }
 $('#auth-switch').addEventListener('click', () => { authMode = authMode === 'in' ? 'up' : 'in'; syncAuthMode(); });
 $('#auth-google').addEventListener('click', async () => {
-  try { await backend.signInWithGoogle(); } // redirects away; no close needed
+  try {
+    sessionStorage.setItem('bmtm.oauth', '1');   // so the return trip shows "Signed in"
+    await backend.signInWithGoogle();
+  }
   catch (err) {
     $('#auth-err').textContent = err?.message || 'Google sign-in failed.';
     $('#auth-err').classList.remove('hidden');
@@ -1062,7 +1600,7 @@ $('#acct-yt').addEventListener('click', async () => {
     openAccount();
   } catch { toast('Could not save channel'); }
 });
-$('#account').addEventListener('click', () => backend.user() ? openAccount() : openAuth());
+$('#account').addEventListener('click', () => backend.user() ? show('account') : openAuth());
 $('#acct-close').addEventListener('click', () => acctDlg.close());
 $('#acct-signout').addEventListener('click', async () => { acctDlg.close(); await backend.signOut(); toast('Signed out'); });
 $('#acct-role').addEventListener('click', async () => {
@@ -1093,6 +1631,7 @@ function handleBack() {
   if (pl.classList.contains('show')) { pl.classList.remove('show'); return true; }
   if ($('#queue').classList.contains('show')) { $('#queue').classList.remove('show'); return true; }
   if (view === 'explorer' && expPath.length) { expPath.pop(); renderExplorer(); return true; }
+  if (view === 'artists' && artistNav) { artistNav = null; renderArtistsView(); return true; }
   if (view === 'home' && homeNav) { homeNav = homeNav.key ? { cat: homeNav.cat } : null; renderHome(); return true; }
   if (view === 'browse' && browseAlbum) { browseAlbum = null; renderBrowse(); return true; }
   if (view === 'playlists' && openPlaylist) { openPlaylist = null; renderPlaylists(); return true; }
@@ -1163,6 +1702,14 @@ document.addEventListener('keydown', (e) => {
   await loadCatalog();
   show('home');
   if (backend.user()) syncAccountState();
+
+  // mashup-artist bios (non-blocking; section works without them)
+  if (backend.enabled()) {
+    backend.fetchArtistPages().then((p) => {
+      artistPages = p || {};
+      if (view === 'artists') renderArtistsView();
+    }).catch(() => {});
+  }
 
   viz.attach($('#viz-full'), 'full');
   viz.attach($('#viz-mini'), 'mini');

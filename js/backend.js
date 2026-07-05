@@ -242,6 +242,27 @@ export async function reorderPlaylist(playlistId, orderedIds) {
   if (error) throw error;
 }
 
+/* ---------------- mashup-artist pages (bios) ----------------
+ * Table: artist_pages (key = normalized mashup-artist name). Public read;
+ * admins can edit any page, artists can edit the page matching their
+ * display_name (enforced by RLS — see supabase/artist-pages.sql).
+ * Degrades gracefully: if the table doesn't exist yet, pages just have
+ * no bio and the section still works. */
+export async function fetchArtistPages() {
+  try {
+    const { data, error } = await sb.from('artist_pages').select('key, name, bio, youtube');
+    if (error) throw error;
+    return Object.fromEntries(data.map((r) => [r.key, r]));
+  } catch { return {}; }
+}
+export async function saveArtistPage(key, name, bio, youtube) {
+  const { error } = await sb.from('artist_pages').upsert({
+    key, name, bio: bio || null, youtube: youtube || null,
+    updated_by: user().id, updated_at: new Date().toISOString(),
+  });
+  if (error) throw error;
+}
+
 /* ---------------- artist submissions ---------------- */
 /** Upload a media file to storage; returns its public URL. */
 export async function uploadMedia(file, onProgress) {
