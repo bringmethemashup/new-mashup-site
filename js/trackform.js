@@ -12,8 +12,14 @@ const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;
 
 export function formHtml(entry = {}, { showMedia = true } = {}) {
   const songs = entry.sourceSongs?.length ? entry.sourceSongs : [{ artist: '', title: '' }, { artist: '', title: '' }];
-  const mediaKind = entry.audio?.url ? 'upload'
+  const at = entry.audio?.type;
+  const mediaKind = at === 'pcloud' ? 'pcloud'
+    : at === 'dropbox' ? 'dropbox'
+    : at === 'onedrive' ? 'onedrive'
+    : at === 'gdrive' ? 'gdrive'
+    : at === 'direct' ? 'direct'
     : entry.audio?.publicLink ? 'pcloud'
+    : entry.audio?.url ? 'upload'
     : entry.video?.type === 'youtube' ? 'youtube'
     : entry.video?.type === 'tiktok' ? 'tiktok' : 'upload';
   return `
@@ -33,6 +39,10 @@ export function formHtml(entry = {}, { showMedia = true } = {}) {
       <option value="youtube" ${mediaKind === 'youtube' ? 'selected' : ''}>YouTube link (my own channel)</option>
       <option value="tiktok" ${mediaKind === 'tiktok' ? 'selected' : ''}>TikTok link (my own account)</option>
       <option value="pcloud" ${mediaKind === 'pcloud' ? 'selected' : ''}>pCloud public link (my own hosting)</option>
+      <option value="dropbox" ${mediaKind === 'dropbox' ? 'selected' : ''}>Dropbox share link</option>
+      <option value="onedrive" ${mediaKind === 'onedrive' ? 'selected' : ''}>OneDrive share link</option>
+      <option value="gdrive" ${mediaKind === 'gdrive' ? 'selected' : ''}>Google Drive share link</option>
+      <option value="direct" ${mediaKind === 'direct' ? 'selected' : ''}>Direct file URL (S3 · R2 · B2 · any host)</option>
     </select>
   </div>
   <div class="f tf-file-f"><label>File (mp3, m4a, wav, ogg, mp4 — max 100 MB)</label>
@@ -114,8 +124,11 @@ export function bindForm(root) {
       root.querySelector('.tf-file-f')?.classList.toggle('hidden', v !== 'upload');
       root.querySelector('.tf-link-f')?.classList.toggle('hidden', v === 'upload');
       const lbl = root.querySelector('.tf-link-label');
-      if (lbl) lbl.textContent = v === 'youtube' ? 'YouTube video link'
-        : v === 'tiktok' ? 'TikTok video link' : 'pCloud public link';
+      const LABELS = { youtube: 'YouTube video link', tiktok: 'TikTok video link',
+        pcloud: 'pCloud public link', dropbox: 'Dropbox share link',
+        onedrive: 'OneDrive share link', gdrive: 'Google Drive share link',
+        direct: 'Direct file URL' };
+      if (lbl) lbl.textContent = LABELS[v] || 'Link';
       // Autofill only makes sense for YouTube, and only if a key is configured.
       root.querySelector('.tf-yt-autofill')?.classList.toggle('hidden', !(v === 'youtube' && ytEnabled()));
       const st = root.querySelector('.tf-yt-status'); if (st) st.textContent = '';
@@ -174,6 +187,27 @@ export function readForm(root, base = {}) {
   } else if (mediaKind === 'pcloud') {
     if (!/pcloud\.(link|com)\//.test(link)) throw new Error('That does not look like a pCloud public link.');
     entry.audio = { type: 'pcloud', publicLink: link };
+    delete entry.video;
+  } else if (mediaKind === 'dropbox') {
+    const url = dropboxDirect(link);
+    if (!url) throw new Error('That does not look like a Dropbox share link.');
+    entry.audio = { type: 'dropbox', publicLink: link, url };
+    delete entry.video;
+  } else if (mediaKind === 'onedrive') {
+    const url = oneDriveDirect(link);
+    if (!url) throw new Error('That does not look like a OneDrive share link.');
+    entry.audio = { type: 'onedrive', publicLink: link, url };
+    delete entry.video;
+  } else if (mediaKind === 'gdrive') {
+    const url = googleDriveDirect(link);
+    if (!url) throw new Error('That does not look like a Google Drive file link.');
+    entry.audio = { type: 'gdrive', publicLink: link, url };
+    delete entry.video;
+  } else if (mediaKind === 'direct') {
+    const url = directUrl(link);
+    if (!url) throw new Error('Paste a direct https:// link to an audio or video file.');
+    entry.audio = { type: 'direct', publicLink: link, url };
+    delete entry.video;
   }
   return { entry, file, mediaKind };
 }
@@ -181,4 +215,49 @@ export function readForm(root, base = {}) {
 export function parseYouTubeId(url) {
   const m = (url || '').match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([\w-]{6,20})/);
   return m ? m[1] : null;
+}
+
+/* ---------------- cloud-drive link → direct streamable URL ----------------
+   The player streams any `audio.url` directly (see player.js), so for these
+   hosts we transform the share link into a direct, range-capable file URL at
+   submit time and store it as `audio.url`. `audio.publicLink` keeps the
+   original link so the edit form can show it again. */
+
+/** Dropbox: a share link → direct download host (streams + supports seeking). */
+export function dropboxDirect(url) {
+  const v = (url || '').trim();
+  if (!/dropbox\.com\//.test(v)) return null;
+  let u = v
+    .replace('www.dropbox.com', 'dl.dropboxusercontent.com')
+    .replace('://dropbox.com', '://dl.dropboxusercontent.com');
+  u = u.replace(/([?&])dl=0(&|$)/, '$1dl=1$2');
+  if (!/[?&]dl=1(&|$)/.test(u)) u += (u.includes('?') ? '&' : '?') + 'dl=1';
+  return u;
+}
+
+/** OneDrive: encode the share URL the way Microsoft's "shares" API expects,
+    then hit the anonymous content endpoint that 302s to the real file. */
+export function oneDriveDirect(url) {
+  const v = (url || '').trim();
+  if (!/1drv\.ms\/|onedrive\.live\.com\/|sharepoint\.com\//.test(v)) return null;
+  let b64 = btoa(unescape(encodeURIComponent(v)))
+    .replace(/=+$/, '').replace(/\//g, '_').replace(/\+/g, '-');
+  return `https://api.onedrive.com/v1.0/shares/u!${b64}/root/content`;
+}
+
+/** Google Drive: pull the file id out of any of its share-link shapes.
+    NOTE: Google throttles hotlinking and big files hit a scan interstitial —
+    fine as a secondary source, not something to rely on at scale. */
+export function googleDriveDirect(url) {
+  const v = url || '';
+  const m = v.match(/\/file\/d\/([\w-]+)/) || v.match(/[?&]id=([\w-]+)/);
+  const id = m ? m[1] : null;
+  if (!id) return null;
+  return `https://drive.google.com/uc?export=download&id=${id}`;
+}
+
+/** Generic: the link already points straight at the file (S3, R2, B2, …). */
+export function directUrl(url) {
+  const v = (url || '').trim();
+  return /^https:\/\/\S+$/i.test(v) ? v : null;
 }
