@@ -267,6 +267,16 @@ export async function submitTrack(entry) {
   return id;
 }
 
+/** Owner edits their OWN track (any status). RLS restricts this to the
+ *  track's owner, and a status-guard trigger keeps `status` unchanged — so an
+ *  artist adding a video to their already-approved track stays live, no
+ *  re-review, and can never self-approve a pending/rejected one. */
+export async function updateOwnTrack(id, entry) {
+  const { error } = await sb.from('tracks')
+    .update({ data: stripPrivate({ ...entry, id }) }).eq('id', id);
+  if (error) throw error;
+}
+
 export function slugId(title) {
   const base = (title || 'untitled').toLowerCase().normalize('NFKD')
     .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');

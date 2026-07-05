@@ -34,6 +34,10 @@
   .pill.rejected { background: #b3261e22; color: #e4573d; }
   a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
   progress { width: 100%; }
+  dialog { border: 1px solid var(--line); background: var(--bg-elev); color: var(--text); border-radius: 20px; padding: 26px; width: min(680px, 94vw); box-shadow: var(--shadow); }
+  dialog::backdrop { background: rgba(0,0,0,.5); backdrop-filter: blur(6px); }
+  dialog h2 { margin: 0 0 6px; font-size: 18px; }
+  .dlg-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 18px; }
 </style>
 </head>
 <body>
@@ -64,12 +68,27 @@
   </div>
 </div>
 
+<dialog id="edit-dlg">
+  <h2>Edit your mashup</h2>
+  <div class="note" id="e-live-note" style="margin:0 0 14px;display:none">This track is already approved — your changes go live right away, no re-review.</div>
+  <div id="etform"></div>
+  <div class="err hidden" id="e-err"></div>
+  <progress id="e-prog" class="hidden"></progress>
+  <div class="dlg-actions">
+    <button class="chip" id="e-cancel">Cancel</button>
+    <button class="chip primary" id="e-save">Save changes</button>
+  </div>
+</dialog>
+
 <script type="module">
 import * as backend from './js/backend.js';
 import { formHtml, bindForm, readForm } from './js/trackform.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+let mineRows = [];       // this artist's own tracks, for the edit dialog
+let editingMine = null;  // the row currently open in the edit dialog
 
 async function boot() {
   if (!backend.enabled()) { $('#gate').innerHTML = 'Accounts are not configured yet.'; return; }
@@ -137,20 +156,55 @@ async function loadMine() {
     .select('id, status, data, created_at')
     .eq('owner', backend.user().id).order('created_at', { ascending: false });
   if (error) { $('#mine-list').innerHTML = '<div class="note">Could not load submissions.</div>'; return; }
+  mineRows = data;
   $('#mine-list').innerHTML = data.length ? data.map((r) => `
     <div class="mine-row">
       <div class="t"><b>${esc(r.data.displayTitle)}</b>
         <span>${(r.data.sourceSongs || []).map((s) => esc(s.artist)).join(' × ') || '—'}</span></div>
       <span class="pill ${r.status}">${r.status}</span>
+      ${r.status !== 'rejected' ? `<button class="chip" data-edit="${esc(r.id)}">Edit</button>` : ''}
       ${r.status === 'pending' ? `<button class="chip" data-del="${esc(r.id)}">Delete</button>` : ''}
     </div>`).join('')
     : '<div class="note">Nothing submitted yet.</div>';
 }
 $('#mine-list').addEventListener('click', async (e) => {
+  const ed = e.target.closest('[data-edit]');
+  if (ed) {
+    editingMine = mineRows.find((x) => x.id === ed.dataset.edit);
+    if (!editingMine) return;
+    $('#etform').innerHTML = formHtml(editingMine.data);
+    bindForm($('#etform'));
+    $('#e-err').classList.add('hidden');
+    $('#e-live-note').style.display = editingMine.status === 'approved' ? 'block' : 'none';
+    $('#edit-dlg').showModal();
+    return;
+  }
   const b = e.target.closest('[data-del]'); if (!b) return;
   if (!confirm('Delete this pending submission?')) return;
   await backend.client().from('tracks').delete().eq('id', b.dataset.del);
   loadMine();
+});
+
+$('#e-cancel').addEventListener('click', () => $('#edit-dlg').close());
+$('#e-save').addEventListener('click', async () => {
+  const err = $('#e-err'), prog = $('#e-prog');
+  err.classList.add('hidden');
+  try {
+    const { entry, file, mediaKind } = readForm($('#etform'), editingMine.data);
+    $('#e-save').disabled = true;
+    if (mediaKind === 'upload' && file) {
+      prog.classList.remove('hidden');
+      entry.audio = { type: 'url', url: await backend.uploadMedia(file) };
+      if (file.type.startsWith('video/')) entry.uploadKind = 'video';
+      prog.classList.add('hidden');
+    }
+    await backend.updateOwnTrack(editingMine.id, entry);
+    $('#edit-dlg').close();
+    loadMine();
+  } catch (e) {
+    err.textContent = e.message || 'Save failed.';
+    err.classList.remove('hidden');
+  } finally { $('#e-save').disabled = false; prog.classList.add('hidden'); }
 });
 
 boot();

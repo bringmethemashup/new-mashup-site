@@ -109,11 +109,33 @@ create policy "artists insert own pending tracks"
     )
   );
 
--- admin edits anything anytime; artists may edit their own while still pending
-create policy "admin or pending-owner updates tracks"
+-- admin edits anything anytime; artists may edit their OWN tracks at any
+-- status (so they can add a video / fix songs on an already-approved track
+-- later — edits stay live, no re-review). The status-guard trigger below
+-- stops a non-admin owner from changing their own track's status.
+create policy "admin or owner updates tracks"
   on public.tracks for update to authenticated
-  using (public.is_admin() or (owner = auth.uid() and status = 'pending'))
-  with check (public.is_admin() or (owner = auth.uid() and status = 'pending'));
+  using (public.is_admin() or owner = auth.uid())
+  with check (public.is_admin() or owner = auth.uid());
+
+-- a non-admin owner can edit their track's data but never its status
+-- (no self-approve). auth.uid() is null for SQL-editor/service-role calls,
+-- which stay unrestricted. Mirrors protect_admin_flag on profiles.
+create or replace function public.protect_track_status()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  if new.status is distinct from old.status
+     and auth.uid() is not null
+     and not public.is_admin() then
+    new.status := old.status;
+  end if;
+  return new;
+end $$;
+
+drop trigger if exists tracks_protect_status on public.tracks;
+create trigger tracks_protect_status
+  before update on public.tracks
+  for each row execute function public.protect_track_status();
 
 create policy "admin or pending-owner deletes tracks"
   on public.tracks for delete to authenticated
