@@ -17979,12 +17979,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "YOUTH",
-    "artist": "Troye Sivan"
+    "artist": "Troye Sivan",
+    "title": "YOUTH"
    },
    {
-    "title": "Body Say",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "title": "Body Say"
    }
   ],
   "displayTitle": "YOUTH Body Say",
@@ -18004,7 +18004,7 @@
   "year": "2017",
   "dateAdded": "2017-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "YOUTH Body Say.mp3",
    "folder": "Mashups 2017"
@@ -18015,12 +18015,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Both of Us",
-    "artist": "B.o.B. ft. Taylor Swift"
+    "artist": "B.o.B.; Taylor Swift",
+    "title": "Both of Us"
    },
    {
-    "title": "All For You",
-    "artist": "Janet Jackson"
+    "artist": "Janet Jackson",
+    "title": "All For You"
    }
   ],
   "displayTitle": "All For Both of Us",
@@ -18040,7 +18040,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "All For Both of Us.mp3",
    "folder": "Mashups 2018"
@@ -18051,12 +18051,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Animal",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "title": "Animal"
    },
    {
-    "title": "Voices In My Head",
-    "artist": "Ashley Tisdale"
+    "artist": "Ashley Tisdale",
+    "title": "Voices In My Head"
    }
   ],
   "displayTitle": "Animals In My Head",
@@ -18076,7 +18076,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Animals In My Head.mp3",
    "folder": "Mashups 2018"
@@ -18087,15 +18087,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "title": "God Is a Woman"
    },
    {
-    "title": "",
-    "artist": "Gorillaz"
+    "artist": "Gorillaz",
+    "title": "Feel Good Inc"
    }
   ],
-  "displayTitle": "Ariana Grande vs. Gorillaz - God Is a Feel Good Woman",
+  "displayTitle": "God Is a Feel Good Woman",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18108,16 +18108,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Ariana Grande vs. Gorillaz - God Is a Feel Good Woman.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "oxtlun9lvf0"
   }
  },
  {
   "id": "mashups-2018-as-long-as-he-loves-u-not",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Justin Bieber; Big Sean",
+    "title": "As Long You Love Me"
+   },
+   {
+    "artist": "Dream",
+    "title": "He Loves U Not"
+   }
+  ],
   "displayTitle": "As Long As He Loves U Not",
   "isOwnUpload": true,
   "audio": {
@@ -18131,10 +18144,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "As Long As He Loves U Not.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "q8loX-ENc7w"
   }
  },
  {
@@ -18142,15 +18159,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Beyonce"
+    "artist": "Beyonce",
+    "title": "Countdown"
    },
    {
-    "title": "",
-    "artist": "Panic! At the Disco"
+    "artist": "Panic! At the Disco",
+    "title": "High Hopes"
    }
   ],
-  "displayTitle": "Beyonce vs. Panic! At the Disco - High Hopes for a Countdown",
+  "displayTitle": "High Hopes for a Countdown",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18163,16 +18180,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Beyonce vs. Panic! At the Disco - High Hopes for a Countdown.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "Y6DwaoddbiI"
   }
  },
  {
   "id": "mashups-2018-black-widow-goes-apeshit",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Iggy Azalea; Rita Ora",
+    "title": "Black Widow"
+   },
+   {
+    "artist": "The Carters; Beyonce; Jay-Z",
+    "title": "APESHIT"
+   }
+  ],
   "displayTitle": "Black Widow Goes Apeshit",
   "isOwnUpload": true,
   "audio": {
@@ -18186,10 +18216,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Black Widow Goes Apeshit.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "kf73fARHyJY"
   }
  },
  {
@@ -18197,12 +18231,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "TiK ToK",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "title": "TiK ToK"
    },
    {
-    "title": "Body Like a Back Road",
-    "artist": "Sam Hunt"
+    "artist": "Sam Hunt",
+    "title": "Body Like a Back Road"
    }
   ],
   "displayTitle": "Body Like a TiK ToK",
@@ -18222,7 +18256,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Body Like a TiK ToK.mp3",
    "folder": "Mashups 2018"
@@ -18233,12 +18267,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Call Me Maybe",
-    "artist": "Carly Rae Jepsen"
+    "artist": "Carly Rae Jepsen",
+    "title": "Call Me Maybe"
    },
    {
-    "title": "The Middle",
-    "artist": "Zedd ft. Maren Morris & Grey"
+    "artist": "Zedd; Maren Morris; Grey",
+    "title": "The Middle"
    }
   ],
   "displayTitle": "Call Me In the Middle",
@@ -18258,7 +18292,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Call Me In the Middle.mp3",
    "folder": "Mashups 2018"
@@ -18269,15 +18303,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Calvin Harris"
+    "artist": "Calvin Harris; Rihanna",
+    "title": "This is What You Came For"
    },
    {
-    "title": "",
-    "artist": "Troye Sivan"
+    "artist": "Troye Sivan",
+    "title": "Bloom"
    }
   ],
-  "displayTitle": "Calvin Harris vs. Troye Sivan - This Is What You Bloom For",
+  "displayTitle": "This Is What You Bloom For",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18290,8 +18324,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Calvin Harris vs. Troye Sivan - This Is What You Bloom For.mp3",
    "folder": "Mashups 2018"
   }
@@ -18301,15 +18335,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Charli XCX"
+    "artist": "Charli xcx",
+    "title": "Boys"
    },
    {
-    "title": "",
-    "artist": "Panic! at the Disco"
+    "artist": "Panic! at the Disco",
+    "title": "This is Gospel"
    }
   ],
-  "displayTitle": "Charli XCX vs. Panic! at the Disco - This Is Boy's Gospel",
+  "displayTitle": "This Is Boy's Gospel",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18322,8 +18356,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Charli XCX vs. Panic! at the Disco - This Is Boy's Gospel.mp3",
    "folder": "Mashups 2018"
   }
@@ -18333,15 +18367,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Coldplay"
+    "artist": "Coldplay",
+    "title": "Paradise"
    },
    {
-    "title": "",
-    "artist": "Avril Lavigne"
+    "artist": "Avril Lavigne",
+    "title": "Head Above Water"
    }
   ],
-  "displayTitle": "Coldplay vs. Avril Lavigne - Head Above Paradise",
+  "displayTitle": "Head Above Paradise",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18354,8 +18388,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Coldplay vs. Avril Lavigne - Head Above Paradise.mp3",
    "folder": "Mashups 2018"
   }
@@ -18365,15 +18399,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "David Guetta ft. Sia"
+    "artist": "David Guetta; Sia",
+    "title": "Titanium"
    },
    {
-    "title": "",
-    "artist": "Celine Dion"
+    "artist": "Celine Dion",
+    "title": "Ashes"
    }
   ],
-  "displayTitle": "David Guetta ft. Sia vs. Celine Dion - Titanium Ashes",
+  "displayTitle": "Titanium Ashes",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18386,16 +18420,41 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "David Guetta ft. Sia vs. Celine Dion - Titanium Ashes.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "MTb2uuLwJQg"
   }
  },
  {
   "id": "mashups-2018-death-of-a-bachelor-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Panic! At the Disco",
+    "title": "Death of a Bachelor"
+   },
+   {
+    "artist": "Fifth Harmony",
+    "title": "He Like That"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Slumber Party"
+   },
+   {
+    "artist": "Mariah Carey",
+    "title": "We Belong Together"
+   },
+   {
+    "artist": "Amy Winehouse",
+    "title": "Rehab"
+   }
+  ],
   "displayTitle": "Death of a Bachelor Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -18409,10 +18468,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Death of a Bachelor Mashup.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "5DFMQ7Bc_Iw"
   }
  },
  {
@@ -18420,12 +18483,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Graffiti",
-    "artist": "CHVRCHES"
+    "artist": "CHVRCHES",
+    "title": "Graffiti"
    },
    {
-    "title": "Feeling This",
-    "artist": "Blink 182"
+    "artist": "Blink 182",
+    "title": "Feeling This"
    }
   ],
   "displayTitle": "Feeling This Graffiti",
@@ -18445,7 +18508,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Feeling This Graffiti.mp3",
    "folder": "Mashups 2018"
@@ -18456,12 +18519,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Good Time",
-    "artist": "Owl City & Carly Rae Jepsen"
+    "artist": "Owl City; Carly Rae Jepsen",
+    "title": "Good Time"
    },
    {
-    "title": "I Found A Way",
-    "artist": "Drake Bell"
+    "artist": "Drake Bell",
+    "title": "I Found A Way"
    }
   ],
   "displayTitle": "Found A Good Time",
@@ -18481,7 +18544,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Found A Good Time.mp3",
    "folder": "Mashups 2018"
@@ -18492,24 +18555,24 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Genius",
-    "artist": "LSD"
+    "artist": "LSD",
+    "title": "Genius"
    },
    {
-    "title": "Send My Love (To Your New Lover)",
-    "artist": "Adele"
+    "artist": "Adele",
+    "title": "Send My Love (To Your New Lover)"
    },
    {
-    "title": "Umbrella",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "title": "Umbrella"
    },
    {
-    "title": "Radioactive",
-    "artist": "Imagine Dragons"
+    "artist": "Imagine Dragons",
+    "title": "Radioactive"
    },
    {
-    "title": "Mr. Brightside",
-    "artist": "The Killers"
+    "artist": "The Killers",
+    "title": "Mr. Brightside"
    }
   ],
   "displayTitle": "Genius - The Mashup",
@@ -18529,7 +18592,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Genius - The Mashup.mp3",
    "folder": "Mashups 2018"
@@ -18540,12 +18603,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Lone Diggers",
-    "artist": "Caravan Palace"
+    "artist": "Caravan Palace",
+    "title": "Lone Diggers"
    },
    {
-    "title": "Gimme More",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "title": "Gimme More"
    }
   ],
   "displayTitle": "Gimme More Lone Diggers",
@@ -18565,7 +18628,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Gimme More Lone Diggers.mp3",
    "folder": "Mashups 2018"
@@ -18576,12 +18639,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "The Reason",
-    "artist": "Hoobastank"
+    "artist": "Hoobastank",
+    "title": "The Reason"
    },
    {
-    "title": "Girls",
-    "artist": "Rita Ora ft. Charli XCX, Bebe Rexha & Cardi B"
+    "artist": "Rita Ora; Charli XCX; Bebe Rexha; Cardi B",
+    "title": "Girls"
    }
   ],
   "displayTitle": "Girls Are the Reason",
@@ -18601,7 +18664,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Girls Are the Reason.mp3",
    "folder": "Mashups 2018"
@@ -18610,7 +18673,32 @@
  {
   "id": "mashups-2018-high-hopes-mashup",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Panic! At the Disco",
+    "title": "High Hopes"
+   },
+   {
+    "artist": "Beyonce",
+    "title": "Countdown"
+   },
+   {
+    "artist": "Fall Out Boy",
+    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)"
+   },
+   {
+    "artist": "Ellie Goulding",
+    "title": "On My Mind"
+   },
+   {
+    "artist": "Bruno Mars",
+    "title": "Locked Out of Heaven"
+   },
+   {
+    "artist": "Gabbie Hanna",
+    "title": "Out Loud"
+   }
+  ],
   "displayTitle": "High Hopes Mashup",
   "isOwnUpload": true,
   "audio": {
@@ -18624,16 +18712,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "High Hopes Mashup.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "MXunq_NYHfo"
   }
  },
  {
   "id": "mashups-2018-i-dont-give-a-down",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Fifth Harmony",
+    "title": "Down"
+   },
+   {
+    "artist": "Dua Lipa",
+    "title": "IDGAF"
+   }
+  ],
   "displayTitle": "I Don't Give a Down",
   "isOwnUpload": true,
   "audio": {
@@ -18647,10 +18748,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "I Don't Give a Down.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "EEH75QfVh90"
   }
  },
  {
@@ -18658,28 +18763,28 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "1999",
-    "artist": "Charli XCX & Troye Sivan"
+    "artist": "Charli XCX & Troye Sivan",
+    "title": "1999"
    },
    {
-    "title": "1985",
-    "artist": "Bowling For Soup"
+    "artist": "Bowling For Soup",
+    "title": "1985"
    },
    {
-    "title": "2002",
-    "artist": "Anne-Marie"
+    "artist": "Anne-Marie",
+    "title": "2002"
    },
    {
-    "title": "1999",
-    "artist": "Prince"
+    "artist": "Prince",
+    "title": "1999"
    },
    {
-    "title": "2012",
-    "artist": "Jay Sean"
+    "artist": "Jay Sean",
+    "title": "2012"
    },
    {
-    "title": "Year 3000",
-    "artist": "Jonas Brothers"
+    "artist": "Jonas Brothers",
+    "title": "Year 3000"
    }
   ],
   "displayTitle": "I Wanna Go Back",
@@ -18699,7 +18804,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "I Wanna Go Back.mp3",
    "folder": "Mashups 2018"
@@ -18710,12 +18815,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "I Want You to Know",
-    "artist": "Zedd ft. Selena Gomez"
+    "artist": "Zedd; Selena Gomez",
+    "title": "I Want You to Know"
    },
    {
-    "title": "Girls Like You",
-    "artist": "Maroon 5 ft. Cardi B"
+    "artist": "Maroon 5; Cardi B",
+    "title": "Girls Like You"
    }
   ],
   "displayTitle": "I Want Girls Like You To Know",
@@ -18735,7 +18840,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "I Want Girls Like You To Know.mp3",
    "folder": "Mashups 2018"
@@ -18744,7 +18849,16 @@
  {
   "id": "mashups-2018-im-a-bottled-up-mess",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Bebe Rexha",
+    "title": "I'm a Mess"
+   },
+   {
+    "artist": "Dinah Jane; Ty Dolla $ign; Mark E. Bassy",
+    "title": "Bottled Up"
+   }
+  ],
   "displayTitle": "I'm A Bottled Up Mess",
   "isOwnUpload": true,
   "audio": {
@@ -18758,16 +18872,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "I'm A Bottled Up Mess.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "CRF1eViGVB4"
   }
  },
  {
   "id": "mashups-2018-if-youre-over-being-solo",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Years & Years",
+    "title": "If You're Over Me"
+   },
+   {
+    "artist": "Clean Bandit; Demi Lovato",
+    "title": "Solo"
+   }
+  ],
   "displayTitle": "If You're Over Being Solo",
   "isOwnUpload": true,
   "audio": {
@@ -18781,10 +18908,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "If You're Over Being Solo.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "apfN9JDGp7Q"
   }
  },
  {
@@ -18792,15 +18923,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Imagine Dragons"
+    "artist": "Imagine Dragons",
+    "title": "It's Time"
    },
    {
-    "title": "",
-    "artist": "Clean Bandit ft. Demi Lovato"
+    "artist": "Clean Bandit; Demi Lovato",
+    "title": "Solo"
    }
   ],
-  "displayTitle": "Imagine Dragons vs. Clean Bandit ft. Demi Lovato - It's Time To Do It Solo",
+  "displayTitle": "It's Time To Do It Solo",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18813,16 +18944,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Imagine Dragons vs. Clean Bandit ft. Demi Lovato - It's Time To Do It Solo.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "5l18BUSE10M"
   }
  },
  {
   "id": "mashups-2018-its-gonna-be-my-throne",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "*NSYNC",
+    "title": "It's Gonna Be Me"
+   },
+   {
+    "artist": "Bring Me The Horizon",
+    "title": "Throne"
+   }
+  ],
   "displayTitle": "It's Gonna Be My Throne",
   "isOwnUpload": true,
   "audio": {
@@ -18836,10 +18980,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "It's Gonna Be My Throne.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "LjGslCumN0w"
   }
  },
  {
@@ -18847,15 +18995,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "title": "Crazy Kids"
    },
    {
-    "title": "",
-    "artist": "Macklemore ft. Skylar Grey"
+    "artist": "Macklemore; Skylar Grey",
+    "title": "Glorious"
    }
   ],
-  "displayTitle": "Kesha vs. Macklemore ft. Skylar Grey - Glorious Kids",
+  "displayTitle": "Glorious Kids",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18868,8 +19016,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Kesha vs. Macklemore ft. Skylar Grey - Glorious Kids.mp3",
    "folder": "Mashups 2018"
   }
@@ -18879,12 +19027,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "title": "Just Dance"
    },
    {
-    "title": "",
-    "artist": "Pussycat Dolls"
+    "artist": "Pussycat Dolls",
+    "title": "Buttons"
    }
   ],
   "displayTitle": "Lady Gaga vs. Pussycat Dolls - Just Buttons",
@@ -18900,10 +19048,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Lady Gaga vs. Pussycat Dolls - Just Buttons.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "QYtQSi8I3i0"
   }
  },
  {
@@ -18911,12 +19063,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Linkin Park"
+    "artist": "Linkin Park",
+    "title": "Battle Symphony"
    },
    {
-    "title": "",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "title": "Praying"
    }
   ],
   "displayTitle": "Linkin Park vs. Kesha - Praying Symphony",
@@ -18932,10 +19084,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Linkin Park vs. Kesha - Praying Symphony.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "6MAAWxCTTFU"
   }
  },
  {
@@ -18943,15 +19099,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Little Mix ft. Nicki Minaj"
+    "artist": "Little Mix; Nicki Minaj",
+    "title": ""
    },
    {
-    "title": "",
-    "artist": "Aaliyah ft. Timbaland"
+    "artist": "Aaliyah; Timbaland",
+    "title": ""
    }
   ],
-  "displayTitle": "Little Mix ft. Nicki Minaj vs. Aaliyah ft. Timbaland - Are You That Woman Like Me",
+  "displayTitle": "Are You That Woman Like Me",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -18964,16 +19120,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Little Mix ft. Nicki Minaj vs. Aaliyah ft. Timbaland - Are You That Woman Like Me.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "8rR67_knU20"
   }
  },
  {
   "id": "mashups-2018-love-me-like-a-back-road",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Sam Hunt",
+    "title": "Body Like a Back Road"
+   },
+   {
+    "artist": "Britney Spears",
+    "title": "Love Me Down"
+   }
+  ],
   "displayTitle": "Love Me Like a Back Road",
   "isOwnUpload": true,
   "audio": {
@@ -18987,10 +19156,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Love Me Like a Back Road.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "5Str8eDDQeU"
   }
  },
  {
@@ -18998,12 +19171,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Love You Like a Love Song",
-    "artist": "Selena Gomez & The Scene"
+    "artist": "Selena Gomez",
+    "title": "Love You Like a Love Song"
    },
    {
-    "title": "How Long",
-    "artist": "Charlie Puth"
+    "artist": "Charlie Puth",
+    "title": "How Long"
    }
   ],
   "displayTitle": "Love You Like How Long",
@@ -19023,7 +19196,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Love You Like How Long.mp3",
    "folder": "Mashups 2018"
@@ -19032,7 +19205,16 @@
  {
   "id": "mashups-2018-lovefeels",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Lady Gaga",
+    "title": "Lovegame"
+   },
+   {
+    "artist": "Calvin Harris; Pharrell; Katy Perry",
+    "title": "Feels"
+   }
+  ],
   "displayTitle": "LoveFeels",
   "isOwnUpload": true,
   "audio": {
@@ -19046,10 +19228,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "LoveFeels.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "u7DScfKHhbA"
   }
  },
  {
@@ -19057,15 +19243,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "title": "Die Another Day"
    },
    {
-    "title": "",
-    "artist": "Hollywood Undead"
+    "artist": "Hollywood Undead",
+    "title": "Bad Moon"
    }
   ],
-  "displayTitle": "Madonna vs. Hollywood Undead - Bad Moon Another Day",
+  "displayTitle": "Bad Moon Another Day",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19078,8 +19264,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Madonna vs. Hollywood Undead - Bad Moon Another Day.mp3",
    "folder": "Mashups 2018"
   }
@@ -19089,15 +19275,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Marina & the Diamonds"
+    "artist": "Marina & the Diamonds",
+    "title": "How to Be a Heartbreaker"
    },
    {
-    "title": "",
-    "artist": "Shawn Mendes"
+    "artist": "Shawn Mendes",
+    "title": "There's Nothing Holding Me Back"
    }
   ],
-  "displayTitle": "Marina & the Diamonds vs. Shawn Mendes - There's a Heartbreaker Holding Me Back",
+  "displayTitle": "There's a Heartbreaker Holding Me Back",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19110,16 +19296,41 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Marina & the Diamonds vs. Shawn Mendes - There's a Heartbreaker Holding Me Back.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "bscyD94kkPk"
   }
  },
  {
   "id": "mashups-2018-meant-to-be-minimix",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Bebe Rexha; Florida Georgia Line",
+    "title": "Meant to Be"
+   },
+   {
+    "artist": "Linkin Park; Kiiara",
+    "title": "Heavy"
+   },
+   {
+    "artist": "Imagine Dragon",
+    "title": "Whatever It Takes"
+   },
+   {
+    "artist": "Noah Cyrus; Labrinth",
+    "title": "Make Me (Cry)"
+   },
+   {
+    "artist": "Camilla Cabello",
+    "title": "Never Be the Same"
+   }
+  ],
   "displayTitle": "Meant to Be Minimix",
   "isOwnUpload": true,
   "audio": {
@@ -19133,8 +19344,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Meant to Be Minimix.mp3",
    "folder": "Mashups 2018"
   }
@@ -19142,7 +19353,16 @@
  {
   "id": "mashups-2018-mr-genius",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "LSD",
+    "title": "Genius"
+   },
+   {
+    "artist": "The Killers",
+    "title": "Mr. Brightside"
+   }
+  ],
   "displayTitle": "Mr. Genius",
   "isOwnUpload": true,
   "audio": {
@@ -19156,8 +19376,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Mr. Genius.mp3",
    "folder": "Mashups 2018"
   }
@@ -19165,7 +19385,16 @@
  {
   "id": "mashups-2018-my-my-my-dont-lie",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Gwen Stefani",
+    "title": "Baby Don't Life"
+   },
+   {
+    "artist": "Troye Sivan",
+    "title": "My My My"
+   }
+  ],
   "displayTitle": "My My My Don't Lie",
   "isOwnUpload": true,
   "audio": {
@@ -19179,10 +19408,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "My My My Don't Lie.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "ytChvsVYqPA"
   }
  },
  {
@@ -19190,12 +19423,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Say My Name",
-    "artist": "Destiny's Child"
+    "artist": "Destiny's Child",
+    "title": "Say My Name"
    },
    {
-    "title": "Playboy Style",
-    "artist": "Clean Bandit ft. Charli XCX ft. Bhad Bhabie"
+    "artist": "Clean Bandit; Charli XCX; Bhad Bhabie",
+    "title": "Playboy Style"
    }
   ],
   "displayTitle": "My Playboy Style Name",
@@ -19215,7 +19448,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "My Playboy Style Name.mp3",
    "folder": "Mashups 2018"
@@ -19226,12 +19459,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "This Is What You Came For",
-    "artist": "Calvin Harris ft. Rihanna"
+    "artist": "Calvin Harris; Rihanna",
+    "title": "This Is What You Came For"
    },
    {
-    "title": "Never Be the Same",
-    "artist": "Camila Cabello"
+    "artist": "Camila Cabello",
+    "title": "Never Be the Same"
    }
   ],
   "displayTitle": "Never Be What You Came For",
@@ -19251,7 +19484,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Never Be What You Came For.mp3",
    "folder": "Mashups 2018"
@@ -19260,7 +19493,16 @@
  {
   "id": "mashups-2018-never-too-black-yellow",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Wiz Khalifa",
+    "title": "Black & Yellow"
+   },
+   {
+    "artist": "Three Days Grace",
+    "title": "Never Too Late"
+   }
+  ],
   "displayTitle": "Never Too Black & Yellow",
   "isOwnUpload": true,
   "audio": {
@@ -19274,10 +19516,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Never Too Black & Yellow.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "42xMFl4uKmM"
   }
  },
  {
@@ -19285,12 +19531,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "SexyBack",
-    "artist": "Justin Timberlake"
+    "artist": "Justin Timberlake",
+    "title": "SexyBack"
    },
    {
-    "title": "New Rules",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "title": "New Rules"
    }
   ],
   "displayTitle": "New SexyBack Rules",
@@ -19310,7 +19556,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "New SexyBack Rules.mp3",
    "folder": "Mashups 2018"
@@ -19319,7 +19565,16 @@
  {
   "id": "mashups-2018-no-tears-left-dj-got-us-falling-in-love",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Usher; Pitbull",
+    "title": "DJ Got Us Falling in Love"
+   },
+   {
+    "artist": "Ariana Grande",
+    "title": "No Tears Left to Cry"
+   }
+  ],
   "displayTitle": "No Tears Left, DJ Got Us Falling in Love",
   "isOwnUpload": true,
   "audio": {
@@ -19333,10 +19588,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "No Tears Left, DJ Got Us Falling in Love.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "_ivhzYe2ZtY"
   }
  },
  {
@@ -19344,15 +19603,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "P!nk ft. Lilly Allen"
+    "artist": "P!nk; Lilly Allen",
+    "title": "True Love"
    },
    {
-    "title": "",
-    "artist": "Jesse McCartney"
+    "artist": "Jesse McCartney",
+    "title": "Beautiful Soul"
    }
   ],
-  "displayTitle": "P!nk ft. Lilly Allen vs. Jesse McCartney - True Beautiful Soul",
+  "displayTitle": "True Beautiful Soul",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19365,10 +19624,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "P!nk ft. Lilly Allen vs. Jesse McCartney - True Beautiful Soul.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "IC2TJQw3WsQ"
   }
  },
  {
@@ -19376,15 +19639,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Panic! at the Disco"
+    "artist": "Panic! at the Disco",
+    "title": "Say Amen (Saturday Night)"
    },
    {
-    "title": "",
-    "artist": "Wiz Khalifa"
+    "artist": "Wiz Khalifa",
+    "title": "No Sleep"
    }
   ],
-  "displayTitle": "Panic! at the Disco vs. Wiz Khalifa - No Sleep on Saturday Night",
+  "displayTitle": "No Sleep on Saturday Night",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19397,10 +19660,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Panic! at the Disco vs. Wiz Khalifa - No Sleep on Saturday Night.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "Xx7Dgozwtx8"
   }
  },
  {
@@ -19408,12 +19675,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Remember the Name",
-    "artist": "Fort Minor"
+    "artist": "Fort Minor",
+    "title": "Remember the Name"
    },
    {
-    "title": "Chains",
-    "artist": "Nick Jonas"
+    "artist": "Nick Jonas",
+    "title": "Chains"
    }
   ],
   "displayTitle": "Remember the Chains",
@@ -19433,7 +19700,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Remember the Chains.mp3",
    "folder": "Mashups 2018"
@@ -19444,15 +19711,15 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "",
-    "artist": "Rihanna"
+    "artist": "Rihanna; Drake",
+    "title": "What's My Name"
    },
    {
-    "title": "",
-    "artist": "Lauv"
+    "artist": "Lauv",
+    "title": "I Like Me Better"
    }
   ],
-  "displayTitle": "Rihanna vs. Lauv - I Like My Name Better",
+  "displayTitle": "I Like My Name Better",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19465,10 +19732,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "filename",
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Rihanna vs. Lauv - I Like My Name Better.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "1IV6OdqTlVE"
   }
  },
  {
@@ -19510,7 +19781,16 @@
  {
   "id": "mashups-2018-same-old-love-in-my-mind",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Selena Gomez",
+    "title": "Same Old Love"
+   },
+   {
+    "artist": "Maty Noyes",
+    "title": "in my miNd"
+   }
+  ],
   "displayTitle": "Same Old Love In My Mind",
   "isOwnUpload": true,
   "audio": {
@@ -19524,8 +19804,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Same Old Love In My Mind.mp3",
    "folder": "Mashups 2018"
   }
@@ -19535,12 +19815,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Say My Name",
-    "artist": "Destiny's Child"
+    "artist": "Destiny's Child",
+    "title": "Say My Name"
    },
    {
-    "title": "Say My Name",
-    "artist": "Tove Styrke"
+    "artist": "Tove Styrke",
+    "title": "Say My Name"
    }
   ],
   "displayTitle": "Say My Name",
@@ -19560,7 +19840,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Say My Name.mp3",
    "folder": "Mashups 2018"
@@ -19569,8 +19849,17 @@
  {
   "id": "mashups-2018-say-my-name-v4",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
-  "displayTitle": "Say My Name v4",
+  "sourceSongs": [
+   {
+    "artist": "Destiny's Child",
+    "title": "Say My Name"
+   },
+   {
+    "artist": "Tove Styrke",
+    "title": "Say My Name"
+   }
+  ],
+  "displayTitle": "Say My Name",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19583,10 +19872,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Say My Name v4.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "LZy0r9LrQ3k"
   }
  },
  {
@@ -19594,12 +19887,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Pity Party",
-    "artist": "Melanie Martinez"
+    "artist": "Melanie Martinez",
+    "title": "Pity Party"
    },
    {
-    "title": "See You Again",
-    "artist": "Miley Cyrus"
+    "artist": "Miley Cyrus",
+    "title": "See You Again"
    }
   ],
   "displayTitle": "See You Again at the Pity Party",
@@ -19619,7 +19912,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "See You Again at the Pity Party.mp3",
    "folder": "Mashups 2018"
@@ -19628,7 +19921,16 @@
  {
   "id": "mashups-2018-send-my-love-to-your-new-genius",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "LSD",
+    "title": "Genius"
+   },
+   {
+    "artist": "Adele",
+    "title": "Send My Love (To Your New Lover)"
+   }
+  ],
   "displayTitle": "Send My Love To Your New Genius",
   "isOwnUpload": true,
   "audio": {
@@ -19642,8 +19944,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Send My Love To Your New Genius.mp3",
    "folder": "Mashups 2018"
   }
@@ -19653,12 +19955,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Should I Stay or Should I Go",
-    "artist": "The Clash"
+    "artist": "The Clash",
+    "title": "Should I Stay or Should I Go"
    },
    {
-    "title": "Switch",
-    "artist": "Iggy Azalea ft. Anitta"
+    "artist": "Iggy Azalea; Anitta",
+    "title": "Switch"
    }
   ],
   "displayTitle": "Should I Stay Or Should I Switch",
@@ -19678,7 +19980,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Should I Stay Or Should I Switch.mp3",
    "folder": "Mashups 2018"
@@ -19689,12 +19991,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Soap",
-    "artist": "Melanie Martinez"
+    "artist": "Melanie Martinez",
+    "title": "Soap"
    },
    {
-    "title": "Shrug",
-    "artist": "Christina Grimmie"
+    "artist": "Christina Grimmie",
+    "title": "Shrug"
    }
   ],
   "displayTitle": "Soap Shrug",
@@ -19714,7 +20016,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Soap Shrug.mp3",
    "folder": "Mashups 2018"
@@ -19725,12 +20027,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Now or Never",
-    "artist": "Halsey"
+    "artist": "Halsey",
+    "title": "Now or Never"
    },
    {
-    "title": "Step on Up",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "title": "Step on Up"
    }
   ],
   "displayTitle": "Step on Up Now or Never",
@@ -19750,7 +20052,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "Step on Up Now or Never.mp3",
    "folder": "Mashups 2018"
@@ -19759,7 +20061,16 @@
  {
   "id": "mashups-2018-tell-clint-eastwood-you-love-me",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Gorillaz",
+    "title": "Clint Eastwood"
+   },
+   {
+    "artist": "Demi Lovato",
+    "title": "Tell Me You Love Me"
+   }
+  ],
   "displayTitle": "Tell Clint Eastwood You Love Me",
   "isOwnUpload": true,
   "audio": {
@@ -19773,16 +20084,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "Tell Clint Eastwood You Love Me.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "j4e-Rk7Bkzs"
   }
  },
  {
   "id": "mashups-2018-thats-my-woman",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Kesha",
+    "title": "Woman"
+   },
+   {
+    "artist": "Fifth Harmony",
+    "title": "That's My Girl"
+   }
+  ],
   "displayTitle": "That's My Woman",
   "isOwnUpload": true,
   "audio": {
@@ -19796,10 +20120,14 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "That's My Woman.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "3o7y1Fa52Jo"
   }
  },
  {
@@ -19807,12 +20135,12 @@
   "mashupArtist": "Bring Me The Mashup",
   "sourceSongs": [
    {
-    "title": "Bottled Up",
-    "artist": "Dinah Jane ft. Ty Dolla $ign & Mark E. Bassy"
+    "artist": "Dinah Jane; Ty Dolla $ign; Mark E. Bassy",
+    "title": "Bottled Up"
    },
    {
-    "title": "The One",
-    "artist": "The Chainsmokers"
+    "artist": "The Chainsmokers",
+    "title": "The One"
    }
   ],
   "displayTitle": "The Bottled Up One",
@@ -19832,7 +20160,7 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": "youtube-description",
+   "songSource": "manual",
    "needsMetadata": false,
    "file": "The Bottled Up One.mp3",
    "folder": "Mashups 2018"
@@ -19841,7 +20169,16 @@
  {
   "id": "mashups-2018-the-title-wherever-i-go",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Meghan Trainor",
+    "title": "Title"
+   },
+   {
+    "artist": "Miley Cyrus; Hannah Montana",
+    "title": "Wherever I Go"
+   }
+  ],
   "displayTitle": "The Title Wherever I Go",
   "isOwnUpload": true,
   "audio": {
@@ -19855,8 +20192,8 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "The Title Wherever I Go.mp3",
    "folder": "Mashups 2018"
   }
@@ -19936,8 +20273,17 @@
  {
   "id": "mashups-2018-what-about-the-weekend-v2",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
-  "displayTitle": "What About the Weekend v2",
+  "sourceSongs": [
+   {
+    "artist": "Coldplay",
+    "title": "Hymn For the Weekend"
+   },
+   {
+    "artist": "Brandy",
+    "title": "What About Us?"
+   }
+  ],
+  "displayTitle": "What About the Weekend",
   "isOwnUpload": true,
   "audio": {
    "type": "pcloud",
@@ -19950,16 +20296,29 @@
   "year": "2018",
   "dateAdded": "2018-01-01",
   "meta": {
-   "songSource": null,
-   "needsMetadata": true,
+   "songSource": "manual",
+   "needsMetadata": false,
    "file": "What About the Weekend v2.mp3",
    "folder": "Mashups 2018"
+  },
+  "video": {
+   "type": "youtube",
+   "sourceId": "gr5ep585joc"
   }
  },
  {
   "id": "mashups-2018-whatever-it-takes-to-be-fergalicious",
   "mashupArtist": "Bring Me The Mashup",
-  "sourceSongs": [],
+  "sourceSongs": [
+   {
+    "artist": "Imagine Dragons",
+    "title": "Whatever It Takes"
+   },
+   {
+    "artist": "Fergie",
+    "title": "Fergalicious"
+   }
+  ],
   "displayTitle": "Whatever It Takes to be Fergalicious",
   "isOwnUpload": true,
   "audio": {
