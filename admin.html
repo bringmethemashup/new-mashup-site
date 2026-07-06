@@ -53,7 +53,8 @@
       <button class="chip tabb" data-tab="approved">All tracks</button>
       <button class="chip tabb" data-tab="rejected">Rejected</button>
       <span style="flex:1"></span>
-      <button class="chip" id="import">⬆ Import catalog.json</button>
+      <button class="chip" id="import">⬆ Upload catalog.json</button>
+      <input type="file" id="import-file" accept=".json,application/json" class="hidden">
     </div>
     <div class="note" id="import-note" style="display:none"></div>
     <progress id="import-prog" class="hidden"></progress>
@@ -209,21 +210,32 @@ $('#e-save').addEventListener('click', async () => {
   }
 });
 
-/* ---------- one-time catalog.json import ---------- */
-$('#import').addEventListener('click', async () => {
+/* ---------- catalog.json upload → import into DB ---------- */
+$('#import').addEventListener('click', () => $('#import-file').click());
+$('#import-file').addEventListener('change', async () => {
+  const input = $('#import-file');
+  const file = input.files[0];
+  input.value = '';
+  if (!file) return;
   const note = $('#import-note'), prog = $('#import-prog');
-  if (!confirm('Import data/catalog.json into the database, attributed to your account? Existing rows with the same id are overwritten.')) return;
+  note.style.display = 'block';
   try {
-    note.style.display = 'block';
-    note.textContent = 'Fetching catalog.json…';
-    const entries = await (await fetch('data/catalog.json')).json();
+    note.textContent = `Reading ${file.name}…`;
+    const entries = JSON.parse(await file.text());
+    if (!Array.isArray(entries) || !entries.length || !entries[0].id) {
+      throw new Error('That file doesn\'t look like a catalog (expected a JSON array of tracks with ids).');
+    }
+    if (!confirm(`Import ${entries.length} tracks from "${file.name}" into the database, attributed to your account? Existing rows with the same id are overwritten.`)) {
+      note.style.display = 'none';
+      return;
+    }
     prog.classList.remove('hidden');
     prog.max = entries.length;
     const n = await backend.adminImportCatalog(entries, (done, total) => {
       prog.value = done;
       note.textContent = `Importing… ${done} / ${total}`;
     });
-    note.textContent = `Done — ${n} tracks imported as approved, attributed to your account. The database is now the single source of truth.`;
+    note.textContent = `Done — ${n} tracks imported/updated as approved.`;
     load();
   } catch (e) { note.textContent = 'Import failed: ' + (e.message || e); }
   finally { prog.classList.add('hidden'); }
