@@ -653,7 +653,7 @@ dialog.dlg h2 { margin: 0 0 14px; font-size: 18px; }
   filter: blur(46px) saturate(1.15) brightness(.72); transform: scale(1.18);
 }
 #pl-art .slide .pic {
-  background-size: contain; background-position: center;
+  background-size: auto 100%; background-position: center;
   animation: kenburns var(--kd, 26s) ease-in-out infinite alternate;
 }
 @keyframes kenburns {
