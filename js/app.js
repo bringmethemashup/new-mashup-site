@@ -1236,27 +1236,31 @@ function buildSaverCrawl(t) {
 const CRAWL_STYLES = [
   'font-weight:900;letter-spacing:-.03em;text-transform:uppercase',
   'font-weight:200;letter-spacing:.28em;text-transform:uppercase',
-  'font-weight:800;font-style:italic;letter-spacing:-.01em',
+  'font-weight:800;letter-spacing:-.01em',
   "font-family:Georgia,'Times New Roman',serif;font-weight:700",
-  'font-family:Georgia,serif;font-style:italic;font-weight:400',
   "font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-weight:600;letter-spacing:.05em",
   "font-family:'Arial Narrow',sans-serif-condensed,sans-serif;font-weight:700;text-transform:uppercase",
   'font-weight:300;text-transform:lowercase;letter-spacing:.12em',
 ];
+const CRAWL_LANES = [2, 15, 28, 41, 54, 67];   // % from top — one line per lane, no overlap
 let crawlT = 0, crawlSeq = 0;
 function startCrawl() {
   stopCrawl();
   const box = $('#saver-crawl');
   const spawn = () => {
-    if (!saverLines.length || box.children.length >= 7) return;
+    if (!saverLines.length) return;
+    const used = new Set([...box.children].map((c) => c.dataset.lane));
+    const free = CRAWL_LANES.filter((l) => !used.has(String(l)));
+    if (!free.length) return;
+    const lane = free[Math.floor(Math.random() * free.length)];
     const el = document.createElement('span');
-    const huge = Math.random() < 0.28;               // Zune's giant cropped letters
     el.className = 'cline';
+    el.dataset.lane = lane;
     el.textContent = saverLines[crawlSeq++ % saverLines.length];
     el.style.cssText = CRAWL_STYLES[Math.floor(Math.random() * CRAWL_STYLES.length)]
-      + `;top:${(-6 + Math.random() * 90).toFixed(1)}%`
-      + `;font-size:${(huge ? 16 + Math.random() * 18 : 4.5 + Math.random() * 8).toFixed(1)}vmin`
-      + `;opacity:${(0.35 + Math.random() * 0.6).toFixed(2)}`
+      + `;top:${lane}%`
+      + `;font-size:${(5 + Math.random() * 6).toFixed(1)}vmin`
+      + `;opacity:${(0.45 + Math.random() * 0.5).toFixed(2)}`
       + `;animation:${Math.random() < 0.5 ? 'crawlL' : 'crawlR'} ${(16 + Math.random() * 16).toFixed(1)}s linear both`;
     el.addEventListener('animationend', () => el.remove());
     box.appendChild(el);
@@ -1269,7 +1273,12 @@ function stopCrawl() {
   $('#saver-crawl').innerHTML = '';
 }
 
-function enterSaver() { document.body.classList.add('saver'); startCrawl(); }
+function enterSaver() {
+  document.body.classList.add('saver');
+  const d = player.audio.duration || 0, t0 = player.audio.currentTime || 0;
+  $('#saver-time').textContent = d ? fmt(t0) + ' / ' + fmt(d) : fmt(t0);
+  startCrawl();
+}
 function exitSaver() {
   if (document.body.classList.contains('saver')) stopCrawl();
   document.body.classList.remove('saver');
