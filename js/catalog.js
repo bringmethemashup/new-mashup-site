@@ -139,15 +139,17 @@ export function nodesByKind(kind) {
   return [...nodes.values()].filter((n) => n.kind === kind);
 }
 
-/** Distinct mashup artists with their tracks — for the Home browse index. */
+/** Distinct mashup artists with their tracks — for the Home browse index.
+    Collaborations use ";" in mashupArtist ("A; B") — the track is listed
+    under EACH collaborator. */
 export function mashupArtists() {
   const m = new Map();
   for (const t of tracks) {
-    const name = (t.mashupArtist || '').trim();
-    if (!name) continue;
-    const k = norm(name);
-    if (!m.has(k)) m.set(k, { key: 'ma:' + k, name, tracks: [] });
-    m.get(k).tracks.push(t);
+    for (const name of splitArtists(t.mashupArtist)) {
+      const k = norm(name);
+      if (!m.has(k)) m.set(k, { key: 'ma:' + k, name, tracks: [] });
+      m.get(k).tracks.push(t);
+    }
   }
   return [...m.values()];
 }

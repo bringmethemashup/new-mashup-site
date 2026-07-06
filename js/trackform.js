@@ -7,10 +7,11 @@
  * what keeps the Mashup Explorer's connections accurate.
  */
 import { fetchVideoMeta, parseSourceSongs, ytEnabled } from './ytmeta.js';
+import { splitArtists } from './catalog.js';
 
 const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 
-export function formHtml(entry = {}, { showMedia = true } = {}) {
+export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}) {
   const songs = entry.sourceSongs?.length ? entry.sourceSongs : [{ artist: '', title: '' }, { artist: '', title: '' }];
   const at = entry.audio?.type;
   const mediaKind = at === 'pcloud' ? 'pcloud'
@@ -24,6 +25,24 @@ export function formHtml(entry = {}, { showMedia = true } = {}) {
     : entry.video?.type === 'tiktok' ? 'tiktok' : 'upload';
   return `
   <div class="f"><label>Mashup title *</label><input class="tf-title" value="${esc(entry.displayTitle)}" placeholder="e.g. 3 Smiles"></div>
+  ${ownerName != null ? (() => {
+    // Submit flow: the signed-in artist IS the mashup artist. A toggle reveals
+    // a collaborators-only field ("; " separated). Song artists are a separate
+    // category — they live in the source-song rows below.
+    const collabs = splitArtists(entry.mashupArtist)
+      .filter((n) => n.toLowerCase() !== ownerName.toLowerCase());
+    return `
+  <div class="f tf-collab-wrap" data-owner="${esc(ownerName)}">
+    <label style="display:flex;align-items:center;gap:8px;cursor:pointer">
+      <input type="checkbox" class="tf-collab" style="width:auto" ${collabs.length ? 'checked' : ''}> Is this a collaboration mashup?
+    </label>
+    <div class="tf-collab-f ${collabs.length ? '' : 'hidden'}" style="margin-top:8px">
+      <input class="tf-collabs" value="${esc(collabs.join('; '))}" placeholder="collaborator mashup artist(s) — use ; between names">
+      <div class="tf-hint">You (${esc(ownerName)}) are included automatically.</div>
+    </div>
+  </div>`;
+  })() : `
+  <div class="f"><label>Mashup artist(s)</label><input class="tf-maartist" value="${esc(entry.mashupArtist)}" placeholder="use ; between collaborators"></div>`}
   <div class="grid2">
     <div class="f"><label>Year</label><input class="tf-year" value="${esc(entry.year)}" placeholder="2026"></div>
     <div class="f"><label>Special collection</label><input class="tf-special" value="${esc(entry.specialAlbum)}" placeholder="optional"></div>
@@ -87,6 +106,21 @@ export function fillEmptySongRows(root, songs) {
   return added;
 }
 
+/** Mashup artist(s) from either form variant: the submit flow's collab
+    toggle (owner + collaborators) or the admin/full free-text field. */
+function readMashupArtist(root) {
+  const wrap = root.querySelector('.tf-collab-wrap');
+  if (wrap) {
+    const owner = wrap.dataset.owner || '';
+    const extras = root.querySelector('.tf-collab')?.checked
+      ? splitArtists(root.querySelector('.tf-collabs')?.value)
+        .filter((n) => n.toLowerCase() !== owner.toLowerCase())
+      : [];
+    return [owner, ...extras].filter(Boolean).join('; ');
+  }
+  return root.querySelector('.tf-maartist')?.value.trim() || '';
+}
+
 /** Wire up add/remove song rows + media-kind switching inside `root`. */
 export function bindForm(root) {
   root.addEventListener('click', async (e) => {
@@ -117,6 +151,12 @@ export function bindForm(root) {
       }
     }
   });
+  const collab = root.querySelector('.tf-collab');
+  if (collab) {
+    const syncCollab = () => root.querySelector('.tf-collab-f')?.classList.toggle('hidden', !collab.checked);
+    collab.addEventListener('change', syncCollab);
+    syncCollab();
+  }
   const media = root.querySelector('.tf-media');
   if (media) {
     const sync = () => {
@@ -159,9 +199,13 @@ export function readForm(root, base = {}) {
     ...base,
     displayTitle: title,
     sourceSongs,
+    // ";" separates collaborators — the site splits it everywhere (Explorer,
+    // Artists grid, player chips). Falls back to the existing value when blank.
+    mashupArtist: readMashupArtist(root) || base.mashupArtist || undefined,
     year: root.querySelector('.tf-year').value.trim() || undefined,
     specialAlbum: root.querySelector('.tf-special').value.trim() || undefined,
   };
+  if (!entry.mashupArtist) delete entry.mashupArtist;
   if (!entry.year) delete entry.year;
   if (!entry.specialAlbum) delete entry.specialAlbum;
 

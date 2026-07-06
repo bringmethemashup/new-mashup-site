@@ -2,7 +2,7 @@
  * app.js — UI: views (Library / Browse / Explorer / Liked), track rows, queue drawer,
  * mini + full player, theme toggle, ambient background, YouTube video toggle.
  */
-import { loadCatalog, all, get, search, searchNodes, getNode, nodesOfTrack, nodesByKind, mashupArtists, albumsByYear, specialAlbums, relatedTo, norm } from './catalog.js';
+import { loadCatalog, all, get, search, searchNodes, getNode, nodesOfTrack, nodesByKind, mashupArtists, albumsByYear, specialAlbums, relatedTo, norm, splitArtists } from './catalog.js';
 import * as player from './player.js';
 import * as viz from './visualizer.js';
 import * as backend from './backend.js';
@@ -1153,17 +1153,20 @@ function renderDetails(t) {
   const inside = nodesOfTrack(t.id);
   const artists = inside.filter((n) => n.kind === 'artist');
   const songs = inside.filter((n) => n.kind === 'song');
-  const maName = (t.mashupArtist || '').trim();
-  const maList = maName ? mashupArtists().find((a) => a.name.toLowerCase() === maName.toLowerCase()) : null;
+  const maNames = splitArtists(t.mashupArtist);      // ";" = collaboration -> one chip each
+  const maAll = maNames.length ? mashupArtists() : [];
   const rel = relatedTo(t.id, 10).map((r) => r.track).filter(Boolean);
   const chip = (n) => `<button class="dchip" data-key="${esc(n.key)}">
       ${esc(n.name)} <span class="dc">${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
     </button>`;
   box.innerHTML = `
-    ${maName ? `<h3>Mashup by</h3>
-    <div class="dchips"><button class="dchip ma" data-ma="${esc('ma:' + norm(maName))}" data-name="${esc(maName)}">
-      <span class="ic">🎛</span> ${esc(maName)} <span class="dc">${maList ? maList.tracks.length + ' mashup' + (maList.tracks.length === 1 ? '' : 's') + ' on the site ›' : ''}</span>
-    </button></div>` : ''}
+    ${maNames.length ? `<h3>Mashup by</h3>
+    <div class="dchips">${maNames.map((nm) => {
+      const ml = maAll.find((a) => a.name.toLowerCase() === nm.toLowerCase());
+      return `<button class="dchip ma" data-ma="${esc('ma:' + norm(nm))}" data-name="${esc(nm)}">
+      <span class="ic">🎛</span> ${esc(nm)} <span class="dc">${ml ? ml.tracks.length + ' mashup' + (ml.tracks.length === 1 ? '' : 's') + ' on the site ›' : ''}</span>
+    </button>`;
+    }).join('')}</div>` : ''}
     ${artists.length ? `<h3>Artists in this mashup</h3>
     <div class="dchips">${artists.map(chip).join('')}</div>` : ''}
     ${songs.length ? `<h3>Songs in this mashup</h3>
@@ -1225,8 +1228,8 @@ function buildSaverCrawl(t) {
     if (!v || seen.has(v.toLowerCase())) return;
     seen.add(v.toLowerCase()); out.push(v);
   };
-  add(t.mashupArtist);
-  for (const s of t.sourceSongs || []) { add(s.artist); add(s.title); }
+  for (const a of splitArtists(t.mashupArtist)) add(a);
+  for (const s of t.sourceSongs || []) { for (const a of splitArtists(s.artist)) add(a); add(s.title); }
   add(t.displayTitle);
   saverLines = out;
   $('#saver-crawl').innerHTML = '';
