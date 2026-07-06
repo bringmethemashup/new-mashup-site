@@ -1061,6 +1061,7 @@ player.on('trackchange', (t) => {
   // screensaver text + reset the details scroll to the top for the new track
   $('#saver-meta b').textContent = t.displayTitle;
   $('#saver-meta span').textContent = t.mashupArtist || '';
+  buildSaverCrawl(t);
   pl.scrollTop = 0;
 
   applyArtwork(t);
@@ -1083,6 +1084,7 @@ player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
   $('#t-cur').textContent = fmt(t);
   $('#t-dur').textContent = fmt(d);
+  $('#saver-time').textContent = d ? fmt(t) + ' / ' + fmt(d) : fmt(t);
   $('#mini-prog .fill').style.width = d ? (t / d * 100) + '%' : '0%';
 });
 player.on('error', () => toast('Could not reach the audio host (pCloud) — your network may be blocking it, and this track has no video version'));
@@ -1103,27 +1105,43 @@ function renderNowRows() {
   if (view === 'explorer') renderExplorer(); // refresh play/pause highlight
 }
 
-/* ---------------- artist artwork background (with collage layouts) -------- */
-let artToken = 0;
+/* ---------------- artist artwork background (full-image montage) ----------
+   One artist at a time: the whole photo, letterboxed over a blurred copy of
+   itself so nothing gets cropped, crossfading through every artist in the
+   mashup. */
+let artToken = 0, montageT = 0;
 function applyArtwork(t) {
   const token = ++artToken;
   const artEl = $('#pl-art');
-  artEl.classList.remove('on');
-  pl.classList.remove('hasart');
-  mini.classList.remove('hasart');
-  $('#mini .viz').style.backgroundImage = '';
+  clearInterval(montageT);
+  artEl.classList.remove('on');            // fade the old montage out
   artwork.collageFor(t).then((urls) => {
     if (token !== artToken) return;           // track changed while fetching
-    if (!urls.length) { artEl.innerHTML = ''; artEl.removeAttribute('data-n'); return; }
-    const n = Math.min(urls.length, 6);
-    artEl.dataset.n = n;
-    artEl.innerHTML = urls.slice(0, n).map((u, i) =>
-      `<div class="cell" style="background-image:url('${u.replace(/'/g, '%27')}');--kd:${22 + i * 6}s;animation-delay:-${i * 7}s"></div>`
+    if (!urls.length) {
+      artEl.innerHTML = '';
+      pl.classList.remove('hasart');
+      mini.classList.remove('hasart');
+      $('#mini .viz').style.backgroundImage = '';
+      return;
+    }
+    const esc1 = (u) => u.replace(/'/g, '%27');
+    artEl.innerHTML = urls.slice(0, 6).map((u) =>
+      `<div class="slide"><div class="blur" style="background-image:url('${esc1(u)}')"></div><div class="pic" style="background-image:url('${esc1(u)}')"></div></div>`
     ).join('') + '<div class="scrim"></div>';
+    const slides = $$('.slide', artEl);
+    let cur = 0;
+    slides[0].classList.add('live');
+    if (slides.length > 1) {
+      montageT = setInterval(() => {
+        slides[cur].classList.remove('live');
+        cur = (cur + 1) % slides.length;
+        slides[cur].classList.add('live');
+      }, 9000);
+    }
     artEl.classList.add('on');
     pl.classList.add('hasart');
     mini.classList.add('hasart');
-    $('#mini .viz').style.backgroundImage = `url('${urls[0].replace(/'/g, '%27')}')`;
+    $('#mini .viz').style.backgroundImage = `url('${esc1(urls[0])}')`;
     armSaver();   // artwork just arrived — the screensaver is worth arming now
   }).catch(() => {});
 }
@@ -1193,18 +1211,83 @@ $('#pl-settings').addEventListener('click', () => {
 
 /* ---------------- Zune-HD-style screensaver ----------------
    After a little idle time with the full player open and music playing, the
-   chrome fades away and the artist imagery + drifting title take over.
-   Any touch / mouse move / key brings the UI back. */
+   chrome fades away, the montage dims to near-black, and the track's artists
+   + songs crawl across the screen in big mixed type — while the drifting
+   title keeps a live timestamp. Any touch / mouse move / key exits. */
 let saverT = 0;
-function exitSaver() { document.body.classList.remove('saver'); }
+
+// text lines that crawl: every source artist + song in the playing mashup
+let saverLines = [];
+function buildSaverCrawl(t) {
+  const seen = new Set(), out = [];
+  const add = (s) => {
+    const v = (s || '').trim();
+    if (!v || seen.has(v.toLowerCase())) return;
+    seen.add(v.toLowerCase()); out.push(v);
+  };
+  add(t.mashupArtist);
+  for (const s of t.sourceSongs || []) { add(s.artist); add(s.title); }
+  add(t.displayTitle);
+  saverLines = out;
+  $('#saver-crawl').innerHTML = '';
+}
+
+// mixed "fonts": weights / italics / serif / mono / condensed system faces
+const CRAWL_STYLES = [
+  'font-weight:900;letter-spacing:-.03em;text-transform:uppercase',
+  'font-weight:200;letter-spacing:.28em;text-transform:uppercase',
+  'font-weight:800;font-style:italic;letter-spacing:-.01em',
+  "font-family:Georgia,'Times New Roman',serif;font-weight:700",
+  'font-family:Georgia,serif;font-style:italic;font-weight:400',
+  "font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-weight:600;letter-spacing:.05em",
+  "font-family:'Arial Narrow',sans-serif-condensed,sans-serif;font-weight:700;text-transform:uppercase",
+  'font-weight:300;text-transform:lowercase;letter-spacing:.12em',
+];
+let crawlT = 0, crawlSeq = 0;
+function startCrawl() {
+  stopCrawl();
+  const box = $('#saver-crawl');
+  const spawn = () => {
+    if (!saverLines.length || box.children.length >= 7) return;
+    const el = document.createElement('span');
+    const huge = Math.random() < 0.28;               // Zune's giant cropped letters
+    el.className = 'cline';
+    el.textContent = saverLines[crawlSeq++ % saverLines.length];
+    el.style.cssText = CRAWL_STYLES[Math.floor(Math.random() * CRAWL_STYLES.length)]
+      + `;top:${(-6 + Math.random() * 90).toFixed(1)}%`
+      + `;font-size:${(huge ? 16 + Math.random() * 18 : 4.5 + Math.random() * 8).toFixed(1)}vmin`
+      + `;opacity:${(0.35 + Math.random() * 0.6).toFixed(2)}`
+      + `;animation:${Math.random() < 0.5 ? 'crawlL' : 'crawlR'} ${(16 + Math.random() * 16).toFixed(1)}s linear both`;
+    el.addEventListener('animationend', () => el.remove());
+    box.appendChild(el);
+  };
+  spawn(); spawn();
+  crawlT = setInterval(spawn, 2400);
+}
+function stopCrawl() {
+  clearInterval(crawlT); crawlT = 0;
+  $('#saver-crawl').innerHTML = '';
+}
+
+function enterSaver() { document.body.classList.add('saver'); startCrawl(); }
+function exitSaver() {
+  if (document.body.classList.contains('saver')) stopCrawl();
+  document.body.classList.remove('saver');
+}
+function saverOk() {
+  const s = player.settings;
+  return s.saver !== false && pl.classList.contains('show')
+    && !player.audio.paused && !videoMode && pl.classList.contains('hasart');
+}
 function armSaver() {
   clearTimeout(saverT);
+  if (document.body.classList.contains('saver')) {
+    if (saverOk()) return;                 // keep running across track changes
+    return exitSaver();
+  }
   exitSaver();
-  const s = player.settings;
-  if (s.saver === false) return;
-  if (!pl.classList.contains('show') || player.audio.paused || videoMode) return;
-  if (!pl.classList.contains('hasart')) return;   // needs imagery to be worth it
-  saverT = setTimeout(() => document.body.classList.add('saver'), (s.saverDelay || 30) * 1000);
+  if (!saverOk()) return;
+  saverT = setTimeout(enterSaver, (player.settings.saverDelay || 30) * 1000);
 }
 ['pointermove', 'pointerdown', 'keydown', 'touchstart', 'wheel'].forEach((ev) =>
   window.addEventListener(ev, () => { if (document.body.classList.contains('saver')) exitSaver(); clearTimeout(saverT); saverT = setTimeout(armSaver, 250); }, { passive: true }));
@@ -1429,7 +1512,7 @@ function renderAccount() {
         <label class="swtch"><input type="checkbox" id="set-prewarm" ${s.prewarm ? 'checked' : ''}><span class="kn"></span></label>
       </div>
       <div class="setrow">
-        <div class="sl"><b>Screensaver</b><span>Zune-style artwork takeover when the full player sits idle</span></div>
+        <div class="sl"><b>Screensaver</b><span>Zune HD takeover — the artists dim and the track's songs crawl across the screen</span></div>
         <select id="set-saverdelay">
           ${[15, 30, 60, 120].map((v) => `<option value="${v}" ${(s.saverDelay || 30) === v ? 'selected' : ''}>${v < 60 ? v + 's' : (v / 60) + ' min'}</option>`).join('')}
         </select>
