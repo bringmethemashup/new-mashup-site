@@ -89,6 +89,7 @@ const esc = (s) => (s ?? '').toString().replace(/[&<>"]/g, (c) => ({ '&': '&amp;
 
 let mineRows = [];       // this artist's own tracks, for the edit dialog
 let editingMine = null;  // the row currently open in the edit dialog
+const ownerName = () => backend.getProfile()?.display_name || backend.user()?.email || '';
 
 async function boot() {
   if (!backend.enabled()) { $('#gate').innerHTML = 'Accounts are not configured yet.'; return; }
@@ -113,7 +114,7 @@ function render() {
   $('#gate').classList.add('hidden');
   $('#formwrap').classList.remove('hidden');
   if (!$('#tform').innerHTML) {
-    $('#tform').innerHTML = formHtml({});
+    $('#tform').innerHTML = formHtml({}, { ownerName: ownerName() });
     bindForm($('#tform'));
   }
   loadMine();
@@ -127,7 +128,9 @@ $('#s-go').addEventListener('click', async () => {
   catch (e) { err.textContent = e.message; err.classList.remove('hidden'); return; }
 
   const { entry, file, mediaKind } = parsed;
-  entry.mashupArtist = backend.getProfile()?.display_name || backend.user().email;
+  // The form's Mashup artist(s) field wins (";" = collaboration) — fall back
+  // to the profile name only if it was left blank.
+  if (!entry.mashupArtist) entry.mashupArtist = backend.getProfile()?.display_name || backend.user().email;
   entry.isOwnUpload = true;
 
   try {
@@ -142,7 +145,7 @@ $('#s-go').addEventListener('click', async () => {
     await backend.submitTrack(entry);
     ok.textContent = 'Submitted! Your mashup is in the review queue — you can see it below, nobody else can until it\'s approved.';
     ok.classList.remove('hidden');
-    $('#tform').innerHTML = formHtml({});
+    $('#tform').innerHTML = formHtml({}, { ownerName: ownerName() });
     bindForm($('#tform'));
     loadMine();
   } catch (e) {
@@ -171,7 +174,7 @@ async function loadMine() {
 function openEdit(row) {
   editingMine = row;
   if (!editingMine) return;
-  $('#etform').innerHTML = formHtml(editingMine.data);
+  $('#etform').innerHTML = formHtml(editingMine.data, { ownerName: ownerName() });
   bindForm($('#etform'));
   $('#e-err').classList.add('hidden');
   $('#e-live-note').style.display = editingMine.status === 'approved' ? 'block' : 'none';
