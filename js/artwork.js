@@ -64,15 +64,20 @@ export async function artistImage(name) {
   return url;
 }
 
-/** Unique source-song artists of a track, in order (max 6 for the collage). */
+/** Unique source-song artists of a track, in order (max 6 for the montage).
+    Splits multi-artist fields on ";" (never commas — see catalog.js) so
+    "Artist A; Artist B" becomes two separate image lookups. */
 export function artistsOf(track) {
   const seen = new Set(), out = [];
   for (const s of track?.sourceSongs || []) {
-    const k = norm(s.artist);
-    if (!k || seen.has(k)) continue;
-    seen.add(k);
-    out.push(s.artist);
-    if (out.length >= 6) break;
+    for (const part of (s.artist || '').split(';')) {
+      const name = part.trim();
+      const k = norm(name);
+      if (!k || seen.has(k)) continue;
+      seen.add(k);
+      out.push(name);
+      if (out.length >= 6) return out;
+    }
   }
   return out;
 }

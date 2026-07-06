@@ -17,7 +17,7 @@ export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiO
  * cloudflare/worker.js). Set to the deployed worker URL, e.g.
  * 'https://bmtm-audio.yourname.workers.dev'. Empty = relay disabled.
  */
-export const PCLOUD_RELAY_URL = '';
+export const PCLOUD_RELAY_URL = 'https://txkmwsnvtwobhrdrablw.supabase.co/functions/v1/pcloud-stream';
 
 /**
  * Direct download of the newest APK. GitHub's `releases/latest/download/<name>`
