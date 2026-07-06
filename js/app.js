@@ -567,21 +567,11 @@ function renderArtistsView() {
     $$('.macard', artistsEl).forEach((el) =>
       el.classList.toggle('hidden', !!q && !norm(el.dataset.name).includes(q)));
   });
-  fillArtistCardArt();
 }
 
-/** Try real photos on the artist cards (many mashup artists exist on Deezer). */
-function fillArtistCardArt() {
-  $$('.macard', artistsEl).slice(0, 60).forEach((card) => {
-    artwork.artistImage(card.dataset.name).then((u) => {
-      if (!u || !card.isConnected) return;
-      const art = $('.art', card);
-      art.style.background = `url('${u.replace(/'/g, '%27')}') center/cover`;
-      art.style.filter = 'none';
-      $('span', art).style.opacity = '0';
-    }).catch(() => {});
-  });
-}
+/* Mashup-artist cards keep their colored placeholder tiles — no image lookups.
+   Deezer/iTunes searches for mashup artist names return wrong-person photos,
+   so artist imagery is only ever pulled for source-song (track) artists. */
 
 function renderArtistDetail() {
   const a = mashupArtists().find((x) => x.key === artistNav);
