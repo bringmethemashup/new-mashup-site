@@ -164,6 +164,7 @@ select.sort {
 .trow .tmain { min-width: 0; }
 .trow .ttitle { font-weight: 600; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .trow .tsub { color: var(--text-dim); font-size: 12.5px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.trow .tby { color: var(--text-dim); opacity: .75; font-size: 11.5px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .trow .tyear { color: var(--text-dim); font-size: 12px; font-variant-numeric: tabular-nums; }
 .badge {
   font-size: 10px; font-weight: 700; letter-spacing: .08em; padding: 3px 8px; border-radius: 999px;
@@ -284,6 +285,7 @@ select.sort {
 .reccard:hover .rart svg { transform: scale(1.05); }
 .reccard .rt { font-weight: 700; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .reccard .rs { color: var(--text-dim); font-size: 11px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reccard .rma { color: var(--text-dim); opacity: .75; font-size: 10.5px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- explorer (Miller columns) ---------- */
 #view-explorer { display: flex; flex-direction: column; }
