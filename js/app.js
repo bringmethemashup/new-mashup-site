@@ -155,6 +155,19 @@ function canEditTrack(t) {
   return null;
 }
 
+/** Delete a track you uploaded (admins: any track). RLS enforces the rest. */
+async function deleteTrackFlow(id) {
+  const t = get(id); if (!t) return;
+  if (!confirm(`Delete "${t.displayTitle}" for everyone? This can't be undone.`)) return;
+  try {
+    await backend.adminDeleteTrack(id);
+    if (player.current()?.id === id) player.next();
+    await loadCatalog();
+    rerender();
+    toast('Mashup deleted');
+  } catch { toast('Could not delete this track'); }
+}
+
 function rowHtml(t, i) {
   const liked = likes.has(t.id);
   const cur = player.current()?.id === t.id;
@@ -169,6 +182,8 @@ function rowHtml(t, i) {
     <div class="tyear">${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
     <div class="rowbtns">
       ${edit ? `<button class="editbtn" data-editkind="${edit}" title="Edit this track"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></button>` : ''}
+      ${edit ? `<button class="delbtn" title="Delete this track"><svg viewBox="0 0 24 24"><path d="M9 3h6l1 2h5v2H3V5h5l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill-rule="evenodd"/></svg></button>` : ''}
+      <button class="pnextbtn" title="Play next"><svg viewBox="0 0 24 24"><path d="M3 6h11v2H3zm0 5h11v2H3zm0 5h7v2H3zm13 3V8l6 5.5z"/></svg></button>
       <button class="qaddbtn" title="Add to queue"><svg viewBox="0 0 24 24"><path d="M3 6h13v2H3zm0 5h13v2H3zm0 5h7v2H3zm14 0v-4h2v4h4v2h-4v4h-2v-4h-4v-2h4z"/></svg></button>
       <button class="plusbtn authonly" title="Add to playlist"><svg viewBox="0 0 24 24"><path d="M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z"/></svg></button>
       <button class="heartbtn${liked ? ' liked' : ''}" title="Save to Liked">${I.heart}</button>
@@ -208,7 +223,18 @@ function onRowClick(e) {
   const id = row.dataset.id;
   if (e.target.closest('.qaddbtn')) {
     player.enqueue(id);
-    toast('Added to queue');
+    const qi = player.state.queue.length - 1;
+    toast('Added to queue', { label: 'Undo', fn: () => { if (player.state.queue[qi] === id) player.removeAt(qi); } });
+    return;
+  }
+  if (e.target.closest('.pnextbtn')) {
+    player.playNext(id);
+    const qi = player.state.pos + 1;
+    toast('Playing next', { label: 'Undo', fn: () => { if (player.state.queue[qi] === id) player.removeAt(qi); } });
+    return;
+  }
+  if (e.target.closest('.delbtn')) {
+    deleteTrackFlow(id);
     return;
   }
   const eb = e.target.closest('.editbtn');
@@ -941,6 +967,25 @@ $('#pl-like').addEventListener('click', (e) => {
   toggleLike(t.id);
   e.currentTarget.classList.toggle('liked', likes.has(t.id));
   if (view === 'liked') renderLibrary();
+});
+
+$('#pl-plus').addEventListener('click', () => {
+  const t = player.current(); if (!t) return;
+  openAddToPlaylist(t.id);
+});
+
+/* share the current mashup — native share sheet (text/social/email) where
+   available, otherwise copy a deep link to the clipboard */
+$('#pl-share').addEventListener('click', async () => {
+  const t = player.current(); if (!t) return;
+  const url = location.origin + location.pathname + '#track=' + encodeURIComponent(t.id);
+  const text = `🎛 ${t.displayTitle} — ${songsSummary(t)} · mashed by ${t.mashupArtist}`;
+  if (navigator.share) {
+    try { await navigator.share({ title: t.displayTitle, text, url }); } catch { /* user closed the sheet */ }
+  } else {
+    try { await navigator.clipboard.writeText(url); toast('Link copied'); }
+    catch { toast(url); }
+  }
 });
 
 /* seek bar */
@@ -1718,10 +1763,19 @@ $('#acct-role').addEventListener('click', async () => {
 
 /* ---------------- toast ---------------- */
 let toastH;
-function toast(msg) {
+/** toast('Saved') or toast('Added', { label: 'Undo', fn: () => ... }) — with an
+    action the toast stays 5s and shows a tappable button. */
+function toast(msg, action) {
   const el = $('#toast');
-  el.textContent = msg; el.classList.add('show');
-  clearTimeout(toastH); toastH = setTimeout(() => el.classList.remove('show'), 2200);
+  el.textContent = msg;
+  if (action) {
+    const b = document.createElement('button');
+    b.textContent = action.label;
+    b.addEventListener('click', () => { try { action.fn(); } catch {} el.classList.remove('show'); });
+    el.append(b);
+  }
+  el.classList.add('show');
+  clearTimeout(toastH); toastH = setTimeout(() => el.classList.remove('show'), action ? 5000 : 2200);
 }
 
 /* ---------------- in-app back navigation ----------------
@@ -1807,6 +1861,14 @@ document.addEventListener('keydown', (e) => {
   await loadCatalog();
   show('home');
   if (backend.user()) syncAccountState();
+
+  // shared deep link: #track=<id> plays that mashup straight away
+  const m = location.hash.match(/^#track=(.+)$/);
+  if (m) {
+    const t = get(decodeURIComponent(m[1]));
+    history.replaceState(null, '', location.pathname + location.search);
+    if (t) { visible = [t]; player.playNow([t.id], 0); openFullPlayer(); }
+  }
 
   // mashup-artist bios (non-blocking; section works without them)
   if (backend.enabled()) {
