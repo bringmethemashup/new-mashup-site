@@ -158,11 +158,11 @@ export async function fetchTracks() {
   const page = 1000;
   for (let from = 0; ; from += page) {
     const { data, error } = await sb.from('tracks')
-      .select('id, owner, status, data')
+      .select('id, owner, status, data, created_at')
       .order('id')
       .range(from, from + page - 1);
     if (error) throw error;
-    for (const row of data) out.push({ ...row.data, id: row.id, _status: row.status, _owner: row.owner });
+    for (const row of data) out.push({ ...row.data, id: row.id, _status: row.status, _owner: row.owner, _created: row.created_at });
     if (data.length < page) break;
   }
   return out;

@@ -164,6 +164,7 @@ function rowHtml(t, i) {
     <div class="tmain">
       <div class="ttitle">${esc(t.displayTitle)}</div>
       <div class="tsub">${esc(songsSummary(t))}</div>
+      ${t.mashupArtist ? `<div class="tby">${esc(t.mashupArtist)}</div>` : ''}
     </div>
     <div class="tyear">${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
     <div class="rowbtns">
@@ -445,6 +446,7 @@ function recCardHtml(t, i) {
     <div class="rart">${I.play}</div>
     <div class="rt">${esc(t.displayTitle)}</div>
     <div class="rs">${esc(songsSummary(t))}</div>
+    ${t.mashupArtist ? `<div class="rma">${esc(t.mashupArtist)}</div>` : ''}
   </button>`;
 }
 function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
@@ -668,10 +670,23 @@ function homeItemTracks(cat, key) {
   return [];
 }
 
+/* newest releases — dateAdded (catalog) with created_at (DB) as fallback */
+function newestTracks(n = 12) {
+  const dateOf = (t) => t.dateAdded || (t._created || '').slice(0, 10) || '';
+  return all()
+    .filter((t) => t._status !== 'pending')
+    .map((t) => [dateOf(t), t])
+    .filter(([d]) => d)
+    .sort((a, b) => b[0].localeCompare(a[0]) || (b[1]._created || '').localeCompare(a[1]._created || ''))
+    .slice(0, n)
+    .map(([, t]) => t);
+}
+
 function renderHome() {
   if (homeNav?.key) return renderHomeTracks();
   if (homeNav?.cat) return renderHomeCategory();
   const recentTracks = recents.map(get).filter(Boolean).slice(0, 12);
+  const newest = newestTracks(12);
   const recs = recommendationRows(2);
   const h = new Date().getHours();
   const greet = h < 5 ? 'Up late?' : h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
@@ -683,6 +698,10 @@ function renderHome() {
       <button class="qbtn" data-cat="__explore">🕸 Explore connections</button>
       ${window.Capacitor?.isNativePlatform?.() ? '' : `<a class="qbtn" href="${APK_URL}" style="text-decoration:none">📱 Get the Android app</a>`}
     </div>
+    ${newest.length ? `<section class="brsec">
+      <h2 class="brh">New releases</h2>
+      <div class="reccards">${newest.map(recCardHtml).join('')}</div>
+    </section>` : ''}
     ${recentTracks.length ? `<section class="brsec">
       <h2 class="brh">Recently played</h2>
       <div class="reccards">${recentTracks.map(recCardHtml).join('')}</div>
@@ -1343,6 +1362,7 @@ function plRowHtml(t, i, n) {
     <div class="tmain">
       <div class="ttitle">${esc(t.displayTitle)}</div>
       <div class="tsub">${esc(songsSummary(t))}</div>
+      ${t.mashupArtist ? `<div class="tby">${esc(t.mashupArtist)}</div>` : ''}
     </div>
     <button class="ordbtn" data-move="up" title="Move up" ${i === 0 ? 'disabled' : ''}>↑</button>
     <button class="ordbtn" data-move="down" title="Move down" ${i === n - 1 ? 'disabled' : ''}>↓</button>

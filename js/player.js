@@ -163,8 +163,14 @@ audio.addEventListener('error', () => {
   const t = current();
   if (t?.audio?.publicLink) { invalidate(t.audio.publicLink); }
 });
-audio.addEventListener('play', () => { viz.setPlaying(true); emit('play'); });
-audio.addEventListener('pause', () => { viz.setPlaying(false); emit('pause'); });
+audio.addEventListener('play', () => {
+  viz.setPlaying(true); emit('play');
+  try { nativeMS()?.setPlaybackState({ playbackState: 'playing' }); } catch {}
+});
+audio.addEventListener('pause', () => {
+  viz.setPlaying(false); emit('pause');
+  try { nativeMS()?.setPlaybackState({ playbackState: 'paused' }); } catch {}
+});
 audio.addEventListener('timeupdate', () => {
   const t = audio.currentTime, d = audio.duration || 0;
   emit('time', { t, d });
@@ -195,7 +201,13 @@ audio.addEventListener('timeupdate', () => {
   if ('mediaSession' in navigator && 'setPositionState' in navigator.mediaSession && d) {
     try { navigator.mediaSession.setPositionState({ duration: d, playbackRate: audio.playbackRate || 1, position: Math.min(t, d) }); } catch {}
   }
+  // native (APK) media session position — throttled, each call crosses the JS bridge
+  if (d && Date.now() - lastNativePos > 1000) {
+    lastNativePos = Date.now();
+    try { nativeMS()?.setPositionState({ duration: d, playbackRate: audio.playbackRate || 1, position: Math.min(t, d) }); } catch {}
+  }
 });
+let lastNativePos = 0;
 audio.addEventListener('ended', () => { S.repeat === 'one' ? seek(0, true) : next(true); });
 
 /* ---------------- autoplay radio ---------------- */
@@ -310,33 +322,50 @@ export function cycleRepeat() {
 }
 
 /* ---------------- Media Session (lock screen / notification controls) ------
-   This is also what Bluetooth devices and car head units see: with the phone
-   connected over Bluetooth, play/pause/next/prev + title/artist/artwork all
-   come from here. (Full Android Auto needs a native MediaBrowserService,
-   which a web shell can't provide — Bluetooth mode is the supported path.) */
+   This is also what Bluetooth devices and car head units see. In the browser
+   the standard navigator.mediaSession is enough; inside the Capacitor APK the
+   WebView's mediaSession does NOT create a real Android media session, so the
+   notification shade shows nothing and volume keys / Android Auto fall back
+   to whatever app owned audio last (usually Spotify). The
+   @jofr/capacitor-media-session plugin (installed by build-apk.yml) bridges
+   the same calls to a native MediaSession + foreground-service notification,
+   which fixes lock screen, notification shade, volume keys and lets Android
+   Auto control playback. (Full Android Auto browsing UI would need a native
+   MediaBrowserService — out of scope for a web shell.) */
+const nativeMS = () =>
+  (window.Capacitor?.isNativePlatform?.() && window.Capacitor.Plugins?.MediaSession) || null;
+
 function updateMediaSession(track) {
-  if (!('mediaSession' in navigator)) return;
+  const native = nativeMS();
+  if (!native && !('mediaSession' in navigator)) return;
   const meta = {
     title: track.displayTitle,
     artist: track.mashupArtist,
     album: 'Bring Me The Mashup',
   };
-  navigator.mediaSession.metadata = new MediaMetadata(meta);
+  const setMeta = (m) => {
+    if (native) { try { native.setMetadata(m); } catch {} }
+    if ('mediaSession' in navigator) {
+      try { navigator.mediaSession.metadata = new MediaMetadata(m); } catch {}
+    }
+  };
+  setMeta(meta);
   // artist artwork on the lock screen, filled in async when we have it
   firstArtFor(track).then((u) => {
     if (!u || current()?.id !== track.id) return;
-    try {
-      navigator.mediaSession.metadata = new MediaMetadata({
-        ...meta,
-        artwork: [{ src: u, sizes: '512x512', type: 'image/jpeg' }],
-      });
-    } catch {}
+    setMeta({ ...meta, artwork: [{ src: u, sizes: '512x512', type: 'image/jpeg' }] });
   }).catch(() => {});
-  navigator.mediaSession.setActionHandler('play', () => toggle());
-  navigator.mediaSession.setActionHandler('pause', () => toggle());
-  navigator.mediaSession.setActionHandler('previoustrack', () => prev());
-  navigator.mediaSession.setActionHandler('nexttrack', () => next());
-  try {
-    navigator.mediaSession.setActionHandler('seekto', (d) => seek(d.seekTime));
-  } catch {}
+  const handlers = {
+    play: () => { if (audio.paused) toggle(); },
+    pause: () => { if (!audio.paused) toggle(); },
+    previoustrack: () => prev(),
+    nexttrack: () => next(),
+    seekto: (d) => seek(d.seekTime),
+  };
+  for (const [action, h] of Object.entries(handlers)) {
+    if (native) { try { native.setActionHandler({ action }, h); } catch {} }
+    if ('mediaSession' in navigator) {
+      try { navigator.mediaSession.setActionHandler(action, h); } catch {}
+    }
+  }
 }
