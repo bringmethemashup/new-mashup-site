@@ -1198,7 +1198,8 @@ player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
   $('#t-cur').textContent = fmt(t);
   $('#t-dur').textContent = fmt(d);
-  $('#saver-time').textContent = d ? fmt(t) + ' / ' + fmt(d) : fmt(t);
+  const ct = $('#saver-crawl .ctime');
+  if (ct) ct.textContent = d ? fmt(t) + ' / ' + fmt(d) : fmt(t);
   $('#mini-prog .fill').style.width = d ? (t / d * 100) + '%' : '0%';
 });
 player.on('error', () => toast('Could not reach the audio host (pCloud) — your network may be blocking it, and this track has no video version'));
@@ -1349,17 +1350,22 @@ function buildSaverCrawl(t) {
   $('#saver-crawl').innerHTML = '';
 }
 
-// mixed "fonts": weights / italics / serif / mono / condensed system faces
+// same site font throughout (per Ian) — variety comes from weight / squeeze /
+// stretch / case / tracking; sizes are randomized per line below
 const CRAWL_STYLES = [
   'font-weight:900;letter-spacing:-.03em;text-transform:uppercase',
   'font-weight:200;letter-spacing:.28em;text-transform:uppercase',
   'font-weight:800;letter-spacing:-.01em',
-  "font-family:Georgia,'Times New Roman',serif;font-weight:700",
-  "font-family:ui-monospace,'Cascadia Mono',Consolas,monospace;font-weight:600;letter-spacing:.05em",
-  "font-family:'Arial Narrow',sans-serif-condensed,sans-serif;font-weight:700;text-transform:uppercase",
+  'font-weight:700;scale:.66 1;text-transform:uppercase',      // narrow
+  'font-weight:600;scale:1.32 1;letter-spacing:.04em',         // extra wide
   'font-weight:300;text-transform:lowercase;letter-spacing:.12em',
+  'font-weight:500;font-style:italic;letter-spacing:.02em',
 ];
-const CRAWL_LANES = [2, 15, 28, 41, 54, 67];   // % from top — one line per lane, no overlap
+const CRAWL_LANES = [2, 15, 28, 41, 54, 67, 80];   // % from top — one line per lane, no overlap
+const saverTimeText = () => {
+  const d = player.audio.duration || 0, t = player.audio.currentTime || 0;
+  return d ? fmt(t) + ' / ' + fmt(d) : fmt(t);
+};
 let crawlT = 0, crawlSeq = 0;
 function startCrawl() {
   stopCrawl();
@@ -1373,10 +1379,17 @@ function startCrawl() {
     const el = document.createElement('span');
     el.className = 'cline';
     el.dataset.lane = lane;
-    el.textContent = saverLines[crawlSeq++ % saverLines.length];
+    // the live timestamp crawls with everything else (it replaced the old
+    // drifting info block) — keep exactly one on screen at a time
+    if (!box.querySelector('.ctime')) {
+      el.classList.add('ctime');
+      el.textContent = saverTimeText();
+    } else {
+      el.textContent = saverLines[crawlSeq++ % saverLines.length];
+    }
     el.style.cssText = CRAWL_STYLES[Math.floor(Math.random() * CRAWL_STYLES.length)]
       + `;top:${lane}%`
-      + `;font-size:${(5 + Math.random() * 6).toFixed(1)}vmin`
+      + `;font-size:${(3.5 + Math.random() * 9).toFixed(1)}vmin`
       + `;opacity:${(0.45 + Math.random() * 0.5).toFixed(2)}`
       + `;animation:${Math.random() < 0.5 ? 'crawlL' : 'crawlR'} ${(16 + Math.random() * 16).toFixed(1)}s linear both`;
     el.addEventListener('animationend', () => el.remove());
@@ -1392,8 +1405,6 @@ function stopCrawl() {
 
 function enterSaver() {
   document.body.classList.add('saver');
-  const d = player.audio.duration || 0, t0 = player.audio.currentTime || 0;
-  $('#saver-time').textContent = d ? fmt(t0) + ' / ' + fmt(d) : fmt(t0);
   startCrawl();
 }
 function exitSaver() {
@@ -1941,6 +1952,17 @@ document.addEventListener('keydown', (e) => {
   viz.attach($('#viz-full'), 'full');
   viz.attach($('#viz-mini'), 'mini');
   viz.setAmbient(true);
+
+  // BPM logo: the visualizer reports detected beats; the MASHUP wordmark
+  // pumps in time with them (replaces the old fixed-tempo pulse)
+  const beatEl = $('.brand .beat');
+  viz.onBeat((strength) => {
+    if (!beatEl) return;
+    beatEl.style.setProperty('--pulse', (1 + strength * 0.25).toFixed(3));
+    beatEl.classList.remove('pulse');
+    void beatEl.offsetWidth;          // restart the one-shot animation
+    beatEl.classList.add('pulse');
+  });
 
   checkForUpdate();
 })();

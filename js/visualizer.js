@@ -23,6 +23,33 @@ export function setAnalyser(a) {
   ambient = !a;
   if (a) { freq = new Uint8Array(a.frequencyBinCount); wave = new Uint8Array(a.fftSize); }
 }
+
+/* ---- beat detection (drives the BRING ME THE "MASHUP" logo pulse) ----
+   Bass-band energy flux against a rolling baseline. Real beats need analyser
+   data (pCloud audio with CORS); in ambient mode (YouTube-only / tainted
+   stream) we emit a gentle steady pulse instead so the logo never plays dead. */
+const beatFns = [];
+export function onBeat(fn) { beatFns.push(fn); }
+let bAvg = 0, bLast = 0, lastBeatAt = 0, lastAmbientBeat = 0;
+function detectBeat(now) {
+  if (!playing || !beatFns.length) return;
+  if (!ambient && analyser) {
+    let e = 0; const n = 10;                       // lowest bins = bass/kick
+    for (let i = 0; i < n; i++) e += freq[i];
+    e /= n * 255;
+    bAvg = bAvg * 0.97 + e * 0.03;                 // rolling baseline
+    const rising = e - bLast > 0.02;
+    if (rising && e > bAvg * 1.3 && e > 0.25 && now - lastBeatAt > 240) {
+      lastBeatAt = now;
+      const strength = Math.max(0.2, Math.min(1, (e - bAvg) * 3));
+      beatFns.forEach((f) => f(strength));
+    }
+    bLast = e;
+  } else if (now - lastAmbientBeat > 700) {        // no data: soft steady pulse
+    lastAmbientBeat = now;
+    beatFns.forEach((f) => f(0.3));
+  }
+}
 export function setAmbient(v) { ambient = v || !analyser; }
 export function setPlaying(v) { playing = v; }
 
@@ -67,6 +94,7 @@ function ensureParticles(w, h) {
 function loop(now) {
   raf = requestAnimationFrame(loop);
   if (!ambient && analyser) { analyser.getByteFrequencyData(freq); analyser.getByteTimeDomainData(wave); }
+  detectBeat(now);
   const { accent, accent2, dark } = themeColors();
   const time = now - t0;
 
