@@ -3,6 +3,7 @@
  * mini + full player, theme toggle, ambient background, YouTube video toggle.
  */
 import { loadCatalog, all, get, search, searchNodes, getNode, nodesOfTrack, nodesByKind, mashupArtists, albumsByYear, specialAlbums, relatedTo, norm, splitArtists } from './catalog.js';
+import { moodPlaylists } from './moods.js';
 import * as player from './player.js';
 import * as viz from './visualizer.js';
 import * as backend from './backend.js';
@@ -734,6 +735,7 @@ const HOME_CATS = [
   { cat: 'songs', name: 'Songs', unit: 'song' },
   { cat: 'years', name: 'Years', unit: 'year' },
   { cat: 'mashupArtists', name: 'Mashup Artists', unit: 'mashup artist' },
+  { cat: 'moods', name: 'Mood Playlists', unit: 'playlist' },
 ];
 
 function homeCatItems(cat) {
@@ -742,6 +744,7 @@ function homeCatItems(cat) {
   if (cat === 'songs') return nodesByKind('song').map((n) => ({ key: n.key, name: n.name, count: n.trackIds.size })).sort(byCount);
   if (cat === 'years') return albumsByYear().map((a) => ({ key: a.key, name: a.name, count: a.tracks.length }));
   if (cat === 'mashupArtists') return mashupArtists().map((a) => ({ key: a.key, name: a.name, count: a.tracks.length })).sort(byCount);
+  if (cat === 'moods') return moodPlaylists(all()).map((m) => ({ key: m.key, name: `${m.emoji} ${m.name}`, count: m.tracks.length }));
   return [];
 }
 
@@ -752,6 +755,7 @@ function homeItemTracks(cat, key) {
   }
   if (cat === 'years') return albumsByYear().find((a) => a.key === key)?.tracks || [];
   if (cat === 'mashupArtists') return mashupArtists().find((a) => a.key === key)?.tracks || [];
+  if (cat === 'moods') return moodPlaylists(all()).find((m) => m.key === key)?.tracks || [];
   return [];
 }
 
@@ -786,6 +790,15 @@ function renderHome() {
     ${newest.length ? `<section class="brsec">
       <h2 class="brh">New releases</h2>
       <div class="reccards">${newest.map(recCardHtml).join('')}</div>
+    </section>` : ''}
+    ${moodPlaylists(all()).length ? `<section class="brsec">
+      <h2 class="brh">Made for you</h2>
+      <div class="albumgrid">${moodPlaylists(all()).map((m, i) => `
+        <button class="albumcard moodcard" data-mood="${esc(m.key)}" data-name="${esc(m.name)}" style="--hue:${(i * 47 + 190) % 360}deg;--d:${Math.min(i * 35, 420)}ms">
+          <div class="art"><span class="memo">${m.emoji}</span></div>
+          <div class="anm">${m.emoji} ${esc(m.name)}</div>
+          <div class="acnt">${esc(m.desc)} · ${m.tracks.length}</div>
+        </button>`).join('')}</div>
     </section>` : ''}
     ${recentTracks.length ? `<section class="brsec">
       <h2 class="brh">Recently played</h2>
@@ -877,6 +890,12 @@ homeEl.addEventListener('click', (e) => {
   if (e.target.closest('[data-cat="__explore"]')) { show('explorer'); return; }
   if (e.target.closest('#hm-playall')) {
     if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
+    return;
+  }
+  const moodCard = e.target.closest('.moodcard');
+  if (moodCard) {
+    homeNav = { cat: 'moods', key: moodCard.dataset.mood, name: moodCard.dataset.name };
+    renderHome();
     return;
   }
   const catCard = e.target.closest('[data-cat]');

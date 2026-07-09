@@ -72,7 +72,25 @@ export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}
     <input class="tf-link" value="${esc(entry.audio?.publicLink || (entry.video?.type === 'tiktok' ? entry.video?.sourceId : '') || (entry.video?.type === 'youtube' && entry.video?.sourceId ? 'https://youtu.be/' + entry.video.sourceId : ''))}" placeholder="https://…">
     <button type="button" class="chip tf-yt-autofill hidden" style="margin-top:8px">↧ Autofill songs from YouTube</button>
     <div class="tf-yt-status" style="font-size:12px;color:var(--text-dim);margin-top:6px;min-height:1em"></div>
-  </div>` : ''}`;
+  </div>
+  ${(() => {
+    // Second source (optional): a video companion alongside the audio — the
+    // player streams the audio and offers the video as a toggle view.
+    const hasBoth = !!(entry.audio && entry.video);
+    const v2 = hasBoth ? entry.video.type : '';
+    const v2link = hasBoth
+      ? (entry.video.type === 'youtube' ? 'https://youtu.be/' + entry.video.sourceId : entry.video.sourceId)
+      : '';
+    return `
+  <div class="f tf-video2-f"><label>Also on video? (optional — adds a watchable video view next to the audio)</label>
+    <select class="tf-video2">
+      <option value="" ${v2 === '' ? 'selected' : ''}>No video version</option>
+      <option value="youtube" ${v2 === 'youtube' ? 'selected' : ''}>YouTube link (my own channel)</option>
+      <option value="tiktok" ${v2 === 'tiktok' ? 'selected' : ''}>TikTok link (my own account)</option>
+    </select>
+    <input class="tf-video2-link ${v2 ? '' : 'hidden'}" style="margin-top:8px" value="${esc(v2link)}" placeholder="https://…">
+  </div>`;
+  })()}` : ''}`;
 }
 
 export function songRowHtml(s = { artist: '', title: '' }) {
@@ -172,9 +190,17 @@ export function bindForm(root) {
       // Autofill only makes sense for YouTube, and only if a key is configured.
       root.querySelector('.tf-yt-autofill')?.classList.toggle('hidden', !(v === 'youtube' && ytEnabled()));
       const st = root.querySelector('.tf-yt-status'); if (st) st.textContent = '';
+      // companion video only applies when the PRIMARY source is audio
+      root.querySelector('.tf-video2-f')?.classList.toggle('hidden', v === 'youtube' || v === 'tiktok');
     };
     media.addEventListener('change', sync);
     sync();
+  }
+  const v2 = root.querySelector('.tf-video2');
+  if (v2) {
+    const syncV2 = () => root.querySelector('.tf-video2-link')?.classList.toggle('hidden', !v2.value);
+    v2.addEventListener('change', syncV2);
+    syncV2();
   }
 }
 
@@ -216,9 +242,26 @@ export function readForm(root, base = {}) {
   const link = root.querySelector('.tf-link')?.value.trim() || '';
   const file = root.querySelector('.tf-file')?.files[0] || null;
 
+  /* Optional second source: a video companion next to the audio. The player
+     streams the audio and shows an Audio/Video toggle when both exist. */
+  const applyCompanionVideo = (e2) => {
+    const kind = root.querySelector('.tf-video2')?.value || '';
+    const vlink = root.querySelector('.tf-video2-link')?.value.trim() || '';
+    if (!kind) { delete e2.video; return; }
+    if (kind === 'youtube') {
+      const id = parseYouTubeId(vlink);
+      if (!id) throw new Error('The video-version YouTube link does not look right.');
+      e2.video = { type: 'youtube', sourceId: id };
+    } else {
+      if (!/tiktok\.com\//.test(vlink)) throw new Error('The video-version TikTok link does not look right.');
+      e2.video = { type: 'tiktok', sourceId: vlink };
+    }
+  };
+
   if (mediaKind === 'upload') {
     if (!file && !base.audio?.url) throw new Error('Choose a file to upload.');
-    // audio/video set by caller after upload completes
+    applyCompanionVideo(entry);
+    // audio set by caller after upload completes
   } else if (mediaKind === 'youtube') {
     const id = parseYouTubeId(link);
     if (!id) throw new Error('That does not look like a YouTube link.');
@@ -231,27 +274,27 @@ export function readForm(root, base = {}) {
   } else if (mediaKind === 'pcloud') {
     if (!/pcloud\.(link|com)\//.test(link)) throw new Error('That does not look like a pCloud public link.');
     entry.audio = { type: 'pcloud', publicLink: link };
-    delete entry.video;
+    applyCompanionVideo(entry);
   } else if (mediaKind === 'dropbox') {
     const url = dropboxDirect(link);
     if (!url) throw new Error('That does not look like a Dropbox share link.');
     entry.audio = { type: 'dropbox', publicLink: link, url };
-    delete entry.video;
+    applyCompanionVideo(entry);
   } else if (mediaKind === 'onedrive') {
     const url = oneDriveDirect(link);
     if (!url) throw new Error('That does not look like a OneDrive share link.');
     entry.audio = { type: 'onedrive', publicLink: link, url };
-    delete entry.video;
+    applyCompanionVideo(entry);
   } else if (mediaKind === 'gdrive') {
     const url = googleDriveDirect(link);
     if (!url) throw new Error('That does not look like a Google Drive file link.');
     entry.audio = { type: 'gdrive', publicLink: link, url };
-    delete entry.video;
+    applyCompanionVideo(entry);
   } else if (mediaKind === 'direct') {
     const url = directUrl(link);
     if (!url) throw new Error('Paste a direct https:// link to an audio or video file.');
     entry.audio = { type: 'direct', publicLink: link, url };
-    delete entry.video;
+    applyCompanionVideo(entry);
   }
   return { entry, file, mediaKind };
 }
