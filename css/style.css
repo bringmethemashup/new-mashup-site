@@ -88,8 +88,9 @@ header.topbar {
 }
 .brand em { font-style: normal; color: var(--accent); }
 .brand .beat { display: inline-block; transform-origin: 50% 70%; }
-.playing .brand .beat { animation: beat 1.05s infinite var(--ease-spring); }
-@keyframes beat { 0%,100% { transform: scale(1); } 12% { transform: scale(1.22); } 30% { transform: scale(.96); } }
+/* one-shot pump per DETECTED beat (js/visualizer.js onBeat) — scale set via --pulse */
+.brand .beat.pulse { animation: logopulse .3s var(--ease-out) both; }
+@keyframes logopulse { 0% { transform: scale(var(--pulse, 1.18)); } 100% { transform: scale(1); } }
 
 .searchwrap { flex: 1; max-width: 520px; position: relative; }
 .searchwrap svg { position: absolute; left: 14px; top: 50%; translate: 0 -50%; opacity: .45; width: 16px; height: 16px; }
@@ -750,7 +751,8 @@ body.saver #pl-art::after { opacity: .68; }
   font-size: clamp(15px, 2.4vw, 22px); color: rgba(255,255,255,.92);
   font-variant-numeric: tabular-nums; text-shadow: 0 2px 16px rgba(0,0,0,.6);
 }
-body.saver #saver-meta { opacity: 1; animation: saverdrift 46s ease-in-out infinite alternate; }
+/* the old drifting info block stays hidden — title, artists and the live
+   timestamp are all part of the crawl now */
 /* crawling artists + songs in big mixed type (Zune HD) */
 #saver-crawl {
   position: absolute; inset: 0; z-index: 2; overflow: hidden; pointer-events: none;
@@ -763,12 +765,7 @@ body.saver #saver-crawl { opacity: 1; }
 }
 @keyframes crawlR { from { transform: translateX(-100%); } to { transform: translateX(100vw); } }
 @keyframes crawlL { from { transform: translateX(100vw); } to { transform: translateX(-100%); } }
-@keyframes saverdrift {
-  0%   { transform: translate(0, 0); }
-  33%  { transform: translate(6vw, -16vh); }
-  66%  { transform: translate(1vw, -34vh); }
-  100% { transform: translate(8vw, -6vh); }
-}
+.cline.ctime { font-variant-numeric: tabular-nums; }
 body.saver { cursor: none; }
 body.saver #player .phead, body.saver #player .controls, body.saver #player .meta,
 body.saver #player .avtoggle, body.saver #pl-hint, body.saver #player .pdetails {
