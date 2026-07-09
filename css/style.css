@@ -409,7 +409,7 @@ select.sort {
 }
 #player .pbg { position: absolute; inset: 0; pointer-events: none; opacity: .6;
   background: radial-gradient(60% 50% at 50% 100%, var(--amb-1), transparent 70%); }
-#player .phead { display: flex; align-items: center; padding: 18px 22px; gap: 12px; z-index: 2; }
+#player .phead { display: flex; align-items: center; padding: calc(18px + env(safe-area-inset-top, 0px)) 22px 18px; gap: 12px; z-index: 2; }
 #player .phead .ttl { flex: 1; text-align: center; font-size: 12px; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; font-weight: 700; }
 #player .stage { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 24px; z-index: 1; position: relative; }
 #viz-full-wrap { width: min(92vw, 900px); height: min(44vh, 420px); border-radius: var(--radius-l); overflow: hidden; position: relative; }
@@ -493,7 +493,11 @@ select.sort {
   font-size: 13px; font-weight: 600; opacity: 0; pointer-events: none;
   transition: all .35s var(--ease-spring);
 }
-#toast.show { opacity: 1; translate: -50% 0; }
+#toast.show { opacity: 1; translate: -50% 0; pointer-events: auto; }
+#toast button {
+  margin-left: 12px; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 12px;
+  background: var(--accent); color: #fff; cursor: pointer;
+}
 
 /* ---------- Prompt 2: accounts, playlists, dialogs ---------- */
 body:not(.cloud) .authonly { display: none !important; }
@@ -636,13 +640,14 @@ dialog.dlg h2 { margin: 0 0 14px; font-size: 18px; }
 /* ---------- library rows: grouped action buttons ---------- */
 .trow.lib { grid-template-columns: 34px 1fr auto auto; }
 .rowbtns { display: flex; align-items: center; gap: 2px; }
-.qaddbtn, .editbtn {
+.qaddbtn, .editbtn, .pnextbtn, .delbtn {
   width: 32px; height: 32px; border-radius: 50%; display: grid; place-items: center;
   color: var(--text-dim); opacity: 0; transition: all .2s;
 }
-.qaddbtn svg, .editbtn svg { width: 16px; height: 16px; fill: currentColor; }
-.trow:hover .qaddbtn, .trow:hover .editbtn { opacity: 1; }
-.qaddbtn:hover, .editbtn:hover { color: var(--text); background: var(--bg-soft); }
+.qaddbtn svg, .editbtn svg, .pnextbtn svg, .delbtn svg { width: 16px; height: 16px; fill: currentColor; }
+.trow:hover .qaddbtn, .trow:hover .editbtn, .trow:hover .pnextbtn, .trow:hover .delbtn { opacity: 1; }
+.qaddbtn:hover, .editbtn:hover, .pnextbtn:hover { color: var(--text); background: var(--bg-soft); }
+.delbtn:hover { color: #ff5c5c; background: var(--bg-soft); }
 
 /* ---------- player artwork montage (whole image, no cropping) ---------- */
 #pl-art { position: absolute; inset: 0; z-index: 0; opacity: 0; overflow: hidden; transition: opacity 1.2s var(--ease-out); }
@@ -677,8 +682,10 @@ body.saver #pl-art::after { opacity: .68; }
 /* dark veil behind the track details so they always read over light artwork */
 #player.hasart .meta { position: relative; }
 #player.hasart .meta::before {
-  content: ""; position: absolute; inset: -64px -100vw -40px; z-index: -1; pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, .34) 40%, rgba(0, 0, 0, .5) 100%);
+  /* runs seamlessly under the controls to the bottom of the player (clipped by
+     .pmain's overflow:hidden) so there's no visible edge above the seek bar */
+  content: ""; position: absolute; inset: -64px -100vw -100vh; z-index: -1; pointer-events: none;
+  background: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, .34) 96px, rgba(0, 0, 0, .5) 240px, rgba(0, 0, 0, .5) 100%);
 }
 #player.hasart .meta h2 { color: #fff; text-shadow: 0 2px 20px rgba(0, 0, 0, .55); }
 #player.hasart .meta .songs { color: rgba(255, 255, 255, .82); }
@@ -770,7 +777,7 @@ body.saver #saver-meta b, body.saver #saver-meta span, body.saver #saver-meta em
 .qrow .qmv:hover, .qrow .qx2:hover { background: var(--bg-soft); color: var(--text); }
 .qrow .qmv:disabled { opacity: .2; }
 .qhead { font-size: 10.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); padding: 10px 12px 4px; }
-@media (pointer: coarse) { .qrow .qbtns, .qaddbtn, .editbtn { opacity: 1; } }
+@media (pointer: coarse) { .qrow .qbtns, .qaddbtn, .editbtn, .pnextbtn, .delbtn { opacity: 1; } }
 
 /* ---------- account page ---------- */
 .acct-card {
