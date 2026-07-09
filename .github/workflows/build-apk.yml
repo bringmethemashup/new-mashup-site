@@ -44,7 +44,10 @@ jobs:
           java-version: 21
 
       - name: Install Capacitor
-        run: npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest @capacitor/app@latest @capacitor/browser@latest
+        # @capgo/capacitor-media-session = native Android media session (notification
+        # shade / lock screen / volume keys / Android Auto playback controls); its
+        # major version tracks Capacitor's, so @latest stays compatible.
+        run: npm install @capacitor/core@latest @capacitor/cli@latest @capacitor/android@latest @capacitor/app@latest @capacitor/browser@latest @capgo/capacitor-media-session@latest
 
       - name: Assemble web assets (fallback bundle; app loads the live site)
         run: |
