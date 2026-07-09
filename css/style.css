@@ -171,6 +171,11 @@ select.sort {
   background: var(--bg-soft); color: var(--text-dim); text-transform: uppercase;
 }
 .badge.video { color: var(--accent); }
+.badge.nsongs { font-variant-numeric: tabular-nums; }
+#player .meta .nsongs-pill {
+  display: inline-block; margin-right: 10px; padding: 2px 10px; border-radius: 999px;
+  background: rgba(127, 127, 127, .22); font-size: 11px; font-weight: 700; vertical-align: 1px;
+}
 
 .heartbtn { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; opacity: 0; transition: all .25s var(--ease-out); }
 .trow:hover .heartbtn, .heartbtn.liked { opacity: 1; }
@@ -303,13 +308,18 @@ select.sort {
 .exp-sugg button { display: flex; gap: 10px; align-items: center; width: 100%; text-align: left; padding: 10px 16px; font-size: 13.5px; }
 .exp-sugg button:hover { background: var(--row-hover); }
 .exp-sugg .kind { font-size: 10px; font-weight: 700; letter-spacing: .07em; color: var(--text-dim); text-transform: uppercase; width: 42px; flex: none; }
+.exp-sugg .sgrp {
+  padding: 8px 16px 4px; font-size: 10px; font-weight: 800; letter-spacing: .09em;
+  color: var(--accent); text-transform: uppercase; border-top: 1px solid var(--line);
+}
+.exp-sugg .sgrp:first-child { border-top: 0; }
 
 .columns {
   flex: 1; display: flex; gap: 12px; overflow-x: auto; padding: 4px 16px 20px;
   scroll-behavior: smooth; scrollbar-width: thin; min-height: 0;
 }
 .col {
-  width: 290px; flex: none; display: flex; flex-direction: column;
+  width: 320px; flex: none; display: flex; flex-direction: column;
   background: var(--bg-elev); border: 1px solid var(--line); border-radius: var(--radius-m);
   box-shadow: var(--shadow); overflow: hidden;
   animation: colin .45s var(--ease-spring);
