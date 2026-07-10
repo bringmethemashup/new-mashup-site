@@ -5,10 +5,16 @@
 -- ============================================================
 
 -- ---------- profiles (one per auth user) ----------
+-- `role` is a cosmetic listener/artist label the user can set freely.
+-- `artist_status` is what actually gates submitting tracks / uploading media —
+-- it moves none -> pending (user requests it) -> approved (admin only). See
+-- protect_artist_status below: a signed-in non-admin can only ever request
+-- (none -> pending); only the admin can move it to 'approved'.
 create table public.profiles (
   id uuid primary key references auth.users (id) on delete cascade,
   display_name text,
   role text not null default 'listener' check (role in ('listener', 'artist')),
+  artist_status text not null default 'none' check (artist_status in ('none', 'pending', 'approved')),
   is_admin boolean not null default false,
   youtube_channel text,
   created_at timestamptz not null default now()
@@ -53,6 +59,28 @@ create trigger profiles_protect_admin
   before update on public.profiles
   for each row execute function public.protect_admin_flag();
 
+-- a signed-in non-admin may only ever request artist access (none -> pending);
+-- only the admin (or a service-role/SQL-editor call) can move it to 'approved'
+-- or reverse it — no self-approve, mirrors protect_admin_flag above.
+create or replace function public.protect_artist_status()
+returns trigger language plpgsql security definer set search_path = public as $$
+begin
+  if new.artist_status is distinct from old.artist_status
+     and auth.uid() is not null
+     and not public.is_admin() then
+    if new.artist_status = 'pending' and old.artist_status = 'none' then
+      -- allowed: requesting artist access
+    else
+      new.artist_status := old.artist_status;
+    end if;
+  end if;
+  return new;
+end $$;
+
+create trigger profiles_protect_artist_status
+  before update on public.profiles
+  for each row execute function public.protect_artist_status();
+
 alter table public.profiles enable row level security;
 create policy "profiles are readable by signed-in users"
   on public.profiles for select to authenticated using (true);
@@ -95,8 +123,10 @@ create policy "approved tracks are public"
   on public.tracks for select
   using (status = 'approved' or owner = auth.uid() or public.is_admin());
 
--- artists submit their own tracks; non-admins can only create PENDING rows
-create policy "artists insert own pending tracks"
+-- approved artists submit their own tracks; non-admins can only create
+-- PENDING rows. Gated on artist_status = 'approved', not the role label —
+-- see the admin-approval note on public.profiles above.
+create policy "approved artists insert own pending tracks"
   on public.tracks for insert to authenticated
   with check (
     owner = auth.uid()
@@ -104,7 +134,7 @@ create policy "artists insert own pending tracks"
       public.is_admin()
       or (
         status = 'pending'
-        and (select role from public.profiles where id = auth.uid()) = 'artist'
+        and (select artist_status from public.profiles where id = auth.uid()) = 'approved'
       )
     )
   );
@@ -220,13 +250,13 @@ values ('mashups', 'mashups', true, 104857600,  -- 100 MB per file
         array['audio/mpeg','audio/mp4','audio/aac','audio/ogg','audio/wav','audio/x-m4a','video/mp4','video/webm'])
 on conflict (id) do nothing;
 
--- artists upload into a folder named after their own user id
-create policy "artists upload own files" on storage.objects
+-- approved artists upload into a folder named after their own user id
+create policy "approved artists upload own files" on storage.objects
   for insert to authenticated
   with check (
     bucket_id = 'mashups'
     and (storage.foldername(name))[1] = auth.uid()::text
-    and (select role from public.profiles where id = auth.uid()) = 'artist'
+    and (select artist_status from public.profiles where id = auth.uid()) = 'approved'
   );
 create policy "anyone reads mashup files" on storage.objects
   for select using (bucket_id = 'mashups');
@@ -241,6 +271,6 @@ create policy "owner or admin deletes files" on storage.objects
 -- admin + a mashup artist:
 --
 --   update public.profiles set is_admin = true, role = 'artist',
---     display_name = 'Bring Me The Mashup'
+--     artist_status = 'approved', display_name = 'Bring Me The Mashup'
 --   where id = (select id from auth.users where email = 'YOUR_EMAIL');
 -- ============================================================
