@@ -899,7 +899,7 @@ function renderHome() {
     </section>` : ''}
     ${moodPlaylists(all()).length ? `<section class="brsec">
       <h2 class="brh">Made for you</h2>
-      <div class="albumgrid">${moodPlaylists(all()).map((m, i) => `
+      <div class="albumgrid hscroll">${moodPlaylists(all()).map((m, i) => `
         <button class="albumcard moodcard" data-mood="${esc(m.key)}" data-name="${esc(m.name)}" style="--hue:${(i * 47 + 190) % 360}deg;--d:${Math.min(i * 35, 420)}ms">
           <div class="art"><span class="memo">${m.emoji}</span></div>
           <div class="anm">${m.emoji} ${esc(m.name)}</div>
