@@ -886,3 +886,5 @@ body.saver #saver-meta b, body.saver #saver-meta span, body.saver #saver-meta em
   .trow.lib { grid-template-columns: 26px 1fr auto; }
   .pdin { padding: 18px 16px calc(40px + env(safe-area-inset-bottom, 0px)); }
 }
+.albumgrid.hscroll { display: flex; grid-template-columns: none; overflow-x: auto; padding: 2px 16px 12px; scrollbar-width: thin; scroll-behavior: smooth; }
+.albumgrid.hscroll .albumcard { width: 150px; flex: none; }
