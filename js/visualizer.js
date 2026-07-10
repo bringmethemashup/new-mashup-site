@@ -15,6 +15,15 @@ let playing = false;
 let targets = [];            // [{canvas, ctx, mode:'full'|'mini'}]
 let raf = 0, t0 = performance.now();
 
+/* real song waveform (from waveform.js) — when present, the full player draws
+   the actual track SoundCloud-style instead of the aurora, split at `progress`
+   into played (accent) and unplayed (dim) halves. app.js feeds progress. */
+let peaks = null;            // Float32Array of 0..1, or null -> aurora
+let progress = 0;            // 0..1 through the song
+export function setPeaks(p) { peaks = p && p.length ? p : null; }
+export function setProgress(v) { progress = Math.min(1, Math.max(0, v || 0)); }
+export const hasPeaks = () => !!peaks;
+
 const P = [];                // particles
 const PCOUNT = 42;
 
@@ -120,12 +129,56 @@ function loop(now) {
       continue;
     }
 
-    // full: layered aurora spectrum, mirrored around a soft baseline
-    const N = 96, base = H * 0.68;
     ensureParticles(W, H);
-
     const grad = ctx.createLinearGradient(0, 0, W, 0);
     grad.addColorStop(0, accent); grad.addColorStop(1, accent2);
+
+    if (peaks) {
+      // ---- real waveform, SoundCloud-style ----
+      const n = peaks.length;
+      const base = H * 0.60;                    // baseline; taller bars above, reflection below
+      const gapPx = Math.max(1, dpr);           // breathing room between bars
+      const bw = Math.max(dpr, W / n - gapPx);
+      // gentle "alive" breathing driven by the live analyser (or ambient sine)
+      let en = 0; const EN = 24;
+      for (let i = 0; i < EN; i++) en += sample(i, EN, time);
+      en /= EN;
+      const breathe = playing ? 1 + en * 0.06 : 1;
+      const px = progress * W;                  // playhead in canvas px
+
+      const drawBars = () => {
+        for (let i = 0; i < n; i++) {
+          const x = (i / n) * W;
+          const pk = Math.max(0.03, peaks[i]) * breathe;
+          const up = pk * H * 0.46, down = pk * H * 0.20;
+          ctx.beginPath();
+          ctx.roundRect(x, base - up, bw, up + down, Math.min(bw / 2, 2 * dpr));
+          ctx.fill();
+        }
+      };
+      // unplayed: dim
+      ctx.fillStyle = dark ? 'rgba(255,255,255,.28)' : 'rgba(0,0,0,.22)';
+      drawBars();
+      // played: accent gradient, clipped to the playhead
+      ctx.save();
+      ctx.beginPath(); ctx.rect(0, 0, px, H); ctx.clip();
+      ctx.fillStyle = grad;
+      drawBars();
+      ctx.restore();
+      // playhead: soft glow + hairline so it's easy to grab
+      const glow = ctx.createRadialGradient(px, base, 0, px, base, H * 0.5);
+      glow.addColorStop(0, dark ? 'rgba(255,255,255,.20)' : 'rgba(0,0,0,.14)');
+      glow.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = glow;
+      ctx.globalAlpha = 0.6 + en * 0.4;
+      ctx.fillRect(px - H * 0.5, 0, H, H);
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = dark ? 'rgba(255,255,255,.9)' : 'rgba(0,0,0,.7)';
+      ctx.fillRect(px - dpr / 2, base - H * 0.5, dpr, H * 0.72);
+    } else {
+
+    // full: layered aurora spectrum, mirrored around a soft baseline
+    const N = 96, base = H * 0.68;
 
     for (let layer = 2; layer >= 0; layer--) {
       const amp = H * (0.42 - layer * 0.10);
@@ -153,6 +206,7 @@ function loop(now) {
       ctx.restore();
     }
     ctx.globalAlpha = 1;
+    } // end aurora fallback
 
     // particles rise with overall energy
     let energy = 0; const EN = 24;

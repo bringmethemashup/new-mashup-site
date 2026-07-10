@@ -6,6 +6,7 @@ import { loadCatalog, all, get, search, searchNodes, getNode, nodesOfTrack, node
 import { moodPlaylists } from './moods.js';
 import * as player from './player.js';
 import * as viz from './visualizer.js';
+import * as waveform from './waveform.js';
 import * as backend from './backend.js';
 import * as artwork from './artwork.js';
 import { APK_URL } from './config.js';
@@ -1089,12 +1090,62 @@ function updateSeekUi(p) {
   $('#seek .fill').style.width = (p * 100) + '%';
   $('#seek .knob').style.left = (p * 100) + '%';
 }
+
 const fmt = (s) => !Number.isFinite(s) ? '0:00' : `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
 
 /* audio/video toggle */
 const avToggle = $('#av-toggle'), ytWrap = $('#yt-wrap'), vizWrap = $('#viz-full-wrap');
 $('#av-audio').addEventListener('click', () => setVideoMode(false));
 $('#av-video').addEventListener('click', () => setVideoMode(true));
+
+/* ---- real-waveform scrubbing (SoundCloud-style) ----
+   When waveform.js has decoded the current track, the big viz canvas shows the
+   song's actual waveform and becomes a scrubber: tap or drag anywhere on it to
+   seek. While peaks are loading (or unavailable — tainted host, video mode),
+   the canvas keeps the aurora animation and does nothing on tap. */
+let wfScrubbing = false;
+function wfFromEvent(e) {
+  const r = vizWrap.getBoundingClientRect();
+  const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
+  return Math.min(1, Math.max(0, x / r.width));
+}
+function loadWaveform(t) {
+  viz.setPeaks(null); viz.setProgress(0);
+  vizWrap.classList.remove('haswave');
+  if (!t?.audio) return;
+  const forId = t.id;
+  // wait until the <audio> src is resolved (pCloud link resolution is async)
+  const tryLoad = () => {
+    const src = player.audio.currentSrc || player.audio.src;
+    if (!src || player.current()?.id !== forId) return;
+    waveform.getPeaks(forId, src).then((p) => {
+      if (player.current()?.id !== forId) return;   // user skipped meanwhile
+      viz.setPeaks(p);
+      vizWrap.classList.toggle('haswave', !!p);
+    });
+  };
+  if (player.audio.currentSrc) tryLoad();
+  else player.audio.addEventListener('loadedmetadata', tryLoad, { once: true });
+}
+vizWrap.addEventListener('pointerdown', (e) => {
+  if (!viz.hasPeaks() || videoMode) return;
+  wfScrubbing = true;
+  vizWrap.setPointerCapture(e.pointerId);
+  viz.setProgress(wfFromEvent(e));
+});
+vizWrap.addEventListener('pointermove', (e) => {
+  if (!wfScrubbing) return;
+  const p = wfFromEvent(e);
+  viz.setProgress(p);
+  if (player.audio.duration) $('#t-cur').textContent = fmt(p * player.audio.duration);
+});
+vizWrap.addEventListener('pointerup', (e) => {
+  if (!wfScrubbing) return;
+  wfScrubbing = false;
+  const p = wfFromEvent(e);
+  if (player.audio.duration) player.seek(p * player.audio.duration);
+});
+vizWrap.addEventListener('pointercancel', () => { wfScrubbing = false; });
 
 /* ---- YouTube position sync (Spotify-style audio<->video handoff) ----
    The embed is loaded with enablejsapi=1 so we can talk to it over
@@ -1199,6 +1250,7 @@ player.on('trackchange', (t) => {
 
   applyArtwork(t);
   renderDetails(t);
+  loadWaveform(t);
   armSaver();
   renderQueue();
   renderNowRows();
@@ -1215,6 +1267,7 @@ player.on('queue', renderQueue);
 player.on('radio', (n) => toast(`Radio: added ${n} similar mashup${n === 1 ? '' : 's'} to the queue`));
 player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
+  if (!wfScrubbing) viz.setProgress(d ? t / d : 0);
   $('#t-cur').textContent = fmt(t);
   $('#t-dur').textContent = fmt(d);
   const ct = $('#saver-crawl .ctime');
