@@ -633,12 +633,14 @@ function albumCardHtml(a, i) {
   </button>`;
 }
 
-function recCardHtml(t, i) {
+function recCardHtml(t, i, opts = {}) {
+  // opts.byArtist emphasises WHO made the mashup ("by X") — used on the New
+  // releases shelf so contributions from different mashup artists are clear.
   return `<button class="reccard" data-id="${esc(t.id)}" style="--hue:${(hashHue(t.id))}deg;--d:${Math.min(i * 30, 360)}ms">
     <div class="rart">${I.play}</div>
     <div class="rt">${esc(t.displayTitle)}</div>
     <div class="rs">${esc(songsSummary(t))}</div>
-    ${t.mashupArtist ? `<div class="rma">${esc(t.mashupArtist)}</div>` : ''}
+    ${t.mashupArtist ? `<div class="rma${opts.byArtist ? ' rma-by' : ''}">${opts.byArtist ? 'by ' : ''}${esc(t.mashupArtist)}</div>` : ''}
   </button>`;
 }
 function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
@@ -895,7 +897,7 @@ function renderHome() {
     </div>
     ${newest.length ? `<section class="brsec">
       <h2 class="brh">New releases</h2>
-      <div class="reccards">${newest.map(recCardHtml).join('')}</div>
+      <div class="reccards">${newest.map((t, i) => recCardHtml(t, i, { byArtist: true })).join('')}</div>
     </section>` : ''}
     ${moodPlaylists(all()).length ? `<section class="brsec">
       <h2 class="brh">Made for you</h2>

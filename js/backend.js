@@ -303,7 +303,11 @@ export async function submitTrack(entry) {
   const id = entry.id || slugId(entry.displayTitle);
   const { error } = await sb.from('tracks').insert({
     id, owner: user().id,
-    status: isAdmin() ? (entry._status || 'pending') : 'pending',
+    // Approved artists (and admins) auto-publish — approve the person, not each
+    // track. Anyone else can only ever create a pending row (also enforced by
+    // RLS). See supabase/migration-artist-autopublish.sql. Removal is the
+    // safety valve (admin can delete/unpublish any track).
+    status: (isAdmin() || isArtist()) ? (entry._status || 'approved') : 'pending',
     data: stripPrivate({ ...entry, id }),
   });
   if (error) throw error;

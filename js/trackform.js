@@ -22,7 +22,11 @@ export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}
     : entry.audio?.publicLink ? 'pcloud'
     : entry.audio?.url ? 'upload'
     : entry.video?.type === 'youtube' ? 'youtube'
-    : entry.video?.type === 'tiktok' ? 'tiktok' : 'upload';
+    : entry.video?.type === 'tiktok' ? 'tiktok'
+    // Contributor (submit) flow with no media yet → default to YouTube so the
+    // primary path is "paste your link and it autofills". Admin/editor (no
+    // ownerName) keeps the old 'upload' default.
+    : ownerName != null ? 'youtube' : 'upload';
   return `
   <div class="f"><label>Mashup title *</label><input class="tf-title" value="${esc(entry.displayTitle)}" placeholder="e.g. 3 Smiles"></div>
   ${ownerName != null ? (() => {
@@ -66,14 +70,15 @@ export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}
       <option value="direct" ${mediaKind === 'direct' ? 'selected' : ''}>Direct file URL (S3 · R2 · B2 · any host)</option>
     </select>
   </div>
-  <div class="f tf-file-f"><label>File (mp3, m4a, wav, ogg, mp4 — max 50 MB on our current storage plan)</label>
+  <div class="f tf-file-f"><label>File (mp3, m4a, wav, ogg, mp4 — max 100 MB)</label>
     <input type="file" class="tf-file" accept="audio/*,video/mp4,video/webm">
     ${entry.audio?.url ? `<div class="tf-hint">Current file stays unless you pick a new one.</div>` : ''}
   </div>
   <div class="f tf-link-f hidden"><label class="tf-link-label">Link</label>
     <input class="tf-link" value="${esc(entry.audio?.publicLink || (entry.video?.type === 'tiktok' ? entry.video?.sourceId : '') || (entry.video?.type === 'youtube' && entry.video?.sourceId ? 'https://youtu.be/' + entry.video.sourceId : ''))}" placeholder="https://…">
-    <button type="button" class="chip tf-yt-autofill hidden" style="margin-top:8px">↧ Autofill songs from YouTube</button>
+    <button type="button" class="chip tf-yt-autofill hidden" style="margin-top:8px">↧ Autofill title + songs from YouTube</button>
     <div class="tf-yt-status" style="font-size:12px;color:var(--text-dim);margin-top:6px;min-height:1em"></div>
+    <div class="tf-yt-thumb-wrap hidden" style="margin-top:8px"><img class="tf-yt-thumb" alt="" style="max-width:180px;width:100%;border-radius:10px;display:block"></div>
   </div>
   ${(() => {
     // Second source (optional): a video companion alongside the audio — the
@@ -150,6 +155,50 @@ export function fillEmptySongRows(root, songs) {
   return added;
 }
 
+/**
+ * Read a YouTube link from `root` and autofill the mashup title (only if blank),
+ * a thumbnail preview, and the source-song rows. `manual` = triggered by the
+ * button (chatty status + "paste a link" prompts); false = the debounced
+ * paste trigger (quieter, skips re-fetching the same id). The thumbnail needs
+ * no API key; title + song autofill need YT_API_KEY in config.js.
+ */
+async function runYtAutofill(root, manual) {
+  const status = root.querySelector('.tf-yt-status');
+  const say = (m) => { if (status) status.textContent = m || ''; };
+  const thumbWrap = root.querySelector('.tf-yt-thumb-wrap');
+  const thumb = root.querySelector('.tf-yt-thumb');
+  const id = parseYouTubeId(root.querySelector('.tf-link')?.value || '');
+  if (!id) {
+    if (manual) say('Paste a YouTube link above first.');
+    thumbWrap?.classList.add('hidden');
+    delete root.dataset.ytLast;
+    return;
+  }
+  // Thumbnail works without an API key — show it for any valid video id.
+  if (thumb && thumbWrap) { thumb.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; thumbWrap.classList.remove('hidden'); }
+  if (!ytEnabled()) { if (manual) say('YouTube autofill is not set up yet (no API key in config.js).'); return; }
+  if (!manual && id === root.dataset.ytLast) return; // don't re-fetch same link each keystroke
+  root.dataset.ytLast = id;
+  const btn = root.querySelector('.tf-yt-autofill');
+  if (btn) btn.disabled = true;
+  say('Reading the YouTube video…');
+  try {
+    const meta = await fetchVideoMeta(id);
+    const titleEl = root.querySelector('.tf-title');
+    if (titleEl && !titleEl.value.trim() && meta.title) titleEl.value = meta.title.trim();
+    const songs = parseSourceSongs(meta);
+    const added = songs.length ? fillEmptySongRows(root, songs) : 0;
+    say(added
+      ? `Filled the title and ${added} song${added === 1 ? '' : 's'} from “${meta.title.slice(0, 50)}”. Please double-check them.`
+      : `Pulled the title from “${meta.title.slice(0, 50)}”. Couldn’t find song info — add the songs by hand.`);
+  } catch (err) {
+    say(err.message || 'Autofill failed.');
+    delete root.dataset.ytLast;
+  } finally {
+    if (btn) btn.disabled = false;
+  }
+}
+
 /** Mashup artist(s) from either form variant: the submit flow's collab
     toggle (owner + collaborators) or the admin/full free-text field. */
 function readMashupArtist(root) {
@@ -175,27 +224,22 @@ export function bindForm(root) {
     const del = e.target.closest('.sr-del');
     if (del && root.querySelectorAll('.songrow').length > 1) del.closest('.songrow').remove();
 
-    const auto = e.target.closest('.tf-yt-autofill');
-    if (auto) {
-      const status = root.querySelector('.tf-yt-status');
-      const say = (msg) => { if (status) status.textContent = msg; };
-      const id = parseYouTubeId(root.querySelector('.tf-link')?.value || '');
-      if (!id) return say('Paste a YouTube link above first.');
-      auto.disabled = true;
-      say('Reading the YouTube video…');
-      try {
-        const meta = await fetchVideoMeta(id);
-        const songs = parseSourceSongs(meta);
-        if (!songs.length) { say('Couldn’t find song info in that video’s title or description — add them by hand.'); return; }
-        const added = fillEmptySongRows(root, songs);
-        say(`Added ${added} song${added === 1 ? '' : 's'} from “${meta.title.slice(0, 60)}”. Please double-check them.`);
-      } catch (err) {
-        say(err.message || 'Autofill failed.');
-      } finally {
-        auto.disabled = false;
-      }
-    }
+    if (e.target.closest('.tf-yt-autofill')) await runYtAutofill(root, true);
   });
+
+  // Paste-to-autofill: when a valid YouTube link is entered, fill title + songs
+  // automatically (debounced) so contributors rarely type anything. The manual
+  // button stays as a re-trigger. Only fires while the media source is YouTube.
+  const linkEl = root.querySelector('.tf-link');
+  if (linkEl) {
+    let deb;
+    linkEl.addEventListener('input', () => {
+      clearTimeout(deb);
+      deb = setTimeout(() => {
+        if (root.querySelector('.tf-media')?.value === 'youtube') runYtAutofill(root, false);
+      }, 700);
+    });
+  }
   const collab = root.querySelector('.tf-collab');
   if (collab) {
     const syncCollab = () => root.querySelector('.tf-collab-f')?.classList.toggle('hidden', !collab.checked);
@@ -217,6 +261,7 @@ export function bindForm(root) {
       // Autofill only makes sense for YouTube, and only if a key is configured.
       root.querySelector('.tf-yt-autofill')?.classList.toggle('hidden', !(v === 'youtube' && ytEnabled()));
       const st = root.querySelector('.tf-yt-status'); if (st) st.textContent = '';
+      if (v !== 'youtube') root.querySelector('.tf-yt-thumb-wrap')?.classList.add('hidden');
       // companion video only applies when the PRIMARY source is audio
       root.querySelector('.tf-video2-f')?.classList.toggle('hidden', v === 'youtube' || v === 'tiktok');
     };
