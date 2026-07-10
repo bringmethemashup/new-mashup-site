@@ -134,30 +134,25 @@ function loop(now) {
     grad.addColorStop(0, accent); grad.addColorStop(1, accent2);
 
     if (peaks) {
-      // ---- real waveform, SoundCloud-style ----
+      // ---- real waveform, Audacity-style ----
+      // Rigid, static picture of the whole song: solid bars mirrored around a
+      // horizontal center line. Nothing animates except the playhead and the
+      // played/unplayed color split — no pulsing or breathing.
       const n = peaks.length;
-      const base = H * 0.60;                    // baseline; taller bars above, reflection below
-      const gapPx = Math.max(1, dpr);           // breathing room between bars
+      const mid = H * 0.5;
+      const gapPx = Math.max(1, dpr);           // hairline gap between bars
       const bw = Math.max(dpr, W / n - gapPx);
-      // gentle "alive" breathing driven by the live analyser (or ambient sine)
-      let en = 0; const EN = 24;
-      for (let i = 0; i < EN; i++) en += sample(i, EN, time);
-      en /= EN;
-      const breathe = playing ? 1 + en * 0.06 : 1;
       const px = progress * W;                  // playhead in canvas px
 
       const drawBars = () => {
         for (let i = 0; i < n; i++) {
           const x = (i / n) * W;
-          const pk = Math.max(0.03, peaks[i]) * breathe;
-          const up = pk * H * 0.46, down = pk * H * 0.20;
-          ctx.beginPath();
-          ctx.roundRect(x, base - up, bw, up + down, Math.min(bw / 2, 2 * dpr));
-          ctx.fill();
+          const h = Math.max(dpr * 2, peaks[i] * H * 0.88);
+          ctx.fillRect(x, mid - h / 2, bw, h);  // symmetric above/below center
         }
       };
       // unplayed: dim
-      ctx.fillStyle = dark ? 'rgba(255,255,255,.28)' : 'rgba(0,0,0,.22)';
+      ctx.fillStyle = dark ? 'rgba(255,255,255,.30)' : 'rgba(0,0,0,.24)';
       drawBars();
       // played: accent gradient, clipped to the playhead
       ctx.save();
@@ -165,16 +160,12 @@ function loop(now) {
       ctx.fillStyle = grad;
       drawBars();
       ctx.restore();
-      // playhead: soft glow + hairline so it's easy to grab
-      const glow = ctx.createRadialGradient(px, base, 0, px, base, H * 0.5);
-      glow.addColorStop(0, dark ? 'rgba(255,255,255,.20)' : 'rgba(0,0,0,.14)');
-      glow.addColorStop(1, 'rgba(0,0,0,0)');
-      ctx.fillStyle = glow;
-      ctx.globalAlpha = 0.6 + en * 0.4;
-      ctx.fillRect(px - H * 0.5, 0, H, H);
-      ctx.globalAlpha = 1;
+      // center line through the waveform (Audacity-style)
+      ctx.fillStyle = dark ? 'rgba(255,255,255,.18)' : 'rgba(0,0,0,.14)';
+      ctx.fillRect(0, mid - dpr / 2, W, dpr);
+      // playhead hairline
       ctx.fillStyle = dark ? 'rgba(255,255,255,.9)' : 'rgba(0,0,0,.7)';
-      ctx.fillRect(px - dpr / 2, base - H * 0.5, dpr, H * 0.72);
+      ctx.fillRect(px - dpr / 2, mid - H * 0.47, dpr, H * 0.94);
     } else {
 
     // full: layered aurora spectrum, mirrored around a soft baseline
