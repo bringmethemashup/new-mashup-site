@@ -50,8 +50,9 @@
 
   <div id="formwrap" class="hidden">
     <div class="note">
-      Your submission goes into a <b>review queue</b> first — only you can see it until it's approved.
-      Source songs are required, one artist/title pair per row: that's what powers the Mashup Explorer.
+      You're an approved mashup artist, so your mashups <b>go live on the site right away</b> — no review queue.
+      Paste a YouTube link and we'll autofill the title and songs for you. Source songs are required, one
+      artist/title pair per row: that's what powers the Mashup Explorer.
     </div>
     <div class="card">
       <div id="tform"></div>
@@ -59,7 +60,7 @@
       <div class="ok hidden" id="s-ok"></div>
       <progress id="s-prog" class="hidden"></progress>
       <div style="display:flex; justify-content:flex-end; margin-top:14px">
-        <button class="chip primary" id="s-go">Submit for review</button>
+        <button class="chip primary" id="s-go">Publish mashup</button>
       </div>
     </div>
 
@@ -151,7 +152,7 @@ $('#s-go').addEventListener('click', async () => {
       if (file.type.startsWith('video/')) entry.uploadKind = 'video';
     }
     await backend.submitTrack(entry);
-    ok.textContent = 'Submitted! Your mashup is in the review queue — you can see it below, nobody else can until it\'s approved.';
+    ok.textContent = 'Live! Your mashup is on the site now — it also shows in your list below.';
     ok.classList.remove('hidden');
     $('#tform').innerHTML = formHtml({}, { ownerName: ownerName() });
     bindForm($('#tform'));
