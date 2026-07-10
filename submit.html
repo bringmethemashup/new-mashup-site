@@ -106,9 +106,17 @@ function render() {
     return;
   }
   if (!backend.isArtist()) {
-    $('#gate').innerHTML = `You're signed in as a listener. <button class="chip primary" id="become">🎛 Become a mashup artist</button> to submit your own tracks — it's free and instant.`;
+    const st = backend.artistStatus();
+    if (st === 'pending') {
+      $('#gate').innerHTML = `⏳ Your mashup artist request is awaiting admin approval — check back soon.`;
+    } else {
+      $('#gate').innerHTML = `You're signed in as a listener. <button class="chip primary" id="become">🎛 Request a mashup artist account</button> — an admin reviews requests before you can submit tracks.`;
+      $('#become').onclick = async () => {
+        try { await backend.requestArtistStatus(); render(); }
+        catch { $('#gate').insertAdjacentHTML('beforeend', '<div class="err" style="margin-top:10px">Could not send request — try again.</div>'); }
+      };
+    }
     $('#formwrap').classList.add('hidden');
-    $('#become').onclick = async () => { await backend.setRole('artist'); render(); };
     return;
   }
   $('#gate').classList.add('hidden');

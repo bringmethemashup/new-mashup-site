@@ -21,6 +21,8 @@
   .arow .t b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
   .arow .t span { font-size: 12px; color: var(--text-dim); }
   .pill { font-size: 10px; font-weight: 800; letter-spacing: .05em; padding: 3px 9px; border-radius: 99px; text-transform: uppercase; background: var(--bg-soft); color: var(--text-dim); white-space: nowrap; }
+  #artist-req-badge:empty { display: none; }
+  #artist-req-badge { margin-left: 6px; background: #e4573d; color: #fff; border-radius: 99px; padding: 1px 7px; font-size: 10.5px; font-weight: 800; }
   .note { font-size: 12.5px; color: var(--text-dim); line-height: 1.55; background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
   .err { background: #b3261e22; color: #e4573d; font-size: 13px; padding: 10px 14px; border-radius: 10px; margin: 10px 0; }
   .hidden { display: none !important; }
@@ -52,7 +54,7 @@
       <button class="chip tabb on" data-tab="pending">Review queue</button>
       <button class="chip tabb" data-tab="approved">All tracks</button>
       <button class="chip tabb" data-tab="rejected">Rejected</button>
-      <button class="chip" id="bulk-toggle" title="Tick tracks, then add/remove a collection in one go">🏷 Bulk collections</button>
+      <button class="chip tabb" data-tab="artists">Artist requests<span id="artist-req-badge"></span></button>
       <span style="flex:1"></span>
       <button class="chip" id="import">⬆ Upload catalog.json</button>
       <input type="file" id="import-file" accept=".json,application/json" class="hidden">
@@ -61,15 +63,6 @@
     <progress id="import-prog" class="hidden"></progress>
     <input type="search" id="q" placeholder="Filter by title, artist, song…" style="width:100%;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:var(--bg-elev);color:var(--text);outline:none;box-sizing:border-box">
     <div class="counts" id="counts"></div>
-    <div id="bulkbar" class="bar hidden" style="margin:0 0 12px">
-      <button class="chip" id="bulk-all">Select all shown</button>
-      <button class="chip" id="bulk-none">Clear</button>
-      <span class="counts" id="bulk-count" style="margin:0">0 selected</span>
-      <input list="coll-list" id="bulk-coll" placeholder="collection name — use ; for several" style="flex:1;min-width:180px;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--text);outline:none">
-      <datalist id="coll-list"></datalist>
-      <button class="chip ok" id="bulk-add">＋ Add</button>
-      <button class="chip danger" id="bulk-remove">− Remove</button>
-    </div>
     <div id="list"></div>
   </div>
 </div>
@@ -107,7 +100,15 @@ function gate() {
   $('#gate').classList.add('hidden');
   $('#panel').classList.remove('hidden');
   load();
+  refreshArtistBadge();
   openDeepLinkEdit();
+}
+
+async function refreshArtistBadge() {
+  try {
+    const reqs = await backend.adminListArtistRequests();
+    $('#artist-req-badge').textContent = reqs.length ? reqs.length : '';
+  } catch {}
 }
 
 /* Deep link from the main site's ✎ button: admin.html?edit=<trackId> */
@@ -130,24 +131,21 @@ async function openDeepLinkEdit() {
 async function load() {
   $('#counts').textContent = 'Loading…';
   try {
-    rows = await backend.adminListByStatus(tab);
+    rows = tab === 'artists' ? await backend.adminListArtistRequests() : await backend.adminListByStatus(tab);
     renderList();
   } catch (e) { $('#counts').textContent = 'Load failed: ' + (e.message || e); }
 }
 
-function filteredRows() {
-  const q = $('#q').value.trim().toLowerCase();
-  return q ? rows.filter((r) => JSON.stringify(r.data).toLowerCase().includes(q)) : rows;
-}
 function renderList() {
-  const filtered = filteredRows();
+  if (tab === 'artists') return renderArtistRequests();
+  const q = $('#q').value.trim().toLowerCase();
+  const filtered = q ? rows.filter((r) => JSON.stringify(r.data).toLowerCase().includes(q)) : rows;
   $('#counts').textContent = `${filtered.length} of ${rows.length} ${tab} track${rows.length === 1 ? '' : 's'}`;
   $('#list').innerHTML = filtered.map((r) => {
     const d = r.data;
     const media = d.audio?.url ? 'uploaded file' : d.audio?.publicLink ? 'pCloud' : d.video?.type || 'no media';
     const by = r.profiles?.display_name || '—';
     return `<div class="arow" data-id="${esc(r.id)}">
-      ${bulkMode ? `<input type="checkbox" class="bulk-ck" data-ck="${esc(r.id)}"${selected.has(r.id) ? ' checked' : ''} style="width:18px;height:18px;accent-color:var(--accent);flex:none;cursor:pointer">` : ''}
       <div class="t" data-edit="${esc(r.id)}">
         <b>${esc(d.displayTitle)}</b>
         <span>${(d.sourceSongs || []).map((s) => `${esc(s.artist)} – ${esc(s.title)}`).join('  ×  ') || 'no song data'}</span>
@@ -155,7 +153,6 @@ function renderList() {
       <span class="pill">${esc(by)}</span>
       ${r.profiles?.youtube_channel ? `<a class="pill" href="${esc(r.profiles.youtube_channel)}" target="_blank" rel="noopener" style="text-decoration:none">▶ channel</a>` : ''}
       <span class="pill">${esc(media)}</span>
-      ${d.specialAlbum ? `<span class="pill" title="collections">🏷 ${esc(d.specialAlbum)}</span>` : ''}
       ${d.audio?.url || d.video?.type === 'youtube' ? `<button class="chip" data-preview="${esc(r.id)}">▶</button>` : ''}
       <button class="chip" data-edit2="${esc(r.id)}">Edit</button>
       ${tab === 'pending' ? `<button class="chip ok" data-approve="${esc(r.id)}">Approve</button>
@@ -165,18 +162,35 @@ function renderList() {
       <button class="chip danger" data-delete="${esc(r.id)}" title="Delete permanently">🗑</button>
     </div>`;
   }).join('') || '<div class="note">Nothing here.</div>';
-  $('#bulk-count').textContent = `${selected.size} selected`;
+}
+
+function renderArtistRequests() {
+  $('#counts').textContent = `${rows.length} pending artist request${rows.length === 1 ? '' : 's'}`;
+  $('#list').innerHTML = rows.map((r) => `
+    <div class="arow" data-uid="${esc(r.id)}">
+      <div class="t">
+        <b>${esc(r.display_name || 'Unnamed')}</b>
+        <span>Requested ${new Date(r.created_at).toLocaleDateString()}</span>
+      </div>
+      ${r.youtube_channel ? `<a class="pill" href="${esc(r.youtube_channel)}" target="_blank" rel="noopener" style="text-decoration:none">▶ channel</a>` : ''}
+      <button class="chip ok" data-artist-approve="${esc(r.id)}">Approve</button>
+      <button class="chip danger" data-artist-reject="${esc(r.id)}">Reject</button>
+    </div>`).join('') || '<div class="note">No pending artist requests.</div>';
 }
 
 $('#q').addEventListener('input', renderList);
 document.querySelectorAll('.tabb').forEach((b) => b.addEventListener('click', () => {
   tab = b.dataset.tab;
-  selected.clear();
   document.querySelectorAll('.tabb').forEach((x) => x.classList.toggle('on', x === b));
+  const trackOnly = tab !== 'artists';
+  $('#q').style.display = trackOnly ? '' : 'none';
+  $('#import').style.display = trackOnly ? '' : 'none';
   load();
 }));
 
 $('#list').addEventListener('click', async (e) => {
+  const artistApprove = e.target.closest('[data-artist-approve]');
+  const artistReject = e.target.closest('[data-artist-reject]');
   const approve = e.target.closest('[data-approve]');
   const reject = e.target.closest('[data-reject]');
   const unpub = e.target.closest('[data-unpub]');
@@ -184,6 +198,17 @@ $('#list').addEventListener('click', async (e) => {
   const edit = e.target.closest('[data-edit], [data-edit2]');
   const preview = e.target.closest('[data-preview]');
   try {
+    if (artistApprove) {
+      await backend.adminSetArtistStatus(artistApprove.dataset.artistApprove, 'approved');
+      refreshArtistBadge();
+      return load();
+    }
+    if (artistReject) {
+      if (!confirm('Reject this artist request? They can request again later.')) return;
+      await backend.adminSetArtistStatus(artistReject.dataset.artistReject, 'none');
+      refreshArtistBadge();
+      return load();
+    }
     if (approve) { await backend.adminSetStatus(approve.dataset.approve, 'approved'); return load(); }
     if (reject) { await backend.adminSetStatus(reject.dataset.reject, 'rejected'); return load(); }
     if (unpub) { await backend.adminSetStatus(unpub.dataset.unpub, 'pending'); return load(); }
@@ -226,74 +251,6 @@ $('#e-save').addEventListener('click', async () => {
     $('#e-err').classList.remove('hidden');
   }
 });
-
-/* ---------- bulk collections: tick tracks, add/remove a collection ---------- */
-let bulkMode = false;
-const selected = new Set();
-const splitColl = (s) => (s || '').split(';').map((p) => p.trim()).filter(Boolean);
-
-$('#bulk-toggle').addEventListener('click', async () => {
-  bulkMode = !bulkMode;
-  $('#bulk-toggle').classList.toggle('primary', bulkMode);
-  $('#bulkbar').classList.toggle('hidden', !bulkMode);
-  selected.clear();
-  renderList();
-  // existing collection names as autocomplete suggestions (once per visit)
-  if (bulkMode && !$('#coll-list').children.length) {
-    try {
-      $('#coll-list').innerHTML = (await backend.fetchCollections())
-        .map((n) => `<option value="${esc(n)}">`).join('');
-    } catch (_) {}
-  }
-});
-$('#bulk-all').addEventListener('click', () => {
-  filteredRows().forEach((r) => selected.add(r.id));
-  renderList();
-});
-$('#bulk-none').addEventListener('click', () => { selected.clear(); renderList(); });
-$('#list').addEventListener('change', (e) => {
-  const ck = e.target.closest('.bulk-ck');
-  if (!ck) return;
-  if (ck.checked) selected.add(ck.dataset.ck); else selected.delete(ck.dataset.ck);
-  $('#bulk-count').textContent = `${selected.size} selected`;
-});
-$('#bulk-add').addEventListener('click', () => bulkApply('add'));
-$('#bulk-remove').addEventListener('click', () => bulkApply('remove'));
-
-async function bulkApply(mode) {
-  const names = splitColl($('#bulk-coll').value);
-  if (!names.length) return alert('Type or pick a collection name first.');
-  if (!selected.size) return alert('Tick at least one track first.');
-  const targets = rows.filter((r) => selected.has(r.id));
-  if (mode === 'remove' && !confirm(`Remove ${targets.length} track${targets.length === 1 ? '' : 's'} from “${names.join('; ')}”?`)) return;
-  const note = $('#counts');
-  let done = 0;
-  try {
-    for (const r of targets) {
-      const cur = splitColl(r.data.specialAlbum);
-      let next;
-      if (mode === 'add') {
-        next = [...cur];
-        for (const n of names) if (!next.some((c) => c.toLowerCase() === n.toLowerCase())) next.push(n);
-      } else {
-        next = cur.filter((c) => !names.some((n) => n.toLowerCase() === c.toLowerCase()));
-      }
-      const joined = next.join('; ');
-      if (joined !== (r.data.specialAlbum || '')) {
-        const entry = { ...r.data };
-        if (joined) entry.specialAlbum = joined; else delete entry.specialAlbum;
-        await backend.adminUpdateTrack(r.id, entry);
-        r.data = entry;
-      }
-      done++;
-      note.textContent = `${mode === 'add' ? 'Adding to' : 'Removing from'} “${names.join('; ')}”… ${done} / ${targets.length}`;
-    }
-  } catch (e) {
-    alert(`Stopped after ${done} of ${targets.length}: ` + (e.message || e));
-  }
-  renderList();
-  note.textContent = `Done — ${done} of ${targets.length} track${targets.length === 1 ? '' : 's'} updated for “${names.join('; ')}”.`;
-}
 
 /* ---------- catalog.json upload → import into DB ---------- */
 $('#import').addEventListener('click', () => $('#import-file').click());

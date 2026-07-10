@@ -227,10 +227,32 @@
   <div class="dlg-actions"><button class="chip" id="pladd-close">Close</button></div>
 </dialog>
 
+<!-- track options sheet (long-press a title on touch devices) -->
+<dialog id="opts-dlg" class="dlg optsheet">
+  <div class="optsheet-title" id="opts-title"></div>
+  <div class="optsheet-list" id="opts-list"></div>
+</dialog>
+
 <script type="module" src="js/app.js"></script>
 <script>
   if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
-    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+    addEventListener('load', () => {
+      // "Site updated" toast: sw.js does skipWaiting()+clients.claim(), so a
+      // new version fires controllerchange while the OLD page is still
+      // running. Offer a one-tap reload instead of silently waiting for the
+      // next launch. hadController distinguishes an update from first install.
+      const hadController = !!navigator.serviceWorker.controller;
+      navigator.serviceWorker.addEventListener('controllerchange', () => {
+        if (!hadController || document.getElementById('swupd')) return;
+        const b = document.createElement('button');
+        b.id = 'swupd';
+        b.textContent = '✨ Updated — tap to refresh';
+        b.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);bottom:calc(96px + env(safe-area-inset-bottom,0px));z-index:9999;padding:11px 20px;border:0;border-radius:999px;background:var(--accent,#e4573d);color:#fff;font:600 13.5px/1 var(--font,system-ui);box-shadow:0 8px 30px rgba(0,0,0,.35);cursor:pointer';
+        b.addEventListener('click', () => location.reload());
+        document.body.appendChild(b);
+      });
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
   }
 </script>
 </body>
