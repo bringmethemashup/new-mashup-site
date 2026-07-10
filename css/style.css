@@ -141,6 +141,8 @@ select.sort {
 }
 .chip:hover { color: var(--text); transform: translateY(-1px); }
 .chip.on { background: var(--accent); color: #fff; box-shadow: 0 3px 14px var(--glow-a); }
+.chip:disabled { opacity: .6; cursor: default; }
+.chip:disabled:hover { transform: none; color: var(--text-dim); }
 
 /* ---------- track rows ---------- */
 .tracklist { padding: 0 4px; }
@@ -207,6 +209,12 @@ select.sort {
 }
 .brh em { font-style: normal; color: var(--accent); }
 .brhint { padding: 26px 20px; color: var(--text-dim); font-size: 13.5px; }
+
+/* non-commercial / copyright disclaimer — bottom of Home + Settings */
+.disclaimer {
+  margin: 18px 16px 30px; padding: 14px 18px; border-top: 1px solid var(--line);
+  color: var(--text-dim); font-size: 11.5px; line-height: 1.6; text-align: center;
+}
 
 /* in-app "update available" banner (Android shell) */
 #updbar {
@@ -578,6 +586,19 @@ dialog.dlg h2 { margin: 0 0 14px; font-size: 18px; }
 .newpl { display: flex; gap: 8px; }
 .newpl input { flex: 1; }
 
+/* row options sheet (long-press on a track title, mobile) */
+dialog.optsheet { width: min(360px, 94vw); padding: 10px; }
+.optsheet-title { padding: 12px 12px 10px; font-weight: 700; font-size: 14.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+.optsheet-list { display: flex; flex-direction: column; gap: 2px; }
+.optrow {
+  display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px; border-radius: 10px;
+  background: transparent; color: var(--text); font-size: 14.5px; text-align: left; cursor: pointer;
+}
+.optrow svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
+.optrow:active { background: var(--bg-soft); }
+.optrow.danger { color: #e4573d; }
+.optrow.cancel { color: var(--text-dim); margin-top: 4px; border-top: 1px solid var(--line); border-radius: 0; padding-top: 14px; }
+
 /* playlists view */
 .pllist { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 14px; padding: 6px 0 30px; }
 .plcard {
@@ -793,7 +814,15 @@ body.saver #saver-meta b, body.saver #saver-meta span, body.saver #saver-meta em
 .qrow .qmv:hover, .qrow .qx2:hover { background: var(--bg-soft); color: var(--text); }
 .qrow .qmv:disabled { opacity: .2; }
 .qhead { font-size: 10.5px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); padding: 10px 12px 4px; }
-@media (pointer: coarse) { .qrow .qbtns, .qaddbtn, .editbtn, .pnextbtn, .delbtn { opacity: 1; } }
+@media (pointer: coarse) {
+  .qrow .qbtns { opacity: 1; }
+  /* library rows on touch: only the heart stays visible — everything else
+     (queue/playlist/edit/delete/play) moves into the long-press options sheet */
+  .trow .qaddbtn, .trow .editbtn, .trow .pnextbtn, .trow .delbtn, .trow .plusbtn, .trow .rowplay { display: none; }
+  .trow .heartbtn { opacity: 1; }
+  .trow .tmain { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  .trow.pressing .tmain { opacity: .55; transition: opacity .2s; }
+}
 
 /* ---------- account page ---------- */
 .acct-card {
@@ -847,8 +876,7 @@ body.saver #saver-meta b, body.saver #saver-meta span, body.saver #saver-meta em
   #view-playlists .trow { grid-template-columns: 26px 1fr auto auto auto auto; gap: 6px; }
   .ordbtn { opacity: 1; }
   .trow .tyear { display: none; }
-  .heartbtn, .plusbtn { opacity: 1; }
-  .rowplay { opacity: 1; transform: scale(.92); width: 36px; height: 36px; }
+  .heartbtn { opacity: 1; }
   .col { width: 240px; }
   .albumgrid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
   .reccard { width: 140px; }
