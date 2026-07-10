@@ -461,7 +461,13 @@ select.sort {
 }
 #seek:hover .knob { transform: scale(1); }
 
-.transport { display: flex; align-items: center; gap: 18px; }
+/* 3-zone grid keeps prev/play/next dead-centered no matter how many
+   secondary buttons sit on either side */
+.transport { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; width: min(92vw, 640px); }
+.transport .tgrp { display: flex; align-items: center; gap: 6px; }
+.transport .tgrp.tl { justify-content: flex-start; }
+.transport .tgrp.tc { gap: 16px; }
+.transport .tgrp.tr { justify-content: flex-end; }
 .transport .tbtn { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; color: var(--text-dim); transition: all .2s var(--ease-out); position: relative; }
 .transport .tbtn:hover { color: var(--text); transform: scale(1.08); }
 .transport .tbtn svg { width: 20px; height: 20px; fill: currentColor; }
