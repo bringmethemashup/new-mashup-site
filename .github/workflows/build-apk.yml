@@ -57,12 +57,28 @@ jobs:
       - name: Add Android platform
         run: npx cap add android && npx cap sync android
 
-      - name: Register Google-login deep-link scheme in AndroidManifest
+      - name: Register Google-login deep-link scheme + media permissions in AndroidManifest
         run: |
           node - <<'EOF'
           const fs = require('fs');
           const p = 'android/app/src/main/AndroidManifest.xml';
           let x = fs.readFileSync(p, 'utf8');
+
+          // Android 14+ (targetSdk 34+) crashes with a SecurityException the moment
+          // the media-session plugin starts its mediaPlayback foreground service
+          // unless this permission is declared. The plugin's own manifest only
+          // declares plain FOREGROUND_SERVICE, so we add the typed one here.
+          // POST_NOTIFICATIONS lets the playback notification show on Android 13+.
+          for (const perm of [
+            'android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK',
+            'android.permission.POST_NOTIFICATIONS',
+          ]) {
+            if (!x.includes(perm)) {
+              x = x.replace(/(\s*)<application/, `$1<uses-permission android:name="${perm}" />$1<application`);
+              console.log('Added permission ' + perm);
+            }
+          }
+
           const scheme = 'com.bringmethemashup.app';
           const filter = [
             '        <intent-filter>',
