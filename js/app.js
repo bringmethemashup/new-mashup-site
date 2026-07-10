@@ -32,6 +32,10 @@ const I = {
   audio: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a5 5 0 0 0-5 5v4a5 5 0 0 0 10 0V8a5 5 0 0 0-5-5zm-7 9a7 7 0 0 0 14 0h2a9 9 0 0 1-8 8.94V23h-2v-2.06A9 9 0 0 1 3 12h2z"/></svg>',
 };
 
+/* Shown at the bottom of Home and on the Settings page — see renderHome() and
+   renderAccount(). Keep this in sync if the wording ever changes. */
+const DISCLAIMER_TEXT = 'Bring Me The Mashup is a free, non-commercial fan project. No money is made from this app or from the music on it — no fees, ads, or subscriptions. All mashups remain the copyrighted work of their original artists and are shared here purely for fan enjoyment.';
+
 /* ---------------- state ---------------- */
 const LIKES_KEY = 'bmtm.likes.v1';
 let likes = new Set();
@@ -221,6 +225,7 @@ function renderLibrary() {
 /* row interactions (delegated) */
 $('#view-library').addEventListener('click', onRowClick);
 function onRowClick(e) {
+  if (lpSuppressClick) { lpSuppressClick = false; return; } // a long-press just opened the options sheet
   const row = e.target.closest('.trow'); if (!row) return;
   const id = row.dataset.id;
   if (e.target.closest('.qaddbtn')) {
@@ -264,10 +269,110 @@ function onRowClick(e) {
     openFullPlayer();
     return;
   }
-  // click elsewhere on row = play too (Spotify-ish double affordance kept simple)
+  // click elsewhere on row (incl. the title, now that its own buttons live in the
+  // long-press sheet on mobile) = play; toggles pause if it's already playing
+  const cur = player.current();
+  if (cur?.id === id) { player.toggle(); return; }
   const idx = visible.findIndex((t) => t.id === id);
   player.playNow(visible.map((t) => t.id), idx);
 }
+
+/* ---------------- row options sheet (long-press a title on touch devices) ----------------
+   The rowbtns icon row gets cluttered on phones, so on touch only the heart stays
+   inline (css/style.css, @media (pointer: coarse)) — everything else (play next,
+   queue, playlist, edit, delete) moves in here. Desktop/mouse is untouched. */
+const optsDlg = $('#opts-dlg');
+const mainEl = $('main');
+let lpTimer = null, lpTarget = null, lpStartX = 0, lpStartY = 0, lpSuppressClick = false, optsId = null;
+
+function clearLongPress() {
+  clearTimeout(lpTimer); lpTimer = null;
+  if (lpTarget) lpTarget.classList.remove('pressing');
+  lpTarget = null;
+}
+mainEl.addEventListener('pointerdown', (e) => {
+  if (e.pointerType !== 'touch') return;
+  if (!e.target.closest('.tmain')) return;
+  const row = e.target.closest('.trow'); if (!row) return;
+  lpTarget = row; lpStartX = e.clientX; lpStartY = e.clientY;
+  row.classList.add('pressing');
+  lpTimer = setTimeout(() => {
+    lpSuppressClick = true;
+    row.classList.remove('pressing');
+    if (navigator.vibrate) navigator.vibrate(10);
+    openRowOptions(row.dataset.id);
+  }, 480);
+}, { passive: true });
+mainEl.addEventListener('pointermove', (e) => {
+  if (!lpTimer) return;
+  if (Math.abs(e.clientX - lpStartX) > 10 || Math.abs(e.clientY - lpStartY) > 10) clearLongPress();
+}, { passive: true });
+['pointerup', 'pointercancel', 'pointerleave'].forEach((ev) => mainEl.addEventListener(ev, clearLongPress));
+
+const OPT_ICON = (d, fr) => `<svg viewBox="0 0 24 24" fill="currentColor"><path d="${d}"${fr ? ` fill-rule="${fr}"` : ''}/></svg>`;
+const OPT_ICONS = {
+  play: OPT_ICON('M8 5v14l11-7z'),
+  pause: OPT_ICON('M6 5h4v14H6zM14 5h4v14h-4z'),
+  next: OPT_ICON('M3 6h11v2H3zm0 5h11v2H3zm0 5h7v2H3zm13 3V8l6 5.5z'),
+  queue: OPT_ICON('M3 6h13v2H3zm0 5h13v2H3zm0 5h7v2H3zm14 0v-4h2v4h4v2h-4v4h-2v-4h-4v-2h4z'),
+  plus: OPT_ICON('M11 5h2v6h6v2h-6v6h-2v-6H5v-2h6z'),
+  edit: OPT_ICON('M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z'),
+  del: OPT_ICON('M9 3h6l1 2h5v2H3V5h5l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z', 'evenodd'),
+};
+
+function openRowOptions(id) {
+  const t = get(id); if (!t) return;
+  optsId = id;
+  const edit = canEditTrack(t);
+  const playing = player.current()?.id === id && player.audio && !player.audio.paused;
+  const items = [
+    { act: 'play', icon: playing ? OPT_ICONS.pause : OPT_ICONS.play, label: playing ? 'Pause' : 'Play' },
+    { act: 'next', icon: OPT_ICONS.next, label: 'Play next' },
+    { act: 'queue', icon: OPT_ICONS.queue, label: 'Add to queue' },
+    ...(backend.user() ? [{ act: 'playlist', icon: OPT_ICONS.plus, label: 'Add to playlist' }] : []),
+    ...(edit ? [{ act: 'edit', icon: OPT_ICONS.edit, label: 'Edit this track' }] : []),
+    ...(edit ? [{ act: 'delete', icon: OPT_ICONS.del, label: 'Delete this track', danger: true }] : []),
+  ];
+  $('#opts-title').textContent = t.displayTitle;
+  $('#opts-list').innerHTML = items
+    .map((it) => `<button class="optrow${it.danger ? ' danger' : ''}" data-act="${it.act}">${it.icon}<span>${esc(it.label)}</span></button>`)
+    .join('') + `<button class="optrow cancel" data-act="cancel">Cancel</button>`;
+  optsDlg.showModal();
+}
+
+$('#opts-list').addEventListener('click', (e) => {
+  const b = e.target.closest('.optrow'); if (!b || !optsId) return;
+  const id = optsId, act = b.dataset.act;
+  optsDlg.close();
+  if (act === 'cancel') return;
+  if (act === 'play') {
+    const cur = player.current();
+    if (cur?.id === id) { player.toggle(); return; }
+    const idx = visible.findIndex((x) => x.id === id);
+    player.playNow((idx >= 0 ? visible : all()).map((x) => x.id), Math.max(idx, 0));
+    openFullPlayer();
+    return;
+  }
+  if (act === 'next') {
+    player.playNext(id);
+    const qi = player.state.pos + 1;
+    toast('Playing next', { label: 'Undo', fn: () => { if (player.state.queue[qi] === id) player.removeAt(qi); } });
+    return;
+  }
+  if (act === 'queue') {
+    player.enqueue(id);
+    const qi = player.state.queue.length - 1;
+    toast('Added to queue', { label: 'Undo', fn: () => { if (player.state.queue[qi] === id) player.removeAt(qi); } });
+    return;
+  }
+  if (act === 'playlist') { openAddToPlaylist(id); return; }
+  if (act === 'edit') {
+    const t = get(id); if (!t) return;
+    location.href = canEditTrack(t) === 'admin' ? 'admin.html?edit=' + encodeURIComponent(id) : 'submit.html#edit=' + encodeURIComponent(id);
+    return;
+  }
+  if (act === 'delete') { deleteTrackFlow(id); return; }
+});
 
 /* ---------------- explorer (single-column drill-down) ----------------
    Flow (per Ian): pick an artist/song -> the screen lists the MASHUPS it
@@ -828,7 +933,8 @@ function renderHome() {
         </button>
       </div>
     </section>
-    ${recentTracks.length ? '' : '<div class="brhint">Play a few tracks and your recent plays + recommendations will show up here.</div>'}`;
+    ${recentTracks.length ? '' : '<div class="brhint">Play a few tracks and your recent plays + recommendations will show up here.</div>'}
+    <div class="disclaimer">${DISCLAIMER_TEXT}</div>`;
 }
 
 function renderHomeCategory() {
@@ -1124,8 +1230,11 @@ function loadWaveform(t) {
       vizWrap.classList.toggle('haswave', !!p);
     });
   };
-  if (player.audio.currentSrc) tryLoad();
-  else player.audio.addEventListener('loadedmetadata', tryLoad, { once: true });
+  // ALWAYS wait for the new source's metadata: at trackchange time
+  // audio.currentSrc still points at the PREVIOUS track (pCloud link
+  // resolution is async), so reading it immediately would decode and cache
+  // the wrong file under this track's id.
+  player.audio.addEventListener('loadedmetadata', tryLoad, { once: true });
 }
 vizWrap.addEventListener('pointerdown', (e) => {
   if (!viz.hasPeaks() || videoMode) return;
@@ -1560,6 +1669,7 @@ function plRowHtml(t, i, n) {
 }
 
 plView.addEventListener('click', async (e) => {
+  if (lpSuppressClick) { lpSuppressClick = false; return; } // a long-press just opened the options sheet
   if (e.target.closest('#pl-new')) {
     const name = prompt('Playlist name');
     if (!name?.trim()) return;
@@ -1618,7 +1728,7 @@ plView.addEventListener('click', async (e) => {
   if (row) {
     const idx = p.trackIds.indexOf(row.dataset.id);
     const curId = player.current()?.id;
-    if (e.target.closest('.rowplay') && curId === row.dataset.id) { player.toggle(); return; }
+    if (curId === row.dataset.id) { player.toggle(); return; }
     player.playNow([...p.trackIds], idx);
     if (e.target.closest('.rowplay')) openFullPlayer();
   }
@@ -1666,6 +1776,15 @@ $('#pladd-close').addEventListener('click', () => plAddDlg.close());
 /* ---------------- account page: your stats + settings ---------------- */
 const acctView = $('#view-account');
 
+/** Mashup-artist account is admin-approved (see backend.requestArtistStatus) —
+ *  this drives the request-status chip everywhere it appears. */
+function artistRoleChip() {
+  const st = backend.artistStatus();
+  if (st === 'approved') return { label: '✓ Mashup artist account', disabled: true };
+  if (st === 'pending') return { label: '⏳ Artist request pending review', disabled: true };
+  return { label: '🎛 Request mashup artist account', disabled: false };
+}
+
 function renderAccount() {
   const u = backend.user(), p = backend.getProfile();
   const s = player.settings;
@@ -1679,10 +1798,11 @@ function renderAccount() {
 
     <div class="acct-card">
       <h2>${esc(p?.display_name || (u ? u.email : 'Not signed in'))}</h2>
-      <div class="sub">${u ? esc(u.email) + (backend.isAdmin() ? ' · admin' : backend.isArtist() ? ' · mashup artist' : ' · listener') : 'Sign in to sync your likes, playlists and play counts across devices.'}</div>
+      <div class="sub">${u ? esc(u.email) + (backend.isAdmin() ? ' · admin' : backend.isArtist() ? ' · mashup artist' : backend.artistStatus() === 'pending' ? ' · artist request pending' : ' · listener') : 'Sign in to sync your likes, playlists and play counts across devices.'}</div>
       <div class="rowchips">
         ${u ? `
-        <button class="chip" id="ac-role">${backend.isArtist() ? 'Switch to listener account' : '🎛 Become a mashup artist'}</button>
+        <button class="chip" id="ac-role" ${artistRoleChip().disabled ? 'disabled' : ''}>${artistRoleChip().label}</button>` : ''}
+        ${u ? `
         <button class="chip artistonly" id="ac-yt">${p?.youtube_channel ? '▶ YouTube channel linked ✓ (change)' : '▶ Link your YouTube channel'}</button>
         <a class="chip artistonly" href="submit.html">🎚 Submit a mashup</a>
         <a class="chip artistonly" href="submit.html#mine">✎ My submissions — edit your tracks</a>
@@ -1752,7 +1872,9 @@ function renderAccount() {
         <div class="sl"><b>Theme</b><span>Dark / light</span></div>
         <button class="chip" id="ac-theme">Toggle theme</button>
       </div>
-    </div>`;
+    </div>
+
+    <div class="disclaimer">${DISCLAIMER_TEXT}</div>`;
 }
 
 acctView.addEventListener('click', async (e) => {
@@ -1769,11 +1891,12 @@ acctView.addEventListener('click', async (e) => {
     return;
   }
   if (e.target.closest('#ac-role')) {
+    if (backend.artistStatus() !== 'none') return; // pending/approved chip is a status label, not a button
     try {
-      await backend.setRole(backend.isArtist() ? 'listener' : 'artist');
-      toast(backend.isArtist() ? 'You are now a mashup artist — you can submit tracks!' : 'Switched to listener');
+      await backend.requestArtistStatus();
+      toast('Request sent — the admin will review it soon.');
       renderAccount();
-    } catch { toast('Could not change role'); }
+    } catch { toast('Could not send request'); }
     return;
   }
   if (e.target.closest('#ac-yt')) {
@@ -1873,9 +1996,10 @@ $('#auth-go').addEventListener('click', async () => {
 function openAccount() {
   const p = backend.getProfile();
   $('#acct-who').textContent = `${p?.display_name || ''} · ${backend.user()?.email || ''}` +
-    (backend.isAdmin() ? ' · admin' : p?.role === 'artist' ? ' · mashup artist' : '');
-  $('#acct-role').textContent = backend.isArtist()
-    ? 'Switch to listener account' : '🎛 Become a mashup artist';
+    (backend.isAdmin() ? ' · admin' : backend.isArtist() ? ' · mashup artist' : backend.artistStatus() === 'pending' ? ' · artist request pending' : '');
+  const chip = artistRoleChip();
+  $('#acct-role').textContent = chip.label;
+  $('#acct-role').disabled = chip.disabled;
   $('#acct-yt').textContent = p?.youtube_channel
     ? '▶ YouTube channel linked ✓ (change)' : '▶ Link your YouTube channel';
   $('#acct-app').href = APK_URL;
@@ -1897,11 +2021,12 @@ $('#account').addEventListener('click', () => backend.user() ? show('account') :
 $('#acct-close').addEventListener('click', () => acctDlg.close());
 $('#acct-signout').addEventListener('click', async () => { acctDlg.close(); await backend.signOut(); toast('Signed out'); });
 $('#acct-role').addEventListener('click', async () => {
+  if (backend.artistStatus() !== 'none') return; // pending/approved chip is a status label, not a button
   try {
-    await backend.setRole(backend.isArtist() ? 'listener' : 'artist');
-    toast(backend.isArtist() ? 'You are now a mashup artist — you can submit tracks!' : 'Switched to listener');
+    await backend.requestArtistStatus();
+    toast('Request sent — the admin will review it soon.');
     openAccount();
-  } catch { toast('Could not change role'); }
+  } catch { toast('Could not send request'); }
 });
 
 /* ---------------- toast ---------------- */

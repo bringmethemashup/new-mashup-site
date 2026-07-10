@@ -94,7 +94,9 @@ async function loadProfile() {
 export const client = () => sb;
 export const user = () => session?.user || null;
 export const getProfile = () => profile;
-export const isArtist = () => profile?.role === 'artist';
+/** Actual submit/upload gate — admin-approved only. See requestArtistStatus(). */
+export const isArtist = () => profile?.artist_status === 'approved';
+export const artistStatus = () => profile?.artist_status || 'none'; // 'none' | 'pending' | 'approved'
 export const isAdmin = () => !!profile?.is_admin;
 export function onAuth(fn) { authListeners.push(fn); }
 
@@ -135,9 +137,12 @@ export async function signInWithGoogle() {
   if (error) throw error;
 }
 
-/** Listener <-> Artist toggle (no separate signup flow). */
-export async function setRole(role) {
-  const { error } = await sb.from('profiles').update({ role }).eq('id', user().id);
+/** Request a mashup-artist account. Flips artist_status none -> pending; an
+ *  RLS trigger (protect_artist_status) blocks anything else a non-admin might
+ *  try to set here, so this can never self-grant approval. The admin reviews
+ *  requests in admin.html -> Artist requests. */
+export async function requestArtistStatus() {
+  const { error } = await sb.from('profiles').update({ artist_status: 'pending' }).eq('id', user().id);
   if (error) throw error;
   await loadProfile();
   authListeners.forEach((f) => f(user(), profile));
@@ -340,6 +345,27 @@ export async function adminUpdateTrack(id, entry) {
 }
 export async function adminDeleteTrack(id) {
   const { error } = await sb.from('tracks').delete().eq('id', id);
+  if (error) throw error;
+}
+
+/* ---------------- admin: mashup-artist account requests ---------------- */
+export async function adminListArtistRequests() {
+  const { data, error } = await sb.from('profiles')
+    .select('id, display_name, youtube_channel, created_at')
+    .eq('artist_status', 'pending').order('created_at');
+  if (error) throw error;
+  return data;
+}
+export async function adminListArtists() {
+  const { data, error } = await sb.from('profiles')
+    .select('id, display_name, youtube_channel, created_at')
+    .eq('artist_status', 'approved').order('display_name');
+  if (error) throw error;
+  return data;
+}
+/** status: 'approved' (grant) or 'none' (reject / revoke) — admin only, RLS-enforced. */
+export async function adminSetArtistStatus(userId, status) {
+  const { error } = await sb.from('profiles').update({ artist_status: status }).eq('id', userId);
   if (error) throw error;
 }
 
