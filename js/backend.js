@@ -168,6 +168,23 @@ export async function fetchTracks() {
   return out;
 }
 
+/** Every distinct collection name in use ("; " splits multiples inside one
+ *  track's specialAlbum). Lightweight: pulls only that one jsonb field. */
+export async function fetchCollections() {
+  const { data, error } = await sb.from('tracks')
+    .select('sp:data->>specialAlbum')
+    .not('data->>specialAlbum', 'is', null);
+  if (error) throw error;
+  const m = new Map(); // lowercase -> first-seen casing
+  for (const row of data) {
+    for (const name of (row.sp || '').split(';').map((p) => p.trim()).filter(Boolean)) {
+      const k = name.toLowerCase();
+      if (!m.has(k)) m.set(k, name);
+    }
+  }
+  return [...m.values()].sort((a, b) => a.localeCompare(b));
+}
+
 /* ---------------- likes ---------------- */
 export async function fetchLikes() {
   const { data, error } = await sb.from('likes').select('track_id').order('created_at');

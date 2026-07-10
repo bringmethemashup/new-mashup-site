@@ -43,9 +43,11 @@ export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}
   </div>`;
   })() : `
   <div class="f"><label>Mashup artist(s)</label><input class="tf-maartist" value="${esc(entry.mashupArtist)}" placeholder="use ; between collaborators"></div>`}
-  <div class="grid2">
-    <div class="f"><label>Year</label><input class="tf-year" value="${esc(entry.year)}" placeholder="2026"></div>
-    <div class="f"><label>Special collection</label><input class="tf-special" value="${esc(entry.specialAlbum)}" placeholder="optional"></div>
+  <div class="f"><label>Year</label><input class="tf-year" value="${esc(entry.year)}" placeholder="2026"></div>
+  <div class="f tf-coll-f"><label>Collections (optional — a mashup can be in several)</label>
+    <div class="tf-colls" style="display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px">${splitArtists(entry.specialAlbum).map((n) => collChipHtml(n, true)).join('')}</div>
+    <input class="tf-coll-new" placeholder="＋ new collection — use ; between several">
+    <div class="tf-hint">Tick existing collections above, or type a new name here.</div>
   </div>
   <div class="f"><label>Source songs — one row per song, artist + title *</label>
     <div class="tf-songs">${songs.map(songRowHtml).join('')}</div>
@@ -91,6 +93,30 @@ export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}
     <input class="tf-video2-link ${v2 ? '' : 'hidden'}" style="margin-top:8px" value="${esc(v2link)}" placeholder="https://…">
   </div>`;
   })()}` : ''}`;
+}
+
+/** One checkable collection chip. `on` = this track is already in it. */
+function collChipHtml(name, on) {
+  return `<label class="collchip" style="display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line,#3a3a3a);border-radius:999px;padding:4px 12px;cursor:pointer;font-size:13px;user-select:none">
+    <input type="checkbox" class="tf-coll" value="${esc(name)}" style="width:auto;margin:0" ${on ? 'checked' : ''}> ${esc(name)}</label>`;
+}
+
+/** Fill .tf-colls with every collection already used on the site (unchecked),
+    keeping the track's own (checked) chips first. Silent no-op offline. */
+async function populateCollections(root) {
+  const box = root.querySelector('.tf-colls');
+  if (!box) return;
+  try {
+    const backend = await import('./backend.js');
+    if (!backend.enabled()) return;
+    await backend.init();
+    const names = await backend.fetchCollections();
+    const have = new Set([...box.querySelectorAll('.tf-coll')].map((c) => c.value.toLowerCase()));
+    for (const n of names) {
+      if (have.has(n.toLowerCase())) continue;
+      box.insertAdjacentHTML('beforeend', collChipHtml(n, false));
+    }
+  } catch (e) { console.warn('collection list unavailable', e); }
 }
 
 export function songRowHtml(s = { artist: '', title: '' }) {
@@ -141,6 +167,7 @@ function readMashupArtist(root) {
 
 /** Wire up add/remove song rows + media-kind switching inside `root`. */
 export function bindForm(root) {
+  populateCollections(root);
   root.addEventListener('click', async (e) => {
     if (e.target.closest('.tf-addsong')) {
       root.querySelector('.tf-songs').insertAdjacentHTML('beforeend', songRowHtml());
@@ -204,6 +231,19 @@ export function bindForm(root) {
   }
 }
 
+/** Checked chips + anything typed in the "new collection" box → "; "-joined
+    string (matching the artists rule), deduped case-insensitively. */
+function readCollections(root) {
+  const picked = [...root.querySelectorAll('.tf-coll:checked')].map((c) => c.value);
+  const typed = splitArtists(root.querySelector('.tf-coll-new')?.value || '');
+  const seen = new Set(); const out = [];
+  for (const n of [...picked, ...typed]) {
+    const k = n.toLowerCase();
+    if (!seen.has(k)) { seen.add(k); out.push(n); }
+  }
+  return out.join('; ');
+}
+
 /**
  * Read + validate the form. Returns { entry, file, mediaKind } or throws
  * an Error with a user-readable message. `base` = existing entry when editing.
@@ -229,7 +269,7 @@ export function readForm(root, base = {}) {
     // Artists grid, player chips). Falls back to the existing value when blank.
     mashupArtist: readMashupArtist(root) || base.mashupArtist || undefined,
     year: root.querySelector('.tf-year').value.trim() || undefined,
-    specialAlbum: root.querySelector('.tf-special').value.trim() || undefined,
+    specialAlbum: readCollections(root) || undefined,
   };
   if (!entry.mashupArtist) delete entry.mashupArtist;
   if (!entry.year) delete entry.year;

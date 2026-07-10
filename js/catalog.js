@@ -171,16 +171,17 @@ export function albumsByYear() {
 }
 
 export function specialAlbums() {
+  // "; " separates collections (same rule as artists) — a track can belong
+  // to several, and it's listed under EACH one.
   const m = new Map();
   for (const t of tracks) {
-    const name = (t.specialAlbum || '').trim();
-    if (!name) continue;
-    if (!m.has(name)) m.set(name, []);
-    m.get(name).push(t);
+    for (const name of splitArtists(t.specialAlbum)) {
+      const k = norm(name);
+      if (!m.has(k)) m.set(k, { key: 'sp:' + k, name, tracks: [] });
+      m.get(k).tracks.push(t);
+    }
   }
-  return [...m.entries()]
-    .map(([name, list]) => ({ key: 'sp:' + name, name, tracks: list }))
-    .sort((a, b) => a.name.localeCompare(b.name));
+  return [...m.values()].sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /* ---------------- recommendations: REUSES the Explorer index -------------
