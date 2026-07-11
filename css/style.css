@@ -436,10 +436,11 @@ select.sort {
 }
 #player .pbg { position: absolute; inset: 0; pointer-events: none; opacity: .6;
   background: radial-gradient(60% 50% at 50% 100%, var(--amb-1), transparent 70%); }
-#player .phead { display: flex; align-items: center; padding: calc(18px + env(safe-area-inset-top, 0px)) 22px 18px; gap: 12px; z-index: 2; }
-#player .phead .ttl { flex: 1; text-align: center; font-size: 12px; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; font-weight: 700; }
+#player .phead { position: relative; display: flex; align-items: center; padding: calc(18px + env(safe-area-inset-top, 0px)) 22px 18px; gap: 12px; z-index: 2; }
+#player .phead .ttl { position: absolute; left: 0; right: 0; margin: 0 auto; text-align: center; font-size: 12px; letter-spacing: .12em; color: var(--text-dim); text-transform: uppercase; font-weight: 700; pointer-events: none; }
+#player .phead #pl-settings { margin-left: auto; }
 #player .stage { flex: 1; min-height: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 24px; z-index: 1; position: relative; }
-#viz-full-wrap { width: min(92vw, 900px); height: min(44vh, 420px); border-radius: var(--radius-l); overflow: hidden; position: relative; }
+#viz-full-wrap { width: min(92vw, 900px); height: min(22vh, 210px); border-radius: var(--radius-l); overflow: hidden; position: relative; }
 #viz-full-wrap canvas { width: 100%; height: 100%; display: block; }
 /* when the real waveform is loaded the canvas doubles as a scrubber */
 #viz-full-wrap.haswave { cursor: pointer; touch-action: pan-y; }
@@ -685,6 +686,35 @@ dialog.optsheet { width: min(360px, 94vw); padding: 10px; }
 .vialink:hover { background: var(--row-hover); }
 .vialink .vcnt { margin-left: auto; color: var(--text-dim); font-size: 11px; font-weight: 500; white-space: nowrap; }
 
+/* ---------- collab badge / pill ---------- */
+.badge.collab { color: var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); }
+#player .meta .collab-pill {
+  display: inline-block; margin-right: 10px; padding: 2px 10px; border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent);
+  font-size: 11px; font-weight: 700; vertical-align: 1px; text-transform: uppercase; letter-spacing: .06em;
+}
+.exptrack .head .cnt.collab, .col header .kind .collab-tag {
+  color: var(--accent); font-weight: 700;
+}
+.collab-tag { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: 9.5px; margin-left: 6px; }
+
+/* ---------- Now Playing: collapsible big song list ---------- */
+#player .meta .songs-rest.hidden { display: none; }
+.songs-toggle {
+  display: inline-block; margin-top: 6px; padding: 3px 12px; border-radius: 999px;
+  background: color-mix(in srgb, var(--text) 10%, transparent); color: var(--text);
+  font-size: 11.5px; font-weight: 700; cursor: pointer; border: 0;
+}
+.songs-toggle:hover { background: color-mix(in srgb, var(--text) 18%, transparent); }
+#player.hasart .meta .songs-toggle { background: rgba(255,255,255,.2); color: #fff; }
+
+/* ---------- Explorer: two-box artist view ---------- */
+.expboxes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.expbox { background: var(--bg-soft); border: 1px solid var(--line); border-radius: var(--radius-s); padding: 8px 8px 10px; min-width: 0; }
+.expbox > .viagrp { margin-top: 2px; }
+.expbox .empty { padding: 12px 8px; font-size: 12px; color: var(--text-dim); }
+@media (max-width: 560px) { .expboxes { grid-template-columns: 1fr; } }
+
 /* ---------- library rows: grouped action buttons ---------- */
 .trow.lib { grid-template-columns: 34px 1fr auto auto; }
 .rowbtns { display: flex; align-items: center; gap: 2px; }
@@ -810,6 +840,9 @@ body.saver #player .avtoggle, body.saver #pl-hint, body.saver #player .pdetails 
 }
 body.saver #pl-art .slide .pic { animation-duration: calc(var(--kd, 26s) * .6); }
 body.saver #saver-meta b, body.saver #saver-meta span, body.saver #saver-meta em { color: #fff; }
+/* during the screensaver the waveform steps back — no orange, mostly transparent —
+   so the crawling text stays the focus; the scroll still shows, just quietly */
+body.saver #viz-full-wrap { opacity: .28; filter: grayscale(1); transition: opacity 1.4s var(--ease-out), filter 1.4s var(--ease-out); }
 
 /* ---------- queue drawer: reorder / remove ---------- */
 .qrow .qbtns { display: flex; gap: 0; opacity: 0; transition: opacity .2s; }
