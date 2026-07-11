@@ -9,7 +9,7 @@ import * as viz from './visualizer.js';
 import * as waveform from './waveform.js';
 import * as backend from './backend.js';
 import * as artwork from './artwork.js';
-import { APK_URL, PCLOUD_RELAY_URL } from './config.js';
+import { APK_URL, PCLOUD_RELAY_URL, SHARE_URL } from './config.js';
 import { extractCode } from './pcloud.js';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -156,6 +156,11 @@ function songsSummary(t) {
   return parts.join('  ×  ');
 }
 
+/** A mashup is a "collab" when its mashup-artist field names 2+ makers (";"). */
+const isCollab = (t) => t && splitArtists(t.mashupArtist).length > 1;
+const collabBadge = (t) => isCollab(t)
+  ? ' <span class="badge collab" title="Collaboration between multiple mashup artists">Collab</span>' : '';
+
 function canEditTrack(t) {
   if (backend.isAdmin()) return 'admin';
   if (backend.isArtist() && t._owner && t._owner === backend.user()?.id) return 'own';
@@ -186,7 +191,7 @@ function rowHtml(t, i) {
       <div class="tsub">${esc(songsSummary(t))}</div>
       ${t.mashupArtist ? `<div class="tby">${esc(t.mashupArtist)}</div>` : ''}
     </div>
-    <div class="tyear">${(t.sourceSongs?.length || 0) > 1 ? `<span class="badge nsongs" title="${t.sourceSongs.length} songs in this mashup">${t.sourceSongs.length}♪</span> ` : ''}${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
+    <div class="tyear">${(t.sourceSongs?.length || 0) > 1 ? `<span class="badge nsongs" title="${t.sourceSongs.length} songs in this mashup">${t.sourceSongs.length}♪</span> ` : ''}${collabBadge(t)}${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
     <div class="rowbtns">
       ${edit ? `<button class="editbtn" data-editkind="${edit}" title="Edit this track"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></button>` : ''}
       ${edit ? `<button class="delbtn" title="Delete this track"><svg viewBox="0 0 24 24"><path d="M9 3h6l1 2h5v2H3V5h5l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill-rule="evenodd"/></svg></button>` : ''}
@@ -433,7 +438,7 @@ function expTrackRowHtml(t, nextEntry) {
   return `<div class="conn exptrack${sel ? ' sel' : ''}${open ? ' open' : ''}" data-track="${esc(t.id)}">
     <div class="head">
       <button class="tplay" data-play="${esc(t.id)}" title="${playing ? 'Pause' : 'Play this mashup'}">${playing ? I.pause : I.play}</button>
-      <span class="nm">${esc(t.displayTitle)}</span>
+      <span class="nm">${esc(t.displayTitle)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</span>
       <span class="cnt">${t.year || ''}</span>
       <button class="tmore" title="See the artists & songs inside">▾</button>
     </div>
@@ -511,7 +516,7 @@ function trackColHtml(entry, depth, solo) {
     <header>
       <div class="chead">
         ${solo && depth ? '<button class="expback" title="Back">‹</button>' : ''}
-        <div class="kind">mashup · ${(t.sourceSongs || []).length || '?'} songs</div>
+        <div class="kind">mashup · ${(t.sourceSongs || []).length || '?'} songs${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>
         <button class="expplay${playing ? ' on' : ''}" data-play="${esc(t.id)}" title="Play this mashup">${playing ? I.pause : I.play}</button>
       </div>
       <h3>${esc(t.displayTitle)}</h3>
@@ -641,7 +646,7 @@ function recCardHtml(t, i, opts = {}) {
     <div class="rart">${I.play}</div>
     <div class="rt">${esc(t.displayTitle)}</div>
     <div class="rs">${esc(songsSummary(t))}</div>
-    ${t.mashupArtist ? `<div class="rma${opts.byArtist ? ' rma-by' : ''}">${opts.byArtist ? 'by ' : ''}${esc(t.mashupArtist)}</div>` : ''}
+    ${t.mashupArtist ? `<div class="rma${opts.byArtist ? ' rma-by' : ''}">${opts.byArtist ? 'by ' : ''}${esc(t.mashupArtist)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>` : ''}
   </button>`;
 }
 function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
@@ -1166,7 +1171,12 @@ $('#pl-plus').addEventListener('click', () => {
    available, otherwise copy a deep link to the clipboard */
 $('#pl-share').addEventListener('click', async () => {
   const t = player.current(); if (!t) return;
-  const url = location.origin + location.pathname + '#track=' + encodeURIComponent(t.id);
+  // Share the OG endpoint so the link unfurls with a per-mashup card; it
+  // redirects real visitors into the app at #track=<id>. Falls back to the
+  // in-app deep link if SHARE_URL isn't configured.
+  const url = SHARE_URL
+    ? `${SHARE_URL}?t=${encodeURIComponent(t.id)}`
+    : location.origin + location.pathname + '#track=' + encodeURIComponent(t.id);
   const text = `🎛 ${t.displayTitle} — ${songsSummary(t)} · mashed by ${t.mashupArtist}`;
   if (navigator.share) {
     try { await navigator.share({ title: t.displayTitle, text, url }); } catch { /* user closed the sheet */ }
@@ -1403,6 +1413,7 @@ player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
   if (!wfScrubbing) viz.setProgress(d ? t / d : 0);
   viz.setWindow(d ? Math.min(1, 45 / d) : 1);   // scrolling waveform shows ~45 s
+  viz.setDuration(d);                            // lets the viz tween between updates
   $('#t-cur').textContent = fmt(t);
   $('#t-dur').textContent = fmt(d);
   const ct = $('#saver-crawl .ctime');
@@ -1482,7 +1493,7 @@ function renderDetails(t) {
       ${esc(n.name)} <span class="dc">${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
     </button>`;
   box.innerHTML = `
-    ${maNames.length ? `<h3>Mashup by</h3>
+    ${maNames.length ? `<h3>Mashup by${maNames.length > 1 ? ' <span class="collab-tag">Collab</span>' : ''}</h3>
     <div class="dchips">${maNames.map((nm) => {
       const ml = maAll.find((a) => a.name.toLowerCase() === nm.toLowerCase());
       return `<button class="dchip ma" data-ma="${esc('ma:' + norm(nm))}" data-name="${esc(nm)}">
@@ -1594,9 +1605,12 @@ function startCrawl() {
     } else {
       el.textContent = saverLines[crawlSeq++ % saverLines.length];
     }
+    // Zune HD look: ~30% of lines render giant, cropping the screen; the rest
+    // stay mid-sized — the mix is what fills the real estate
+    const huge = !el.classList.contains('ctime') && Math.random() < 0.3;
     el.style.cssText = CRAWL_STYLES[Math.floor(Math.random() * CRAWL_STYLES.length)]
       + `;top:${lane}%`
-      + `;font-size:${(3.5 + Math.random() * 9).toFixed(1)}vmin`
+      + `;font-size:${(huge ? 17 + Math.random() * 18 : 5 + Math.random() * 8).toFixed(1)}vmin`
       + `;opacity:${(0.45 + Math.random() * 0.5).toFixed(2)}`
       + `;animation:${Math.random() < 0.5 ? 'crawlL' : 'crawlR'} ${(16 + Math.random() * 16).toFixed(1)}s linear both`;
     el.addEventListener('animationend', () => el.remove());
