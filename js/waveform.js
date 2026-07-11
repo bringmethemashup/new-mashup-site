@@ -82,17 +82,20 @@ function computePeaks(buf) {
 }
 
 /**
- * Resolve the peaks for a track. Returns Float32Array(BUCKETS) of 0..1, or
- * null when the audio can't be fetched/decoded (tainted host, network, etc).
+ * Resolve the peaks for a track. `urls` is a single URL or an ordered list of
+ * candidates (e.g. [direct pCloud host, relay]) — some hosts allow <audio>
+ * playback but refuse fetch()/CORS reads, and the relay always allows both.
+ * Returns Float32Array(BUCKETS) of 0..1, or null when every candidate failed.
  */
-export function getPeaks(trackId, url) {
-  if (!trackId || !url) return Promise.resolve(null);
+export function getPeaks(trackId, urls) {
+  const list = (Array.isArray(urls) ? urls : [urls]).filter(Boolean);
+  if (!trackId || !list.length) return Promise.resolve(null);
   if (mem.has(trackId)) return Promise.resolve(mem.get(trackId));
   const stored = lsGet(trackId);
   if (stored) { mem.set(trackId, stored); return Promise.resolve(stored); }
   if (inflight.has(trackId)) return inflight.get(trackId);
 
-  const p = (async () => {
+  const fetchAndDecode = async (url) => {
     const res = await fetch(url, { mode: 'cors' });
     if (!res.ok) throw new Error('waveform fetch ' + res.status);
     const clen = +res.headers.get('content-length') || 0;
@@ -100,10 +103,20 @@ export function getPeaks(trackId, url) {
     const ab = await res.arrayBuffer();
     if (ab.byteLength > MAX_BYTES) throw new Error('waveform: file too large');
     const buf = await decoder().decodeAudioData(ab);
-    const peaks = computePeaks(buf);
-    mem.set(trackId, peaks);
-    lsPut(trackId, peaks);
-    return peaks;
+    return computePeaks(buf);
+  };
+
+  const p = (async () => {
+    let lastErr;
+    for (const url of list) {
+      try {
+        const peaks = await fetchAndDecode(url);
+        mem.set(trackId, peaks);
+        lsPut(trackId, peaks);
+        return peaks;
+      } catch (e) { lastErr = e; }
+    }
+    throw lastErr || new Error('waveform: no usable source');
   })().catch((e) => { console.warn('waveform unavailable', e); return null; })
      .finally(() => inflight.delete(trackId));
 

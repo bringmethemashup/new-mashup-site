@@ -9,7 +9,8 @@ import * as viz from './visualizer.js';
 import * as waveform from './waveform.js';
 import * as backend from './backend.js';
 import * as artwork from './artwork.js';
-import { APK_URL } from './config.js';
+import { APK_URL, PCLOUD_RELAY_URL } from './config.js';
+import { extractCode } from './pcloud.js';
 
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
@@ -1212,6 +1213,7 @@ $('#av-video').addEventListener('click', () => setVideoMode(true));
    seek. While peaks are loading (or unavailable — tainted host, video mode),
    the canvas keeps the aurora animation and does nothing on tap. */
 let wfScrubbing = false;
+let wfStatus = 'idle';   // diagnostics: idle | loading | on | failed | no audio
 function wfFromEvent(e) {
   const r = vizWrap.getBoundingClientRect();
   const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
@@ -1220,16 +1222,27 @@ function wfFromEvent(e) {
 function loadWaveform(t) {
   viz.setPeaks(null); viz.setProgress(0);
   vizWrap.classList.remove('haswave');
+  wfStatus = t?.audio ? 'loading' : 'no audio';
   if (!t?.audio) return;
   const forId = t.id;
   // wait until the <audio> src is resolved (pCloud link resolution is async)
   const tryLoad = () => {
     const src = player.audio.currentSrc || player.audio.src;
     if (!src || player.current()?.id !== forId) return;
-    waveform.getPeaks(forId, src).then((p) => {
+    // candidate sources, in order: the URL that's actually playing, then the
+    // pCloud relay — some hosts allow <audio> playback but refuse fetch/CORS
+    // reads, and the relay (Supabase pcloud-stream) always sends CORS headers.
+    const cands = [src];
+    const code = t.audio.publicLink ? extractCode(t.audio.publicLink) : null;
+    if (code && PCLOUD_RELAY_URL) {
+      const relay = `${PCLOUD_RELAY_URL.replace(/\/$/, '')}/?code=${code}`;
+      if (!src.startsWith(PCLOUD_RELAY_URL)) cands.push(relay);
+    }
+    waveform.getPeaks(forId, cands).then((p) => {
       if (player.current()?.id !== forId) return;   // user skipped meanwhile
       viz.setPeaks(p);
       vizWrap.classList.toggle('haswave', !!p);
+      wfStatus = p ? 'on' : 'failed';
     });
   };
   // ALWAYS wait for the new source's metadata: at trackchange time
@@ -1876,7 +1889,26 @@ function renderAccount() {
       </div>
     </div>
 
+    <div class="acct-card">
+      <h2>Diagnostics</h2>
+      <div class="sub">Handy when troubleshooting.</div>
+      <div class="statgrid">
+        <div class="stat"><b id="diag-ver">…</b><span>site version</span></div>
+        <div class="stat"><b>${wfStatus}</b><span>waveform (current track)</span></div>
+        <div class="stat"><b>${eqOk ? 'yes' : 'no'}</b><span>audio analyser</span></div>
+      </div>
+    </div>
+
     <div class="disclaimer">${DISCLAIMER_TEXT}</div>`;
+  // async: the service-worker cache name doubles as the running site version
+  if (window.caches?.keys) {
+    caches.keys().then((k) => {
+      const el = $('#diag-ver');
+      if (el) el.textContent = k.find((x) => x.startsWith('bmtm-'))?.replace('bmtm-', '') || 'no cache';
+    }).catch(() => {});
+  } else {
+    const el = $('#diag-ver'); if (el) el.textContent = 'no sw';
+  }
 }
 
 acctView.addEventListener('click', async (e) => {
