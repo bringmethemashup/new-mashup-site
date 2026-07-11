@@ -11,8 +11,9 @@
  * waveform. If fetch/decode fails we resolve null and the full player keeps
  * its aurora animation (and the thin seek bar still works).
  */
-const BUCKETS = 320;
-const LS_KEY = 'bmtm.peaks.v1';
+const BUCKETS = 640;             // ~0.3 s per bar on a 3-min track — enough
+                                 // detail for the scrolling (zoomed) view
+const LS_KEY = 'bmtm.peaks.v1';  // old 320-bucket entries still render fine
 const MAX_CACHED = 60;          // ~320 bytes each -> caps at ~26 KB of storage
 const MAX_BYTES = 60 * 1024 * 1024; // don't try to decode absurdly large files
 

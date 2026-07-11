@@ -1214,11 +1214,6 @@ $('#av-video').addEventListener('click', () => setVideoMode(true));
    the canvas keeps the aurora animation and does nothing on tap. */
 let wfScrubbing = false;
 let wfStatus = 'idle';   // diagnostics: idle | loading | on | failed | no audio
-function wfFromEvent(e) {
-  const r = vizWrap.getBoundingClientRect();
-  const x = (e.touches ? e.touches[0].clientX : e.clientX) - r.left;
-  return Math.min(1, Math.max(0, x / r.width));
-}
 function loadWaveform(t) {
   viz.setPeaks(null); viz.setProgress(0);
   vizWrap.classList.remove('haswave');
@@ -1251,23 +1246,38 @@ function loadWaveform(t) {
   // the wrong file under this track's id.
   player.audio.addEventListener('loadedmetadata', tryLoad, { once: true });
 }
+/* Scrolling-view scrubbing: DRAG pans the waveform like tape (drag right =
+   rewind), a plain TAP jumps to the tapped spot. The playhead stays centered;
+   all math is relative to the visible window fraction from viz.getWindow(). */
+const clamp01 = (v) => Math.min(1, Math.max(0, v));
+let wfX0 = 0, wfP0 = 0, wfMoved = false;
 vizWrap.addEventListener('pointerdown', (e) => {
   if (!viz.hasPeaks() || videoMode) return;
-  wfScrubbing = true;
+  wfScrubbing = true; wfMoved = false;
+  wfX0 = e.clientX;
+  const d = player.audio.duration;
+  wfP0 = d ? player.audio.currentTime / d : 0;
   vizWrap.setPointerCapture(e.pointerId);
-  viz.setProgress(wfFromEvent(e));
 });
 vizWrap.addEventListener('pointermove', (e) => {
   if (!wfScrubbing) return;
-  const p = wfFromEvent(e);
+  const r = vizWrap.getBoundingClientRect();
+  const dx = e.clientX - wfX0;
+  if (Math.abs(dx) > 5) wfMoved = true;
+  const p = clamp01(wfP0 - (dx / r.width) * viz.getWindow());
   viz.setProgress(p);
   if (player.audio.duration) $('#t-cur').textContent = fmt(p * player.audio.duration);
 });
 vizWrap.addEventListener('pointerup', (e) => {
   if (!wfScrubbing) return;
   wfScrubbing = false;
-  const p = wfFromEvent(e);
-  if (player.audio.duration) player.seek(p * player.audio.duration);
+  const d = player.audio.duration;
+  if (!d) return;
+  const r = vizWrap.getBoundingClientRect();
+  const p = wfMoved
+    ? clamp01(wfP0 - ((e.clientX - wfX0) / r.width) * viz.getWindow())
+    : clamp01(wfP0 + ((e.clientX - r.left) / r.width - 0.5) * viz.getWindow());
+  player.seek(p * d);
 });
 vizWrap.addEventListener('pointercancel', () => { wfScrubbing = false; });
 
@@ -1392,6 +1402,7 @@ player.on('radio', (n) => toast(`Radio: added ${n} similar mashup${n === 1 ? '' 
 player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
   if (!wfScrubbing) viz.setProgress(d ? t / d : 0);
+  viz.setWindow(d ? Math.min(1, 45 / d) : 1);   // scrolling waveform shows ~45 s
   $('#t-cur').textContent = fmt(t);
   $('#t-dur').textContent = fmt(d);
   const ct = $('#saver-crawl .ctime');

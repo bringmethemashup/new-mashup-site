@@ -20,8 +20,11 @@ let raf = 0, t0 = performance.now();
    into played (accent) and unplayed (dim) halves. app.js feeds progress. */
 let peaks = null;            // Float32Array of 0..1, or null -> aurora
 let progress = 0;            // 0..1 through the song
+let windowFrac = 1;          // fraction of the song visible across the canvas
 export function setPeaks(p) { peaks = p && p.length ? p : null; }
 export function setProgress(v) { progress = Math.min(1, Math.max(0, v || 0)); }
+export function setWindow(v) { windowFrac = Math.min(1, Math.max(0.02, v || 1)); }
+export const getWindow = () => windowFrac;
 export const hasPeaks = () => !!peaks;
 
 const P = [];                // particles
@@ -134,38 +137,46 @@ function loop(now) {
     grad.addColorStop(0, accent); grad.addColorStop(1, accent2);
 
     if (peaks) {
-      // ---- real waveform, Audacity-style ----
-      // Rigid, static picture of the whole song: solid bars mirrored around a
-      // horizontal center line. Nothing animates except the playhead and the
-      // played/unplayed color split — no pulsing or breathing.
+      // ---- real waveform, Audacity-style, SCROLLING view ----
+      // The playhead is FIXED at the horizontal center; the waveform slides
+      // past it as the song plays. `windowFrac` (set by app.js, ~45 s worth)
+      // is how much of the song spans the canvas. Rigid bars mirrored around
+      // a center line — nothing pulses; the only motion is the scroll.
       const n = peaks.length;
       const mid = H * 0.5;
-      const gapPx = Math.max(1, dpr);           // hairline gap between bars
-      const bw = Math.max(dpr, W / n - gapPx);
-      const px = progress * W;                  // playhead in canvas px
+      const wfr = windowFrac;
+      const pxPerBucket = W / (n * wfr);        // bar pitch at this zoom
+      const bw = Math.max(dpr, pxPerBucket - Math.max(1, dpr)); // hairline gap
+      const cx = W / 2;                          // fixed playhead position
 
+      const first = Math.max(0, Math.floor((progress - wfr / 2) * n) - 1);
+      const last = Math.min(n - 1, Math.ceil((progress + wfr / 2) * n) + 1);
       const drawBars = () => {
-        for (let i = 0; i < n; i++) {
-          const x = (i / n) * W;
+        for (let i = first; i <= last; i++) {
+          const x = cx + (i / n - progress) * (W / wfr);
+          if (x + pxPerBucket < 0 || x > W) continue;
           const h = Math.max(dpr * 2, peaks[i] * H * 0.88);
           ctx.fillRect(x, mid - h / 2, bw, h);  // symmetric above/below center
         }
       };
-      // unplayed: dim
-      ctx.fillStyle = dark ? 'rgba(255,255,255,.30)' : 'rgba(0,0,0,.24)';
-      drawBars();
-      // played: accent gradient, clipped to the playhead
+      // played (left of playhead): accent gradient
       ctx.save();
-      ctx.beginPath(); ctx.rect(0, 0, px, H); ctx.clip();
+      ctx.beginPath(); ctx.rect(0, 0, cx, H); ctx.clip();
       ctx.fillStyle = grad;
+      drawBars();
+      ctx.restore();
+      // upcoming (right of playhead): dim
+      ctx.save();
+      ctx.beginPath(); ctx.rect(cx, 0, W - cx, H); ctx.clip();
+      ctx.fillStyle = dark ? 'rgba(255,255,255,.30)' : 'rgba(0,0,0,.24)';
       drawBars();
       ctx.restore();
       // center line through the waveform (Audacity-style)
       ctx.fillStyle = dark ? 'rgba(255,255,255,.18)' : 'rgba(0,0,0,.14)';
       ctx.fillRect(0, mid - dpr / 2, W, dpr);
-      // playhead hairline
+      // fixed playhead hairline
       ctx.fillStyle = dark ? 'rgba(255,255,255,.9)' : 'rgba(0,0,0,.7)';
-      ctx.fillRect(px - dpr / 2, mid - H * 0.47, dpr, H * 0.94);
+      ctx.fillRect(cx - dpr / 2, mid - H * 0.47, dpr, H * 0.94);
     } else {
 
     // full: layered aurora spectrum, mirrored around a soft baseline
