@@ -20,6 +20,14 @@ export const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiO
 export const PCLOUD_RELAY_URL = 'https://txkmwsnvtwobhrdrablw.supabase.co/functions/v1/pcloud-stream';
 
 /**
+ * Per-mashup social share endpoint (see supabase/functions/share). Sharing a
+ * mashup hands out `<SHARE_URL>?t=<id>`: crawlers read that page's Open Graph
+ * tags (title + generated artist/waveform card) so links unfurl richly, while
+ * real visitors are redirected straight into the app at #track=<id>.
+ */
+export const SHARE_URL = 'https://txkmwsnvtwobhrdrablw.supabase.co/functions/v1/share';
+
+/**
  * Direct download of the newest APK. GitHub's `releases/latest/download/<name>`
  * always redirects to the most recent release's asset, so this never goes
  * stale — no hardcoded version, no per-release URL edits.
