@@ -64,7 +64,9 @@ export async function artistImage(name) {
   return url;
 }
 
-/** Unique source-song artists of a track, in order (max 6 for the montage).
+/** Unique source-song artists of a track, in order (max 14 for the montage —
+    big "main" mashups can have 7-8 songs / a dozen+ artists, and we want them
+    all to appear in the background rotation).
     Splits multi-artist fields on ";" (never commas — see catalog.js) so
     "Artist A; Artist B" becomes two separate image lookups. */
 export function artistsOf(track) {
@@ -76,7 +78,7 @@ export function artistsOf(track) {
       if (!k || seen.has(k)) continue;
       seen.add(k);
       out.push(name);
-      if (out.length >= 6) return out;
+      if (out.length >= 14) return out;
     }
   }
   return out;

@@ -21,8 +21,10 @@ let raf = 0, t0 = performance.now();
 let peaks = null;            // Float32Array of 0..1, or null -> aurora
 let progress = 0;            // 0..1 through the song
 let windowFrac = 1;          // fraction of the song visible across the canvas
+let songDur = 0;
 export function setPeaks(p) { peaks = p && p.length ? p : null; }
 export function setProgress(v) { progress = Math.min(1, Math.max(0, v || 0)); }
+export function setDuration(d) { songDur = d > 0 ? d : 0; }
 export function setWindow(v) { windowFrac = Math.min(1, Math.max(0.02, v || 1)); }
 export const getWindow = () => windowFrac;
 export const hasPeaks = () => !!peaks;
