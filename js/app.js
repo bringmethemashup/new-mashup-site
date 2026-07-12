@@ -425,6 +425,7 @@ expSearch.addEventListener('input', () => {
 expSugg.addEventListener('click', (e) => {
   const b = e.target.closest('button[data-key]'); if (!b) return;
   expPath = [b.dataset.key];
+  expReset();
   expSugg.classList.add('hidden');
   expSearch.value = '';
   renderExplorer();
@@ -442,6 +443,10 @@ function expEntryName(entry) {
    preview dropdown (Artists / Songs broken out) so you can see what's inside
    — and keep exploring from there — before anything starts playing. */
 const expOpen = new Set();  // track ids with their dropdown expanded
+let expTab = 'mashups';           // active tab on an artist node: mashups | artists | songs
+const expCollabOpen = new Set();  // co-artist keys expanded in the "Mashed up with" tab
+// reset the per-node view state whenever we navigate to a different node
+function expReset() { expOpen.clear(); expCollabOpen.clear(); expTab = 'mashups'; }
 
 function expTrackRowHtml(t, nextEntry) {
   const cur = player.current()?.id === t.id, playing = cur && !player.audio.paused;
@@ -556,16 +561,64 @@ function nodeColHtml(entry, depth, solo) {
     <button class="head"><span class="nm">${esc(n.name)}</span><span class="knd">${n.kind}</span><span class="cnt">${n.trackIds.size} ›</span></button>
   </div>`;
   const secHtml = (label, arr) => (arr.length ? `<div class="viagrp">${label}</div>` + arr.map(nrow).join('') : '');
-  // Artist pages get two side-by-side boxes: who they've been mashed up with,
-  // and their own songs used across the catalog (each a jumping-off point).
-  const boxHtml = (label, arr, emptyMsg) => `<div class="expbox">
-    <div class="viagrp">${label}</div>
-    ${arr.length ? arr.map(nrow).join('') : `<div class="empty">${emptyMsg}</div>`}
-  </div>`;
-  const artistBoxes = `<div class="expboxes">
-    ${boxHtml('Mashed up with', sec.artists, 'No other artists yet.')}
-    ${boxHtml('Songs by ' + esc(node.name), sec.songsBy, 'No songs tagged to this artist yet.')}
-  </div>`;
+  const emptyRow = (msg) => `<div class="empty" style="padding:22px 10px">${msg}</div>`;
+
+  /* Artist nodes get a 3-tab discovery view:
+     1) Mashups — every mashup the artist appears in (play + peek inside)
+     2) Mashed up with — the OTHER song artists they've shared a mashup with;
+        each expands to the mashups the two appear in together
+     3) Songs — the artist's own songs used across the catalog, to drill deeper */
+  if (node.kind === 'artist') {
+    const tab = (id, label, n) =>
+      `<button class="exptab${expTab === id ? ' active' : ''}" data-tab="${id}">${label}<span class="tabn">${n}</span></button>`;
+    let panel;
+    if (expTab === 'artists') {
+      const collabRow = (co) => {
+        const open = expCollabOpen.has(co.key);
+        const together = list.filter((t) => co.trackIds.has(t.id));
+        return `<div class="conn collabrow${open ? ' open' : ''}" data-collab="${esc(co.key)}">
+          <button class="head">
+            <span class="nm">${esc(co.name)}</span>
+            <span class="cnt">${together.length} together</span>
+            <span class="tmore">▾</span>
+          </button>
+          <div class="via">
+            ${together.map((t) => `<button class="vialink" data-explore-track="${esc(t.id)}">
+              <span>${esc(t.displayTitle)}</span><span class="vcnt">explore ›</span></button>`).join('')
+              || '<div class="dhint">No shared mashups.</div>'}
+          </div>
+        </div>`;
+      };
+      panel = sec.artists.length ? sec.artists.map(collabRow).join('')
+        : emptyRow('No other artists on record yet.');
+    } else if (expTab === 'songs') {
+      panel = sec.songsBy.length ? sec.songsBy.map(nrow).join('')
+        : emptyRow('No songs by this artist are tagged yet.');
+    } else {
+      panel = list.length ? list.map((t) => expTrackRowHtml(t, next)).join('')
+        : emptyRow('No mashups yet.');
+    }
+    return `<div class="col${solo ? ' full' : ''}" data-depth="${depth}">
+      <header>
+        <div class="chead">
+          ${solo && depth ? '<button class="expback" title="Back">‹</button>' : ''}
+          <div class="kind">${node.kind}</div>
+        </div>
+        <h3>${esc(node.name)}</h3>
+        <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — pick a tab to explore</div>
+      </header>
+      <div class="items">
+        <div class="exptabs">
+          ${tab('mashups', 'Mashups', list.length)}
+          ${tab('artists', 'Mashed up with', sec.artists.length)}
+          ${tab('songs', 'Songs', sec.songsBy.length)}
+        </div>
+        <div class="exptabpanel">${panel}</div>
+      </div>
+    </div>`;
+  }
+
+  // song nodes keep the single-list view
   return `<div class="col${solo ? ' full' : ''}" data-depth="${depth}">
     <header>
       <div class="chead">
@@ -577,9 +630,7 @@ function nodeColHtml(entry, depth, solo) {
     </header>
     <div class="items">
       ${list.length ? '<div class="viagrp">Mashups</div>' : ''}${list.map((t) => expTrackRowHtml(t, next)).join('')}
-      ${node.kind === 'artist'
-        ? artistBoxes
-        : secHtml('Mashed up with', sec.artists.concat(sec.songsOther))}
+      ${secHtml('Mashed up with', sec.artists.concat(sec.songsOther))}
     </div>
   </div>`;
 }
@@ -610,9 +661,12 @@ function explorerBack() {
 }
 
 colsEl.addEventListener('click', (e) => {
-  if (e.target.closest('.expback')) { expPath.pop(); expOpen.clear(); renderExplorer(); return; }
+  if (e.target.closest('.expback')) { expPath.pop(); expReset(); renderExplorer(); return; }
   const crumb = e.target.closest('.crumb');
-  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); expOpen.clear(); renderExplorer(); return; }
+  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); expReset(); renderExplorer(); return; }
+  // artist-node tabs (Mashups / Mashed up with / Songs)
+  const tabBtn = e.target.closest('.exptab');
+  if (tabBtn) { expTab = tabBtn.dataset.tab; expCollabOpen.clear(); renderExplorer(); return; }
   const playBtn = e.target.closest('.expplay');
   if (playBtn) {
     const id = playBtn.dataset.play;
@@ -638,9 +692,20 @@ colsEl.addEventListener('click', (e) => {
     const col = el.closest('.col');
     const d = col ? +col.dataset.depth : expPath.length - 1;
     expPath = [...expPath.slice(0, d + 1), entry];
-    expOpen.clear();
+    expReset();
     renderExplorer();
   };
+  // a shared mashup inside the "Mashed up with" dropdown -> drill into it
+  const exTrack = e.target.closest('[data-explore-track]');
+  if (exTrack) { pushFrom(exTrack, 't:' + exTrack.dataset.exploreTrack); return; }
+  // a co-artist row in the "Mashed up with" tab -> toggle its shared-mashup list
+  const collab = e.target.closest('.collabrow');
+  if (collab) {
+    const k = collab.dataset.collab;
+    expCollabOpen.has(k) ? expCollabOpen.delete(k) : expCollabOpen.add(k);
+    collab.classList.toggle('open', expCollabOpen.has(k));
+    return;
+  }
   // artist/song inside the preview dropdown: keep walking the web
   const via = e.target.closest('.vialink');
   if (via?.dataset.key) { pushFrom(via, via.dataset.key); return; }
@@ -1075,6 +1140,8 @@ homeEl.addEventListener('click', (e) => {
 function show(v) {
   if (v === 'playlists' && !backend.user()) { openAuth(); return; }
   view = v;
+  // the Explorer has its own search box — hide the global top-bar one there
+  document.body.classList.toggle('on-explorer', v === 'explorer');
   $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.view === v));
   $('#view-home').classList.toggle('hidden', v !== 'home');
   $('#view-library').classList.toggle('hidden', v !== 'library' && v !== 'liked');
@@ -1570,7 +1637,7 @@ $('#pl-details').addEventListener('click', (e) => {
   if (k) {
     pl.classList.remove('show');
     expPath = [k.dataset.key];
-    expOpen.clear();
+    expReset();
     show('explorer');
   }
 });
