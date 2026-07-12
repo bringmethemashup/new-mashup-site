@@ -9,7 +9,7 @@ import * as viz from './visualizer.js';
 import * as waveform from './waveform.js';
 import * as backend from './backend.js';
 import * as artwork from './artwork.js';
-import { APK_URL, PCLOUD_RELAY_URL } from './config.js';
+import { APK_URL, PCLOUD_RELAY_URL, SHARE_URL } from './config.js';
 import { extractCode } from './pcloud.js';
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -156,6 +156,30 @@ function songsSummary(t) {
   return parts.join('  ×  ');
 }
 
+/** A mashup is a "collab" when its mashup-artist field names 2+ makers (";"). */
+const isCollab = (t) => t && splitArtists(t.mashupArtist).length > 1;
+const collabBadge = (t) => isCollab(t)
+  ? ' <span class="badge collab" title="Collaboration between multiple mashup artists">Collab</span>' : '';
+
+/** The song list under the Now Playing title. Big mashups (>10 songs) get
+    trimmed to the first 6 with a "…and N more" toggle so the screen stays tidy;
+    a Collab pill shows when 2+ mashup artists made it. */
+function songsMarkup(t) {
+  const ss = t.sourceSongs || [];
+  if (!ss.length) return esc(t.mashupArtist);
+  const SEP = '<span style="opacity:.4"> × </span>';
+  const one = (s) => `<b>${esc(s.artist)}</b>${s.title ? ' – ' + esc(s.title) : ''}`;
+  const pill = ss.length > 1 ? `<span class="nsongs-pill">${ss.length} songs</span>` : '';
+  const collab = isCollab(t) ? '<span class="collab-pill">Collab</span>' : '';
+  if (ss.length <= 10) return pill + collab + ss.map(one).join(SEP);
+  const SHOW = 6, more = ss.length - SHOW;
+  const shown = ss.slice(0, SHOW).map(one).join(SEP);
+  const rest = ss.slice(SHOW).map(one).join(SEP);
+  return `${pill}${collab}<span class="songs-shown">${shown}</span>`
+    + `<span class="songs-rest hidden">${SEP}${rest}</span><br>`
+    + `<button class="songs-toggle" type="button" data-more="${more}">…and ${more} more ▾</button>`;
+}
+
 function canEditTrack(t) {
   if (backend.isAdmin()) return 'admin';
   if (backend.isArtist() && t._owner && t._owner === backend.user()?.id) return 'own';
@@ -186,7 +210,7 @@ function rowHtml(t, i) {
       <div class="tsub">${esc(songsSummary(t))}</div>
       ${t.mashupArtist ? `<div class="tby">${esc(t.mashupArtist)}</div>` : ''}
     </div>
-    <div class="tyear">${(t.sourceSongs?.length || 0) > 1 ? `<span class="badge nsongs" title="${t.sourceSongs.length} songs in this mashup">${t.sourceSongs.length}♪</span> ` : ''}${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
+    <div class="tyear">${(t.sourceSongs?.length || 0) > 1 ? `<span class="badge nsongs" title="${t.sourceSongs.length} songs in this mashup">${t.sourceSongs.length}♪</span> ` : ''}${collabBadge(t)}${t.year || ''}${!t.audio ? ' <span class="badge video">embed</span>' : ''}${t._status === 'pending' ? ' <span class="badge pending">pending</span>' : ''}</div>
     <div class="rowbtns">
       ${edit ? `<button class="editbtn" data-editkind="${edit}" title="Edit this track"><svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.8 9.94l-3.75-3.75L3 17.25zM20.7 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg></button>` : ''}
       ${edit ? `<button class="delbtn" title="Delete this track"><svg viewBox="0 0 24 24"><path d="M9 3h6l1 2h5v2H3V5h5l1-2zm-3 6h12l-1 12H7L6 9zm4 2v8h2v-8h-2zm4 0v8h2v-8h-2z" fill-rule="evenodd"/></svg></button>` : ''}
@@ -401,6 +425,7 @@ expSearch.addEventListener('input', () => {
 expSugg.addEventListener('click', (e) => {
   const b = e.target.closest('button[data-key]'); if (!b) return;
   expPath = [b.dataset.key];
+  expReset();
   expSugg.classList.add('hidden');
   expSearch.value = '';
   renderExplorer();
@@ -418,6 +443,10 @@ function expEntryName(entry) {
    preview dropdown (Artists / Songs broken out) so you can see what's inside
    — and keep exploring from there — before anything starts playing. */
 const expOpen = new Set();  // track ids with their dropdown expanded
+let expTab = 'mashups';           // active tab on an artist node: mashups | artists | songs
+const expCollabOpen = new Set();  // co-artist keys expanded in the "Mashed up with" tab
+// reset the per-node view state whenever we navigate to a different node
+function expReset() { expOpen.clear(); expCollabOpen.clear(); expTab = 'mashups'; }
 
 function expTrackRowHtml(t, nextEntry) {
   const cur = player.current()?.id === t.id, playing = cur && !player.audio.paused;
@@ -433,7 +462,7 @@ function expTrackRowHtml(t, nextEntry) {
   return `<div class="conn exptrack${sel ? ' sel' : ''}${open ? ' open' : ''}" data-track="${esc(t.id)}">
     <div class="head">
       <button class="tplay" data-play="${esc(t.id)}" title="${playing ? 'Pause' : 'Play this mashup'}">${playing ? I.pause : I.play}</button>
-      <span class="nm">${esc(t.displayTitle)}</span>
+      <span class="nm">${esc(t.displayTitle)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</span>
       <span class="cnt">${t.year || ''}</span>
       <button class="tmore" title="See the artists & songs inside">▾</button>
     </div>
@@ -511,7 +540,7 @@ function trackColHtml(entry, depth, solo) {
     <header>
       <div class="chead">
         ${solo && depth ? '<button class="expback" title="Back">‹</button>' : ''}
-        <div class="kind">mashup · ${(t.sourceSongs || []).length || '?'} songs</div>
+        <div class="kind">mashup · ${(t.sourceSongs || []).length || '?'} songs${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>
         <button class="expplay${playing ? ' on' : ''}" data-play="${esc(t.id)}" title="Play this mashup">${playing ? I.pause : I.play}</button>
       </div>
       <h3>${esc(t.displayTitle)}</h3>
@@ -532,6 +561,64 @@ function nodeColHtml(entry, depth, solo) {
     <button class="head"><span class="nm">${esc(n.name)}</span><span class="knd">${n.kind}</span><span class="cnt">${n.trackIds.size} ›</span></button>
   </div>`;
   const secHtml = (label, arr) => (arr.length ? `<div class="viagrp">${label}</div>` + arr.map(nrow).join('') : '');
+  const emptyRow = (msg) => `<div class="empty" style="padding:22px 10px">${msg}</div>`;
+
+  /* Artist nodes get a 3-tab discovery view:
+     1) Mashups — every mashup the artist appears in (play + peek inside)
+     2) Mashed up with — the OTHER song artists they've shared a mashup with;
+        each expands to the mashups the two appear in together
+     3) Songs — the artist's own songs used across the catalog, to drill deeper */
+  if (node.kind === 'artist') {
+    const tab = (id, label, n) =>
+      `<button class="exptab${expTab === id ? ' active' : ''}" data-tab="${id}">${label}<span class="tabn">${n}</span></button>`;
+    let panel;
+    if (expTab === 'artists') {
+      const collabRow = (co) => {
+        const open = expCollabOpen.has(co.key);
+        const together = list.filter((t) => co.trackIds.has(t.id));
+        return `<div class="conn collabrow${open ? ' open' : ''}" data-collab="${esc(co.key)}">
+          <button class="head">
+            <span class="nm">${esc(co.name)}</span>
+            <span class="cnt">${together.length} together</span>
+            <span class="tmore">▾</span>
+          </button>
+          <div class="via">
+            ${together.map((t) => `<button class="vialink" data-explore-track="${esc(t.id)}">
+              <span>${esc(t.displayTitle)}</span><span class="vcnt">explore ›</span></button>`).join('')
+              || '<div class="dhint">No shared mashups.</div>'}
+          </div>
+        </div>`;
+      };
+      panel = sec.artists.length ? sec.artists.map(collabRow).join('')
+        : emptyRow('No other artists on record yet.');
+    } else if (expTab === 'songs') {
+      panel = sec.songsBy.length ? sec.songsBy.map(nrow).join('')
+        : emptyRow('No songs by this artist are tagged yet.');
+    } else {
+      panel = list.length ? list.map((t) => expTrackRowHtml(t, next)).join('')
+        : emptyRow('No mashups yet.');
+    }
+    return `<div class="col${solo ? ' full' : ''}" data-depth="${depth}">
+      <header>
+        <div class="chead">
+          ${solo && depth ? '<button class="expback" title="Back">‹</button>' : ''}
+          <div class="kind">${node.kind}</div>
+        </div>
+        <h3>${esc(node.name)}</h3>
+        <div class="meta">in ${list.length} mashup${list.length === 1 ? '' : 's'} — pick a tab to explore</div>
+      </header>
+      <div class="items">
+        <div class="exptabs">
+          ${tab('mashups', 'Mashups', list.length)}
+          ${tab('artists', 'Mashed up with', sec.artists.length)}
+          ${tab('songs', 'Songs', sec.songsBy.length)}
+        </div>
+        <div class="exptabpanel">${panel}</div>
+      </div>
+    </div>`;
+  }
+
+  // song nodes keep the single-list view
   return `<div class="col${solo ? ' full' : ''}" data-depth="${depth}">
     <header>
       <div class="chead">
@@ -543,8 +630,7 @@ function nodeColHtml(entry, depth, solo) {
     </header>
     <div class="items">
       ${list.length ? '<div class="viagrp">Mashups</div>' : ''}${list.map((t) => expTrackRowHtml(t, next)).join('')}
-      ${node.kind === 'artist' ? secHtml('Songs by ' + esc(node.name), sec.songsBy) : ''}
-      ${secHtml('Mashed up with', node.kind === 'artist' ? sec.artists : sec.artists.concat(sec.songsOther))}
+      ${secHtml('Mashed up with', sec.artists.concat(sec.songsOther))}
     </div>
   </div>`;
 }
@@ -575,9 +661,12 @@ function explorerBack() {
 }
 
 colsEl.addEventListener('click', (e) => {
-  if (e.target.closest('.expback')) { expPath.pop(); expOpen.clear(); renderExplorer(); return; }
+  if (e.target.closest('.expback')) { expPath.pop(); expReset(); renderExplorer(); return; }
   const crumb = e.target.closest('.crumb');
-  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); expOpen.clear(); renderExplorer(); return; }
+  if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); expReset(); renderExplorer(); return; }
+  // artist-node tabs (Mashups / Mashed up with / Songs)
+  const tabBtn = e.target.closest('.exptab');
+  if (tabBtn) { expTab = tabBtn.dataset.tab; expCollabOpen.clear(); renderExplorer(); return; }
   const playBtn = e.target.closest('.expplay');
   if (playBtn) {
     const id = playBtn.dataset.play;
@@ -603,9 +692,20 @@ colsEl.addEventListener('click', (e) => {
     const col = el.closest('.col');
     const d = col ? +col.dataset.depth : expPath.length - 1;
     expPath = [...expPath.slice(0, d + 1), entry];
-    expOpen.clear();
+    expReset();
     renderExplorer();
   };
+  // a shared mashup inside the "Mashed up with" dropdown -> drill into it
+  const exTrack = e.target.closest('[data-explore-track]');
+  if (exTrack) { pushFrom(exTrack, 't:' + exTrack.dataset.exploreTrack); return; }
+  // a co-artist row in the "Mashed up with" tab -> toggle its shared-mashup list
+  const collab = e.target.closest('.collabrow');
+  if (collab) {
+    const k = collab.dataset.collab;
+    expCollabOpen.has(k) ? expCollabOpen.delete(k) : expCollabOpen.add(k);
+    collab.classList.toggle('open', expCollabOpen.has(k));
+    return;
+  }
   // artist/song inside the preview dropdown: keep walking the web
   const via = e.target.closest('.vialink');
   if (via?.dataset.key) { pushFrom(via, via.dataset.key); return; }
@@ -641,7 +741,7 @@ function recCardHtml(t, i, opts = {}) {
     <div class="rart">${I.play}</div>
     <div class="rt">${esc(t.displayTitle)}</div>
     <div class="rs">${esc(songsSummary(t))}</div>
-    ${t.mashupArtist ? `<div class="rma${opts.byArtist ? ' rma-by' : ''}">${opts.byArtist ? 'by ' : ''}${esc(t.mashupArtist)}</div>` : ''}
+    ${t.mashupArtist ? `<div class="rma${opts.byArtist ? ' rma-by' : ''}">${opts.byArtist ? 'by ' : ''}${esc(t.mashupArtist)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>` : ''}
   </button>`;
 }
 function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
@@ -703,6 +803,7 @@ function renderAlbumDetail() {
       <span class="count">${list.length} mashup${list.length === 1 ? '' : 's'}</span>
       <span class="spacer"></span>
       <button class="chip" id="br-playall">▶ Play all</button>
+      <button class="chip" id="br-shuffle">⤨ Shuffle</button>
     </div>
     <div class="tracklist">${list.map(rowHtml).join('')}</div>`;
 }
@@ -713,6 +814,7 @@ browseEl.addEventListener('click', (e) => {
     if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
     return;
   }
+  if (e.target.closest('#br-shuffle')) { shufflePlay(visible, { open: true }); return; }
   const card = e.target.closest('.albumcard');
   if (card) {
     const a = [...specialAlbums(), ...albumsByYear()].find((x) => x.key === card.dataset.album);
@@ -783,6 +885,7 @@ function renderArtistDetail() {
       <span class="count">${list.length} mashup${list.length === 1 ? '' : 's'}</span>
       <span class="spacer"></span>
       <button class="chip" id="ma-playall">▶ Play all</button>
+      <button class="chip" id="ma-shuffle">⤨ Shuffle</button>
       ${page?.youtube ? `<a class="chip" href="${esc(page.youtube)}" target="_blank" rel="noopener">▶ YouTube</a>` : ''}
       ${canEditArtistPage(a.name) ? `<button class="chip" id="ma-edit" data-name="${esc(a.name)}">✎ Edit page</button>` : ''}
     </div>
@@ -797,6 +900,7 @@ artistsEl.addEventListener('click', (e) => {
     if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
     return;
   }
+  if (e.target.closest('#ma-shuffle')) { shufflePlay(visible, { open: true }); return; }
   const ed = e.target.closest('#ma-edit');
   if (ed) { openBioDlg(ed.dataset.name); return; }
   const card = e.target.closest('.macard');
@@ -1036,6 +1140,8 @@ homeEl.addEventListener('click', (e) => {
 function show(v) {
   if (v === 'playlists' && !backend.user()) { openAuth(); return; }
   view = v;
+  // the Explorer has its own search box — hide the global top-bar one there
+  document.body.classList.toggle('on-explorer', v === 'explorer');
   $$('.tab').forEach((t) => t.classList.toggle('active', t.dataset.view === v));
   $('#view-home').classList.toggle('hidden', v !== 'home');
   $('#view-library').classList.toggle('hidden', v !== 'library' && v !== 'liked');
@@ -1062,15 +1168,21 @@ $('#search').addEventListener('input', debounce(() => {
 }, 120));
 $('#search-clear').addEventListener('click', () => { $('#search').value = ''; $('#search-clear').style.display = 'none'; renderLibrary(); });
 $('#sort').addEventListener('change', (e) => { sort = e.target.value; renderLibrary(); });
-$('#shuffle-all').addEventListener('click', () => {
-  if (!visible.length) return;
+$('#shuffle-all').addEventListener('click', () => shufflePlay(visible));
+
+/** Shuffle-play a list of tracks (used by Library, Browse albums, Artist pages
+    and Playlists). Turns shuffle on, starts on a random track, opens the player. */
+function shufflePlay(list, { open = false } = {}) {
+  const arr = (list || []).filter(Boolean);
+  if (!arr.length) return;
   player.setShuffle(true);
   $('#pl-shuffle')?.classList.add('on');
-  const ids = visible.map((t) => t.id);
+  const ids = arr.map((t) => t.id);
   const start = Math.floor(Math.random() * ids.length);
   player.playNow(ids, start);
+  if (open) openFullPlayer();
   toast('Shuffling ' + ids.length + ' mashups');
-});
+}
 function debounce(f, ms) { let h; return (...a) => { clearTimeout(h); h = setTimeout(() => f(...a), ms); }; }
 
 /* ---------------- mini player ---------------- */
@@ -1166,7 +1278,12 @@ $('#pl-plus').addEventListener('click', () => {
    available, otherwise copy a deep link to the clipboard */
 $('#pl-share').addEventListener('click', async () => {
   const t = player.current(); if (!t) return;
-  const url = location.origin + location.pathname + '#track=' + encodeURIComponent(t.id);
+  // Share the OG endpoint so the link unfurls with a per-mashup card; it
+  // redirects real visitors into the app at #track=<id>. Falls back to the
+  // in-app deep link if SHARE_URL isn't configured.
+  const url = SHARE_URL
+    ? `${SHARE_URL}?t=${encodeURIComponent(t.id)}`
+    : location.origin + location.pathname + '#track=' + encodeURIComponent(t.id);
   const text = `🎛 ${t.displayTitle} — ${songsSummary(t)} · mashed by ${t.mashupArtist}`;
   if (navigator.share) {
     try { await navigator.share({ title: t.displayTitle, text, url }); } catch { /* user closed the sheet */ }
@@ -1281,6 +1398,16 @@ vizWrap.addEventListener('pointerup', (e) => {
 });
 vizWrap.addEventListener('pointercancel', () => { wfScrubbing = false; });
 
+/* Keep the scrolling waveform smooth: the <audio> 'timeupdate' event only fires
+   ~4x/second (≈ one bar per tick), so feed the visualizer the live playback
+   position every animation frame instead — it glides rather than steps. */
+(function smoothWave() {
+  requestAnimationFrame(smoothWave);
+  if (!viz.hasPeaks() || wfScrubbing || videoMode) return;
+  const a = player.audio, d = a.duration;
+  if (d && !a.paused) viz.setProgress(a.currentTime / d);
+})();
+
 /* ---- YouTube position sync (Spotify-style audio<->video handoff) ----
    The embed is loaded with enablejsapi=1 so we can talk to it over
    postMessage: we ask it to start reporting (event:"listening") and it sends
@@ -1363,10 +1490,7 @@ player.on('trackchange', (t) => {
   $('#mini .info .t').textContent = t.displayTitle;
   $('#mini .info .s').textContent = songsSummary(t);
   $('#pl-title').textContent = t.displayTitle;
-  $('#pl-songs').innerHTML = (t.sourceSongs || []).length
-    ? (t.sourceSongs.length > 1 ? `<span class="nsongs-pill">${t.sourceSongs.length} songs</span>` : '')
-      + t.sourceSongs.map((s) => `<b>${esc(s.artist)}</b>${s.title ? ' – ' + esc(s.title) : ''}`).join('<span style="opacity:.4"> × </span>')
-    : esc(t.mashupArtist);
+  $('#pl-songs').innerHTML = songsMarkup(t);
   mini.classList.add('show');
 
   const hasVideo = !!t.video, hasAudio = !!t.audio;
@@ -1403,6 +1527,7 @@ player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
   if (!wfScrubbing) viz.setProgress(d ? t / d : 0);
   viz.setWindow(d ? Math.min(1, 45 / d) : 1);   // scrolling waveform shows ~45 s
+  viz.setDuration(d);                            // lets the viz tween between updates
   $('#t-cur').textContent = fmt(t);
   $('#t-dur').textContent = fmt(d);
   const ct = $('#saver-crawl .ctime');
@@ -1447,7 +1572,7 @@ function applyArtwork(t) {
       return;
     }
     const esc1 = (u) => u.replace(/'/g, '%27');
-    artEl.innerHTML = urls.slice(0, 6).map((u) =>
+    artEl.innerHTML = urls.slice(0, 14).map((u) =>
       `<div class="slide"><div class="blur" style="background-image:url('${esc1(u)}')"></div><div class="pic" style="background-image:url('${esc1(u)}')"></div></div>`
     ).join('') + '<div class="scrim"></div>';
     const slides = $$('.slide', artEl);
@@ -1482,7 +1607,7 @@ function renderDetails(t) {
       ${esc(n.name)} <span class="dc">${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
     </button>`;
   box.innerHTML = `
-    ${maNames.length ? `<h3>Mashup by</h3>
+    ${maNames.length ? `<h3>Mashup by${maNames.length > 1 ? ' <span class="collab-tag">Collab</span>' : ''}</h3>
     <div class="dchips">${maNames.map((nm) => {
       const ml = maAll.find((a) => a.name.toLowerCase() === nm.toLowerCase());
       return `<button class="dchip ma" data-ma="${esc('ma:' + norm(nm))}" data-name="${esc(nm)}">
@@ -1522,12 +1647,19 @@ $('#pl-details').addEventListener('click', (e) => {
   if (k) {
     pl.classList.remove('show');
     expPath = [k.dataset.key];
-    expOpen.clear();
+    expReset();
     show('explorer');
   }
 });
 $('#pl-hint').addEventListener('click', () => {
   pl.scrollTo({ top: pl.clientHeight * 0.92, behavior: 'smooth' });
+});
+// expand/collapse the trimmed song list on big mashups
+$('#pl-songs').addEventListener('click', (e) => {
+  const btn = e.target.closest('.songs-toggle'); if (!btn) return;
+  const rest = $('.songs-rest', $('#pl-songs')); if (!rest) return;
+  const open = !rest.classList.toggle('hidden');
+  btn.textContent = open ? 'Show fewer ▴' : `…and ${btn.dataset.more} more ▾`;
 });
 $('#pl-settings').addEventListener('click', () => {
   pl.classList.remove('show');
@@ -1594,9 +1726,12 @@ function startCrawl() {
     } else {
       el.textContent = saverLines[crawlSeq++ % saverLines.length];
     }
+    // Zune HD look: ~30% of lines render giant, cropping the screen; the rest
+    // stay mid-sized — the mix is what fills the real estate
+    const huge = !el.classList.contains('ctime') && Math.random() < 0.3;
     el.style.cssText = CRAWL_STYLES[Math.floor(Math.random() * CRAWL_STYLES.length)]
       + `;top:${lane}%`
-      + `;font-size:${(3.5 + Math.random() * 9).toFixed(1)}vmin`
+      + `;font-size:${(huge ? 12 + Math.random() * 8 : 5 + Math.random() * 7).toFixed(1)}vmin`
       + `;opacity:${(0.45 + Math.random() * 0.5).toFixed(2)}`
       + `;animation:${Math.random() < 0.5 ? 'crawlL' : 'crawlR'} ${(16 + Math.random() * 16).toFixed(1)}s linear both`;
     el.addEventListener('animationend', () => el.remove());
@@ -1671,6 +1806,7 @@ function renderPlaylistDetail() {
       <span class="count">${list.length} track${list.length === 1 ? '' : 's'}</span>
       <span class="spacer"></span>
       <button class="chip" id="pld-playall">▶ Play all</button>
+      <button class="chip" id="pld-shuffle">⤨ Shuffle</button>
       <button class="chip" id="pld-rename">Rename</button>
       <button class="chip danger" id="pld-delete">Delete</button>
     </div>
@@ -1716,6 +1852,7 @@ plView.addEventListener('click', async (e) => {
     if (p.trackIds.length) { player.playNow([...p.trackIds], 0); openFullPlayer(); }
     return;
   }
+  if (e.target.closest('#pld-shuffle')) { shufflePlay(p.trackIds.map(get), { open: true }); return; }
   if (e.target.closest('#pld-rename')) {
     const name = prompt('Rename playlist', p.name);
     if (!name?.trim() || name.trim() === p.name) return;
