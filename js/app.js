@@ -1472,7 +1472,7 @@ function mountEmbed(t, startAt = 0) {
     // (which rejects any third-party Referer, error 7010), but YouTube's player
     // needs the origin or it fails with "Error 153". Send just the origin here.
     const start = Math.max(0, Math.floor(startAt));
-    ytWrap.innerHTML = `<iframe src="https://www.youtube.com/embed/${encodeURIComponent(t.video.sourceId)}?autoplay=1&rel=0&enablejsapi=1&playsinline=1&start=${start}&origin=${encodeURIComponent(location.origin)}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="YouTube video"></iframe>`;
+    ytWrap.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(t.video.sourceId)}?autoplay=1&rel=0&enablejsapi=1&playsinline=1&start=${start}" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen title="YouTube video"></iframe>`;
     const f = ytWrap.querySelector('iframe');
     f.addEventListener('load', () => { ytListen(); setTimeout(ytListen, 700); setTimeout(ytListen, 2000); });
   } else if (t.video.type === 'tiktok') {
