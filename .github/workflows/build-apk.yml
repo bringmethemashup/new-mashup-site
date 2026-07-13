@@ -98,6 +98,21 @@ jobs:
           }
           EOF
 
+      - name: Enable WebView media autoplay (video companion)
+        run: |
+          node - <<'EOF'
+          const fs = require('fs');
+          const p = 'android/app/src/main/java/com/bringmethemashup/app/MainActivity.java';
+          let x = fs.readFileSync(p, 'utf8');
+          if (!x.includes('setMediaPlaybackRequiresUserGesture')) {
+            x = x.replace('extends BridgeActivity {}', 'extends BridgeActivity {\n  @Override\n  public void onStart() {\n    super.onStart();\n    getBridge().getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);\n  }\n}');
+            fs.writeFileSync(p, x);
+            console.log('WebView media autoplay enabled in MainActivity.');
+          } else {
+            console.log('WebView autoplay already enabled.');
+          }
+          EOF
+
       - name: Stamp app version (from app-version.txt) into the APK
         run: |
           VERSION=$(tr -d '[:space:]' < app-version.txt)
