@@ -98,18 +98,38 @@ jobs:
           }
           EOF
 
-      - name: Enable WebView media autoplay (video companion)
+      - name: Enable WebView media autoplay + cookies (video companion)
         run: |
           node - <<'EOF'
           const fs = require('fs');
           const p = 'android/app/src/main/java/com/bringmethemashup/app/MainActivity.java';
           let x = fs.readFileSync(p, 'utf8');
           if (!x.includes('setMediaPlaybackRequiresUserGesture')) {
-            x = x.replace('extends BridgeActivity {}', 'extends BridgeActivity {\n  @Override\n  public void onStart() {\n    super.onStart();\n    getBridge().getWebView().getSettings().setMediaPlaybackRequiresUserGesture(false);\n  }\n}');
+            // Android WebView blocks media autoplay + 3rd-party cookies and tags
+            // itself as a WebView ("; wv"); YouTube then shows "confirm you're not
+            // a bot" and never plays. Fix all three so the video companion works.
+            const body = [
+              '{',
+              '  @Override',
+              '  public void onStart() {',
+              '    super.onStart();',
+              '    android.webkit.WebView wv = getBridge().getWebView();',
+              '    android.webkit.WebSettings s = wv.getSettings();',
+              '    s.setMediaPlaybackRequiresUserGesture(false);',
+              '    s.setDomStorageEnabled(true);',
+              '    String ua = s.getUserAgentString();',
+              '    if (ua != null && ua.contains("; wv")) s.setUserAgentString(ua.replace("; wv", ""));',
+              '    android.webkit.CookieManager cm = android.webkit.CookieManager.getInstance();',
+              '    cm.setAcceptCookie(true);',
+              '    cm.setAcceptThirdPartyCookies(wv, true);',
+              '  }',
+              '}',
+            ].join('\n');
+            x = x.replace(/\{\s*\}\s*$/, body + '\n');
             fs.writeFileSync(p, x);
-            console.log('WebView media autoplay enabled in MainActivity.');
+            console.log('MainActivity patched: autoplay + cookies + UA.');
           } else {
-            console.log('WebView autoplay already enabled.');
+            console.log('MainActivity already patched.');
           }
           EOF
 
