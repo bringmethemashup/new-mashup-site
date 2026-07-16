@@ -300,14 +300,42 @@ select.sort {
   aspect-ratio: 1; border-radius: var(--radius-s); display: grid; place-items: center;
   background: linear-gradient(150deg, var(--accent), var(--accent-2));
   filter: hue-rotate(var(--hue, 0deg)) saturate(.85);
-  margin-bottom: 9px; position: relative;
+  margin-bottom: 9px; position: relative; overflow: hidden;
+  background-size: cover; background-position: center;
+  transition: filter .3s var(--ease-out);
 }
-.reccard .rart svg { width: 30px; height: 30px; fill: rgba(255,255,255,.95); filter: drop-shadow(0 2px 8px rgba(0,0,0,.3)); transform: scale(.85); transition: transform .28s var(--ease-spring); }
-.reccard:hover .rart svg { transform: scale(1.05); }
+/* once the real artist photo loads, drop the gradient tint + darken slightly so
+   the play glyph stays readable over any image */
+.reccard.hasart .rart { filter: none; }
+.reccard.hasart .rart::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.02) 40%, rgba(0,0,0,.42));
+}
+.reccard .rart svg { position: relative; z-index: 1; width: 30px; height: 30px; fill: rgba(255,255,255,.95); filter: drop-shadow(0 2px 8px rgba(0,0,0,.45)); transform: scale(.85); opacity: .92; transition: transform .28s var(--ease-spring), opacity .28s; }
+.reccard.hasart .rart svg { opacity: 0; }
+.reccard:hover .rart svg { transform: scale(1.05); opacity: 1; }
 .reccard .rt { font-weight: 700; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .reccard .rs { color: var(--text-dim); font-size: 11px; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .reccard .rma { color: var(--text-dim); opacity: .75; font-size: 10.5px; margin-top: 1px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .reccard .rma.rma-by { color: var(--accent); opacity: 1; font-weight: 700; }
+/* rich cards (New releases): a little wider + up to two source songs listed */
+.reccard.rich { width: 190px; }
+.reccard.rich .rt { white-space: normal; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.reccard .rsongs { display: flex; flex-direction: column; gap: 1px; margin-top: 3px; }
+.reccard .rsong { color: var(--text-dim); font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.reccard .rsong b { color: var(--text); font-weight: 700; }
+.reccard .rsong.more { opacity: .6; font-size: 10px; }
+
+/* "Jump to a year" chip row on Home — one tap into any yearly collection */
+.yearchips { display: flex; gap: 8px; overflow-x: auto; padding: 2px 16px 14px; scrollbar-width: thin; scroll-behavior: smooth; }
+.yearchip {
+  flex: none; display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px;
+  border-radius: 999px; border: 1px solid var(--line); background: var(--bg-elev);
+  font-weight: 700; font-size: 13px; color: var(--text); cursor: pointer;
+  transition: transform .2s var(--ease-out), background .2s, border-color .2s;
+}
+.yearchip:hover { transform: translateY(-2px); background: var(--bg-soft); border-color: var(--accent); }
+.yearchip .yc { font-size: 11px; font-weight: 700; color: #fff; background: var(--accent); border-radius: 999px; padding: 1px 7px; font-variant-numeric: tabular-nums; }
 
 /* ---------- explorer (Miller columns) ---------- */
 #view-explorer { display: flex; flex-direction: column; }
@@ -342,6 +370,8 @@ select.sort {
   animation: colin .45s var(--ease-spring);
 }
 @keyframes colin { from { opacity: 0; transform: translateX(26px) scale(.97); } }
+.col.roots { animation: none; border-color: var(--accent); }
+.col.roots header .kind { color: var(--accent); }
 .col header { padding: 14px 16px 10px; border-bottom: 1px solid var(--line); }
 .col header .kind { font-size: 10px; font-weight: 700; letter-spacing: .08em; color: var(--accent); text-transform: uppercase; }
 .col header h3 { margin: 2px 0 0; font-size: 15.5px; font-weight: 700; line-height: 1.25; }
@@ -935,9 +965,18 @@ body.saver #viz-full-wrap { opacity: .28; filter: grayscale(1); transition: opac
   .col { width: 240px; }
   .albumgrid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
   .reccard { width: 140px; }
+  .reccard.rich { width: 160px; }
   #queue { width: min(340px, calc(100vw - 24px)); }
   #mini { left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
-  .transport { gap: 8px; }
+  /* Now Playing controls: on phones the 8 buttons in one row crowded the edges
+     (the Share button got clipped). Split into two tidy rows — prev/play/next
+     centered on top, the secondary actions evenly spread beneath. */
+  .transport { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%; column-gap: 6px; row-gap: 4px; }
+  .transport .tgrp.tc { order: 0; flex-basis: 100%; justify-content: center; gap: 22px; }
+  .transport .tgrp.tl, .transport .tgrp.tr { order: 1; flex: 1; }
+  .transport .tgrp.tl { justify-content: flex-end; gap: 18px; }
+  .transport .tgrp.tr { justify-content: flex-start; gap: 18px; }
+  #player .controls { padding-left: 14px; padding-right: 14px; }
   .trow.lib { grid-template-columns: 26px 1fr auto; }
   .pdin { padding: 18px 16px calc(40px + env(safe-area-inset-bottom, 0px)); }
 }
