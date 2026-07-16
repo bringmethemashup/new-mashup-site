@@ -789,27 +789,29 @@ function albumCardHtml(a, i) {
   </button>`;
 }
 
-/* Up to `max` source songs, one per line — used on the "rich" New releases
-   cards so you can read at least two songs without them being cut off. */
+/* Up to `max` source songs, one per line — shown on every home card so you can
+   read at least two songs without them being cut off. The total count is shown
+   separately (.rcount), so no "+N more" here. */
 function cardSongLines(t, max = 2) {
   const ss = t.sourceSongs || [];
   if (!ss.length) return '';
-  const lines = ss.slice(0, max).map((s) =>
+  return ss.slice(0, max).map((s) =>
     `<span class="rsong">${s.title ? `<b>${esc(s.artist)}</b> – ${esc(s.title)}` : `<b>${esc(s.artist)}</b>`}</span>`).join('');
-  const more = ss.length > max ? `<span class="rsong more">+${ss.length - max} more</span>` : '';
-  return lines + more;
 }
 
 function recCardHtml(t, i, opts = {}) {
-  // opts.byArtist marks the New releases shelf: those cards are "rich" —
-  // artist photo + up to two source songs + who made it. Every other shelf
-  // just shows the artist photo + title (photo does the talking).
-  const rich = !!opts.byArtist;
-  return `<button class="reccard${rich ? ' rich' : ''}" data-id="${esc(t.id)}" data-art="${esc(t.id)}" style="--hue:${(hashHue(t.id))}deg;--d:${Math.min(i * 30, 360)}ms">
+  // Every card is "rich": artist photo + up to two source songs + the total
+  // song count + who made it. opts.byArtist (New releases) prefixes "by".
+  // A Collab mashup gets its label at the FRONT of the title.
+  const byArtist = !!opts.byArtist;
+  const n = (t.sourceSongs || []).length;
+  const collab = isCollab(t) ? '<span class="collab-tag">Collab</span> ' : '';
+  return `<button class="reccard rich" data-id="${esc(t.id)}" data-art="${esc(t.id)}" style="--hue:${(hashHue(t.id))}deg;--d:${Math.min(i * 30, 360)}ms">
     <div class="rart">${I.play}</div>
-    <div class="rt">${esc(t.displayTitle)}</div>
-    ${rich ? `<div class="rsongs">${cardSongLines(t, 2)}</div>` : ''}
-    ${rich && t.mashupArtist ? `<div class="rma rma-by">by ${esc(t.mashupArtist)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>` : ''}
+    <div class="rt">${collab}${esc(t.displayTitle)}</div>
+    ${n ? `<div class="rsongs">${cardSongLines(t, 2)}</div>
+    <div class="rcount">${n} song${n === 1 ? '' : 's'}</div>` : ''}
+    ${t.mashupArtist ? `<div class="rma${byArtist ? ' rma-by' : ''}">${byArtist ? 'by ' : ''}${esc(t.mashupArtist)}</div>` : ''}
   </button>`;
 }
 function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
