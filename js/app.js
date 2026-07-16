@@ -61,7 +61,25 @@ try { recents = JSON.parse(localStorage.getItem(RECENTS_KEY) || '[]') || []; } c
 const bumpRecent = (id) => {
   recents = [id, ...recents.filter((x) => x !== id)].slice(0, 30);
   localStorage.setItem(RECENTS_KEY, JSON.stringify(recents));
+  scheduleStateSave();
 };
+
+/* ---------------- cross-device state sync (recents + live queue) ----------
+   Recents and the active queue/position are pushed to the server (debounced)
+   whenever they change, and pulled back on sign-in so a second device matches.
+   Everything no-ops cleanly when signed out. */
+let stateSaveT = 0, stateReady = false;
+function scheduleStateSave() {
+  if (!stateReady || !backend.user()) return;   // don't clobber the server before the first pull
+  clearTimeout(stateSaveT);
+  stateSaveT = setTimeout(() => {
+    backend.saveUserState({
+      recents,
+      queue: player.state.queue,
+      queuePos: player.state.pos,
+    }).catch(() => {});
+  }, 1500);
+}
 
 /* ---------------- account state (synced when signed in) ---------------- */
 let playlists = [];          // [{id, name, isPublic, trackIds:[]}]
@@ -92,7 +110,7 @@ async function syncAccountState() {
     }
     sessionStorage.removeItem('bmtm.oauth');
   }
-  if (!backend.user()) { playlists = []; openPlaylist = null; rerender(); return; }
+  if (!backend.user()) { stateReady = false; playlists = []; openPlaylist = null; rerender(); return; }
   try {
     // one-time merge of pre-account local likes into the server
     const mergeFlag = 'bmtm.merged.' + backend.user().id;
@@ -107,6 +125,20 @@ async function syncAccountState() {
     for (const [id, n] of Object.entries(serverPlays)) plays[id] = Math.max(plays[id] || 0, n);
     localStorage.setItem(PLAYS_KEY, JSON.stringify(plays));
     playlists = await backend.fetchPlaylists();
+
+    // cross-device state: pull recents + the live queue this account left off with
+    const st = await backend.fetchUserState();
+    if (st) {
+      // recents: keep this device's newest activity first, then pull in anything
+      // from other devices we don't already have
+      recents = [...new Set([...recents, ...st.recents])].filter(get).slice(0, 30);
+      localStorage.setItem(RECENTS_KEY, JSON.stringify(recents));
+      // queue: only restore if nothing is playing here (don't clobber active playback)
+      const idle = player.state.pos === -1 || !player.state.queue.length;
+      const q = (st.queue || []).filter(get);
+      if (idle && q.length) player.restoreQueue(q, st.queuePos);
+    }
+    stateReady = true;          // safe to start pushing our own changes now
   } catch (e) { console.warn('account sync failed', e); }
   rerender();
 }
@@ -133,6 +165,7 @@ let sort = 'new';
 let browseAlbum = null;      // currently open album on the Browse page
 let visible = [];            // tracks currently listed (drives play-context + shuffle-all)
 let expPath = [];            // explorer column path [nodeKey,...]
+let cameFromPlayer = false;  // entered Explorer/artist via "Explore this mashup" -> Back reopens Now Playing
 let artistPages = {};        // norm(name) -> { name, bio, youtube } from Supabase
 let artistNav = null;        // null = grid, or the open mashup-artist key ('ma:...')
 
@@ -635,19 +668,38 @@ function nodeColHtml(entry, depth, solo) {
   </div>`;
 }
 
+/* Persistent left-hand column on DESKTOP: a list of popular artists that stays
+   put so picking one opens the next column to its right (Finder-style chain),
+   instead of replacing the view. The currently-selected root is highlighted. */
+function rootsColHtml() {
+  const top = nodesByKind('artist')
+    .map((n) => ({ key: n.key, name: n.name, count: n.trackIds.size }))
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+    .slice(0, 60);
+  const sel = expPath[0];
+  return `<div class="col roots" data-depth="root">
+    <header><div class="kind">explore</div><h3>Popular artists</h3>
+      <div class="meta">Pick an artist — or search above — each choice opens to the right</div></header>
+    <div class="items">${top.map((n) => `<div class="conn${sel === n.key ? ' sel' : ''}" data-key="${esc(n.key)}">
+      <button class="head"><span class="nm">${esc(n.name)}</span><span class="cnt">${n.count} ›</span></button>
+    </div>`).join('')}</div>
+  </div>`;
+}
+
 function renderExplorer() {
   const solo = !expDesktop();
-  colsEl.classList.toggle('solo', solo || !expPath.length);
-  if (!expPath.length) return renderExplorerStart();
+  colsEl.classList.toggle('solo', solo);
   // drop any stale entries (e.g. a deleted track) from the end of the path
   while (expPath.length && !(expPath.at(-1).startsWith('t:') ? get(expPath.at(-1).slice(2)) : getNode(expPath.at(-1)))) expPath.pop();
-  if (!expPath.length) return renderExplorerStart();
   const colFor = (e, i) => (e.startsWith('t:') ? trackColHtml(e, i, solo) : nodeColHtml(e, i, solo));
   if (solo) {
+    // phones: one screen at a time with a breadcrumb (unchanged)
+    if (!expPath.length) return renderExplorerStart();
     const depth = expPath.length - 1;
     colsEl.innerHTML = expBreadcrumb() + colFor(expPath[depth], depth);
   } else {
-    colsEl.innerHTML = expPath.map(colFor).join('');
+    // desktop: persistent roots column + the chain of columns to its right
+    colsEl.innerHTML = rootsColHtml() + expPath.map(colFor).join('');
     requestAnimationFrame(() => { colsEl.scrollLeft = colsEl.scrollWidth; });
   }
 }
@@ -662,6 +714,9 @@ function explorerBack() {
 
 colsEl.addEventListener('click', (e) => {
   if (e.target.closest('.expback')) { expPath.pop(); expReset(); renderExplorer(); return; }
+  // desktop roots column: start a fresh chain from this artist
+  const rootConn = e.target.closest('.col.roots .conn[data-key]');
+  if (rootConn) { expPath = [rootConn.dataset.key]; expReset(); renderExplorer(); return; }
   const crumb = e.target.closest('.crumb');
   if (crumb) { expPath = expPath.slice(0, +crumb.dataset.depth + 1); expReset(); renderExplorer(); return; }
   // artist-node tabs (Mashups / Mashed up with / Songs)
@@ -734,27 +789,67 @@ function albumCardHtml(a, i) {
   </button>`;
 }
 
+/* Up to `max` source songs, one per line — used on the "rich" New releases
+   cards so you can read at least two songs without them being cut off. */
+function cardSongLines(t, max = 2) {
+  const ss = t.sourceSongs || [];
+  if (!ss.length) return '';
+  const lines = ss.slice(0, max).map((s) =>
+    `<span class="rsong">${s.title ? `<b>${esc(s.artist)}</b> – ${esc(s.title)}` : `<b>${esc(s.artist)}</b>`}</span>`).join('');
+  const more = ss.length > max ? `<span class="rsong more">+${ss.length - max} more</span>` : '';
+  return lines + more;
+}
+
 function recCardHtml(t, i, opts = {}) {
-  // opts.byArtist emphasises WHO made the mashup ("by X") — used on the New
-  // releases shelf so contributions from different mashup artists are clear.
-  return `<button class="reccard" data-id="${esc(t.id)}" style="--hue:${(hashHue(t.id))}deg;--d:${Math.min(i * 30, 360)}ms">
+  // opts.byArtist marks the New releases shelf: those cards are "rich" —
+  // artist photo + up to two source songs + who made it. Every other shelf
+  // just shows the artist photo + title (photo does the talking).
+  const rich = !!opts.byArtist;
+  return `<button class="reccard${rich ? ' rich' : ''}" data-id="${esc(t.id)}" data-art="${esc(t.id)}" style="--hue:${(hashHue(t.id))}deg;--d:${Math.min(i * 30, 360)}ms">
     <div class="rart">${I.play}</div>
     <div class="rt">${esc(t.displayTitle)}</div>
-    <div class="rs">${esc(songsSummary(t))}</div>
-    ${t.mashupArtist ? `<div class="rma${opts.byArtist ? ' rma-by' : ''}">${opts.byArtist ? 'by ' : ''}${esc(t.mashupArtist)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>` : ''}
+    ${rich ? `<div class="rsongs">${cardSongLines(t, 2)}</div>` : ''}
+    ${rich && t.mashupArtist ? `<div class="rma rma-by">by ${esc(t.mashupArtist)}${isCollab(t) ? '<span class="collab-tag">Collab</span>' : ''}</div>` : ''}
   </button>`;
 }
 function hashHue(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) % 360; return h; }
+
+/* Lazily drop the artist photo into every rec-card in `root` (or the whole
+   document). Images are cached in artwork.js, so repeat renders are instant;
+   a miss just leaves the gradient fallback. Runs after render so cards paint
+   immediately and fill in as photos arrive. */
+function hydrateCardArt(root) {
+  const scope = root || document;
+  const cards = $$('.reccard[data-art]', scope);
+  cards.forEach((card) => {
+    const t = get(card.dataset.art);
+    if (!t) return;
+    card.removeAttribute('data-art');           // don't fetch twice
+    artwork.firstArtFor(t).then((url) => {
+      if (!url || !card.isConnected) return;
+      const art = $('.rart', card);
+      if (!art) return;
+      art.style.backgroundImage = `url('${url.replace(/'/g, '%27')}')`;
+      card.classList.add('hasart');
+    }).catch(() => {});
+  });
+}
 
 /* "Because you liked/played [X]" rows — seeds come from Likes + local play
    history; related tracks come straight from the Explorer's co-occurrence
    index via relatedTo(). */
 function recommendationRows(maxRows = 3) {
   const likeQ = [...likes].reverse().map((id) => ({ id, why: 'liked' }));
+  // recents are ordered newest-first, so seeding from them makes the rows
+  // refresh every time you play something new (the old code only used tracks
+  // you'd replayed 2+ times, which is why it felt frozen).
+  const recentQ = recents.map((id) => ({ id, why: 'played' }));
   const playQ = Object.entries(plays).filter(([, n]) => n >= 2)
     .sort((a, b) => b[1] - a[1]).map(([id]) => ({ id, why: 'played' }));
   const cands = [];
-  for (let i = 0; i < Math.max(likeQ.length, playQ.length); i++) {
+  const maxLen = Math.max(recentQ.length, likeQ.length, playQ.length);
+  for (let i = 0; i < maxLen; i++) {
+    if (recentQ[i]) cands.push(recentQ[i]);   // freshest first
     if (likeQ[i]) cands.push(likeQ[i]);
     if (playQ[i]) cands.push(playQ[i]);
   }
@@ -763,8 +858,11 @@ function recommendationRows(maxRows = 3) {
     if (rows.length >= maxRows) break;
     if (seen.has(c.id) || !get(c.id)) continue;
     seen.add(c.id);
-    const rel = relatedTo(c.id, 12).map((r) => r.track).filter(Boolean);
-    if (rel.length >= 3) rows.push({ seed: get(c.id), why: c.why, tracks: rel });
+    let rel = relatedTo(c.id, 16).map((r) => r.track).filter((t) => t && t.id !== c.id);
+    // prefer mashups you haven't just heard, so recs keep feeling new
+    const fresh = rel.filter((t) => !recents.includes(t.id));
+    if (fresh.length >= 3) rel = fresh;
+    if (rel.length >= 3) rows.push({ seed: get(c.id), why: c.why, tracks: rel.slice(0, 12) });
   }
   return rows;
 }
@@ -790,6 +888,7 @@ function renderBrowse() {
       <h2 class="brh">By Year</h2>
       <div class="albumgrid">${years.map(albumCardHtml).join('')}</div>
     </section>` : ''}`;
+  hydrateCardArt(browseEl);
 }
 
 function renderAlbumDetail() {
@@ -1004,6 +1103,11 @@ function renderHome() {
       <h2 class="brh">New releases</h2>
       <div class="reccards">${newest.map((t, i) => recCardHtml(t, i, { byArtist: true })).join('')}</div>
     </section>` : ''}
+    ${albumsByYear().length ? `<section class="brsec">
+      <h2 class="brh">Jump to a year</h2>
+      <div class="yearchips">${albumsByYear().map((a) => `
+        <button class="yearchip" data-year="${esc(a.key)}">${esc(a.name)}<span class="yc">${a.tracks.length}</span></button>`).join('')}</div>
+    </section>` : ''}
     ${moodPlaylists(all()).length ? `<section class="brsec">
       <h2 class="brh">Made for you</h2>
       <div class="albumgrid hscroll">${moodPlaylists(all()).map((m, i) => `
@@ -1042,6 +1146,7 @@ function renderHome() {
     </section>
     ${recentTracks.length ? '' : '<div class="brhint">Play a few tracks and your recent plays + recommendations will show up here.</div>'}
     <div class="disclaimer">${DISCLAIMER_TEXT}</div>`;
+  hydrateCardArt(homeEl);
 }
 
 function renderHomeCategory() {
@@ -1106,6 +1211,13 @@ homeEl.addEventListener('click', (e) => {
     if (visible.length) { player.playNow(visible.map((t) => t.id), 0); openFullPlayer(); }
     return;
   }
+  const yearBtn = e.target.closest('[data-year]');
+  if (yearBtn) {
+    const a = albumsByYear().find((x) => x.key === yearBtn.dataset.year);
+    homeNav = { cat: 'years', key: yearBtn.dataset.year, name: a?.name || yearBtn.dataset.year };
+    renderHome();
+    return;
+  }
   const moodCard = e.target.closest('.moodcard');
   if (moodCard) {
     homeNav = { cat: 'moods', key: moodCard.dataset.mood, name: moodCard.dataset.name };
@@ -1158,7 +1270,7 @@ function show(v) {
   else if (v === 'artists') renderArtistsView();
   else renderLibrary();
 }
-$$('.tab').forEach((t) => t.addEventListener('click', () => show(t.dataset.view)));
+$$('.tab').forEach((t) => t.addEventListener('click', () => { cameFromPlayer = false; show(t.dataset.view); }));
 
 $('#search').addEventListener('input', debounce(() => {
   $('#search-clear').style.display = $('#search').value ? 'block' : 'none';
@@ -1486,6 +1598,12 @@ function mountEmbed(t, startAt = 0) {
 player.on('trackchange', (t) => {
   bumpPlay(t.id);
   bumpRecent(t.id);
+  paintTrack(t);
+});
+/* A queue restored from another device: paint the chrome but DON'T count a
+   play or reorder recents (see player.restoreQueue). */
+player.on('restore', (t) => { paintTrack(t); });
+function paintTrack(t) {
   document.body.classList.add('playing');
   $('#mini .info .t').textContent = t.displayTitle;
   $('#mini .info .s').textContent = songsSummary(t);
@@ -1512,7 +1630,10 @@ player.on('trackchange', (t) => {
   armSaver();
   renderQueue();
   renderNowRows();
-});
+  // keep Home's "Recently played" + recommendations fresh; only while the full
+  // player covers Home, so we never yank the scroll out from under the user
+  if (view === 'home' && !homeNav && pl.classList.contains('show')) renderHome();
+}
 player.on('embedonly', () => { openFullPlayer(); });
 player.on('videofallback', () => {
   openFullPlayer();
@@ -1521,7 +1642,7 @@ player.on('videofallback', () => {
 });
 player.on('play', () => { syncPlayIcons(true); });
 player.on('pause', () => { syncPlayIcons(false); });
-player.on('queue', renderQueue);
+player.on('queue', () => { renderQueue(); scheduleStateSave(); });
 player.on('radio', (n) => toast(`Radio: added ${n} similar mashup${n === 1 ? '' : 's'} to the queue`));
 player.on('time', ({ t, d }) => {
   if (!seeking && d) updateSeekUi(t / d);
@@ -1626,6 +1747,7 @@ function renderDetails(t) {
     ${rel.length ? `<h3>More mashups like this</h3>
     <div class="reccards">${rel.map(recCardHtml).join('')}</div>` : ''}`;
   $('#pl-hint').style.display = box.innerHTML.trim() ? '' : 'none';
+  hydrateCardArt(box);
 }
 
 $('#pl-details').addEventListener('click', (e) => {
@@ -1639,6 +1761,7 @@ $('#pl-details').addEventListener('click', (e) => {
   const ma = e.target.closest('[data-ma]');
   if (ma) {
     pl.classList.remove('show');
+    cameFromPlayer = true;           // Back should return here, to Now Playing
     artistNav = ma.dataset.ma;       // open the artist's profile page
     show('artists');
     return;
@@ -1646,6 +1769,7 @@ $('#pl-details').addEventListener('click', (e) => {
   const k = e.target.closest('[data-key]');
   if (k) {
     pl.classList.remove('show');
+    cameFromPlayer = true;           // Back should return here, to Now Playing
     expPath = [k.dataset.key];
     expReset();
     show('explorer');
@@ -2239,6 +2363,10 @@ function handleBack() {
   if (dlg) { dlg.close(); return true; }
   if (pl.classList.contains('show')) { pl.classList.remove('show'); return true; }
   if ($('#queue').classList.contains('show')) { $('#queue').classList.remove('show'); return true; }
+  // came here from "Explore this mashup" on Now Playing -> one Back reopens it
+  if (cameFromPlayer && (view === 'explorer' || view === 'artists')) {
+    cameFromPlayer = false; openFullPlayer(); return true;
+  }
   if (view === 'explorer' && expPath.length) { expPath.pop(); renderExplorer(); return true; }
   if (view === 'artists' && artistNav) { artistNav = null; renderArtistsView(); return true; }
   if (view === 'home' && homeNav) { homeNav = homeNav.key ? { cat: homeNav.cat } : null; renderHome(); return true; }

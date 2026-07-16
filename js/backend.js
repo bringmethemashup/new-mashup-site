@@ -221,6 +221,34 @@ export async function syncPlays(map) {
   if (rows.length) await sb.from('plays').upsert(rows);
 }
 
+/* ---------------- cross-device state: recents + live queue ----------------
+   One row per user in `user_state`. Keeps the ordered "recently played" list
+   and the active queue/position in sync so a second device picks up where the
+   first left off (Spotify-style). Every call degrades gracefully to no-op when
+   signed out or when the backend is disabled. */
+export async function fetchUserState() {
+  if (!user()) return null;
+  const { data, error } = await sb.from('user_state')
+    .select('recents, queue, queue_pos, updated_at').eq('user_id', user().id).maybeSingle();
+  if (error) { console.warn('fetchUserState', error); return null; }
+  if (!data) return null;
+  return {
+    recents: Array.isArray(data.recents) ? data.recents : [],
+    queue: Array.isArray(data.queue) ? data.queue : [],
+    queuePos: Number.isInteger(data.queue_pos) ? data.queue_pos : -1,
+    updatedAt: data.updated_at,
+  };
+}
+export async function saveUserState({ recents, queue, queuePos }) {
+  if (!user()) return;
+  const row = { user_id: user().id, updated_at: new Date().toISOString() };
+  if (recents !== undefined) row.recents = recents;
+  if (queue !== undefined) row.queue = queue;
+  if (queuePos !== undefined) row.queue_pos = queuePos;
+  const { error } = await sb.from('user_state').upsert(row);
+  if (error) console.warn('saveUserState', error);
+}
+
 /* ---------------- playlists ---------------- */
 export async function fetchPlaylists() {
   const { data, error } = await sb.from('playlists')

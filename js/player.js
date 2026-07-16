@@ -115,6 +115,7 @@ let loadToken = 0;
 let prewarmedFor = null;   // track id we already pre-resolved the NEXT link for
 
 async function loadAndPlay(track, { retried = false } = {}) {
+  restored = false;               // any real load clears the "restored, not yet loaded" state
   const token = ++loadToken;
   emit('trackchange', track);
   updateMediaSession(track);
@@ -230,6 +231,21 @@ function extendRadio() {
 }
 
 /* ---------------- queue ops ---------------- */
+/* Restore a queue synced from another device WITHOUT auto-playing (browsers
+   block autoplay anyway, and we don't want to count a play). The chrome paints
+   via the 'restore' event; the first Play press loads the current track. */
+let restored = false;
+export function restoreQueue(ids, pos) {
+  if (!Array.isArray(ids) || !ids.length) return false;
+  S.queue = ids.map(String);
+  S.pos = (Number.isInteger(pos) && pos >= 0 && pos < S.queue.length) ? pos : 0;
+  prewarmedFor = null;
+  restored = true;
+  const t = current();
+  emit('queue');
+  if (t) emit('restore', t);
+  return true;
+}
 export function playNow(ids, startIndex = 0) {
   S.queue = [...ids];
   S.pos = startIndex;
@@ -291,7 +307,9 @@ export function prev() {
   else seek(0, true);
 }
 export function toggle() {
-  if (!current()) return;
+  const c = current();
+  if (!c) return;
+  if (restored && audio.paused) { restored = false; loadAndPlay(c); return; }  // resume a device-synced queue
   if (audio.paused) { audio.play().catch(() => {}); if (actx?.state === 'suspended') actx.resume(); }
   else audio.pause();
 }
