@@ -12,10 +12,13 @@
  * keeps its classic gradient + visualizer look.
  */
 
-// v2: v1 was filled by a "take the first search hit" lookup that pinned the
-// wrong person on ~1 in 4 artists (JADE -> "Jäde", Adele -> "Adèle & Robin").
-// Bumping the key throws those saved mistakes away on every device.
-const KEY = 'bmtm.art.v2';
+// v3. v1 took the first search hit and so pinned the wrong person on ~1 in 4
+// artists (JADE -> "Jäde", Adele -> "Adèle & Robin"). v2 fixed the matching but
+// clearing v1 caused every lookup to fire at once, and the resulting quota
+// errors were saved as "no photo" — leaving album covers frozen in for 30 days.
+// v3 has the throttle and the answered/unanswered split below, so a cold start
+// is safe. Bumping the key also discards v2's poisoned entries.
+const KEY = 'bmtm.art.v3';
 let cache = {};
 try { cache = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { cache = {}; }
 const persist = () => { try { localStorage.setItem(KEY, JSON.stringify(cache)); } catch {} };
@@ -69,20 +72,70 @@ function jsonp(urlWithCbToken, timeout = 8000) {
   });
 }
 
+/* ---------------- Deezer request throttle ----------------
+   Deezer's public API allows roughly 50 requests per 5 seconds per IP. A cold
+   Home screen wants a lookup for every artist on every visible card — a few
+   hundred at once. Firing them unthrottled makes about a THIRD come back as a
+   quota error or time out, and the old code read that silence as "this artist
+   has no photo", quietly downgrading them to an iTunes album cover and then
+   caching that mistake for 30 days. So: cap how many calls are in flight and
+   space out their starts, keeping us comfortably under the quota. */
+const MAX_INFLIGHT = 5;
+const MIN_GAP_MS = 130;      // ~7.7 requests/sec, quota is ~10/sec
+let inflight = 0, lastStart = 0;
+const queue = [];
+
+function pump() {
+  if (!queue.length || inflight >= MAX_INFLIGHT) return;
+  const wait = Math.max(0, lastStart + MIN_GAP_MS - Date.now());
+  setTimeout(() => {
+    if (!queue.length || inflight >= MAX_INFLIGHT) return;
+    lastStart = Date.now();
+    inflight++;
+    queue.shift()();
+  }, wait);
+}
+/* Run fn() once a slot is free. */
+function throttled(fn) {
+  return new Promise((resolve) => {
+    queue.push(() => resolve(fn().finally(() => { inflight--; pump(); })));
+    pump();
+  });
+}
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/* Ask Deezer for a page of artists.
+   -> array  when Deezer actually answered (possibly an empty array)
+   -> null   when we never got through (quota error / timeout / network).
+   Keeping those two cases apart is the whole point: "Deezer says there is no
+   such artist" is worth remembering, "we couldn't reach Deezer" is not. */
+async function deezerSearch(name, tries = 3) {
+  const url = `https://api.deezer.com/search/artist?q=${encodeURIComponent(name)}&limit=10&output=jsonp&callback={cb}`;
+  for (let i = 0; i < tries; i++) {
+    const d = await throttled(() => jsonp(url).catch(() => null));
+    if (d && !d.error && Array.isArray(d.data)) return d.data;
+    await sleep(500 * (i + 1) + Math.random() * 400);   // back off, then retry
+  }
+  return null;
+}
+
 /* Deezer's own ranking is not name-first: searching "JADE" put the French
    rapper "Jäde" ahead of JADE, and "Adele" put "Adèle & Robin" first. So pull
    a page of results and pick the best NAME match, breaking ties on follower
    count (which reliably separates the real artist from copycat/duplicate
    pages). Only if nothing matches by name — usually a typo in the catalog
    ("Imagine Dragon") or a combined "X ft. Y" credit — do we fall back to the
-   top hit, which is all the old code ever did. */
+   top hit, which is all the old code ever did.
+   Returns { answered, url }. */
 async function fromDeezer(name) {
-  const d = await jsonp(`https://api.deezer.com/search/artist?q=${encodeURIComponent(name)}&limit=10&output=jsonp&callback={cb}`);
-  const list = (d?.data || []).filter(deezerPic);
-  if (!list.length) return null;
+  const data = await deezerSearch(name);
+  if (!data) return { answered: false, url: null };
+  const list = data.filter(deezerPic);
+  if (!list.length) return { answered: true, url: null };
   const matches = list.map((a) => ({ a, s: nameScore(name, a.name) })).filter((x) => x.s > 0);
   matches.sort((x, y) => y.s - x.s || (y.a.nb_fan || 0) - (x.a.nb_fan || 0));
-  return deezerPic(matches.length ? matches[0].a : list[0]);
+  return { answered: true, url: deezerPic(matches.length ? matches[0].a : list[0]) };
 }
 
 /* Album-cover fallback. attribute=artistTerm keeps iTunes from matching the
@@ -95,19 +148,46 @@ async function fromITunes(name) {
   return r?.artworkUrl100 ? r.artworkUrl100.replace('100x100', '600x600') : null;
 }
 
-/** One artist name -> image URL (or null). Cached. */
-export async function artistImage(name) {
+/* A cache entry keeps the two sources apart: `d` = Deezer artist photo,
+   `i` = iTunes album cover, either of which may be null meaning "asked, there
+   is nothing". A field that is ABSENT means "not asked yet / never got a real
+   answer" — so a quota blip is retried on the next visit instead of being
+   frozen in as a fact. */
+const live = (k) => { const c = cache[k]; return c && c.e > Date.now() ? c : null; };
+function record(k, field, url) {
+  const c = live(k) || {};
+  cache[k] = { ...c, [field]: url, e: Date.now() + (url ? HIT_MS : MISS_MS) };
+  persist();
+}
+
+/** The artist's own photo, or null. Never falls back to an album cover. */
+export async function artistPhoto(name) {
   const k = norm(name);
   if (!k) return null;
   if (OVERRIDES[k]) return OVERRIDES[k];
-  const c = cache[k];
-  if (c && c.e > Date.now()) return c.u;
+  const c = live(k);
+  if (c && 'd' in c) return c.d;
+  const r = await fromDeezer(name);
+  if (!r.answered) return null;          // couldn't reach Deezer — don't remember this
+  record(k, 'd', r.url);
+  return r.url;
+}
+
+/** Album cover for the artist, or null. Last resort — it is not their photo. */
+async function albumCover(name) {
+  const k = norm(name);
+  if (!k) return null;
+  const c = live(k);
+  if (c && 'i' in c) return c.i;
   let url = null;
-  try { url = await fromDeezer(name); } catch {}
-  if (!url) { try { url = await fromITunes(name); } catch {} }
-  cache[k] = { u: url, e: Date.now() + (url ? HIT_MS : MISS_MS) };
-  persist();
+  try { url = await fromITunes(name); } catch { return null; }   // transient — don't remember
+  record(k, 'i', url);
   return url;
+}
+
+/** One artist name -> image URL (or null). Photo first, cover as a fallback. */
+export async function artistImage(name) {
+  return (await artistPhoto(name)) || (await albumCover(name));
 }
 
 /** Unique source-song artists of a track, in order (max 14 for the montage —
@@ -130,17 +210,29 @@ export function artistsOf(track) {
   return out;
 }
 
-/** All available images for a track's artists (parallel, order kept). */
+/** All available images for a track's artists (parallel, order kept). The
+    player background is a montage of FACES, so album covers are not mixed in
+    unless not one artist on the track has a photo. */
 export async function collageFor(track) {
   const names = artistsOf(track);
   if (!names.length) return [];
-  const urls = await Promise.all(names.map((n) => artistImage(n)));
-  return urls.filter(Boolean);
+  const photos = (await Promise.all(names.map((n) => artistPhoto(n)))).filter(Boolean);
+  if (photos.length) return photos;
+  const covers = await Promise.all(names.map((n) => artistImage(n)));
+  return covers.filter(Boolean);
 }
 
-/** First available image — used for the mini-player thumb + lock screen art. */
+/** First available image — used for the card art, mini-player thumb and lock
+    screen. Two passes on purpose: a photo of ANY artist on the track beats an
+    album cover for the first one, because a cover in a row of faces reads as
+    the wrong picture. */
 export async function firstArtFor(track) {
-  for (const n of artistsOf(track)) {
+  const names = artistsOf(track);
+  for (const n of names) {
+    const u = await artistPhoto(n);
+    if (u) return u;
+  }
+  for (const n of names) {
     const u = await artistImage(n);
     if (u) return u;
   }
