@@ -8,7 +8,7 @@
  *    last-known catalog when offline.
  *  - Audio streams / Supabase API calls: never intercepted (network only).
  */
-const VERSION = 'bmtm-v45'; // bump whenever shell files change — forces every client to refetch
+const VERSION = 'bmtm-v46'; // bump whenever shell files change — forces every client to refetch
 const SHELL = [
   './',
   './index.html',
