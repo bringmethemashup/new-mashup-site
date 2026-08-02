@@ -80,39 +80,28 @@ function jsonp(urlWithCbToken, timeout = 8000) {
    has no photo", quietly downgrading them to an iTunes album cover and then
    caching that mistake for 30 days. So: cap how many calls are in flight and
    space out their starts, keeping us comfortably under the quota. */
-const MAX_INFLIGHT = 5;
-const MIN_GAP_MS = 130;      // ~7.7 requests/sec, quota is ~10/sec
-let inflight = 0, lastStart = 0, timer = null;
-const queue = [];
-
-/* Exactly ONE pending wake-up at a time, and the wake-up always schedules the
-   next one. An earlier version scheduled a timer per queued item; they all came
-   due together, only the first few found a free slot and the rest returned
-   without rescheduling. Losing enough of those wake-ups left work sitting in
-   the queue with nothing left to start it, and the whole thing stalled. */
-function pump() {
-  if (timer || !queue.length || inflight >= MAX_INFLIGHT) return;
-  const wait = Math.max(0, lastStart + MIN_GAP_MS - Date.now());
-  timer = setTimeout(() => {
-    timer = null;
-    if (queue.length && inflight < MAX_INFLIGHT) {
-      lastStart = Date.now();
-      inflight++;
-      queue.shift()();
-    }
-    pump();                       // keep the loop alive while work remains
-  }, wait);
-}
-/* Run fn() once a slot is free. Every settled call frees its slot and pumps,
-   so a full pipeline is always restarted by the next completion. */
-function throttled(fn) {
-  return new Promise((resolve) => {
-    queue.push(() => resolve(fn().finally(() => { inflight--; pump(); })));
-    pump();
-  });
-}
+const MIN_GAP_MS = 130;      // ~7.7 requests/sec; the quota is ~10/sec
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/* Rate limit by SPACING OUT STARTS, not by counting slots.
+   Every call links onto one shared promise chain, and each link just waits out
+   MIN_GAP_MS, so requests begin 130ms apart no matter how many are asked for at
+   once. That is all a quota actually cares about, and the number in flight
+   settles at rate x latency (~2) on its own.
+   This replaces a hand-rolled queue+semaphore that deadlocked: it tracked an
+   `inflight` count and woke itself with timers, so any wake-up that arrived
+   while the pool was full — or any slot that leaked — stranded the remaining
+   work forever, and artwork stopped loading part-way down the page. Here the
+   chain only ever advances through sleep(), which cannot fail to resolve, and
+   a rejected fn is deliberately kept off the chain so one bad lookup can never
+   block the ones behind it. */
+let chain = Promise.resolve();
+function throttled(fn) {
+  const turn = chain.then(() => sleep(MIN_GAP_MS));
+  chain = turn;                  // next caller waits for this one's gap
+  return turn.then(fn);          // fn's own failure never touches `chain`
+}
 
 /* Ask Deezer for a page of artists.
    -> array  when Deezer actually answered (possibly an empty array)
