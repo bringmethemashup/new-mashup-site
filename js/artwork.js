@@ -12,16 +12,47 @@
  * keeps its classic gradient + visualizer look.
  */
 
-const KEY = 'bmtm.art.v1';
+// v2: v1 was filled by a "take the first search hit" lookup that pinned the
+// wrong person on ~1 in 4 artists (JADE -> "Jäde", Adele -> "Adèle & Robin").
+// Bumping the key throws those saved mistakes away on every device.
+const KEY = 'bmtm.art.v2';
 let cache = {};
 try { cache = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch { cache = {}; }
 const persist = () => { try { localStorage.setItem(KEY, JSON.stringify(cache)); } catch {} };
 
 const norm = (s) => (s || '').toLowerCase().normalize('NFKD')
   .replace(/[̀-ͯ]/g, '').replace(/\s+/g, ' ').trim();
+const loose = (s) => norm(s).replace(/[^a-z0-9]/g, '');
 
 const HIT_MS = 30 * 864e5;   // cache successful lookups 30 days
 const MISS_MS = 7 * 864e5;   // retry failed lookups after 7 days
+
+/* Deezer's placeholder avatar (the grey silhouette) — the path segment is the
+   MD5 of an empty string. Treat it as "no photo" so we fall through to iTunes
+   or the next artist instead of showing a blank blob on a card. */
+const BLANK_ART = 'd41d8cd98f00b204e9800998ecf8427e';
+
+/* Hand-pinned photos for artists search still gets wrong. Keys are matched
+   with norm(), so case and accents don't matter: { 'artist name': 'https://…' } */
+const OVERRIDES = {};
+
+/* How confident are we that a search result is the artist we asked for?
+     3 = identical  2 = identical ignoring accents  1 = identical ignoring
+     punctuation/spacing  0 = a different artist. */
+function nameScore(want, got) {
+  const a = (want || '').toLowerCase().trim();
+  const b = (got || '').toLowerCase().trim();
+  if (!a || !b) return 0;
+  if (a === b) return 3;
+  if (norm(a) === norm(b)) return 2;
+  if (loose(a) === loose(b)) return 1;
+  return 0;
+}
+
+const deezerPic = (a) => {
+  const u = a?.picture_xl || a?.picture_big || null;
+  return u && !u.includes(BLANK_ART) ? u : null;
+};
 
 /* ---------------- JSONP (script-tag) fetch ---------------- */
 let cbSeq = 0;
@@ -38,15 +69,29 @@ function jsonp(urlWithCbToken, timeout = 8000) {
   });
 }
 
+/* Deezer's own ranking is not name-first: searching "JADE" put the French
+   rapper "Jäde" ahead of JADE, and "Adele" put "Adèle & Robin" first. So pull
+   a page of results and pick the best NAME match, breaking ties on follower
+   count (which reliably separates the real artist from copycat/duplicate
+   pages). Only if nothing matches by name — usually a typo in the catalog
+   ("Imagine Dragon") or a combined "X ft. Y" credit — do we fall back to the
+   top hit, which is all the old code ever did. */
 async function fromDeezer(name) {
-  const d = await jsonp(`https://api.deezer.com/search/artist?q=${encodeURIComponent(name)}&limit=1&output=jsonp&callback={cb}`);
-  const a = d?.data?.[0];
-  return a?.picture_xl || a?.picture_big || null;
+  const d = await jsonp(`https://api.deezer.com/search/artist?q=${encodeURIComponent(name)}&limit=10&output=jsonp&callback={cb}`);
+  const list = (d?.data || []).filter(deezerPic);
+  if (!list.length) return null;
+  const matches = list.map((a) => ({ a, s: nameScore(name, a.name) })).filter((x) => x.s > 0);
+  matches.sort((x, y) => y.s - x.s || (y.a.nb_fan || 0) - (x.a.nb_fan || 0));
+  return deezerPic(matches.length ? matches[0].a : list[0]);
 }
 
+/* Album-cover fallback. attribute=artistTerm keeps iTunes from matching the
+   name against song/album titles, and we still verify the artist name before
+   accepting a cover. */
 async function fromITunes(name) {
-  const d = await jsonp(`https://itunes.apple.com/search?term=${encodeURIComponent(name)}&entity=album&limit=1&callback={cb}`);
-  const r = d?.results?.[0];
+  const d = await jsonp(`https://itunes.apple.com/search?term=${encodeURIComponent(name)}&entity=album&attribute=artistTerm&limit=10&callback={cb}`);
+  const list = d?.results || [];
+  const r = list.find((x) => nameScore(name, x.artistName) > 0) || list[0];
   return r?.artworkUrl100 ? r.artworkUrl100.replace('100x100', '600x600') : null;
 }
 
@@ -54,6 +99,7 @@ async function fromITunes(name) {
 export async function artistImage(name) {
   const k = norm(name);
   if (!k) return null;
+  if (OVERRIDES[k]) return OVERRIDES[k];
   const c = cache[k];
   if (c && c.e > Date.now()) return c.u;
   let url = null;
