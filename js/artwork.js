@@ -82,20 +82,29 @@ function jsonp(urlWithCbToken, timeout = 8000) {
    space out their starts, keeping us comfortably under the quota. */
 const MAX_INFLIGHT = 5;
 const MIN_GAP_MS = 130;      // ~7.7 requests/sec, quota is ~10/sec
-let inflight = 0, lastStart = 0;
+let inflight = 0, lastStart = 0, timer = null;
 const queue = [];
 
+/* Exactly ONE pending wake-up at a time, and the wake-up always schedules the
+   next one. An earlier version scheduled a timer per queued item; they all came
+   due together, only the first few found a free slot and the rest returned
+   without rescheduling. Losing enough of those wake-ups left work sitting in
+   the queue with nothing left to start it, and the whole thing stalled. */
 function pump() {
-  if (!queue.length || inflight >= MAX_INFLIGHT) return;
+  if (timer || !queue.length || inflight >= MAX_INFLIGHT) return;
   const wait = Math.max(0, lastStart + MIN_GAP_MS - Date.now());
-  setTimeout(() => {
-    if (!queue.length || inflight >= MAX_INFLIGHT) return;
-    lastStart = Date.now();
-    inflight++;
-    queue.shift()();
+  timer = setTimeout(() => {
+    timer = null;
+    if (queue.length && inflight < MAX_INFLIGHT) {
+      lastStart = Date.now();
+      inflight++;
+      queue.shift()();
+    }
+    pump();                       // keep the loop alive while work remains
   }, wait);
 }
-/* Run fn() once a slot is free. */
+/* Run fn() once a slot is free. Every settled call frees its slot and pumps,
+   so a full pipeline is always restarted by the next completion. */
 function throttled(fn) {
   return new Promise((resolve) => {
     queue.push(() => resolve(fn().finally(() => { inflight--; pump(); })));
