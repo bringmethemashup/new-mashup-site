@@ -80,27 +80,34 @@ function jsonp(urlWithCbToken, timeout = 8000) {
    has no photo", quietly downgrading them to an iTunes album cover and then
    caching that mistake for 30 days. So: cap how many calls are in flight and
    space out their starts, keeping us comfortably under the quota. */
-const MIN_GAP_MS = 130;      // ~7.7 requests/sec; the quota is ~10/sec
-
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-/* Rate limit by SPACING OUT STARTS, not by counting slots.
-   Every call links onto one shared promise chain, and each link just waits out
-   MIN_GAP_MS, so requests begin 130ms apart no matter how many are asked for at
-   once. That is all a quota actually cares about, and the number in flight
-   settles at rate x latency (~2) on its own.
-   This replaces a hand-rolled queue+semaphore that deadlocked: it tracked an
-   `inflight` count and woke itself with timers, so any wake-up that arrived
-   while the pool was full — or any slot that leaked — stranded the remaining
-   work forever, and artwork stopped loading part-way down the page. Here the
-   chain only ever advances through sleep(), which cannot fail to resolve, and
-   a rejected fn is deliberately kept off the chain so one bad lookup can never
-   block the ones behind it. */
-let chain = Promise.resolve();
+/* Rate limit with LANES, and no timers.
+   Deezer's quota is about 10 requests/sec. Rather than police that with a
+   clock, run requests down a fixed number of serial lanes: a lane starts its
+   next job the moment the previous one settles, so throughput self-adjusts to
+   ~LANES / latency (2 lanes over a ~250ms round trip is ~8/sec) and can never
+   exceed LANES at once.
+
+   Deliberately timer-free. Two earlier attempts paced starts with setTimeout —
+   first a queue with an inflight counter, then a single delay chain — and both
+   crawled or stopped outright, because a browser clamps timers hard in a tab
+   that is not in front, so anything whose next step is a setTimeout inherits
+   that throttling. A lane only waits on real work finishing, and jsonp always
+   settles (it has its own timeout), so a lane cannot get stuck.
+
+   `.then(fn, fn)` runs the next job whether the previous one resolved or
+   rejected, and each lane is reset to a resolved promise, so one failed lookup
+   never poisons the lane behind it. */
+const LANES = 2;
+const lanes = Array.from({ length: LANES }, () => Promise.resolve());
+let nextLane = 0;
 function throttled(fn) {
-  const turn = chain.then(() => sleep(MIN_GAP_MS));
-  chain = turn;                  // next caller waits for this one's gap
-  return turn.then(fn);          // fn's own failure never touches `chain`
+  const i = nextLane;
+  nextLane = (nextLane + 1) % LANES;
+  const run = lanes[i].then(fn, fn);
+  lanes[i] = run.then(() => {}, () => {});   // lane never stays rejected
+  return run;
 }
 
 /* Ask Deezer for a page of artists.
