@@ -243,8 +243,15 @@ select.sort {
 .home-quick .qbtn.primary { background: var(--accent); border-color: transparent; color: #fff; }
 .home-quick .qbtn.primary:hover { filter: brightness(1.08); background: var(--accent); }
 
+/* One tile width for every album/collection/mood card, whether the row is a
+   wrapping grid or a horizontal scroller. The grid used to stretch its columns
+   (minmax(168px, 1fr)), so "Browse" cards rendered ~175px next to the 150px
+   "Made for you" cards on the same Home screen — the artwork looked mismatched.
+   Fixed columns keep every tile identical. */
 .albumgrid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+  --albumw: 150px;
+  display: grid; grid-template-columns: repeat(auto-fill, var(--albumw));
+  justify-content: start;
   gap: 14px; padding: 0 16px 10px;
 }
 .albumgrid.hscroll {
@@ -252,7 +259,7 @@ select.sort {
   overflow-x: auto; padding: 2px 16px 12px;
   scrollbar-width: thin; scroll-behavior: smooth;
 }
-.albumgrid.hscroll .albumcard { width: 150px; flex: none; }
+.albumgrid.hscroll .albumcard { width: var(--albumw); flex: none; }
 .albumcard {
   text-align: left; padding: 10px; border-radius: var(--radius-m);
   background: var(--bg-elev); border: 1px solid var(--line);
@@ -969,7 +976,7 @@ body.saver #viz-full-wrap { opacity: .28; filter: grayscale(1); transition: opac
   .trow .tyear { display: none; }
   .heartbtn { opacity: 1; }
   .col { width: 240px; }
-  .albumgrid { grid-template-columns: repeat(auto-fill, minmax(128px, 1fr)); gap: 10px; }
+  .albumgrid { --albumw: 132px; gap: 10px; }
   .reccard { width: 140px; }
   .reccard.rich { width: 160px; }
   #queue { width: min(340px, calc(100vw - 24px)); }
@@ -977,11 +984,14 @@ body.saver #viz-full-wrap { opacity: .28; filter: grayscale(1); transition: opac
   /* Now Playing controls: on phones the 8 buttons in one row crowded the edges
      (the Share button got clipped). Split into two tidy rows — prev/play/next
      centered on top, the secondary actions evenly spread beneath. */
-  .transport { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%; column-gap: 6px; row-gap: 4px; }
+  /* Row 2 must read as ONE centered strip of buttons. The old rule gave .tl and
+     .tr an equal half each (flex: 1) and pushed them toward the middle — but
+     .tl holds 2 buttons and .tr holds 3, so the strip always sat right of
+     centre. Sizing both groups to their content and letting the flex container
+     centre them puts all five buttons, evenly spaced, under the play button. */
+  .transport { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; width: 100%; column-gap: 18px; row-gap: 4px; }
   .transport .tgrp.tc { order: 0; flex-basis: 100%; justify-content: center; gap: 22px; }
-  .transport .tgrp.tl, .transport .tgrp.tr { order: 1; flex: 1; }
-  .transport .tgrp.tl { justify-content: flex-end; gap: 18px; }
-  .transport .tgrp.tr { justify-content: flex-start; gap: 18px; }
+  .transport .tgrp.tl, .transport .tgrp.tr { order: 1; flex: none; justify-content: center; gap: 18px; }
   #player .controls { padding-left: 14px; padding-right: 14px; }
   .trow.lib { grid-template-columns: 26px 1fr auto; }
   .pdin { padding: 18px 16px calc(40px + env(safe-area-inset-bottom, 0px)); }
