@@ -963,6 +963,15 @@ body.saver #viz-full-wrap { opacity: .28; filter: grayscale(1); transition: opac
 .eqpresets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .eqnote { font-size: 12px; color: var(--text-dim); margin-top: 8px; }
 
+/* ---------- desktop Now Playing: go full-bleed like the screensaver ------
+   On big screens the letterboxed artist photo sat as a narrow centered strip
+   with blur either side, and the waveform capped at 900px. Both now span the
+   window so the player reads the same edge-to-edge as the Zune saver. */
+@media (min-width: 900px) and (pointer: fine) {
+  #pl-art .slide .pic { background-size: auto min(100vw, 145%); background-position: center 22%; }
+  #viz-full-wrap { width: 100vw; max-width: 100vw; height: min(26vh, 260px); border-radius: 0; }
+}
+
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
   header.topbar { flex-wrap: wrap; gap: 10px; padding: calc(12px + env(safe-area-inset-top, 0px)) 14px 8px; }
