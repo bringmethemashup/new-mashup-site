@@ -1392,11 +1392,11 @@ $('#pl-plus').addEventListener('click', () => {
    available, otherwise copy a deep link to the clipboard */
 $('#pl-share').addEventListener('click', async () => {
   const t = player.current(); if (!t) return;
-  // Share the OG endpoint so the link unfurls with a per-mashup card; it
+  // Share the per-mashup page so the link unfurls with its own card; it
   // redirects real visitors into the app at #track=<id>. Falls back to the
   // in-app deep link if SHARE_URL isn't configured.
   const url = SHARE_URL
-    ? `${SHARE_URL}?t=${encodeURIComponent(t.id)}`
+    ? `${SHARE_URL}${encodeURIComponent(t.id)}.html`
     : location.origin + location.pathname + '#track=' + encodeURIComponent(t.id);
   const text = `🎛 ${t.displayTitle} — ${songsSummary(t)} · mashed by ${t.mashupArtist}`;
   if (navigator.share) {
