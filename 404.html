@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bring Me The Mashup</title>
+<style>body{background:#0e0f13;color:#eee;font-family:system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;text-align:center;padding:24px}a{color:#f39237;font-weight:700;text-decoration:none}</style>
+<script>
+/* A share page for a brand-new mashup may not be generated yet (the nightly
+   "Build share pages" workflow writes them). Bounce /s/<id>.html straight into
+   the app so the link still works; anything else goes to the home page. */
+(function () {
+  var base = '/new-mashup-site/';
+  var m = location.pathname.match(/\/s\/([^\/]+)\.html$/);
+  location.replace(base + (m ? '#track=' + m[1] : ''));
+})();
+</script>
+</head><body>
+<div><p>Opening Bring Me The Mashup…</p>
+<p><a href="/new-mashup-site/">Tap here if it doesn't open</a></p></div>
+</body></html>
