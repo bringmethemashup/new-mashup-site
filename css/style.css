@@ -455,6 +455,14 @@ select.sort {
 #mini .info .t { font-weight: 700; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 #mini .info .s { color: var(--text-dim); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
 #mini .ctr { display: flex; align-items: center; gap: 2px; }
+#mini .iconbtn.sm { width: 30px; height: 30px; position: relative; }
+#mini .iconbtn.sm svg { width: 15px; height: 15px; }
+#mini .iconbtn.active { color: var(--accent); }
+#mini .iconbtn.active::after {
+  content: ""; position: absolute; bottom: 2px; left: 50%; translate: -50% 0;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+}
+#mini .rep1 { position: absolute; top: 2px; right: 2px; font-size: 8px; font-weight: 800; line-height: 1; }
 #mini .playbtn {
   width: 42px; height: 42px; border-radius: 50%; background: var(--accent); color: #fff;
   display: grid; place-items: center; box-shadow: 0 4px 16px var(--glow-a);
@@ -990,6 +998,14 @@ body.saver #viz-full-wrap { opacity: .28; filter: grayscale(1); transition: opac
   .reccard.rich { width: 160px; }
   #queue { width: min(340px, calc(100vw - 24px)); }
   #mini { left: 8px; right: 8px; bottom: calc(8px + env(safe-area-inset-bottom, 0px)); }
+  /* mini bar: shuffle+repeat sit alongside prev/play/next/queue now — on
+     phones, tighten sizing/spacing so the title still has room. */
+  #mini { gap: 8px; padding: 0 10px 0 8px; }
+  #mini .ctr { gap: 0; }
+  #mini .iconbtn.sm { width: 26px; height: 26px; }
+  #mini .iconbtn.sm svg { width: 13px; height: 13px; }
+  #mini .iconbtn:not(.sm):not(.playbtn) { width: 34px; height: 34px; }
+  #mini .playbtn { width: 38px; height: 38px; }
   /* Now Playing controls: on phones the 8 buttons in one row crowded the edges
      (the Share button got clipped). Split into two tidy rows — prev/play/next
      centered on top, the secondary actions evenly spread beneath. */
