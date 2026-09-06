@@ -1196,7 +1196,7 @@ homeEl.addEventListener('click', (e) => {
   if (e.target.closest('#hm-shuffle')) {
     const ids = all().map((t) => t.id);
     if (!ids.length) return;
-    player.setShuffle(true); $('#pl-shuffle')?.classList.add('on');
+    player.setShuffle(true); setShuffleUI(true);
     player.playNow(ids, Math.floor(Math.random() * ids.length));
     openFullPlayer();
     return;
@@ -1290,7 +1290,7 @@ function shufflePlay(list, { open = false } = {}) {
   const arr = (list || []).filter(Boolean);
   if (!arr.length) return;
   player.setShuffle(true);
-  $('#pl-shuffle')?.classList.add('on');
+  setShuffleUI(true);
   const ids = arr.map((t) => t.id);
   const start = Math.floor(Math.random() * ids.length);
   player.playNow(ids, start);
@@ -1307,6 +1307,32 @@ $('#mini-play').addEventListener('click', (e) => { e.stopPropagation(); player.t
 $('#mini-prev').addEventListener('click', (e) => { e.stopPropagation(); player.prev(); });
 $('#mini-next').addEventListener('click', (e) => { e.stopPropagation(); player.next(); });
 $('#mini-queue').addEventListener('click', (e) => { e.stopPropagation(); $('#queue').classList.toggle('show'); });
+
+/* shuffle/repeat: mirrored between the mini bar and the full player, so
+   toggling either place keeps both buttons in sync */
+function setShuffleUI(v) {
+  $('#pl-shuffle')?.classList.toggle('on', v);
+  $('#mini-shuffle')?.classList.toggle('active', v);
+}
+function toggleShuffle() {
+  const v = !player.state.shuffle;
+  player.setShuffle(v);
+  setShuffleUI(v);
+  toast(v ? 'Shuffle on' : 'Shuffle off');
+}
+function setRepeatUI(m) {
+  const on = m !== 'off', label = m === 'one' ? '1' : '';
+  $('#pl-repeat')?.classList.toggle('on', on);
+  $('#mini-repeat')?.classList.toggle('active', on);
+  $$('.rep1').forEach((el) => { el.textContent = label; });
+}
+function cycleRepeatUI() {
+  const m = player.cycleRepeat();
+  setRepeatUI(m);
+  toast('Repeat: ' + m);
+}
+$('#mini-shuffle').addEventListener('click', (e) => { e.stopPropagation(); toggleShuffle(); });
+$('#mini-repeat').addEventListener('click', (e) => { e.stopPropagation(); cycleRepeatUI(); });
 $('#mini-prog').addEventListener('click', (e) => {
   const r = e.currentTarget.getBoundingClientRect();
   const p = (e.clientX - r.left) / r.width;
@@ -1364,18 +1390,8 @@ $('#pl-queue').addEventListener('click', () => { pl.classList.remove('show'); $(
 $('#pp').addEventListener('click', () => player.toggle());
 $('#pl-prev').addEventListener('click', () => player.prev());
 $('#pl-next').addEventListener('click', () => player.next());
-$('#pl-shuffle').addEventListener('click', (e) => {
-  const v = !player.state.shuffle;
-  player.setShuffle(v);
-  e.currentTarget.classList.toggle('on', v);
-  toast(v ? 'Shuffle on' : 'Shuffle off');
-});
-$('#pl-repeat').addEventListener('click', (e) => {
-  const m = player.cycleRepeat();
-  e.currentTarget.classList.toggle('on', m !== 'off');
-  $('.rep1', e.currentTarget).textContent = m === 'one' ? '1' : '';
-  toast('Repeat: ' + m);
-});
+$('#pl-shuffle').addEventListener('click', toggleShuffle);
+$('#pl-repeat').addEventListener('click', cycleRepeatUI);
 $('#pl-like').addEventListener('click', (e) => {
   const t = player.current(); if (!t) return;
   toggleLike(t.id);
