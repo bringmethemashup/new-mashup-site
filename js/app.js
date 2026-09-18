@@ -1521,7 +1521,7 @@ vizWrap.addEventListener('pointerup', (e) => {
   const d = player.audio.duration;
   if (!d) return;
   const r = vizWrap.getBoundingClientRect();
-  const p = wfMoved
+  if (!wfMoved) return; const p = wfMoved
     ? clamp01(wfP0 - ((e.clientX - wfX0) / r.width) * viz.getWindow())
     : clamp01(wfP0 + ((e.clientX - r.left) / r.width - 0.5) * viz.getWindow());
   player.seek(p * d);
