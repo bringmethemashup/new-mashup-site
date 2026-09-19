@@ -9,7 +9,9 @@
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Smile"
+    "title": "Smile",
+    "bpm": 105,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "3 Smiles",
@@ -38,11 +40,15 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Strawberry Shortcake"
+    "title": "Strawberry Shortcake",
+    "bpm": 125,
+    "key": "Bm"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Alejandro"
+    "title": "Alejandro",
+    "bpm": 99,
+    "key": "G"
    }
   ],
   "displayTitle": "Alejandro's Strawberry Shortcake",
@@ -71,7 +77,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Big Fat Bass"
+    "title": "Big Fat Bass",
+    "bpm": 129,
+    "key": "C"
    },
    {
     "artist": "Eiffel 65",
@@ -104,7 +112,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Big Fat Bass"
+    "title": "Big Fat Bass",
+    "bpm": 129,
+    "key": "C"
    },
    {
     "artist": "Eiffel 65",
@@ -137,11 +147,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Big Fat Bass"
+    "title": "Big Fat Bass",
+    "bpm": 129,
+    "key": "C"
    },
    {
     "artist": "Amy Winehouse",
-    "title": "Rehab"
+    "title": "Rehab",
+    "bpm": 72,
+    "key": "C"
    }
   ],
   "displayTitle": "Big Fat Rehab (vs. Amy Winehouse) (Album Version)",
@@ -170,7 +184,9 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Detention"
+    "title": "Detention",
+    "bpm": 94,
+    "key": "D♯m"
    },
    {
     "artist": "Rihanna",
@@ -232,11 +248,15 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Lunchbox"
+    "title": "Lunchbox",
+    "bpm": 93,
+    "key": "D♯m"
    },
    {
     "artist": "Katy Perry",
-    "title": "Bon Appetit"
+    "title": "Bon Appetit",
+    "bpm": 106,
+    "key": "F♯"
    }
   ],
   "displayTitle": "Bon Appetit Lunchbox",
@@ -263,11 +283,15 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Teacher's Pet"
+    "title": "Teacher's Pet",
+    "bpm": 140,
+    "key": "Gm"
    },
    {
     "artist": "Billie Eilish",
-    "title": "bury a friend"
+    "title": "bury a friend",
+    "bpm": 122,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Bury a Teacher's Pet",
@@ -294,7 +318,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Hold It Against Me"
+    "title": "Hold It Against Me",
+    "bpm": 132,
+    "key": "Cm"
    },
    {
     "artist": "David Guetta",
@@ -325,7 +351,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Hold It Against Me"
+    "title": "Hold It Against Me",
+    "bpm": 132,
+    "key": "Cm"
    },
    {
     "artist": "David Guetta",
