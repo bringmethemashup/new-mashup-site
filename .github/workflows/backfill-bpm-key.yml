@@ -1,0 +1,75 @@
+name: Backfill BPM/Key
+
+# Fills in BPM + musical key on data/catalog.json:
+#  - per source song, looked up via the GetSongBPM API (needs the
+#    GETSONGBPM_API_KEY repo secret)
+#  - per mashup (the actual mix's own tempo/key), detected by briefly
+#    downloading the track's audio from pCloud and analyzing it with
+#    librosa, then discarding the file
+#
+# Idempotent — anything that already has bpm/key/tempo/key is left alone,
+# so this is safe to re-run as new tracks get added. Run it manually from
+# the Actions tab; use "limit" to work through the ~965-track backlog in
+# batches instead of one long run (each track needs an audio download +
+# analysis, so the whole catalog will take a while).
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Max tracks to touch this run (blank = no limit)"
+        required: false
+        default: "200"
+      skip_audio:
+        description: "Skip pCloud download + audio analysis (song lookups only, much faster)"
+        required: false
+        default: "false"
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: backfill-bpm-key
+  cancel-in-progress: false
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install ffmpeg (mp3 decoding for librosa)
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Python dependencies
+        run: pip install librosa numpy soundfile
+
+      - name: Run backfill
+        env:
+          GETSONGBPM_API_KEY: ${{ secrets.GETSONGBPM_API_KEY }}
+        run: |
+          ARGS=()
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            ARGS+=(--limit "${{ github.event.inputs.limit }}")
+          fi
+          if [ "${{ github.event.inputs.skip_audio }}" = "true" ]; then
+            ARGS+=(--skip-audio)
+          fi
+          python scripts/backfill_bpm_key.py "${ARGS[@]}"
+
+      - name: Commit changes
+        run: |
+          git config user.name "bmtm-bpm-key-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/catalog.json; then
+            echo "No changes to commit."
+          else
+            git add data/catalog.json
+            git commit -m "Backfill BPM/key data (automated)"
+            git push
+          fi
