@@ -28,7 +28,9 @@
    "needsMetadata": false,
    "file": "3 Smiles.mp3",
    "folder": "Mash The Fatale Up 2"
-  }
+  },
+  "tempo": 123,
+  "key": "Fm"
  },
  {
   "id": "k-12-mashup-album-alejandros-strawberry-shortcake",
@@ -59,7 +61,9 @@
    "needsMetadata": false,
    "file": "Alejandro's Strawberry Shortcake.mp3",
    "folder": "K-12 Mashup Album"
-  }
+  },
+  "tempo": 99,
+  "key": "G"
  },
  {
   "id": "mash-the-fatale-up-2-big-fat-blue-bass-vs-eiffel-65-mash-the-fatale-up-2",
@@ -90,7 +94,9 @@
    "needsMetadata": false,
    "file": "Big Fat Blue Bass (vs. Eiffel 65).mp3",
    "folder": "Mash The Fatale Up 2"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mash-the-fatale-up-big-fat-blue-bass-vs-eiffel-65-mash-the-fatale-up",
@@ -121,7 +127,9 @@
    "needsMetadata": false,
    "file": "Big Fat Blue Bass (vs. Eiffel 65).mp3",
    "folder": "Mash The Fatale Up"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mash-the-fatale-up-big-fat-rehab-vs-amy-winehouse-album-version",
@@ -152,7 +160,9 @@
    "needsMetadata": false,
    "file": "Big Fat Rehab (vs. Amy Winehouse) (Album Version).mp3",
    "folder": "Mash The Fatale Up"
-  }
+  },
+  "tempo": 144,
+  "key": "C"
  },
  {
   "id": "k-12-mashup-album-bitch-better-have-my-detention",
