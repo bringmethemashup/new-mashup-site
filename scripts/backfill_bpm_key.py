@@ -60,7 +60,7 @@ def lookup_song(artist, title):
         lookup = f"song:{title} artist:{artist}"
         url = (
             f"{API_BASE}/search/?"
-            + urllib.parse.urlencode({"api_key": API_KEY, "type": "song", "lookup": lookup, "limit": 1})
+            + urllib.parse.urlencode({"api_key": API_KEY, "type": "both", "lookup": lookup, "limit": 1})
         )
         data = _get_json(url)
         songs = data.get("search") or []
