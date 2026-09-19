@@ -48,6 +48,11 @@ export function formHtml(entry = {}, { showMedia = true, ownerName = null } = {}
   })() : `
   <div class="f"><label>Mashup artist(s)</label><input class="tf-maartist" value="${esc(entry.mashupArtist)}" placeholder="use ; between collaborators"></div>`}
   <div class="f"><label>Year</label><input class="tf-year" value="${esc(entry.year)}" placeholder="2026"></div>
+  <div class="f tf-tempokey" style="display:flex;gap:10px">
+    <div style="flex:1"><label>Tempo (BPM)</label><input class="tf-tempo" inputmode="numeric" value="${esc(entry.tempo != null ? String(entry.tempo) : '')}" placeholder="e.g. 128"></div>
+    <div style="flex:1"><label>Key</label><input class="tf-key" value="${esc(entry.key)}" placeholder="e.g. Am"></div>
+  </div>
+  <div class="tf-hint">Tempo/key: source-song values come from GetSongBPM.com, the mashup’s own tempo/key from audio analysis — correct anything that’s off for your actual mix.</div>
   <div class="f tf-coll-f"><label>Collections (optional — a mashup can be in several)</label>
     <div class="tf-colls" style="display:flex;flex-wrap:wrap;gap:6px;margin:2px 0 8px">${splitArtists(entry.specialAlbum).map((n) => collChipHtml(n, true)).join('')}</div>
     <input class="tf-coll-new" placeholder="＋ new collection — use ; between several">
@@ -128,6 +133,8 @@ export function songRowHtml(s = { artist: '', title: '' }) {
   return `<div class="songrow">
     <input class="sr-artist" placeholder="Song artist — use ; between multiple artists" value="${esc(s.artist)}">
     <input class="sr-title" placeholder="Song title" value="${esc(s.title)}">
+    <input class="sr-bpm" placeholder="BPM" inputmode="numeric" style="width:64px;flex:0 0 64px" value="${esc(s.bpm != null ? String(s.bpm) : '')}">
+    <input class="sr-key" placeholder="Key" style="width:64px;flex:0 0 64px" value="${esc(s.key)}">
     <button type="button" class="sr-del" title="Remove">✕</button>
   </div>`;
 }
@@ -297,15 +304,22 @@ export function readForm(root, base = {}) {
   const title = root.querySelector('.tf-title').value.trim();
   if (!title) throw new Error('Give the mashup a title.');
 
-  const sourceSongs = [...root.querySelectorAll('.songrow')].map((r) => ({
-    artist: r.querySelector('.sr-artist').value.trim(),
-    title: r.querySelector('.sr-title').value.trim(),
-  })).filter((s) => s.artist || s.title);
+  const sourceSongs = [...root.querySelectorAll('.songrow')].map((r) => {
+    const bpmRaw = r.querySelector('.sr-bpm')?.value.trim();
+    const keyRaw = r.querySelector('.sr-key')?.value.trim();
+    return {
+      artist: r.querySelector('.sr-artist').value.trim(),
+      title: r.querySelector('.sr-title').value.trim(),
+      ...(bpmRaw ? { bpm: Number(bpmRaw) || bpmRaw } : {}),
+      ...(keyRaw ? { key: keyRaw } : {}),
+    };
+  }).filter((s) => s.artist || s.title);
   if (!sourceSongs.length) throw new Error('Add at least one source song (artist + title).');
   for (const s of sourceSongs) {
     if (!s.artist || !s.title) throw new Error('Every source-song row needs BOTH an artist and a title.');
   }
 
+  const tempoRaw = root.querySelector('.tf-tempo')?.value.trim();
   const entry = {
     ...base,
     displayTitle: title,
@@ -315,10 +329,14 @@ export function readForm(root, base = {}) {
     mashupArtist: readMashupArtist(root) || base.mashupArtist || undefined,
     year: root.querySelector('.tf-year').value.trim() || undefined,
     specialAlbum: readCollections(root) || undefined,
+    tempo: tempoRaw ? (Number(tempoRaw) || undefined) : undefined,
+    key: root.querySelector('.tf-key')?.value.trim() || undefined,
   };
   if (!entry.mashupArtist) delete entry.mashupArtist;
   if (!entry.year) delete entry.year;
   if (!entry.specialAlbum) delete entry.specialAlbum;
+  if (!entry.tempo) delete entry.tempo;
+  if (!entry.key) delete entry.key;
 
   const media = root.querySelector('.tf-media');
   if (!media) return { entry, file: null, mediaKind: null };

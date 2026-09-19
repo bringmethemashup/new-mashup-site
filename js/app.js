@@ -1745,7 +1745,16 @@ function renderDetails(t) {
   const chip = (n) => `<button class="dchip" data-key="${esc(n.key)}">
       ${esc(n.name)} <span class="dc">${n.trackIds.size} mashup${n.trackIds.size === 1 ? '' : 's'} ›</span>
     </button>`;
+  const tk = (t.tempo || t.key || (t.sourceSongs || []).some((s) => s.bpm || s.key));
+  const tkLine = (bpm, key) => `${bpm ? `${esc(String(bpm))} BPM` : ''}${bpm && key ? ' · ' : ''}${key ? esc(key) : ''}`;
   box.innerHTML = `
+    ${tk ? `<h3>Tempo &amp; Key</h3>
+    <div class="dtempokey">
+      ${(t.tempo || t.key) ? `<div class="dtk-mashup"><b>This mashup</b> ${tkLine(t.tempo, t.key)}</div>` : ''}
+      ${(t.sourceSongs || []).some((s) => s.bpm || s.key) ? `<ul class="dtk-songs">${(t.sourceSongs || []).filter((s) => s.bpm || s.key).map((s) => `
+        <li>${esc(s.artist)} – ${esc(s.title)}: ${tkLine(s.bpm, s.key)}</li>`).join('')}</ul>` : ''}
+      <div class="dtk-credit">Tempo &amp; key data via <a href="https://getsongbpm.com" target="_blank" rel="noopener">GetSongBPM.com</a></div>
+    </div>` : ''}
     ${maNames.length ? `<h3>Mashup by${maNames.length > 1 ? ' <span class="collab-tag">Collab</span>' : ''}</h3>
     <div class="dchips">${maNames.map((nm) => {
       const ml = maAll.find((a) => a.name.toLowerCase() === nm.toLowerCase());
