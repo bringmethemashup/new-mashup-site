@@ -1,0 +1,48 @@
+name: Sync New Tracks
+
+# Monthly: pulls tracks submitted via submit.html (live in Supabase) into
+# data/catalog.json, then kicks off the BPM/Key backfill so new tracks get
+# their tempo/key filled in automatically too. Also runnable manually.
+
+on:
+  schedule:
+    - cron: "0 7 1 * *"   # 07:00 UTC on the 1st of every month
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Sync new tracks from Supabase into catalog.json
+        run: python scripts/sync_new_tracks.py
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git config user.name "bmtm-sync-bot"
+          git config user.email "actions@users.noreply.github.com"
+          if git diff --quiet -- data/catalog.json; then
+            echo "No new tracks."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git add data/catalog.json
+            git commit -m "Sync new site-submitted tracks (automated)"
+            git push
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger BPM/Key backfill for the new tracks
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run backfill-bpm-key.yml --ref main
