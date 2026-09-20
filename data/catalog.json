@@ -8518,7 +8518,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    }
   ],
   "displayTitle": "Gettin Over Your Work Bitch",
@@ -8538,7 +8540,9 @@
    "needsMetadata": false,
    "file": "Gettin Over Your Work Bitch.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "E"
  },
  {
   "id": "mashups-2013-give-your-ooh-la-la-a-break",
@@ -8546,7 +8550,9 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Give Your Heart a Break"
+    "title": "Give Your Heart a Break",
+    "bpm": 123,
+    "key": "F♯"
    },
    {
     "artist": "Britney Spears",
@@ -8570,7 +8576,9 @@
    "needsMetadata": false,
    "file": "Give Your Ooh La La A Break.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "mashups-2013-heart-attack-bringmethemashup-remix",
@@ -8578,7 +8586,9 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Heart Attack (bringmethemashup remix)",
@@ -8598,7 +8608,9 @@
    "needsMetadata": false,
    "file": "Heart Attack (bringmethemashup remix).mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 99,
+  "key": "Cm"
  },
  {
   "id": "mashups-2013-heart-attack-mini-mix",
@@ -8610,15 +8622,21 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Come & Get It"
+    "title": "Come & Get It",
+    "bpm": 80,
+    "key": "Gm"
    },
    {
     "artist": "Maroon 5",
-    "title": "One More Night"
+    "title": "One More Night",
+    "bpm": 93,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Heart Attack Mashup",
@@ -8642,7 +8660,9 @@
    "needsMetadata": false,
    "file": "Heart Attack Mini Mix.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 172,
+  "key": "F#m"
  },
  {
   "id": "mashups-2013-hearthrob-love-larger-than-life",
@@ -8650,39 +8670,57 @@
   "sourceSongs": [
    {
     "artist": "Backstreet Boys",
-    "title": "Larger Than Life"
+    "title": "Larger Than Life",
+    "bpm": 108,
+    "key": "Cm"
    },
    {
     "artist": "*NSYNC",
-    "title": "Bye Bye Bye"
+    "title": "Bye Bye Bye",
+    "bpm": 86,
+    "key": "G♯m"
    },
    {
     "artist": "*NSYNC",
-    "title": "It's Gonna Be Me"
+    "title": "It's Gonna Be Me",
+    "bpm": 83,
+    "key": "Cm"
    },
    {
     "artist": "One Direction",
-    "title": "What Makes You Beautiful"
+    "title": "What Makes You Beautiful",
+    "bpm": 123,
+    "key": "E"
    },
    {
     "artist": "One Direction",
-    "title": "One Thing"
+    "title": "One Thing",
+    "bpm": 129,
+    "key": "D"
    },
    {
     "artist": "One Direction",
-    "title": "Live While We're Young"
+    "title": "Live While We're Young",
+    "bpm": 129,
+    "key": "F♯m"
    },
    {
     "artist": "Justin Bieber",
-    "title": "Boyfriend"
+    "title": "Boyfriend",
+    "bpm": 96,
+    "key": "A♯m"
    },
    {
     "artist": "Justin Bieber",
-    "title": "As Long As You Love Me"
+    "title": "As Long As You Love Me",
+    "bpm": 139,
+    "key": "Cm"
    },
    {
     "artist": "Jonas Brothers",
-    "title": "Burnin' Up"
+    "title": "Burnin' Up",
+    "bpm": 114,
+    "key": "D"
    }
   ],
   "displayTitle": "Hearthrob Love (Larger Than Life) Mashup",
@@ -8706,7 +8744,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "dgUxWP9-fJg"
-  }
+  },
+  "tempo": 108,
+  "key": "Cm"
  },
  {
   "id": "mashups-2013-helicopter-girlfriend",
@@ -8714,11 +8754,15 @@
   "sourceSongs": [
    {
     "artist": "Bloc Party",
-    "title": "Helicopter"
+    "title": "Helicopter",
+    "bpm": 172,
+    "key": "Bm"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Girlfriend"
+    "title": "Girlfriend",
+    "bpm": 81,
+    "key": "G"
    }
   ],
   "displayTitle": "Helicopter Girlfriend",
@@ -8738,7 +8782,9 @@
    "needsMetadata": false,
    "file": "Helicopter Girlfriend.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 86,
+  "key": "C#m"
  },
  {
   "id": "mashups-2013-heres-to-giving-you-hell",
@@ -8750,7 +8796,9 @@
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Here's to Never Growing Up"
+    "title": "Here's to Never Growing Up",
+    "bpm": 83,
+    "key": "C"
    }
   ],
   "displayTitle": "Here's To Giving You Hell",
@@ -8770,7 +8818,9 @@
    "needsMetadata": false,
    "file": "Here's To Giving You Hell.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 99,
+  "key": "F"
  },
  {
   "id": "mashups-2013-heres-to-never-growing-up-complicated",
@@ -8778,11 +8828,15 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "Here's to Never Growing Up"
+    "title": "Here's to Never Growing Up",
+    "bpm": 83,
+    "key": "C"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Complicated"
+    "title": "Complicated",
+    "bpm": 77,
+    "key": "F"
    }
   ],
   "displayTitle": "Here's to Never Growing Up Complicated",
@@ -8802,7 +8856,9 @@
    "needsMetadata": false,
    "file": "Here's to Never Growing Up Complicated.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 83,
+  "key": "F"
  },
  {
   "id": "mashups-2013-hung-up-bullets",
@@ -8810,7 +8866,9 @@
   "sourceSongs": [
    {
     "artist": "Hollywood Undead",
-    "title": "Bullet"
+    "title": "Bullet",
+    "bpm": 184,
+    "key": "E"
    }
   ],
   "displayTitle": "Hung Up Bullets",
@@ -8830,7 +8888,9 @@
    "needsMetadata": false,
    "file": "Hung Up Bullets.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 92,
+  "key": "E"
  },
  {
   "id": "mashups-2013-i-knew-when-the-dog-days-are-trouble",
@@ -8838,7 +8898,9 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "I Knew You Were Trouble"
+    "title": "I Knew You Were Trouble",
+    "bpm": 152,
+    "key": "D♯m"
    },
    {
     "artist": "Florence & the Machine",
@@ -8862,7 +8924,9 @@
    "needsMetadata": false,
    "file": "I Knew When the Dog Days Are Trouble.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 152,
+  "key": "F#"
  },
  {
   "id": "mashups-2013-i-knew-you-were-never-ever-getting-back-together",
@@ -8870,11 +8934,15 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "We Are Never Ever Getting Back Together"
+    "title": "We Are Never Ever Getting Back Together",
+    "bpm": 86,
+    "key": "G"
    },
    {
     "artist": "Taylor Swift",
-    "title": "I Knew You Were Trouble"
+    "title": "I Knew You Were Trouble",
+    "bpm": 152,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "I Knew You Were Never Ever Getting Back Together",
@@ -8894,7 +8962,9 @@
    "needsMetadata": false,
    "file": "I Knew You Were Never Ever Getting Back Together.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 86,
+  "key": "F#"
  },
  {
   "id": "mashups-2013-i-need-your-love-to-wake-me-up",
@@ -8906,7 +8976,9 @@
    },
    {
     "artist": "Avicii",
-    "title": "Wake Me Up"
+    "title": "Wake Me Up",
+    "bpm": 123,
+    "key": "D"
    }
   ],
   "displayTitle": "I Need Your Love to Wake Me Up",
@@ -8926,7 +8998,9 @@
    "needsMetadata": false,
    "file": "I Need Your Love to Wake Me Up.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2013-inside-out-birthday-cake",
@@ -8938,7 +9012,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Inside Out"
+    "title": "Inside Out",
+    "bpm": 119,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Inside Out Birthday Cake",
@@ -8958,7 +9034,9 @@
    "needsMetadata": false,
    "file": "Inside Out Birthday Cake.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 144,
+  "key": "D"
  },
  {
   "id": "mashups-2013-jump-smokers-come-get-applause",
@@ -8970,7 +9048,9 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "Applause"
+    "title": "Applause",
+    "bpm": 139,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Jump Smokers...Come & Get Applause",
@@ -8990,7 +9070,9 @@
    "needsMetadata": false,
    "file": "Jump Smokers...Come & Get Applause.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 161,
+  "key": "Gm"
  },
  {
   "id": "mashups-2013-just-dance-on-the-hood-of-my-car",
@@ -8998,7 +9080,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Just Dance"
+    "title": "Just Dance",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Kesha",
@@ -9022,7 +9106,9 @@
    "needsMetadata": false,
    "file": "Just Dance on the Hood of My Car.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2013-just-dance-stacys-mom",
@@ -9030,11 +9116,15 @@
   "sourceSongs": [
    {
     "artist": "Fountains of Wayne",
-    "title": "Stacy's Mom"
+    "title": "Stacy's Mom",
+    "bpm": 118,
+    "key": "E"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Just Dance"
+    "title": "Just Dance",
+    "bpm": 117,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Just Dance Stacy's Mom",
@@ -9054,7 +9144,9 @@
    "needsMetadata": false,
    "file": "Just Dance Stacy's Mom.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "mashups-2013-just-give-me-a-skyscraper",
@@ -9066,7 +9158,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Skyscraper"
+    "title": "Skyscraper",
+    "bpm": 103,
+    "key": "G"
    }
   ],
   "displayTitle": "Just Give Me A Skyscraper",
@@ -9086,7 +9180,9 @@
    "needsMetadata": false,
    "file": "Just Give Me A Skyscraper.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 103,
+  "key": "Em"
  },
  {
   "id": "mashups-2013-kesha-mega-mashup",
@@ -9094,19 +9190,27 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "TiK ToK"
+    "title": "TiK ToK",
+    "bpm": 234,
+    "key": "Dm"
    },
    {
     "artist": "Kesha",
-    "title": "Your Love Is My Drug"
+    "title": "Your Love Is My Drug",
+    "bpm": 120,
+    "key": "C♯"
    },
    {
     "artist": "Kesha",
-    "title": "Take It Off"
+    "title": "Take It Off",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "artist": "Kesha",
-    "title": "Blah Blah Blah"
+    "title": "Blah Blah Blah",
+    "bpm": 120,
+    "key": "A♯"
    },
    {
     "artist": "Kesha",
@@ -9118,11 +9222,15 @@
    },
    {
     "artist": "Kesha",
-    "title": "Die Young"
+    "title": "Die Young",
+    "bpm": 128,
+    "key": "C♯m"
    },
    {
     "artist": "Kesha",
-    "title": "C'mon"
+    "title": "C'mon",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "artist": "Kesha",
@@ -9150,7 +9258,9 @@
    "needsMetadata": false,
    "file": "KeSha Mega Mashup.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2013-last-friday-night-was-ooh-la-la",
@@ -9158,7 +9268,9 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "Last Friday Night (T.G.I.F.)"
+    "title": "Last Friday Night (T.G.I.F.)",
+    "bpm": 126,
+    "key": "D♯m"
    },
    {
     "artist": "Britney Spears",
@@ -9182,7 +9294,9 @@
    "needsMetadata": false,
    "file": "Last Friday Night Was Ooh La La.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "mashups-2013-like-i-love-me-against-the-music",
@@ -9194,7 +9308,9 @@
    },
    {
     "artist": "Justin Timberlake",
-    "title": "Like I Love You"
+    "title": "Like I Love You",
+    "bpm": 114,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Like I Love Me Against the Music",
@@ -9214,7 +9330,9 @@
    "needsMetadata": false,
    "file": "Like I Love Me Against the Music.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "F#"
  },
  {
   "id": "mashups-2013-live-while-were-diamonds-updated",
@@ -9222,11 +9340,15 @@
   "sourceSongs": [
    {
     "artist": "One Direction",
-    "title": "Live While We're Young"
+    "title": "Live While We're Young",
+    "bpm": 129,
+    "key": "F♯m"
    },
    {
     "artist": "Rihanna",
-    "title": "Diamonds"
+    "title": "Diamonds",
+    "bpm": 92,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Live While We're Diamonds (Updated)",
@@ -9246,7 +9368,9 @@
    "needsMetadata": false,
    "file": "Live While We're Diamonds (Updated).mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "D"
  },
  {
   "id": "mashups-2013-live-while-were-the-best-song-ever",
@@ -9254,11 +9378,15 @@
   "sourceSongs": [
    {
     "artist": "One Direction",
-    "title": "Live While We're Young"
+    "title": "Live While We're Young",
+    "bpm": 129,
+    "key": "F♯m"
    },
    {
     "artist": "One Direction",
-    "title": "Best Song Ever"
+    "title": "Best Song Ever",
+    "bpm": 117,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Live While We're the Best Song Ever",
@@ -9278,7 +9406,9 @@
    "needsMetadata": false,
    "file": "Live While We're the Best Song Ever.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "D"
  },
  {
   "id": "mashups-2013-locked-animals-go-again",
@@ -9286,15 +9416,21 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Here We Go Again"
+    "title": "Here We Go Again",
+    "bpm": 142,
+    "key": "F"
    },
    {
     "artist": "Bruno Mars",
-    "title": "Locked Out Of Heaven"
+    "title": "Locked Out Of Heaven",
+    "bpm": 144,
+    "key": "Dm"
    },
    {
     "artist": "Neon Trees",
-    "title": "Animal"
+    "title": "Animal",
+    "bpm": 152,
+    "key": "F"
    }
   ],
   "displayTitle": "Locked Animals Go Again",
@@ -9314,7 +9450,9 @@
    "needsMetadata": false,
    "file": "Locked Animals Go Again.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 144,
+  "key": "F"
  },
  {
   "id": "mashups-2013-love-you-like-a-wrecking-ball",
@@ -9322,11 +9460,15 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Love You Like a Love Song"
+    "title": "Love You Like a Love Song",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Wrecking Ball"
+    "title": "Wrecking Ball",
+    "bpm": 117,
+    "key": "F"
    }
   ],
   "displayTitle": "Love You Like A Wrecking Ball",
@@ -9350,7 +9492,9 @@
    "needsMetadata": false,
    "file": "Love You Like A Wrecking Ball.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2013-madness-bringmethemashup-remix",
@@ -9378,7 +9522,9 @@
    "needsMetadata": false,
    "file": "Madness (bringmethemashup remix).mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 99,
+  "key": "A#m"
  },
  {
   "id": "mashups-2013-neon-lightworks-bitch",
@@ -9386,11 +9532,15 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    }
   ],
   "displayTitle": "Neon Lightworks Bitch!",
@@ -9410,7 +9560,9 @@
    "needsMetadata": false,
    "file": "Neon Lightworks Bitch!.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "A"
  },
  {
   "id": "mashups-2013-one-more-heart-attack",
@@ -9418,11 +9570,15 @@
   "sourceSongs": [
    {
     "title": "Heart Attack",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 172,
+    "key": "G♯"
    },
    {
     "title": "One More Night",
-    "artist": "Maroon 5"
+    "artist": "Maroon 5",
+    "bpm": 93,
+    "key": "Fm"
    }
   ],
   "displayTitle": "One More Heart Attack",
@@ -9446,7 +9602,9 @@
    "needsMetadata": false,
    "file": "One More Heart Attack.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 172,
+  "key": "Fm"
  },
  {
   "id": "mashups-2013-oops-we-cant-stop-again",
@@ -9458,7 +9616,9 @@
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Oops!...We Can't Stop Again",
@@ -9482,7 +9642,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "7H862yu-NGY"
-  }
+  },
+  "tempo": 96,
+  "key": "G#m"
  },
  {
   "id": "mashups-2013-party-made-in-the-usa",
@@ -9494,7 +9656,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Made in the USA"
+    "title": "Made in the USA",
+    "bpm": 87,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Party Made in the USA",
@@ -9514,7 +9678,9 @@
    "needsMetadata": false,
    "file": "Party Made in the USA.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 92,
+  "key": "Fm"
  },
  {
   "id": "mashups-2013-potential-et-song",
@@ -9522,11 +9688,15 @@
   "sourceSongs": [
    {
     "artist": "Aly & AJ",
-    "title": "Potential Breakup Song"
+    "title": "Potential Breakup Song",
+    "bpm": 158,
+    "key": "F♯m"
    },
    {
     "artist": "Katy Perry",
-    "title": "ET"
+    "title": "ET",
+    "bpm": 112,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Potential ET Song",
@@ -9546,7 +9716,9 @@
    "needsMetadata": false,
    "file": "Potential ET Song.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 161,
+  "key": "Fm"
  },
  {
   "id": "mashups-2013-pour-it-up-crazy-kids",
@@ -9554,11 +9726,15 @@
   "sourceSongs": [
    {
     "artist": "Rihanna",
-    "title": "Pour It Up"
+    "title": "Pour It Up",
+    "bpm": 136,
+    "key": "D"
    },
    {
     "artist": "Kesha",
-    "title": "Crazy Kids"
+    "title": "Crazy Kids",
+    "bpm": 128,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Pour It Up Crazy Kids",
@@ -9578,7 +9754,9 @@
    "needsMetadata": false,
    "file": "Pour It Up Crazy Kids.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "F#m"
  },
  {
   "id": "mashups-2013-promiscuous-boyfriend",
@@ -9590,7 +9768,9 @@
    },
    {
     "artist": "Justin Bieber",
-    "title": "Boyfriend"
+    "title": "Boyfriend",
+    "bpm": 96,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Promiscuous Boyfriend",
@@ -9614,7 +9794,9 @@
    "needsMetadata": false,
    "file": "Promiscuous Boyfriend.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 112,
+  "key": "Fm"
  },
  {
   "id": "mashups-2013-push-it-bangerz",
@@ -9646,7 +9828,9 @@
    "needsMetadata": false,
    "file": "Push it Bangerz!.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 92,
+  "key": "Am"
  },
  {
   "id": "mashups-2013-radioactive-circles",
@@ -9658,7 +9842,9 @@
    },
    {
     "artist": "Imagine Dragons",
-    "title": "Radioactive"
+    "title": "Radioactive",
+    "bpm": 68,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Radioactive Circles",
@@ -9678,7 +9864,9 @@
    "needsMetadata": false,
    "file": "Radioactive Circles.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2013-radioactive-perfume",
@@ -9686,11 +9874,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Perfume"
+    "title": "Perfume",
+    "bpm": 79,
+    "key": "D♯"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "Radioactive"
+    "title": "Radioactive",
+    "bpm": 68,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Radioactive Perfume",
@@ -9710,7 +9902,9 @@
    "needsMetadata": false,
    "file": "Radioactive Perfume.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 81,
+  "key": "D"
  },
  {
   "id": "mashups-2013-right-in-right-now",
@@ -9722,7 +9916,9 @@
    },
    {
     "artist": "Rihanna",
-    "title": "Right Now"
+    "title": "Right Now",
+    "bpm": 129,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Right In, Right Now",
@@ -9742,7 +9938,9 @@
    "needsMetadata": false,
    "file": "Right In, Right Now.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 136,
+  "key": "Em"
  },
  {
   "id": "mashups-2013-roaring-applause",
@@ -9750,11 +9948,15 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "Roar"
+    "title": "Roar",
+    "bpm": 88,
+    "key": "A♯"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Applause"
+    "title": "Applause",
+    "bpm": 139,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Roaring Applause",
@@ -9778,7 +9980,9 @@
    "needsMetadata": false,
    "file": "Roaring Applause.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 89,
+  "key": "Gm"
  },
  {
   "id": "mashups-2013-same-beautiful-love",
@@ -9786,7 +9990,9 @@
   "sourceSongs": [
    {
     "artist": "Christina Aguilera",
-    "title": "Beautiful"
+    "title": "Beautiful",
+    "bpm": 76,
+    "key": "Cm"
    },
    {
     "artist": "Macklemore; Ryan Lewis; Mary Lambert",
@@ -9810,7 +10016,9 @@
    "needsMetadata": false,
    "file": "Same Beautiful Love.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 81,
+  "key": "Cm"
  },
  {
   "id": "mashups-2013-scream-shout-timber",
@@ -9842,7 +10050,9 @@
    "needsMetadata": false,
    "file": "Scream & Shout Timber!.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "G#m"
  },
  {
   "id": "mashups-2013-scream-and-shout-mega-mashup",
@@ -9854,11 +10064,15 @@
    },
    {
     "artist": "Taylor Swift",
-    "title": "We Are Never Ever Getting Back Together"
+    "title": "We Are Never Ever Getting Back Together",
+    "bpm": 86,
+    "key": "G"
    },
    {
     "artist": "Maroon 5",
-    "title": "One More Night"
+    "title": "One More Night",
+    "bpm": 93,
+    "key": "Fm"
    },
    {
     "artist": "P!nk",
@@ -9866,11 +10080,15 @@
    },
    {
     "artist": "Rita Ora",
-    "title": "How We Do (Party)"
+    "title": "How We Do (Party)",
+    "bpm": 116,
+    "key": "G"
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "Call Me Maybe"
+    "title": "Call Me Maybe",
+    "bpm": 117,
+    "key": "G"
    },
    {
     "artist": "Jessie J",
@@ -9882,15 +10100,21 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Give Your Heart a Break"
+    "title": "Give Your Heart a Break",
+    "bpm": 123,
+    "key": "F♯"
    },
    {
     "artist": "OneRepublic",
-    "title": "Feel Again"
+    "title": "Feel Again",
+    "bpm": 144,
+    "key": "Gm"
    },
    {
     "artist": "Katy Perry",
-    "title": "Last Friday Night (T.G.I.F.)"
+    "title": "Last Friday Night (T.G.I.F.)",
+    "bpm": 126,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Scream & Shout Mashup",
@@ -9914,7 +10138,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "DWMDcUr_4dE"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mashups-2013-shadows-of-the-day-come-clean",
@@ -9922,11 +10148,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Come Clean"
+    "title": "Come Clean",
+    "bpm": 118,
+    "key": "G♯m"
    },
    {
     "artist": "Linkin Park",
-    "title": "Shadow of the Day"
+    "title": "Shadow of the Day",
+    "bpm": 110,
+    "key": "B"
    }
   ],
   "displayTitle": "Shadows of the Day Come Clean",
@@ -9946,7 +10176,9 @@
    "needsMetadata": false,
    "file": "Shadows of the Day Come Clean.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "B"
  },
  {
   "id": "mashups-2013-slow-down-we-die-young",
@@ -9954,11 +10186,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Die Young"
+    "title": "Die Young",
+    "bpm": 128,
+    "key": "C♯m"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Slow Down"
+    "title": "Slow Down",
+    "bpm": 127,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Slow Down, We Die Young",
@@ -9978,7 +10214,9 @@
    "needsMetadata": false,
    "file": "Slow Down, We Die Young.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2013-slut-like-dominos",
@@ -9986,7 +10224,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Slut Like You"
+    "title": "Slut Like You",
+    "bpm": 130,
+    "key": "Bm"
    },
    {
     "artist": "Jessie J",
@@ -10010,7 +10250,9 @@
    "needsMetadata": false,
    "file": "Slut Like Dominos.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2013-some-nights-i-feel-so-close",
@@ -10018,11 +10260,15 @@
   "sourceSongs": [
    {
     "artist": "fun.",
-    "title": "Some Nights"
+    "title": "Some Nights",
+    "bpm": 132,
+    "key": "C"
    },
    {
     "artist": "Calvin Harris",
-    "title": "Feel So Close"
+    "title": "Feel So Close",
+    "bpm": 129,
+    "key": "G"
    }
   ],
   "displayTitle": "Some Nights I Feel So Close",
@@ -10042,7 +10288,9 @@
    "needsMetadata": false,
    "file": "Some Nights I Feel So Close.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "G"
  },
  {
   "id": "mashups-2013-some-nights-were-on-top-of-the-world",
@@ -10050,11 +10298,15 @@
   "sourceSongs": [
    {
     "artist": "fun.",
-    "title": "Some Nights"
+    "title": "Some Nights",
+    "bpm": 132,
+    "key": "C"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "On Top of the World"
+    "title": "On Top of the World",
+    "bpm": 100,
+    "key": "C"
    }
   ],
   "displayTitle": "Some Nights We're On Top Of The World",
@@ -10074,7 +10326,9 @@
    "needsMetadata": false,
    "file": "Some Nights We're On Top Of The World.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 103,
+  "key": "C"
  },
  {
   "id": "mashups-2013-stay-the-night-when-september-ends",
@@ -10082,7 +10336,9 @@
   "sourceSongs": [
    {
     "artist": "Green Day",
-    "title": "Wake Me Up When September Ends"
+    "title": "Wake Me Up When September Ends",
+    "bpm": 103,
+    "key": "Gm"
    },
    {
     "artist": "Zedd; Hayley Williams",
@@ -10106,7 +10362,9 @@
    "needsMetadata": false,
    "file": "Stay the Night When September Ends.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 117,
+  "key": "G#"
  },
  {
   "id": "mashups-2013-stereo-suit-and-tie",
@@ -10138,7 +10396,9 @@
    "needsMetadata": false,
    "file": "Stereo Suit and Tie.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 99,
+  "key": "F#m"
  },
  {
   "id": "mashups-2013-summer-mashup-2013",
@@ -10170,11 +10430,15 @@
    },
    {
     "artist": "Taylor Swift",
-    "title": "I Knew You Were Trouble"
+    "title": "I Knew You Were Trouble",
+    "bpm": 152,
+    "key": "D♯m"
    },
    {
     "artist": "Taylor Swift",
-    "title": "22"
+    "title": "22",
+    "bpm": 103,
+    "key": "G"
    },
    {
     "artist": "P!nk; Nate Ruess",
@@ -10182,7 +10446,9 @@
    },
    {
     "artist": "Kesha",
-    "title": "Crazy Kids"
+    "title": "Crazy Kids",
+    "bpm": 128,
+    "key": "Cm"
    },
    {
     "artist": "Robin Thicke; TI; Pharrell",
@@ -10190,7 +10456,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    },
    {
     "artist": "Ariana Grande; Mac Miller",
@@ -10202,47 +10470,69 @@
    },
    {
     "artist": "Swedish House Mafia",
-    "title": "Don't You Worry Child"
+    "title": "Don't You Worry Child",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "It's Time"
+    "title": "It's Time",
+    "bpm": 105,
+    "key": "D"
    },
    {
     "artist": "Maroon 5",
-    "title": "Daylight"
+    "title": "Daylight",
+    "bpm": 120,
+    "key": "D"
    },
    {
     "artist": "Icona Pop",
-    "title": "I Love It"
+    "title": "I Love It",
+    "bpm": 129,
+    "key": "C♯"
    },
    {
     "artist": "Jason Derulo",
-    "title": "The Other Side"
+    "title": "The Other Side",
+    "bpm": 127,
+    "key": "A"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Here's to Never Growing Up"
+    "title": "Here's to Never Growing Up",
+    "bpm": 83,
+    "key": "C"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)"
+    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)",
+    "bpm": 151,
+    "key": "Am"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "P!nk",
-    "title": "Try"
+    "title": "Try",
+    "bpm": 166,
+    "key": "G"
    },
    {
     "artist": "Bruno Mars",
-    "title": "Treasure"
+    "title": "Treasure",
+    "bpm": 58,
+    "key": "D♯"
    },
    {
     "artist": "Justin Timberlake",
-    "title": "Mirrors"
+    "title": "Mirrors",
+    "bpm": 152,
+    "key": "Fm"
    },
    {
     "artist": "Macklemore; Ryan Lewis; Mary Lambert",
@@ -10254,11 +10544,15 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Come & Get It"
+    "title": "Come & Get It",
+    "bpm": 80,
+    "key": "Gm"
    },
    {
     "artist": "Bruno Mars",
-    "title": "When I Was Your Man"
+    "title": "When I Was Your Man",
+    "bpm": 74,
+    "key": "C"
    },
    {
     "artist": "Calvin Harris; Florence Welch",
@@ -10278,7 +10572,9 @@
    },
    {
     "artist": "Rihanna",
-    "title": "Stay"
+    "title": "Stay",
+    "bpm": 112,
+    "key": "Am"
    }
   ],
   "displayTitle": "BRINGMETHESUMMER 2013",
@@ -10302,7 +10598,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "1-K4mSuIO-o"
-  }
+  },
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "mashups-2013-the-heart-attack-way",
@@ -10314,7 +10612,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    }
   ],
   "displayTitle": "The Heart Attack Way",
@@ -10338,7 +10638,9 @@
    "needsMetadata": false,
    "file": "The Heart Attack Way.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 112,
+  "key": "Fm"
  },
  {
   "id": "mashups-2013-the-whole-world-cuz-i-can",
@@ -10350,7 +10652,9 @@
    },
    {
     "artist": "P!nk",
-    "title": "Cuz I Can"
+    "title": "Cuz I Can",
+    "bpm": 129,
+    "key": "D"
    }
   ],
   "displayTitle": "The Whole World Cuz I Can",
@@ -10370,7 +10674,9 @@
    "needsMetadata": false,
    "file": "The Whole World Cuz I Can.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "Em"
  },
  {
   "id": "mashups-2013-troublemaker-you-drive-me-crazy",
@@ -10378,11 +10684,15 @@
   "sourceSongs": [
    {
     "artist": "Olly Murs",
-    "title": "Troublemaker"
+    "title": "Troublemaker",
+    "bpm": 106,
+    "key": "Cm"
    },
    {
     "artist": "Britney Spears",
-    "title": "(You Drive Me) Crazy"
+    "title": "(You Drive Me) Crazy",
+    "bpm": 103,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Troublemaker, You Drive Me Crazy",
@@ -10402,7 +10712,9 @@
    "needsMetadata": false,
    "file": "Troublemaker, You Drive Me Crazy.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 108,
+  "key": "C"
  },
  {
   "id": "mashups-2013-true-stereo-heart-love",
@@ -10434,7 +10746,9 @@
    "needsMetadata": false,
    "file": "True Stereo Heart Love.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 96,
+  "key": "F#m"
  },
  {
   "id": "mashups-2013-try-diamonds",
@@ -10442,11 +10756,15 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Try"
+    "title": "Try",
+    "bpm": 166,
+    "key": "G"
    },
    {
     "artist": "Rihanna",
-    "title": "Diamonds"
+    "title": "Diamonds",
+    "bpm": 92,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Try Diamonds",
@@ -10470,7 +10788,9 @@
    "needsMetadata": false,
    "file": "Try Diamonds.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2013-unusual-good-time",
@@ -10478,7 +10798,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Unusual You"
+    "title": "Unusual You",
+    "bpm": 123,
+    "key": "Cm"
    },
    {
     "artist": "Owl City; Carly Rae Jepsen",
@@ -10502,7 +10824,9 @@
    "needsMetadata": false,
    "file": "Unusual Good Time.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "mashups-2013-wake-me-up-to-the-best-song-ever",
@@ -10514,7 +10838,9 @@
    },
    {
     "artist": "One Direction",
-    "title": "Best Song Ever"
+    "title": "Best Song Ever",
+    "bpm": 117,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Wake Me Up to the Best Song Ever",
@@ -10538,7 +10864,9 @@
    "needsMetadata": false,
    "file": "Wake Me Up to the Best Song Ever.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 123,
+  "key": "D"
  },
  {
   "id": "mashups-2013-we-are-wrecking-balls",
@@ -10546,7 +10874,9 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "Wrecking Ball"
+    "title": "Wrecking Ball",
+    "bpm": 117,
+    "key": "F"
    },
    {
     "artist": "fun.; Janelle Monae",
@@ -10570,7 +10900,9 @@
    "needsMetadata": false,
    "file": "We Are Wrecking Balls.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 103,
+  "key": "Dm"
  },
  {
   "id": "mashups-2013-we-cant-stop-fireflies-compilation",
@@ -10578,11 +10910,15 @@
   "sourceSongs": [
    {
     "artist": "Owl City",
-    "title": "Fireflies"
+    "title": "Fireflies",
+    "bpm": 178,
+    "key": "D♯"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "We Can't Stop Fireflies (Compilation)",
@@ -10602,7 +10938,9 @@
    "needsMetadata": false,
    "file": "We Can't Stop Fireflies (Compilation).mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 89,
+  "key": "E"
  },
  {
   "id": "mashups-2013-we-cant-stop-growing-up",
@@ -10610,11 +10948,15 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "Here's to Never Growing Up"
+    "title": "Here's to Never Growing Up",
+    "bpm": 83,
+    "key": "C"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "We Can't Stop Growing Up",
@@ -10634,7 +10976,9 @@
    "needsMetadata": false,
    "file": "We Can't Stop Growing Up.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 81,
+  "key": "C#m"
  },
  {
   "id": "mashups-2013-we-cant-stop-letting-go-of-dutty-love",
@@ -10642,7 +10986,9 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "Sean Kingston; Nicki Minaj",
@@ -10666,7 +11012,9 @@
    "needsMetadata": false,
    "file": "We Can't Stop Letting Go of Dutty Love.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 92,
+  "key": "Dm"
  },
  {
   "id": "mashups-2013-we-cant-stop-the-perfume",
@@ -10674,11 +11022,15 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "Britney Spears",
-    "title": "Perfume"
+    "title": "Perfume",
+    "bpm": 79,
+    "key": "D♯"
    }
   ],
   "displayTitle": "We Can't Stop the Perfume",
@@ -10698,7 +11050,9 @@
    "needsMetadata": false,
    "file": "We Can't Stop the Perfume.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 81,
+  "key": "D#"
  },
  {
   "id": "mashups-2013-what-does-the-fox-say-bitch",
@@ -10706,7 +11060,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    },
    {
     "artist": "Ylvis",
@@ -10730,7 +11086,9 @@
    "needsMetadata": false,
    "file": "What Does the Fox Say Bitch.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "F#m"
  },
  {
   "id": "mashups-2013-where-have-you-been-wild",
@@ -10738,11 +11096,15 @@
   "sourceSongs": [
    {
     "artist": "Jessie J",
-    "title": "Wild"
+    "title": "Wild",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Rihanna",
-    "title": "Where Have You Been"
+    "title": "Where Have You Been",
+    "bpm": 129,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Where Have You Been Wild",
@@ -10762,7 +11124,9 @@
    "needsMetadata": false,
    "file": "Where Have You Been Wild.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 86,
+  "key": "Cm"
  },
  {
   "id": "mashups-2013-without-your-suit-tie",
@@ -10794,7 +11158,9 @@
    "needsMetadata": false,
    "file": "Without Your Suit & Tie.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2013-work-for-applause-bitch",
@@ -10802,11 +11168,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Applause"
+    "title": "Applause",
+    "bpm": 139,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Work for Applause Bitch",
@@ -10826,7 +11196,9 @@
    "needsMetadata": false,
    "file": "Work for Applause Bitch.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "G"
  },
  {
   "id": "mashups-2013-work-mini-mix",
@@ -10834,7 +11206,9 @@
   "sourceSongs": [
    {
     "artist": "Iggy Azalea",
-    "title": "Work"
+    "title": "Work",
+    "bpm": 140,
+    "key": "G"
    },
    {
     "artist": "Macklemore; Ryan Lewis",
@@ -10842,15 +11216,21 @@
    },
    {
     "artist": "Kesha",
-    "title": "Crazy Kids"
+    "title": "Crazy Kids",
+    "bpm": 128,
+    "key": "Cm"
    },
    {
     "artist": "Taylor Swift",
-    "title": "I Knew You Were Trouble"
+    "title": "I Knew You Were Trouble",
+    "bpm": 152,
+    "key": "D♯m"
    },
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    }
   ],
   "displayTitle": "Work Mashup",
@@ -10870,7 +11250,9 @@
    "needsMetadata": false,
    "file": "Work Mini Mix.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 144,
+  "key": "G"
  },
  {
   "id": "mashups-2013-wrecking-et",
@@ -10878,11 +11260,15 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "E.T."
+    "title": "E.T.",
+    "bpm": 150,
+    "key": "Fm"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Wrecking Ball"
+    "title": "Wrecking Ball",
+    "bpm": 117,
+    "key": "F"
    }
   ],
   "displayTitle": "wrecking et",
@@ -10902,7 +11288,9 @@
    "needsMetadata": false,
    "file": "wrecking et.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 152,
+  "key": "Fm"
  },
  {
   "id": "mashups-2013-ya-da-mirror",
@@ -10910,11 +11298,15 @@
   "sourceSongs": [
    {
     "artist": "Justin Timberlake",
-    "title": "Mirrors"
+    "title": "Mirrors",
+    "bpm": 152,
+    "key": "Fm"
    },
    {
     "artist": "Rihanna",
-    "title": "You Da One"
+    "title": "You Da One",
+    "bpm": 127,
+    "key": "D♯"
    }
   ],
   "displayTitle": "Ya Da Mirror",
@@ -10934,7 +11326,9 @@
    "needsMetadata": false,
    "file": "Ya Da Mirror.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 152,
+  "key": "D#"
  },
  {
   "id": "mashups-2013-yeah-just-lose-it",
@@ -10942,11 +11336,15 @@
   "sourceSongs": [
    {
     "artist": "Eminem",
-    "title": "Just Lose It"
+    "title": "Just Lose It",
+    "bpm": 120,
+    "key": "Fm"
    },
    {
     "artist": "Usher",
-    "title": "Yeah"
+    "title": "Yeah",
+    "bpm": 105,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Yeah Just Lose It",
@@ -10970,7 +11368,9 @@
    "needsMetadata": false,
    "file": "Yeah Just Lose It.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 81,
+  "key": "Gm"
  },
  {
   "id": "mashups-2013-you-make-me-feel-r-i-p",
@@ -10982,7 +11382,9 @@
    },
    {
     "artist": "3OH!3",
-    "title": "R.I.P."
+    "title": "R.I.P.",
+    "bpm": 130,
+    "key": "A♯"
    }
   ],
   "displayTitle": "You Make Me Feel R.I.P",
@@ -11002,7 +11404,9 @@
    "needsMetadata": false,
    "file": "You Make Me Feel R.I.P.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "D#"
  },
  {
   "id": "mashups-2013-youre-gonna-love-where-i-wanna-go",
@@ -11010,11 +11414,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "I Wanna Go"
+    "title": "I Wanna Go",
+    "bpm": 130,
+    "key": "F"
    },
    {
     "artist": "3OH!3",
-    "title": "You're Gonna Love This"
+    "title": "You're Gonna Love This",
+    "bpm": 130,
+    "key": "C"
    }
   ],
   "displayTitle": "You're Gonna Love Where I Wanna Go",
@@ -11034,7 +11442,9 @@
    "needsMetadata": false,
    "file": "You're Gonna Love Where I Wanna Go.mp3",
    "folder": "Mashups 2013"
-  }
+  },
+  "tempo": 129,
+  "key": "Am"
  },
  {
   "id": "mashups-2014-happyselfie",
@@ -11046,7 +11456,9 @@
    },
    {
     "artist": "Pharrell",
-    "title": "Happy"
+    "title": "Happy",
+    "bpm": 160,
+    "key": "Fm"
    }
   ],
   "displayTitle": "#HappySelfie",
@@ -11066,7 +11478,9 @@
    "needsMetadata": false,
    "file": "#HappySelfie.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "F"
  },
  {
   "id": "mashups-2014-workselfiebitch",
@@ -11078,7 +11492,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    }
   ],
   "displayTitle": "#WorkSelfieBitch",
@@ -11098,7 +11514,9 @@
    "needsMetadata": false,
    "file": "#WorkSelfieBitch.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "F"
  },
  {
   "id": "mashups-2014-a-sky-full-of-summer",
@@ -11110,7 +11528,9 @@
    },
    {
     "artist": "Calvin Harris",
-    "title": "Summer"
+    "title": "Summer",
+    "bpm": 129,
+    "key": "Em"
    }
   ],
   "displayTitle": "A Sky Full of Summer",
@@ -11130,7 +11550,9 @@
    "needsMetadata": false,
    "file": "A Sky Full of Summer.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "mashups-2014-a-year-without-adoring-you",
@@ -11138,11 +11560,15 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "A Year Without Rain"
+    "title": "A Year Without Rain",
+    "bpm": 117,
+    "key": "Dm"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Adore You"
+    "title": "Adore You",
+    "bpm": 117,
+    "key": "C"
    }
   ],
   "displayTitle": "A Year Without Adoring You",
@@ -11162,7 +11588,9 @@
    "needsMetadata": false,
    "file": "A Year Without Adoring You.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2014-adore-your-alien",
@@ -11170,11 +11598,15 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "Adore You"
+    "title": "Adore You",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "artist": "Britney Spears",
-    "title": "Alien"
+    "title": "Alien",
+    "bpm": 111,
+    "key": "C"
    }
   ],
   "displayTitle": "Adore Your Alien",
@@ -11194,7 +11626,9 @@
    "needsMetadata": false,
    "file": "Adore Your Alien.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2014-aliens-sound",
@@ -11202,7 +11636,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Alien"
+    "title": "Alien",
+    "bpm": 111,
+    "key": "C"
    },
    {
     "artist": "Capital Cities",
@@ -11226,7 +11662,9 @@
    "needsMetadata": false,
    "file": "Aliens & Sound.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 112,
+  "key": "G"
  },
  {
   "id": "mashups-2014-all-about-shaking-it-off",
@@ -11238,7 +11676,9 @@
    },
    {
     "artist": "Taylor Swift",
-    "title": "Shake It Off"
+    "title": "Shake It Off",
+    "bpm": 162,
+    "key": "G"
    }
   ],
   "displayTitle": "All About Shaking It Off",
@@ -11258,7 +11698,9 @@
    "needsMetadata": false,
    "file": "All About Shaking It Off.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "Em"
  },
  {
   "id": "mashups-2014-am-i-wrong-broken-hearted",
@@ -11266,7 +11708,9 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Karmin",
@@ -11290,7 +11734,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong Broken Hearted.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-counting-stars",
@@ -11298,11 +11744,15 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "OneRepublic",
-    "title": "Counting Stars"
+    "title": "Counting Stars",
+    "bpm": 123,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Am I Wrong Counting Stars",
@@ -11322,7 +11772,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong Counting Stars.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-daylight",
@@ -11330,11 +11782,15 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Maroon 5",
-    "title": "Daylight"
+    "title": "Daylight",
+    "bpm": 120,
+    "key": "D"
    }
   ],
   "displayTitle": "Am I Wrong Daylight",
@@ -11354,7 +11810,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong Daylight.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-mega-mashup",
@@ -11362,23 +11820,33 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Britney Spears",
-    "title": "Till the World Ends"
+    "title": "Till the World Ends",
+    "bpm": 131,
+    "key": "G♯"
    },
    {
     "artist": "Maroon 5",
-    "title": "Daylight"
+    "title": "Daylight",
+    "bpm": 120,
+    "key": "D"
    },
    {
     "artist": "One Direction",
-    "title": "Story of My Life"
+    "title": "Story of My Life",
+    "bpm": 123,
+    "key": "D♯"
    },
    {
     "artist": "OneRepublic",
-    "title": "Counting Stars"
+    "title": "Counting Stars",
+    "bpm": 123,
+    "key": "C♯m"
    },
    {
     "artist": "Karmin",
@@ -11386,7 +11854,9 @@
    },
    {
     "artist": "Rihanna",
-    "title": "You Da One"
+    "title": "You Da One",
+    "bpm": 127,
+    "key": "D♯"
    },
    {
     "artist": "Kesha",
@@ -11414,7 +11884,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Qfgc3ccrB4g"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-till-the-world-ends",
@@ -11422,11 +11894,15 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Britney Spears",
-    "title": "Till the World Ends"
+    "title": "Till the World Ends",
+    "bpm": 131,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Am I Wrong Till the World Ends",
@@ -11446,7 +11922,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong Till the World Ends.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 81,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-who-we-r",
@@ -11454,7 +11932,9 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Kesha",
@@ -11478,7 +11958,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong Who We R.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-you-da-one",
@@ -11486,11 +11968,15 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Rihanna",
-    "title": "You Da One"
+    "title": "You Da One",
+    "bpm": 127,
+    "key": "D♯"
    }
   ],
   "displayTitle": "Am I Wrong You Da One",
@@ -11510,7 +11996,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong You Da One.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-am-i-wrong-story-of-my-life",
@@ -11518,11 +12006,15 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "One Direction",
-    "title": "Story of My Life"
+    "title": "Story of My Life",
+    "bpm": 123,
+    "key": "D♯"
    }
   ],
   "displayTitle": "Am I Wrong...Story of My Life",
@@ -11542,7 +12034,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong...Story of My Life.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-animal-sledgehammer",
@@ -11550,11 +12044,15 @@
   "sourceSongs": [
    {
     "artist": "Fifth Harmony",
-    "title": "Sledgehammer"
+    "title": "Sledgehammer",
+    "bpm": 99,
+    "key": "D"
    },
    {
     "artist": "Maroon 5",
-    "title": "Animals"
+    "title": "Animals",
+    "bpm": 96,
+    "key": "Em"
    }
   ],
   "displayTitle": "Animal Sledgehammer",
@@ -11574,7 +12072,9 @@
    "needsMetadata": false,
    "file": "Animal Sledgehammer.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "Em"
  },
  {
   "id": "mashups-2014-as-long-as-you-love-bang-bang",
@@ -11582,7 +12082,9 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "As Long As You Love Me"
+    "title": "As Long As You Love Me",
+    "bpm": 139,
+    "key": "Cm"
    },
    {
     "artist": "Jessie J; Ariana Grande; Nicki Minaj",
@@ -11610,7 +12112,9 @@
    "needsMetadata": false,
    "file": "As Long As You Love Bang Bang.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-bang-bang-toxic",
@@ -11622,7 +12126,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Toxic"
+    "title": "Toxic",
+    "bpm": 144,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Bang Bang Toxic",
@@ -11642,7 +12148,9 @@
    "needsMetadata": false,
    "file": "Bang Bang Toxic.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 152,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-beg-for-it-minimix",
@@ -11658,7 +12166,9 @@
    },
    {
     "artist": "Justin Timberlake",
-    "title": "Senorita"
+    "title": "Senorita",
+    "bpm": 194,
+    "key": "C♯"
    },
    {
     "artist": "Eminem",
@@ -11682,7 +12192,9 @@
    "needsMetadata": false,
    "file": "Beg For It Minimix.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 92,
+  "key": "A#"
  },
  {
   "id": "mashups-2014-billie-jean-la-la-la",
@@ -11690,7 +12202,9 @@
   "sourceSongs": [
    {
     "artist": "Michael Jackson",
-    "title": "Billie Jean"
+    "title": "Billie Jean",
+    "bpm": 116,
+    "key": "F♯m"
    },
    {
     "artist": "Naughty Boy; Sam Smith",
@@ -11714,7 +12228,9 @@
    "needsMetadata": false,
    "file": "Billie Jean La La La.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "F#m"
  },
  {
   "id": "mashups-2014-black-widow-birthday-cake",
@@ -11746,7 +12262,9 @@
    "needsMetadata": false,
    "file": "Black Widow Birthday Cake.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "Dm"
  },
  {
   "id": "mashups-2014-boom-boom-bounce",
@@ -11754,11 +12272,15 @@
   "sourceSongs": [
    {
     "artist": "Black Eyed Peas",
-    "title": "Boom Boom Pow"
+    "title": "Boom Boom Pow",
+    "bpm": 130,
+    "key": "Am"
    },
    {
     "artist": "Iggy Azalea",
-    "title": "Bounce"
+    "title": "Bounce",
+    "bpm": 210,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Boom Boom Bounce",
@@ -11778,7 +12300,9 @@
    "needsMetadata": false,
    "file": "Boom Boom Bounce.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 123,
+  "key": "Am"
  },
  {
   "id": "mashups-2014-brave-mega-mashup",
@@ -11786,7 +12310,9 @@
   "sourceSongs": [
    {
     "artist": "Sara Bareilles",
-    "title": "Brave"
+    "title": "Brave",
+    "bpm": 92,
+    "key": "Gm"
    },
    {
     "artist": "will.i.am; Miley Cyrus",
@@ -11802,15 +12328,21 @@
    },
    {
     "artist": "Drake",
-    "title": "Started From the Bottom"
+    "title": "Started From the Bottom",
+    "bpm": 86,
+    "key": "G♯"
    },
    {
     "artist": "Katy Perry",
-    "title": "Roar"
+    "title": "Roar",
+    "bpm": 88,
+    "key": "A♯"
    },
    {
     "artist": "Jennifer Lopez",
-    "title": "Jenny From The Block"
+    "title": "Jenny From The Block",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "A Great Big World; Christina Aguilera",
@@ -11838,7 +12370,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "pXTnZRslvwA"
-  }
+  },
+  "tempo": 96,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-break-neon-lights-free",
@@ -11846,7 +12380,9 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "artist": "Ariana Grande; Zedd",
@@ -11874,7 +12410,9 @@
    "needsMetadata": false,
    "file": "Break Neon Lights Free.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "mashups-2014-bringmethenewyear-2014",
@@ -11886,7 +12424,9 @@
    },
    {
     "artist": "Taylor Swift",
-    "title": "Shake It Off"
+    "title": "Shake It Off",
+    "bpm": 162,
+    "key": "G"
    },
    {
     "artist": "Idina Menzel",
@@ -11894,7 +12434,9 @@
    },
    {
     "artist": "Calvin Harris",
-    "title": "Summer"
+    "title": "Summer",
+    "bpm": 129,
+    "key": "Em"
    },
    {
     "artist": "Jessie J; Ariana Grande; Nicki Minaj",
@@ -11902,7 +12444,9 @@
    },
    {
     "artist": "Pharrell",
-    "title": "Happy"
+    "title": "Happy",
+    "bpm": 160,
+    "key": "Fm"
    },
    {
     "artist": "Fergie",
@@ -11914,11 +12458,15 @@
    },
    {
     "artist": "Beyonce",
-    "title": "Drunk In Love"
+    "title": "Drunk In Love",
+    "bpm": 140,
+    "key": "Fm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "artist": "Cash Cash; Bebe Rexha",
@@ -11926,7 +12474,9 @@
    },
    {
     "artist": "Coldplay",
-    "title": "A Sky Full of Stars"
+    "title": "A Sky Full of Stars",
+    "bpm": 123,
+    "key": "F♯"
    },
    {
     "artist": "Demi Lovato; Cher Lloyd",
@@ -11934,7 +12484,9 @@
    },
    {
     "artist": "Maroon 5",
-    "title": "Animals"
+    "title": "Animals",
+    "bpm": 96,
+    "key": "Em"
    },
    {
     "artist": "Meghan Trainor",
@@ -11942,7 +12494,9 @@
    },
    {
     "artist": "Meghan Trainor",
-    "title": "All About That Bass"
+    "title": "All About That Bass",
+    "bpm": 134,
+    "key": "A"
    },
    {
     "artist": "Iggy Azalea; MO",
@@ -11958,31 +12512,45 @@
    },
    {
     "artist": "Lorde",
-    "title": "Team"
+    "title": "Team",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Bastille",
-    "title": "Pompeii"
+    "title": "Pompeii",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "artist": "John Legend",
-    "title": "All of Me"
+    "title": "All of Me",
+    "bpm": 118,
+    "key": "G♯"
    },
    {
     "artist": "Chris Brown",
-    "title": "Loyal"
+    "title": "Loyal",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "5 Seconds of Summer",
-    "title": "She Looks So Perfect"
+    "title": "She Looks So Perfect",
+    "bpm": 161,
+    "key": "C♯m"
    },
    {
     "artist": "Nicki Minaj",
-    "title": "Anaconda"
+    "title": "Anaconda",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "artist": "MAGIC!",
-    "title": "Rude"
+    "title": "Rude",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "artist": "Shakira; Rihanna",
@@ -11990,19 +12558,27 @@
    },
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "Charli xcx",
-    "title": "Boom Clap"
+    "title": "Boom Clap",
+    "bpm": 91,
+    "key": "E"
    },
    {
     "artist": "Paramore",
-    "title": "Ain't It Fun"
+    "title": "Ain't It Fun",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "Demons"
+    "title": "Demons",
+    "bpm": 88,
+    "key": "D♯"
    },
    {
     "artist": "Iggy Azalea; Charli xcx",
@@ -12010,19 +12586,27 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Bo$$"
+    "title": "Bo$$",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "artist": "Aloe Blacc",
-    "title": "The Man"
+    "title": "The Man",
+    "bpm": 86,
+    "key": "Bm"
    },
    {
     "artist": "Maroon 5",
-    "title": "Maps"
+    "title": "Maps",
+    "bpm": 120,
+    "key": "C♯m"
    },
    {
     "artist": "Sia",
-    "title": "Chandelier"
+    "title": "Chandelier",
+    "bpm": 122,
+    "key": "F"
    },
    {
     "artist": "Ariana Grande; The Weeknd",
@@ -12030,27 +12614,39 @@
    },
    {
     "artist": "One Direction",
-    "title": "Live While We're Young"
+    "title": "Live While We're Young",
+    "bpm": 129,
+    "key": "F♯m"
    },
    {
     "artist": "Rixton",
-    "title": "Me and My Broken Heart"
+    "title": "Me and My Broken Heart",
+    "bpm": 172,
+    "key": "Cm"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Break Free"
+    "title": "Break Free",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "artist": "Katy Perry",
-    "title": "This is How We Do"
+    "title": "This is How We Do",
+    "bpm": 96,
+    "key": "Am"
    },
    {
     "artist": "Jason Derulo",
-    "title": "Trumpets"
+    "title": "Trumpets",
+    "bpm": 82,
+    "key": "C"
    },
    {
     "artist": "Jason Derulo",
-    "title": "Talk Dirty"
+    "title": "Talk Dirty",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Jason Derulo; Snoop Dogg",
@@ -12058,7 +12654,9 @@
    },
    {
     "artist": "Taylor Swift",
-    "title": "Blank Space"
+    "title": "Blank Space",
+    "bpm": 96,
+    "key": "F"
    },
    {
     "artist": "DJ Snake; Lil' Jon",
@@ -12066,11 +12664,15 @@
    },
    {
     "artist": "Tove Lo",
-    "title": "Habits (Stay High)"
+    "title": "Habits (Stay High)",
+    "bpm": 108,
+    "key": "F"
    },
    {
     "artist": "Jess Glynne",
-    "title": "Rather Be"
+    "title": "Rather Be",
+    "bpm": 120,
+    "key": "B"
    },
    {
     "artist": "Selena Gomez",
@@ -12082,7 +12684,9 @@
    },
    {
     "artist": "Avicii",
-    "title": "Hey Brother"
+    "title": "Hey Brother",
+    "bpm": 123,
+    "key": "Gm"
    },
    {
     "artist": "The Chainsmokers",
@@ -12090,7 +12694,9 @@
    },
    {
     "artist": "One Direction",
-    "title": "Steal My Girl"
+    "title": "Steal My Girl",
+    "bpm": 77,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "BRINGMETHENEWYEAR 2014",
@@ -12115,7 +12721,9 @@
    "file": "BRINGMETHENEWYEAR 2014.mp3",
    "folder": "Mashups 2014"
   },
-  "specialAlbum": "Year Ends"
+  "specialAlbum": "Year Ends",
+  "tempo": 161,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-bringmethesummer-2014",
@@ -12123,7 +12731,9 @@
   "sourceSongs": [
    {
     "title": "Summer",
-    "artist": "Calvin Harris"
+    "artist": "Calvin Harris",
+    "bpm": 129,
+    "key": "Em"
    },
    {
     "title": "Take Me Home",
@@ -12131,27 +12741,39 @@
    },
    {
     "title": "Neon Lights",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "title": "Pompeii",
-    "artist": "Bastille"
+    "artist": "Bastille",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "title": "Happy",
-    "artist": "Pharrell Williams"
+    "artist": "Pharrell Williams",
+    "bpm": 160,
+    "key": "Fm"
    },
    {
     "title": "Drunk in Love",
-    "artist": "Beyoncé"
+    "artist": "Beyoncé",
+    "bpm": 140,
+    "key": "Fm"
    },
    {
     "title": "This is How We Roll",
-    "artist": "Florida Georgia Line"
+    "artist": "Florida Georgia Line",
+    "bpm": 129,
+    "key": "G♯"
    },
    {
     "title": "A Sky Full of Stars",
-    "artist": "Coldplay"
+    "artist": "Coldplay",
+    "bpm": 123,
+    "key": "F♯"
    },
    {
     "title": "Talk Dirty",
@@ -12179,7 +12801,9 @@
    },
    {
     "title": "Team",
-    "artist": "Lorde"
+    "artist": "Lorde",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "title": "Let It Go",
@@ -12187,11 +12811,15 @@
    },
    {
     "title": "All of Me",
-    "artist": "John Legend"
+    "artist": "John Legend",
+    "bpm": 118,
+    "key": "G♯"
    },
    {
     "title": "Loyal",
-    "artist": "Chris Brown"
+    "artist": "Chris Brown",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "title": "Fancy",
@@ -12203,15 +12831,21 @@
    },
    {
     "title": "Birthday",
-    "artist": "Katy Perry"
+    "artist": "Katy Perry",
+    "bpm": 125,
+    "key": "B"
    },
    {
     "title": "Stay With Me",
-    "artist": "Sam Smith"
+    "artist": "Sam Smith",
+    "bpm": 86,
+    "key": "C"
    },
    {
     "title": "Rude",
-    "artist": "MAGIC!"
+    "artist": "MAGIC!",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "title": "Dark Horse",
@@ -12219,7 +12853,9 @@
    },
    {
     "title": "Chandelier",
-    "artist": "Sia"
+    "artist": "Sia",
+    "bpm": 122,
+    "key": "F"
    },
    {
     "title": "Wiggle",
@@ -12227,27 +12863,39 @@
    },
    {
     "title": "Boom Clap",
-    "artist": "Charli XCX"
+    "artist": "Charli XCX",
+    "bpm": 91,
+    "key": "E"
    },
    {
     "title": "Am I Wrong",
-    "artist": "Nico & Vinz"
+    "artist": "Nico & Vinz",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "title": "Me and My Broken Heart",
-    "artist": "Rixton"
+    "artist": "Rixton",
+    "bpm": 172,
+    "key": "Cm"
    },
    {
     "title": "Ain't It Fun",
-    "artist": "Paramore"
+    "artist": "Paramore",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "title": "She Looks So Perfect",
-    "artist": "5 Seconds of Summer"
+    "artist": "5 Seconds of Summer",
+    "bpm": 161,
+    "key": "C♯m"
    },
    {
     "title": "The Man",
-    "artist": "Aloe Blacc"
+    "artist": "Aloe Blacc",
+    "bpm": 86,
+    "key": "Bm"
    },
    {
     "title": "The Best Day of My Life",
@@ -12279,7 +12927,9 @@
    "needsMetadata": false,
    "file": "BringMeTheSummer 2014.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-cmon-maps",
@@ -12287,11 +12937,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "C'mon"
+    "title": "C'mon",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "artist": "Maroon 5",
-    "title": "Maps"
+    "title": "Maps",
+    "bpm": 120,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "C'mon Maps",
@@ -12311,7 +12965,9 @@
    "needsMetadata": false,
    "file": "C'mon Maps.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-cant-remember-to-bang-bang",
@@ -12343,7 +12999,9 @@
    "needsMetadata": false,
    "file": "Can't Remember to Bang Bang.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-cant-remember-to-forget-your-dark-horse",
@@ -12375,7 +13033,9 @@
    "needsMetadata": false,
    "file": "Can't Remember to Forget Your Dark Horse.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 136,
+  "key": "G#"
  },
  {
   "id": "mashups-2014-club-cant-handle-timber",
@@ -12387,7 +13047,9 @@
    },
    {
     "artist": "Flo Rida",
-    "title": "Club Can't Handle Me"
+    "title": "Club Can't Handle Me",
+    "bpm": 127,
+    "key": "C"
    }
   ],
   "displayTitle": "Club Can't Handle Timber",
@@ -12407,7 +13069,9 @@
    "needsMetadata": false,
    "file": "Club Can't Handle Timber.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "C"
  },
  {
   "id": "mashups-2014-come-get-problems-version-2",
@@ -12415,7 +13079,9 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Come & Get It"
+    "title": "Come & Get It",
+    "bpm": 80,
+    "key": "Gm"
    },
    {
     "artist": "Ariana Grande; Iggy Azalea",
@@ -12439,7 +13105,9 @@
    "needsMetadata": false,
    "file": "Come & Get Problems (Version 2).mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 92,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-come-and-get-it-in-the-end",
@@ -12447,7 +13115,9 @@
   "sourceSongs": [
    {
     "artist": "Linkin Park",
-    "title": "In the End"
+    "title": "In the End",
+    "bpm": 102,
+    "key": "D♯m"
    },
    {
     "artist": "Pharrell; Miley Cyrus",
@@ -12471,7 +13141,9 @@
    "needsMetadata": false,
    "file": "Come and Get It in the End.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "G"
  },
  {
   "id": "mashups-2014-come-and-get-problems",
@@ -12483,7 +13155,9 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Come & Get It"
+    "title": "Come & Get It",
+    "bpm": 80,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Come and Get Problems",
@@ -12503,7 +13177,9 @@
    "needsMetadata": false,
    "file": "Come and Get Problems.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-dark-sexyback-horse",
@@ -12515,7 +13191,9 @@
    },
    {
     "artist": "Justin Timberlake",
-    "title": "SexyBack"
+    "title": "SexyBack",
+    "bpm": 117,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Dark SexyBack Horse",
@@ -12535,7 +13213,9 @@
    "needsMetadata": false,
    "file": "Dark SexyBack Horse.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "A#m"
  },
  {
   "id": "mashups-2014-dont-worry-about-white-royal-walls",
@@ -12547,11 +13227,15 @@
    },
    {
     "artist": "Lorde",
-    "title": "Royals"
+    "title": "Royals",
+    "bpm": 86,
+    "key": "G"
    },
    {
     "artist": "Swedish House Mafia",
-    "title": "Don't You Worry Child"
+    "title": "Don't You Worry Child",
+    "bpm": 129,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Don't Worry About White Royal Walls",
@@ -12571,7 +13255,9 @@
    "needsMetadata": false,
    "file": "Don't Worry About White Royal Walls.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "D"
  },
  {
   "id": "mashups-2014-drunk-in-the-way",
@@ -12579,11 +13265,15 @@
   "sourceSongs": [
    {
     "artist": "Ariana Grande",
-    "title": "The Way"
+    "title": "The Way",
+    "bpm": 82,
+    "key": "Fm"
    },
    {
     "artist": "Beyonce",
-    "title": "Drunk in Love"
+    "title": "Drunk in Love",
+    "bpm": 140,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Drunk In The Way",
@@ -12603,7 +13293,9 @@
    "needsMetadata": false,
    "file": "Drunk In The Way.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 112,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-fancy-bo",
@@ -12611,7 +13303,9 @@
   "sourceSongs": [
    {
     "artist": "Fifth Harmony",
-    "title": "Bo$$"
+    "title": "Bo$$",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "artist": "Iggy Azalea; Charli XCX",
@@ -12639,7 +13333,9 @@
    "needsMetadata": false,
    "file": "Fancy Bo$$.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-fancy-problem-single-version",
@@ -12671,7 +13367,9 @@
    "needsMetadata": false,
    "file": "Fancy Problem (Single Version).mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "Bm"
  },
  {
   "id": "mashups-2014-fancy-starships",
@@ -12679,7 +13377,9 @@
   "sourceSongs": [
    {
     "title": "Starships",
-    "artist": "Nicki Minaj"
+    "artist": "Nicki Minaj",
+    "bpm": 123,
+    "key": "D"
    },
    {
     "title": "Fancy",
@@ -12707,7 +13407,9 @@
    "needsMetadata": false,
    "file": "Fancy Starships.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 108,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-feelin-my-fancy",
@@ -12739,7 +13441,9 @@
    "needsMetadata": false,
    "file": "Feelin' My Fancy.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-gangsta-sexy-problems",
@@ -12747,7 +13451,9 @@
   "sourceSongs": [
    {
     "artist": "Hollywood Undead",
-    "title": "Gangsta Sexy"
+    "title": "Gangsta Sexy",
+    "bpm": 100,
+    "key": "G"
    },
    {
     "artist": "Ariana Grande; Iggy Azalea",
@@ -12775,7 +13481,9 @@
    "needsMetadata": false,
    "file": "Gangsta Sexy Problems.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-happy-3",
@@ -12783,7 +13491,9 @@
   "sourceSongs": [
    {
     "artist": "Pharrell",
-    "title": "Happy"
+    "title": "Happy",
+    "bpm": 160,
+    "key": "Fm"
    },
    {
     "artist": "Britney Spears",
@@ -12807,7 +13517,9 @@
    "needsMetadata": false,
    "file": "Happy 3.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-hello-with-love-kitty",
@@ -12815,11 +13527,15 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "Hello Kitty"
+    "title": "Hello Kitty",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Hilary Duff",
-    "title": "With Love"
+    "title": "With Love",
+    "bpm": 121,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Hello With Love Kitty",
@@ -12839,7 +13555,9 @@
    "needsMetadata": false,
    "file": "Hello With Love Kitty.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-heres-to-never-growing-21",
@@ -12847,11 +13565,15 @@
   "sourceSongs": [
    {
     "artist": "Green Day",
-    "title": "21 Guns"
+    "title": "21 Guns",
+    "bpm": 80,
+    "key": "F"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Here's to Never Growing Up"
+    "title": "Here's to Never Growing Up",
+    "bpm": 83,
+    "key": "C"
    }
   ],
   "displayTitle": "Here's To Never Growing 21",
@@ -12871,7 +13593,9 @@
    "needsMetadata": false,
    "file": "Here's To Never Growing 21.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 81,
+  "key": "F"
  },
  {
   "id": "mashups-2014-hey-brother-collab-with-djpyromania",
@@ -12879,23 +13603,33 @@
   "sourceSongs": [
    {
     "artist": "Avicii",
-    "title": "Hey Brother"
+    "title": "Hey Brother",
+    "bpm": 123,
+    "key": "Gm"
    },
    {
     "artist": "Linkin Park",
-    "title": "What I've Done"
+    "title": "What I've Done",
+    "bpm": 116,
+    "key": "Gm"
    },
    {
     "artist": "One Direction",
-    "title": "Little Things"
+    "title": "Little Things",
+    "bpm": 110,
+    "key": "G"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Adore You"
+    "title": "Adore You",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Venus"
+    "title": "Venus",
+    "bpm": 121,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Hey Brother Mashup Collab (with DjPyromania)",
@@ -12915,7 +13649,9 @@
    "needsMetadata": false,
    "file": "Hey Brother Collab (with DjPyromania).mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "mashups-2014-hit-my-heavy-crown-one-more-time",
@@ -12927,7 +13663,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "...Baby One More Time"
+    "title": "...Baby One More Time",
+    "bpm": 92,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Hit My Heavy Crown One More Time",
@@ -12947,7 +13685,9 @@
    "needsMetadata": false,
    "file": "Hit My Heavy Crown One More Time.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 172,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-hold-on-were-going-numb",
@@ -12955,11 +13695,15 @@
   "sourceSongs": [
    {
     "artist": "Linkin Park",
-    "title": "Numb"
+    "title": "Numb",
+    "bpm": 56,
+    "key": "F♯m"
    },
    {
     "artist": "Drake",
-    "title": "Hold On, We're Going Home"
+    "title": "Hold On, We're Going Home",
+    "bpm": 100,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Hold On, We're Going Numb",
@@ -12979,7 +13723,9 @@
    "needsMetadata": false,
    "file": "Hold On, We're Going Numb.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 112,
+  "key": "F#m"
  },
  {
   "id": "mashups-2014-i-dont-give-a-beg-for-it",
@@ -13011,7 +13757,9 @@
    "needsMetadata": false,
    "file": "I Don't Give A Beg For It.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 92,
+  "key": "D"
  },
  {
   "id": "mashups-2014-i-knew-you-were-a-dark-horse",
@@ -13019,7 +13767,9 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "I Knew You Were Trouble"
+    "title": "I Knew You Were Trouble",
+    "bpm": 152,
+    "key": "D♯m"
    },
    {
     "artist": "Katy Perry; Juicy J",
@@ -13043,7 +13793,9 @@
    "needsMetadata": false,
    "file": "I Knew You Were a Dark Horse.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "C#"
  },
  {
   "id": "mashups-2014-i-want-it-all-bitch",
@@ -13051,11 +13803,15 @@
   "sourceSongs": [
    {
     "artist": "Karmin",
-    "title": "I Want It All"
+    "title": "I Want It All",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    }
   ],
   "displayTitle": "I Want It All Bitch",
@@ -13075,7 +13831,9 @@
    "needsMetadata": false,
    "file": "I Want It All Bitch.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "F"
  },
  {
   "id": "mashups-2014-jenny-from-the-thrift-shop",
@@ -13083,7 +13841,9 @@
   "sourceSongs": [
    {
     "artist": "Jennifer Lopez",
-    "title": "Jenny From the Block"
+    "title": "Jenny From the Block",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Macklemore; Ryan Lewis",
@@ -13107,7 +13867,9 @@
    "needsMetadata": false,
    "file": "Jenny From the Thrift Shop.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-just-a-team",
@@ -13115,11 +13877,15 @@
   "sourceSongs": [
    {
     "artist": "Lorde",
-    "title": "Team"
+    "title": "Team",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Nelly",
-    "title": "Just a Dream"
+    "title": "Just a Dream",
+    "bpm": 89,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Just a Team",
@@ -13139,7 +13905,9 @@
    "needsMetadata": false,
    "file": "Just a Team.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "F#"
  },
  {
   "id": "mashups-2014-let-it-work",
@@ -13147,7 +13915,9 @@
   "sourceSongs": [
    {
     "artist": "Iggy Azalea",
-    "title": "Work"
+    "title": "Work",
+    "bpm": 140,
+    "key": "G"
    },
    {
     "artist": "Demi Lovato",
@@ -13175,7 +13945,9 @@
    "needsMetadata": false,
    "file": "Let It Work.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "G"
  },
  {
   "id": "mashups-2014-let-me-blow-your-fancy",
@@ -13207,7 +13979,9 @@
    "needsMetadata": false,
    "file": "Let Me Blow Your Fancy.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 89,
+  "key": "G#"
  },
  {
   "id": "mashups-2014-let-the-backstabber-go",
@@ -13215,7 +13989,9 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Backstabber"
+    "title": "Backstabber",
+    "bpm": 159,
+    "key": "G"
    },
    {
     "artist": "Demi Lovato",
@@ -13239,7 +14015,9 @@
    "needsMetadata": false,
    "file": "Let the Backstabber Go.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "C"
  },
  {
   "id": "mashups-2014-let-the-night-go",
@@ -13271,7 +14049,9 @@
    "needsMetadata": false,
    "file": "Let the Night Go.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "G#"
  },
  {
   "id": "mashups-2014-lets-get-the-best-day-of-my-life-started",
@@ -13279,7 +14059,9 @@
   "sourceSongs": [
    {
     "artist": "American Authors",
-    "title": "Best Day of My Life"
+    "title": "Best Day of My Life",
+    "bpm": 100,
+    "key": "G"
    },
    {
     "artist": "Black Eyed Peas",
@@ -13303,7 +14085,9 @@
    "needsMetadata": false,
    "file": "Let's Get the Best Day of My Life Started.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2014-love-my-grenade-harder",
@@ -13311,7 +14095,9 @@
   "sourceSongs": [
    {
     "artist": "Bruno Mars",
-    "title": "Grenade"
+    "title": "Grenade",
+    "bpm": 112,
+    "key": "Dm"
    },
    {
     "artist": "Ariana Grande; The Weeknd",
@@ -13339,7 +14125,9 @@
    "needsMetadata": false,
    "file": "Love My Grenade Harder.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "Dm"
  },
  {
   "id": "mashups-2014-love-songs-carry-on",
@@ -13347,11 +14135,15 @@
   "sourceSongs": [
    {
     "artist": "fun.",
-    "title": "Carry On"
+    "title": "Carry On",
+    "bpm": 72,
+    "key": "F"
    },
    {
     "artist": "Sara Bareilles",
-    "title": "Love Song"
+    "title": "Love Song",
+    "bpm": 123,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Love Songs Carry On",
@@ -13371,7 +14163,9 @@
    "needsMetadata": false,
    "file": "Love Songs Carry On.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 112,
+  "key": "F"
  },
  {
   "id": "mashups-2014-love-you-like-a-wrecking-ball-version-2",
@@ -13379,11 +14173,15 @@
   "sourceSongs": [
    {
     "artist": "Lorde",
-    "title": "Team"
+    "title": "Team",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Chris Brown",
-    "title": "Loyal"
+    "title": "Loyal",
+    "bpm": 99,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Love You Like a Wrecking Ball (Version 2)",
@@ -13403,7 +14201,9 @@
    "needsMetadata": false,
    "file": "Love You Like a Wrecking Ball (Version 2).mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-loyal-team",
@@ -13411,7 +14211,9 @@
   "sourceSongs": [
    {
     "title": "Team",
-    "artist": "Lorde"
+    "artist": "Lorde",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "title": "Loyal",
@@ -13439,7 +14241,9 @@
    "needsMetadata": false,
    "file": "Loyal Team.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "F#"
  },
  {
   "id": "mashups-2014-marry-the-days",
@@ -13447,7 +14251,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Marry the Night"
+    "title": "Marry the Night",
+    "bpm": 131,
+    "key": "C"
    },
    {
     "artist": "Avicii",
@@ -13471,7 +14277,9 @@
    "needsMetadata": false,
    "file": "Marry the Days.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "C"
  },
  {
   "id": "mashups-2014-may-mega-mashup",
@@ -13487,11 +14295,15 @@
    },
    {
     "artist": "Jason Derulo",
-    "title": "Talk Dirty"
+    "title": "Talk Dirty",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Lorde",
-    "title": "Team"
+    "title": "Team",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Iggy Azalea; Charli xcx",
@@ -13499,19 +14311,27 @@
    },
    {
     "artist": "Pharrell",
-    "title": "Happy"
+    "title": "Happy",
+    "bpm": 160,
+    "key": "Fm"
    },
    {
     "artist": "Bastille",
-    "title": "Pompeii"
+    "title": "Pompeii",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "artist": "Karmin",
-    "title": "I Want It All"
+    "title": "I Want It All",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "artist": "Cash Cash; Bebe Rexha",
@@ -13523,7 +14343,9 @@
    },
    {
     "artist": "Beyonce",
-    "title": "Drunk in Love"
+    "title": "Drunk in Love",
+    "bpm": 140,
+    "key": "Fm"
    },
    {
     "artist": "The Chainsmokers",
@@ -13531,7 +14353,9 @@
    },
    {
     "artist": "Avicii",
-    "title": "Hey Brother"
+    "title": "Hey Brother",
+    "bpm": 123,
+    "key": "Gm"
    }
   ],
   "displayTitle": "May 2014 Mega-Mashup",
@@ -13555,7 +14379,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Dr9deICLYRg"
-  }
+  },
+  "tempo": 129,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-most-girls-no-more",
@@ -13563,7 +14389,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "artist": "3LW",
@@ -13587,7 +14415,9 @@
    "needsMetadata": false,
    "file": "Most Girls No More.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "Dm"
  },
  {
   "id": "mashups-2014-most-girls-try-again-no-more",
@@ -13595,15 +14425,21 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "artist": "3LW",
-    "title": "No More (Baby I'ma Do Right)"
+    "title": "No More (Baby I'ma Do Right)",
+    "bpm": 88,
+    "key": "Dm"
    },
    {
     "artist": "Aaliyah",
-    "title": "Try Again"
+    "title": "Try Again",
+    "bpm": 93,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Most Girls Try Again No More",
@@ -13623,7 +14459,9 @@
    "needsMetadata": false,
    "file": "Most Girls Try Again No More.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "Dm"
  },
  {
   "id": "mashups-2014-my-and-my-l-o-v-e",
@@ -13631,7 +14469,9 @@
   "sourceSongs": [
    {
     "artist": "Rixton",
-    "title": "Me and My Broken Heart"
+    "title": "Me and My Broken Heart",
+    "bpm": 172,
+    "key": "Cm"
    },
    {
     "artist": "Ashlee Simpson; Missy Elliott",
@@ -13655,7 +14495,9 @@
    "needsMetadata": false,
    "file": "My and My L.O.V.E.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 89,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-my-dark-horse-town",
@@ -13663,7 +14505,9 @@
   "sourceSongs": [
    {
     "artist": "Hollywood Undead",
-    "title": "My Town"
+    "title": "My Town",
+    "bpm": 145,
+    "key": "C♯"
    },
    {
     "artist": "Katy Perry; Juicy J",
@@ -13687,7 +14531,9 @@
    "needsMetadata": false,
    "file": "My Dark Horse Town.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "A#m"
  },
  {
   "id": "mashups-2014-my-love-is-like-rude",
@@ -13699,7 +14545,9 @@
    },
    {
     "artist": "MAGIC!",
-    "title": "Rude"
+    "title": "Rude",
+    "bpm": 72,
+    "key": "C♯"
    }
   ],
   "displayTitle": "My Love is Like...Rude",
@@ -13719,7 +14567,9 @@
    "needsMetadata": false,
    "file": "My Love is Like...Rude.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 136,
+  "key": "F#m"
  },
  {
   "id": "mashups-2014-neon-lights-in-pompeii",
@@ -13727,11 +14577,15 @@
   "sourceSongs": [
    {
     "artist": "Bastille",
-    "title": "Pompeii"
+    "title": "Pompeii",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    }
   ],
   "displayTitle": "Neon Lights in Pompeii",
@@ -13751,7 +14605,9 @@
    "needsMetadata": false,
    "file": "Neon Lights in Pompeii.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "mashups-2014-no-diggity-mini-mix",
@@ -13759,7 +14615,9 @@
   "sourceSongs": [
    {
     "artist": "Blackstreet",
-    "title": "No Diggity"
+    "title": "No Diggity",
+    "bpm": 89,
+    "key": "C♯m"
    },
    {
     "artist": "Travie McCoy; Bruno Mars",
@@ -13771,7 +14629,9 @@
    },
    {
     "artist": "Jason Derulo",
-    "title": "Talk Dirty"
+    "title": "Talk Dirty",
+    "bpm": 100,
+    "key": "F♯"
    }
   ],
   "displayTitle": "No Diggity Mashup",
@@ -13791,7 +14651,9 @@
    "needsMetadata": false,
    "file": "No Diggity Mini-Mix.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "F#m"
  },
  {
   "id": "mashups-2014-no-mediocre-at-feelin-myself",
@@ -13823,7 +14685,9 @@
    "needsMetadata": false,
    "file": "No Mediocre at Feelin Myself.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-potential-shake-it-off-song",
@@ -13831,11 +14695,15 @@
   "sourceSongs": [
    {
     "artist": "Aly & AJ",
-    "title": "Potential Breakup Song"
+    "title": "Potential Breakup Song",
+    "bpm": 158,
+    "key": "F♯m"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Shake It Off"
+    "title": "Shake It Off",
+    "bpm": 162,
+    "key": "G"
    }
   ],
   "displayTitle": "Potential Shake It Off Song",
@@ -13855,7 +14723,9 @@
    "needsMetadata": false,
    "file": "Potential Shake It Off Song.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 78,
+  "key": "G#"
  },
  {
   "id": "mashups-2014-pour-it-out",
@@ -13863,11 +14733,15 @@
   "sourceSongs": [
    {
     "artist": "Jennifer Hudson",
-    "title": "Walk It Out"
+    "title": "Walk It Out",
+    "bpm": 137,
+    "key": "Gm"
    },
    {
     "artist": "Rihanna",
-    "title": "Pour It Up"
+    "title": "Pour It Up",
+    "bpm": 136,
+    "key": "D"
    }
   ],
   "displayTitle": "Pour It Out",
@@ -13887,7 +14761,9 @@
    "needsMetadata": false,
    "file": "Pour It Out.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 70,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-radar-latch",
@@ -13895,7 +14771,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Radar"
+    "title": "Radar",
+    "bpm": 127,
+    "key": "Em"
    },
    {
     "artist": "Disclosure; Sam Smith",
@@ -13919,7 +14797,9 @@
    "needsMetadata": false,
    "file": "Radar Latch.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-radioactive-wrecking-ball",
@@ -13927,11 +14807,15 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "Radioactive"
+    "title": "Radioactive",
+    "bpm": 68,
+    "key": "Bm"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Wrecking Ball"
+    "title": "Wrecking Ball",
+    "bpm": 117,
+    "key": "F"
    }
   ],
   "displayTitle": "Radioactive Wrecking Ball",
@@ -13951,7 +14835,9 @@
    "needsMetadata": false,
    "file": "Radioactive Wrecking Ball.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2014-really-dont-care-how-you-get-the-girl",
@@ -13959,11 +14845,15 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "How You Get the Girl"
+    "title": "How You Get the Girl",
+    "bpm": 117,
+    "key": "F"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Really Don't Care"
+    "title": "Really Don't Care",
+    "bpm": 121,
+    "key": "G"
    }
   ],
   "displayTitle": "Really Don't Care How You Get the Girl",
@@ -13983,7 +14873,9 @@
    "needsMetadata": false,
    "file": "Really Don't Care How You Get the Girl.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "G"
  },
  {
   "id": "mashups-2014-rude-black-widow",
@@ -13995,7 +14887,9 @@
    },
    {
     "artist": "Rihanna",
-    "title": "Rude Boy"
+    "title": "Rude Boy",
+    "bpm": 86,
+    "key": "B"
    }
   ],
   "displayTitle": "Rude Black Widow",
@@ -14015,7 +14909,9 @@
    "needsMetadata": false,
    "file": "Rude Black Widow.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "D#m"
  },
  {
   "id": "mashups-2014-rude-rehab",
@@ -14023,11 +14919,15 @@
   "sourceSongs": [
    {
     "artist": "MAGIC!",
-    "title": "Rude"
+    "title": "Rude",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "artist": "Amy Winehouse",
-    "title": "Rehab"
+    "title": "Rehab",
+    "bpm": 72,
+    "key": "C"
    }
   ],
   "displayTitle": "Rude Rehab",
@@ -14047,7 +14947,9 @@
    "needsMetadata": false,
    "file": "Rude Rehab.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "C#"
  },
  {
   "id": "mashups-2014-same-perfume",
@@ -14059,7 +14961,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Perfume"
+    "title": "Perfume",
+    "bpm": 79,
+    "key": "D♯"
    }
   ],
   "displayTitle": "Same Perfume",
@@ -14079,7 +14983,9 @@
    "needsMetadata": false,
    "file": "Same Perfume.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 81,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-she-looks-one-and-the-same",
@@ -14087,7 +14993,9 @@
   "sourceSongs": [
    {
     "artist": "5 Seconds of Summer",
-    "title": "She Looks So Perfect"
+    "title": "She Looks So Perfect",
+    "bpm": 161,
+    "key": "C♯m"
    },
    {
     "artist": "Selena Gomez; Demi Lovato",
@@ -14115,7 +15023,9 @@
    "needsMetadata": false,
    "file": "She Looks One and the Same.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "E"
  },
  {
   "id": "mashups-2014-she-looks-so-boom-clap",
@@ -14123,11 +15033,15 @@
   "sourceSongs": [
    {
     "artist": "5 Seconds of Summer",
-    "title": "She Looks So Perfect"
+    "title": "She Looks So Perfect",
+    "bpm": 161,
+    "key": "C♯m"
    },
    {
     "artist": "Charli xcx",
-    "title": "Boom Clap"
+    "title": "Boom Clap",
+    "bpm": 91,
+    "key": "E"
    }
   ],
   "displayTitle": "She Looks So Boom Clap",
@@ -14151,7 +15065,9 @@
    "needsMetadata": false,
    "file": "She Looks So Boom Clap.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 92,
+  "key": "E"
  },
  {
   "id": "mashups-2014-slow-down-g-u-y",
@@ -14159,11 +15075,15 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "G.U.Y."
+    "title": "G.U.Y.",
+    "bpm": 112,
+    "key": "Fm"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Slow Down"
+    "title": "Slow Down",
+    "bpm": 127,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Slow Down G.U.Y",
@@ -14183,7 +15103,9 @@
    "needsMetadata": false,
    "file": "Slow Down G.U.Y.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-stay-the-summer-we-found-home",
@@ -14191,7 +15113,9 @@
   "sourceSongs": [
    {
     "artist": "Calvin Harris",
-    "title": "Summer"
+    "title": "Summer",
+    "bpm": 129,
+    "key": "Em"
    },
    {
     "artist": "Rihanna; Calvin Harris",
@@ -14223,7 +15147,9 @@
    "needsMetadata": false,
    "file": "Stay the Summer, We Found Home.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "G"
  },
  {
   "id": "mashups-2014-steal-my-crazy-kids",
@@ -14231,11 +15157,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Crazy Kids"
+    "title": "Crazy Kids",
+    "bpm": 128,
+    "key": "Cm"
    },
    {
     "artist": "One Direction",
-    "title": "Steal My Girl"
+    "title": "Steal My Girl",
+    "bpm": 77,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Steal My Crazy Kids",
@@ -14255,7 +15185,9 @@
    "needsMetadata": false,
    "file": "Steal My Crazy Kids.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "mashups-2014-story-of-my-life-minimix",
@@ -14263,19 +15195,27 @@
   "sourceSongs": [
    {
     "artist": "One Direction",
-    "title": "Story of My Life"
+    "title": "Story of My Life",
+    "bpm": 123,
+    "key": "D♯"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Who Says"
+    "title": "Who Says",
+    "bpm": 99,
+    "key": "E"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "It's Time"
+    "title": "It's Time",
+    "bpm": 105,
+    "key": "D"
    },
    {
     "artist": "OneRepublic",
-    "title": "Counting Stars"
+    "title": "Counting Stars",
+    "bpm": 123,
+    "key": "C♯m"
    },
    {
     "artist": "Kesha",
@@ -14303,7 +15243,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "kPFWAXavOK8"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-story-of-who-we-r",
@@ -14311,7 +15253,9 @@
   "sourceSongs": [
    {
     "artist": "One Direction",
-    "title": "Story of My Life"
+    "title": "Story of My Life",
+    "bpm": 123,
+    "key": "D♯"
    },
    {
     "artist": "Kesha",
@@ -14335,7 +15279,9 @@
    "needsMetadata": false,
    "file": "Story of Who We R.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-talk-dirty-to-the-real-slim-shady",
@@ -14343,7 +15289,9 @@
   "sourceSongs": [
    {
     "title": "The Real Slim Shady",
-    "artist": "Eminem"
+    "artist": "Eminem",
+    "bpm": 103,
+    "key": "Cm"
    },
    {
     "title": "Talk Dirty",
@@ -14371,7 +15319,9 @@
    "needsMetadata": false,
    "file": "Talk Dirty to the Real Slim Shady.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "E"
  },
  {
   "id": "mashups-2014-team-habits-shut-up",
@@ -14379,15 +15329,21 @@
   "sourceSongs": [
    {
     "artist": "Tove Lo",
-    "title": "Habits (Stay High)"
+    "title": "Habits (Stay High)",
+    "bpm": 108,
+    "key": "F"
    },
    {
     "artist": "Black Eyed Peas",
-    "title": "Shut Up"
+    "title": "Shut Up",
+    "bpm": 112,
+    "key": "D"
    },
    {
     "artist": "Lorde",
-    "title": "Team"
+    "title": "Team",
+    "bpm": 100,
+    "key": "F♯"
    }
   ],
   "displayTitle": "Team Habits Shut Up",
@@ -14407,7 +15363,9 @@
    "needsMetadata": false,
    "file": "Team Habits Shut Up.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 108,
+  "key": "F"
  },
  {
   "id": "mashups-2014-the-fault-in-our-perfume",
@@ -14419,7 +15377,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Perfume"
+    "title": "Perfume",
+    "bpm": 79,
+    "key": "D♯"
    }
   ],
   "displayTitle": "The Fault In Our Perfume",
@@ -14439,7 +15399,9 @@
    "needsMetadata": false,
    "file": "The Fault In Our Perfume.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 81,
+  "key": "D#"
  },
  {
   "id": "mashups-2014-the-man-tattoo",
@@ -14447,11 +15409,15 @@
   "sourceSongs": [
    {
     "artist": "Jordin Sparks",
-    "title": "Tattoo"
+    "title": "Tattoo",
+    "bpm": 168,
+    "key": "D"
    },
    {
     "artist": "Aloe Blacc",
-    "title": "The Man"
+    "title": "The Man",
+    "bpm": 86,
+    "key": "Bm"
    }
   ],
   "displayTitle": "The Man Tattoo",
@@ -14471,7 +15437,9 @@
    "needsMetadata": false,
    "file": "The Man Tattoo.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 112,
+  "key": "D"
  },
  {
   "id": "mashups-2014-this-is-everywhere",
@@ -14479,7 +15447,9 @@
   "sourceSongs": [
    {
     "artist": "Michelle Branch",
-    "title": "Everywhere"
+    "title": "Everywhere",
+    "bpm": 96,
+    "key": "C♯"
    },
    {
     "artist": "Demi Lovato; Joe Jonas",
@@ -14503,7 +15473,9 @@
    "needsMetadata": false,
    "file": "This is Everywhere.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "G#"
  },
  {
   "id": "mashups-2014-this-is-how-dont",
@@ -14511,11 +15483,15 @@
   "sourceSongs": [
    {
     "artist": "Ed Sheeran",
-    "title": "Don't"
+    "title": "Don't",
+    "bpm": 103,
+    "key": "G"
    },
    {
     "artist": "Katy Perry",
-    "title": "This is How We Do"
+    "title": "This is How We Do",
+    "bpm": 96,
+    "key": "Am"
    }
   ],
   "displayTitle": "This Is How Don't",
@@ -14535,7 +15511,9 @@
    "needsMetadata": false,
    "file": "This Is How Don't.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-this-is-how-we-do-the-best-day-of-my-life",
@@ -14543,7 +15521,9 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "This Is How We Do"
+    "title": "This Is How We Do",
+    "bpm": 96,
+    "key": "Am"
    },
    {
     "artist": "American Authors",
@@ -14567,7 +15547,9 @@
    "needsMetadata": false,
    "file": "This is How We Do The Best Day of My Life.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "D"
  },
  {
   "id": "mashups-2014-this-is-how-we-trumpet",
@@ -14575,11 +15557,15 @@
   "sourceSongs": [
    {
     "artist": "Jason Derulo",
-    "title": "Trumpets"
+    "title": "Trumpets",
+    "bpm": 82,
+    "key": "C"
    },
    {
     "artist": "Katy Perry",
-    "title": "This Is How We Do"
+    "title": "This Is How We Do",
+    "bpm": 96,
+    "key": "Am"
    }
   ],
   "displayTitle": "This Is How We Trumpet",
@@ -14603,7 +15589,9 @@
    "needsMetadata": false,
    "file": "This Is How We Trumpet.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 89,
+  "key": "C"
  },
  {
   "id": "mashups-2014-this-sugar",
@@ -14611,11 +15599,15 @@
   "sourceSongs": [
    {
     "artist": "Maroon 5",
-    "title": "This Love"
+    "title": "This Love",
+    "bpm": 96,
+    "key": "Cm"
    },
    {
     "artist": "Karmin",
-    "title": "Sugar"
+    "title": "Sugar",
+    "bpm": 115,
+    "key": "A"
    }
   ],
   "displayTitle": "This Sugar",
@@ -14635,7 +15627,9 @@
    "needsMetadata": false,
    "file": "This Sugar.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 96,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-thnks-fr-my-twn",
@@ -14643,11 +15637,15 @@
   "sourceSongs": [
    {
     "artist": "Hollywood Undead",
-    "title": "My Town"
+    "title": "My Town",
+    "bpm": 145,
+    "key": "C♯"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "Thnks fr th Mmrs"
+    "title": "Thnks fr th Mmrs",
+    "bpm": 154,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Thnks fr my twn",
@@ -14667,7 +15665,9 @@
    "needsMetadata": false,
    "file": "Thnks fr my twn.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "C#"
  },
  {
   "id": "mashups-2014-thrift-shop-problems",
@@ -14703,7 +15703,9 @@
    "needsMetadata": false,
    "file": "Thrift Shop Problems.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-tik-et-boom",
@@ -14715,7 +15717,9 @@
    },
    {
     "artist": "Katy Perry",
-    "title": "E.T."
+    "title": "E.T.",
+    "bpm": 150,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Tik ET Boom",
@@ -14735,7 +15739,9 @@
    "needsMetadata": false,
    "file": "Tik ET Boom.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 144,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-try-amnesia",
@@ -14743,11 +15749,15 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Try"
+    "title": "Try",
+    "bpm": 166,
+    "key": "G"
    },
    {
     "artist": "5 Seconds of Summer",
-    "title": "Amnesia"
+    "title": "Amnesia",
+    "bpm": 101,
+    "key": "D"
    }
   ],
   "displayTitle": "Try Amnesia",
@@ -14767,7 +15777,9 @@
    "needsMetadata": false,
    "file": "Try Amnesia.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2014-try-most-girls-again",
@@ -14775,11 +15787,15 @@
   "sourceSongs": [
    {
     "artist": "Aaliyah",
-    "title": "Try Again"
+    "title": "Try Again",
+    "bpm": 93,
+    "key": "C♯m"
    },
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Try Most Girls Again",
@@ -14799,7 +15815,9 @@
    "needsMetadata": false,
    "file": "Try Most Girls Again.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 99,
+  "key": "D"
  },
  {
   "id": "mashups-2014-walk-booty-out",
@@ -14807,7 +15825,9 @@
   "sourceSongs": [
    {
     "artist": "Jennifer Hudson",
-    "title": "Walk It Out"
+    "title": "Walk It Out",
+    "bpm": 137,
+    "key": "Gm"
    },
    {
     "artist": "Jennifer Lopez; Iggy Azalea",
@@ -14831,7 +15851,9 @@
    "needsMetadata": false,
    "file": "Walk Booty Out.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 136,
+  "key": "Em"
  },
  {
   "id": "mashups-2014-we-cant-stop-whats-made-in-the-usa",
@@ -14839,11 +15861,15 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Made in the USA"
+    "title": "Made in the USA",
+    "bpm": 87,
+    "key": "G♯"
    }
   ],
   "displayTitle": "We Can't Stop Whats Made in the USA",
@@ -14863,7 +15889,9 @@
    "needsMetadata": false,
    "file": "We Can't Stop Whats Made in the USA.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 86,
+  "key": "Fm"
  },
  {
   "id": "mashups-2014-we-r-breakin-the-rules",
@@ -14875,7 +15903,9 @@
    },
    {
     "artist": "Charli xcx",
-    "title": "Break the Rules"
+    "title": "Break the Rules",
+    "bpm": 124,
+    "key": "Cm"
    }
   ],
   "displayTitle": "We R Breakin The Rules",
@@ -14895,7 +15925,9 @@
    "needsMetadata": false,
    "file": "We R Breakin The Rules.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 123,
+  "key": "Cm"
  },
  {
   "id": "mashups-2014-what-about-bye-bye-bye",
@@ -14903,11 +15935,15 @@
   "sourceSongs": [
    {
     "artist": "*NSYNC",
-    "title": "Bye Bye Bye"
+    "title": "Bye Bye Bye",
+    "bpm": 86,
+    "key": "G♯m"
    },
    {
     "artist": "Austin Mahone",
-    "title": "What About Love"
+    "title": "What About Love",
+    "bpm": 100,
+    "key": "D"
    }
   ],
   "displayTitle": "What About Bye Bye Bye",
@@ -14927,7 +15963,9 @@
    "needsMetadata": false,
    "file": "What About Bye Bye Bye.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 185,
+  "key": "G#m"
  },
  {
   "id": "mashups-2014-what-wiggles-around",
@@ -14959,7 +15997,9 @@
    "needsMetadata": false,
    "file": "What Wiggles Around....mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 161,
+  "key": "Am"
  },
  {
   "id": "mashups-2014-whatcha-think-about-that-mini-mix",
@@ -14967,7 +16007,9 @@
   "sourceSongs": [
    {
     "artist": "Pussycat Dolls",
-    "title": "Whatcha Think About That"
+    "title": "Whatcha Think About That",
+    "bpm": 120,
+    "key": "Am"
    },
    {
     "artist": "Gwen Stefani; Akon",
@@ -14975,11 +16017,15 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "If U Seek Amy"
+    "title": "If U Seek Amy",
+    "bpm": 129,
+    "key": "Em"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Can't Be Tamed"
+    "title": "Can't Be Tamed",
+    "bpm": 117,
+    "key": "G"
    }
   ],
   "displayTitle": "Whatcha Think About That Mashup",
@@ -15003,7 +16049,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "deaaA7yT4Kw"
-  }
+  },
+  "tempo": 117,
+  "key": "Am"
  },
  {
   "id": "mashups-2014-work-bitch-stripped",
@@ -15011,7 +16059,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    }
   ],
   "displayTitle": "Work Bitch (Stripped)",
@@ -15031,7 +16081,9 @@
    "needsMetadata": false,
    "file": "Work Bitch (Stripped).mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 129,
+  "key": "E"
  },
  {
   "id": "mashups-2014-wrecking-ball-love-song",
@@ -15039,11 +16091,15 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "Wrecking Ball"
+    "title": "Wrecking Ball",
+    "bpm": 117,
+    "key": "F"
    },
    {
     "artist": "Sara Bareilles",
-    "title": "Love Song"
+    "title": "Love Song",
+    "bpm": 123,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Wrecking Ball Love Song",
@@ -15063,7 +16119,9 @@
    "needsMetadata": false,
    "file": "Wrecking Ball Love Song.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "F"
  },
  {
   "id": "mashups-2014-wrecking-tiktok",
@@ -15071,11 +16129,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "TiK ToK"
+    "title": "TiK ToK",
+    "bpm": 234,
+    "key": "Dm"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Wrecking Ball"
+    "title": "Wrecking Ball",
+    "bpm": 117,
+    "key": "F"
    }
   ],
   "displayTitle": "Wrecking TikTok",
@@ -15095,7 +16157,9 @@
    "needsMetadata": false,
    "file": "Wrecking TikTok.mp3",
    "folder": "Mashups 2014"
-  }
+  },
+  "tempo": 117,
+  "key": "F"
  },
  {
   "id": "mashups-2015-3oh-3-vs-fall-out-boy-tchn-on-my-mmrs",
@@ -15107,7 +16171,9 @@
    },
    {
     "artist": "Fall Out Boy",
-    "title": "Thnks fr th Mmrs"
+    "title": "Thnks fr th Mmrs",
+    "bpm": 154,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Tchn On My Mmrs",
@@ -15127,7 +16193,9 @@
    "needsMetadata": false,
    "file": "3OH!3 vs. Fall Out Boy - Tchn On My Mmrs.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 83,
+  "key": "A#m"
  },
  {
   "id": "mashups-2015-3oh-3-vs-jessie-j-ariana-grande-nicki-minaj-i-can-do-bang-bang",
@@ -15135,7 +16203,9 @@
   "sourceSongs": [
    {
     "artist": "3OH!3",
-    "title": "I Can Do Anything"
+    "title": "I Can Do Anything",
+    "bpm": 169,
+    "key": "Fm"
    },
    {
     "artist": "Jessie J; Ariana Grande; Nicki Minaj",
@@ -15159,7 +16229,9 @@
    "needsMetadata": false,
    "file": "3OH!3 vs. Jessie J, Ariana Grande & Nicki Minaj - I Can Do Bang Bang.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-679-umbrellas",
@@ -15167,7 +16239,9 @@
   "sourceSongs": [
    {
     "artist": "Fetty Wap",
-    "title": "679"
+    "title": "679",
+    "bpm": 190,
+    "key": "G"
    },
    {
     "artist": "Rihanna; Jay-Z",
@@ -15191,7 +16265,9 @@
    "needsMetadata": false,
    "file": "679 Umbrellas.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 96,
+  "key": "D"
  },
  {
   "id": "mashups-2015-a-thousand-miles-ease",
@@ -15199,11 +16275,15 @@
   "sourceSongs": [
    {
     "artist": "Troye Sivan",
-    "title": "Ease"
+    "title": "Ease",
+    "bpm": 94,
+    "key": "C"
    },
    {
     "artist": "Vanessa Carlton",
-    "title": "A Thousand Miles"
+    "title": "A Thousand Miles",
+    "bpm": 96,
+    "key": "B"
    }
   ],
   "displayTitle": "A Thousand Miles Ease",
@@ -15223,7 +16303,9 @@
    "needsMetadata": false,
    "file": "A Thousand Miles Ease.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 96,
+  "key": "C"
  },
  {
   "id": "mashups-2015-all-american-rejects-vs-miley-cyrus-gives-you-7-things",
@@ -15235,7 +16317,9 @@
    },
    {
     "artist": "Miley Cyrus",
-    "title": "7 Things"
+    "title": "7 Things",
+    "bpm": 107,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Gives You 7 Things",
@@ -15255,7 +16339,9 @@
    "needsMetadata": false,
    "file": "All-American Rejects vs. Miley Cyrus - Gives You 7 Things.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 99,
+  "key": "E"
  },
  {
   "id": "mashups-2015-am-i-wrong-for-breaking-free",
@@ -15263,7 +16349,9 @@
   "sourceSongs": [
    {
     "artist": "Nico & Vinz",
-    "title": "Am I Wrong"
+    "title": "Am I Wrong",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "artist": "High School Musical",
@@ -15287,7 +16375,9 @@
    "needsMetadata": false,
    "file": "Am I Wrong for Breaking Free.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 81,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-ariana-grande-vs-andy-grammer-honey-im-good-one-last-time",
@@ -15295,11 +16385,15 @@
   "sourceSongs": [
    {
     "artist": "Ariana Grande",
-    "title": "One Last Time"
+    "title": "One Last Time",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "artist": "Andy Grammer",
-    "title": "Honey, I'm Good"
+    "title": "Honey, I'm Good",
+    "bpm": 123,
+    "key": "A"
    }
   ],
   "displayTitle": "Honey, I'm Good One Last Time",
@@ -15319,7 +16413,9 @@
    "needsMetadata": false,
    "file": "Ariana Grande vs. Andy Grammer - Honey, I'm Good One Last Time.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "A"
  },
  {
   "id": "mashups-2015-ariana-grande-vs-kesha-one-blind-time",
@@ -15327,11 +16423,15 @@
   "sourceSongs": [
    {
     "artist": "Ariana Grande",
-    "title": "One Last Time"
+    "title": "One Last Time",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "artist": "Kesha",
-    "title": "Blind"
+    "title": "Blind",
+    "bpm": 115,
+    "key": "Fm"
    }
   ],
   "displayTitle": "One Blind Time",
@@ -15351,7 +16451,9 @@
    "needsMetadata": false,
    "file": "Ariana Grande vs. Kesha - One Blind Time.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "mashups-2015-ariana-grande-vs-taylor-swift-i-knew-you-were-my-baby",
@@ -15359,11 +16461,15 @@
   "sourceSongs": [
    {
     "artist": "Ariana Grande",
-    "title": "My Baby"
+    "title": "My Baby",
+    "bpm": 144,
+    "key": "D♯m"
    },
    {
     "artist": "Taylor Swift",
-    "title": "I Knew You Were Trouble"
+    "title": "I Knew You Were Trouble",
+    "bpm": 152,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "I Knew You Were My Baby",
@@ -15383,7 +16489,9 @@
    "needsMetadata": false,
    "file": "Ariana Grande vs. Taylor Swift - I Knew You Were My Baby.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "G#m"
  },
  {
   "id": "mashups-2015-as-long-as-you-love-stars",
@@ -15391,11 +16499,15 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "As Long As You Love Me"
+    "title": "As Long As You Love Me",
+    "bpm": 139,
+    "key": "Cm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Stars"
+    "title": "Stars",
+    "bpm": 156,
+    "key": "Bm"
    }
   ],
   "displayTitle": "As Long As You Love Stars",
@@ -15415,7 +16527,9 @@
    "needsMetadata": false,
    "file": "As Long As You Love Stars.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 78,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-avril-lavigne-vs-taylor-swift-my-happy-style",
@@ -15423,11 +16537,15 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "My Happy Ending"
+    "title": "My Happy Ending",
+    "bpm": 172,
+    "key": "D"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Style"
+    "title": "Style",
+    "bpm": 96,
+    "key": "D"
    }
   ],
   "displayTitle": "My Happy Style",
@@ -15447,7 +16565,9 @@
    "needsMetadata": false,
    "file": "Avril Lavigne vs. Taylor Swift - My Happy Style.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 89,
+  "key": "D"
  },
  {
   "id": "mashups-2015-bite-here",
@@ -15455,11 +16575,15 @@
   "sourceSongs": [
    {
     "artist": "Troye Sivan",
-    "title": "BITE"
+    "title": "BITE",
+    "bpm": 125,
+    "key": "C♯m"
    },
    {
     "artist": "Alessia Cara",
-    "title": "Here"
+    "title": "Here",
+    "bpm": 62,
+    "key": "C"
    }
   ],
   "displayTitle": "BITE Here",
@@ -15479,7 +16603,9 @@
    "needsMetadata": false,
    "file": "BITE Here.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "Dm"
  },
  {
   "id": "mashups-2015-bringmethemashup-bringmethesummer-2015",
@@ -15487,39 +16613,57 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "Style"
+    "title": "Style",
+    "bpm": 96,
+    "key": "D"
    },
    {
     "artist": "Maroon 5",
-    "title": "Sugar"
+    "title": "Sugar",
+    "bpm": 58,
+    "key": "C♯"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Jealous"
+    "title": "Jealous",
+    "bpm": 93,
+    "key": "Bm"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "I Bet My Life"
+    "title": "I Bet My Life",
+    "bpm": 107,
+    "key": "C♯"
    },
    {
     "artist": "Walk the Moon",
-    "title": "Shut Up and Dance"
+    "title": "Shut Up and Dance",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "artist": "Jason Derulo",
-    "title": "Want to Want Me"
+    "title": "Want to Want Me",
+    "bpm": 112,
+    "key": "Cm"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Worth It"
+    "title": "Worth It",
+    "bpm": 99,
+    "key": "G♯"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Good For You"
+    "title": "Good For You",
+    "bpm": 88,
+    "key": "Fm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool For the Summer"
+    "title": "Cool For the Summer",
+    "bpm": 114,
+    "key": "Fm"
    },
    {
     "artist": "Rihanna; Kanye West; Paul McCartney",
@@ -15527,7 +16671,9 @@
    },
    {
     "artist": "Nick Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    },
    {
     "artist": "Zedd; Selena Gomez",
@@ -15535,11 +16681,15 @@
    },
    {
     "artist": "Madonna",
-    "title": "Living For Love"
+    "title": "Living For Love",
+    "bpm": 122,
+    "key": "C♯"
    },
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    },
    {
     "artist": "Wiz Khalifa; Charlie Puth",
@@ -15547,7 +16697,9 @@
    },
    {
     "artist": "Meghan Trainor",
-    "title": "Dear Future Husband"
+    "title": "Dear Future Husband",
+    "bpm": 81,
+    "key": "C♯"
    },
    {
     "artist": "Natalie La Rose; Jeremih",
@@ -15559,7 +16711,9 @@
    },
    {
     "artist": "The Weeknd",
-    "title": "Can't Feel My Face"
+    "title": "Can't Feel My Face",
+    "bpm": 108,
+    "key": "Am"
    },
    {
     "artist": "Flo Rida",
@@ -15575,11 +16729,15 @@
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
+    "title": "I Really Like You",
+    "bpm": 123,
+    "key": "F"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Blank Space"
+    "title": "Blank Space",
+    "bpm": 96,
+    "key": "F"
    },
    {
     "artist": "Britney Spears; Iggy Azalea",
@@ -15587,7 +16745,9 @@
    },
    {
     "artist": "Omi",
-    "title": "Cheerleader"
+    "title": "Cheerleader",
+    "bpm": 118,
+    "key": "E"
    },
    {
     "artist": "Rihanna",
@@ -15595,7 +16755,9 @@
    },
    {
     "artist": "Madonna",
-    "title": "Bitch I'm Madonna"
+    "title": "Bitch I'm Madonna",
+    "bpm": 150,
+    "key": "D♯m"
    },
    {
     "artist": "David Guetta; Afrojack; Nicki Minaj; Bebe Rexha",
@@ -15603,23 +16765,33 @@
    },
    {
     "artist": "Ellie Goulding",
-    "title": "Love Me Like You Do"
+    "title": "Love Me Like You Do",
+    "bpm": 92,
+    "key": "G♯"
    },
    {
     "artist": "Tove Lo",
-    "title": "Talking Body"
+    "title": "Talking Body",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Sledgehammer"
+    "title": "Sledgehammer",
+    "bpm": 99,
+    "key": "D"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Bad Blood"
+    "title": "Bad Blood",
+    "bpm": 86,
+    "key": "G"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "Centuries"
+    "title": "Centuries",
+    "bpm": 89,
+    "key": "Em"
    }
   ],
   "displayTitle": "BringMeTheSummer 2015 Mega-Mashup",
@@ -15639,7 +16811,9 @@
    "needsMetadata": false,
    "file": "bringmethemashup - BringMeTheSummer 2015.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-britney-spears-vs-jason-derulo-ft-2-chainz-dirty-boys-talk",
@@ -15647,7 +16821,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Boys"
+    "title": "Boys",
+    "bpm": 108,
+    "key": "Bm"
    },
    {
     "artist": "Jason Derulo; 2 Chainz",
@@ -15671,7 +16847,9 @@
    "needsMetadata": false,
    "file": "Britney Spears vs. Jason Derulo ft. 2 Chainz - Dirty Boys Talk.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 108,
+  "key": "F#m"
  },
  {
   "id": "mashups-2015-britney-spears-vs-kelly-clarkson-stronger-what-doesnt-kill-you",
@@ -15679,7 +16857,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Stronger"
+    "title": "Stronger",
+    "bpm": 108,
+    "key": "B"
    },
    {
     "artist": "Kelly Clarkson",
@@ -15703,7 +16883,9 @@
    "needsMetadata": false,
    "file": "Britney Spears vs. Kelly Clarkson - Stronger (What Doesn't Kill You).mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-calvin-harris-ft-ellie-goulding-vs-carly-rae-jepsen-i-really-like-you-outside-flipped",
@@ -15715,7 +16897,9 @@
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
+    "title": "I Really Like You",
+    "bpm": 123,
+    "key": "F"
    }
   ],
   "displayTitle": "I Really Like You Outside Flipped",
@@ -15735,7 +16919,9 @@
    "needsMetadata": false,
    "file": "Calvin Harris ft. Ellie Goulding vs. Carly Rae Jepsen - I Really Like You Outside Flipped.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mashups-2015-carly-rae-jepsen-vs-calvin-harris-ft-ellie-goulding-i-really-like-you-outside",
@@ -15743,7 +16929,9 @@
   "sourceSongs": [
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
+    "title": "I Really Like You",
+    "bpm": 123,
+    "key": "F"
    },
    {
     "artist": "Calvin Harris; Ellie Goulding",
@@ -15767,7 +16955,9 @@
    "needsMetadata": false,
    "file": "Carly Rae Jepsen vs. Calvin Harris ft. Ellie Goulding - I Really Like You Outside.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "F"
  },
  {
   "id": "mashups-2015-cher-lloyd-vs-selena-gomez-ft-charli-xcx-want-ur-same-old-love-back",
@@ -15775,11 +16965,15 @@
   "sourceSongs": [
    {
     "artist": "Cher Lloyd",
-    "title": "Want U Back"
+    "title": "Want U Back",
+    "bpm": 97,
+    "key": "A"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Same Old Love"
+    "title": "Same Old Love",
+    "bpm": 99,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Want Ur Same Old Love Back",
@@ -15803,7 +16997,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "GhX5XkBqd7g"
-  }
+  },
+  "tempo": 99,
+  "key": "B"
  },
  {
   "id": "mashups-2015-chris-brown-vs-rihanna-bitch-better-have-my-loyal",
@@ -15811,7 +17007,9 @@
   "sourceSongs": [
    {
     "artist": "Chris Brown",
-    "title": "Loyal"
+    "title": "Loyal",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "Rihanna",
@@ -15835,7 +17033,9 @@
    "needsMetadata": false,
    "file": "Chris Brown vs. Rihanna - Bitch Better Have My Loyal.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 99,
+  "key": "D#m"
  },
  {
   "id": "mashups-2015-david-guetta-ft-nicki-minaj-vs-demi-lovato-turn-me-on-for-the-summer",
@@ -15847,7 +17047,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool For the Summer"
+    "title": "Cool For the Summer",
+    "bpm": 114,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Turn Me On For the Summer",
@@ -15867,7 +17069,9 @@
    "needsMetadata": false,
    "file": "David Guetta ft. Nicki Minaj vs. Demi Lovato - Turn Me On For the Summer.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-demi-lovato-vs-britney-spears-confident-radar",
@@ -15875,11 +17079,15 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Confident"
+    "title": "Confident",
+    "bpm": 130,
+    "key": "D♯"
    },
    {
     "artist": "Britney Spears",
-    "title": "Radar"
+    "title": "Radar",
+    "bpm": 127,
+    "key": "Em"
    }
   ],
   "displayTitle": "Confident Radar",
@@ -15903,7 +17111,9 @@
    "needsMetadata": false,
    "file": "Demi Lovato vs. Britney Spears - Confident Radar.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "D#m"
  },
  {
   "id": "mashups-2015-demi-lovato-vs-ellie-goulding-love-me-like-a-heart-attack",
