@@ -12,6 +12,12 @@ name: Backfill BPM/Key
 # the Actions tab; use "limit" to work through the ~965-track backlog in
 # batches instead of one long run (each track needs an audio download +
 # analysis, so the whole catalog will take a while).
+#
+# The commit step retries on a rejected push (main moved while this run
+# was working, e.g. a manual commit or the Sync New Tracks workflow) by
+# re-syncing to the latest main and re-running the backfill script against
+# it — safe because the script is idempotent, so it only fills in whatever
+# is still missing.
 
 on:
   workflow_dispatch:
@@ -60,16 +66,49 @@ jobs:
           if [ "${{ github.event.inputs.skip_audio }}" = "true" ]; then
             ARGS+=(--skip-audio)
           fi
+          echo "BACKFILL_ARGS=${ARGS[*]}" >> "$GITHUB_ENV"
           python scripts/backfill_bpm_key.py "${ARGS[@]}"
 
-      - name: Commit changes
+      - name: Commit changes (retries if main moved)
+        env:
+          GETSONGBPM_API_KEY: ${{ secrets.GETSONGBPM_API_KEY }}
         run: |
           git config user.name "bmtm-bpm-key-bot"
           git config user.email "actions@users.noreply.github.com"
+
           if git diff --quiet -- data/catalog.json; then
             echo "No changes to commit."
-          else
+            exit 0
+          fi
+
+          git add data/catalog.json
+          git commit -m "Backfill BPM/key data (automated)"
+
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "Pushed."
+              exit 0
+            fi
+
+            echo "Push rejected (attempt $i) — main moved, re-syncing..."
+            git fetch origin main
+
+            if git rebase origin/main; then
+              continue
+            fi
+
+            echo "Rebase conflict on data/catalog.json — resetting to latest main and re-running the (idempotent) backfill against it..."
+            git rebase --abort || true
+            git reset --hard origin/main
+            python scripts/backfill_bpm_key.py $BACKFILL_ARGS
+
+            if git diff --quiet -- data/catalog.json; then
+              echo "Nothing left to add after re-sync."
+              exit 0
+            fi
             git add data/catalog.json
             git commit -m "Backfill BPM/key data (automated)"
-            git push
-          fi
+          done
+
+          echo "Failed to push after retries" >&2
+          exit 1
