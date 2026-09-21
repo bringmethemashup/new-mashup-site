@@ -17121,11 +17121,15 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    },
    {
     "artist": "Ellie Goulding",
-    "title": "Love Me Like You Do"
+    "title": "Love Me Like You Do",
+    "bpm": 92,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Love Me Like A Heart Attack",
@@ -17145,7 +17149,9 @@
    "needsMetadata": false,
    "file": "Demi Lovato vs. Ellie Goulding - Love Me Like A Heart Attack.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 96,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-demi-lovato-vs-maroon-5-vs-tove-lo-vs-katy-perry-really-dont-care-minimix",
@@ -17153,19 +17159,27 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Really Don't Care"
+    "title": "Really Don't Care",
+    "bpm": 121,
+    "key": "G"
    },
    {
     "artist": "Maroon 5",
-    "title": "Misery"
+    "title": "Misery",
+    "bpm": 103,
+    "key": "Em"
    },
    {
     "artist": "Tove Lo",
-    "title": "Talking Body"
+    "title": "Talking Body",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "artist": "Katy Perry",
-    "title": "Last Friday Night (T.G.I.F.)"
+    "title": "Last Friday Night (T.G.I.F.)",
+    "bpm": 126,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Really Don't Care Mashup",
@@ -17185,7 +17199,9 @@
    "needsMetadata": false,
    "file": "Demi Lovato vs. Maroon 5 vs. Tove Lo vs. Katy Perry - Really Don't Care Minimix.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "G"
  },
  {
   "id": "mashups-2015-eamon-vs-lily-allen-fuck-you-i-dont-want-you-back",
@@ -17193,11 +17209,15 @@
   "sourceSongs": [
    {
     "artist": "Eamon",
-    "title": "Fuck It (I Don't Want You Back)"
+    "title": "Fuck It (I Don't Want You Back)",
+    "bpm": 68,
+    "key": "Cm"
    },
    {
     "artist": "Lily Allen",
-    "title": "Fuck You"
+    "title": "Fuck You",
+    "bpm": 129,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Fuck You (I Don't Want You Back)",
@@ -17217,7 +17237,9 @@
    "needsMetadata": false,
    "file": "Eamon vs. Lily Allen - Fuck You (I Don't Want You Back).mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 136,
+  "key": "E"
  },
  {
   "id": "mashups-2015-elastic-replay",
@@ -17225,11 +17247,15 @@
   "sourceSongs": [
    {
     "artist": "Sia",
-    "title": "Elastic Heart"
+    "title": "Elastic Heart",
+    "bpm": 130,
+    "key": "Cm"
    },
    {
     "artist": "Zendaya",
-    "title": "Replay"
+    "title": "Replay",
+    "bpm": 140,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Elastic Replay",
@@ -17249,7 +17275,9 @@
    "needsMetadata": false,
    "file": "Elastic Replay.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 92,
+  "key": "D"
  },
  {
   "id": "mashups-2015-ellie-goulding-ft-wiz-khaliifa-ft-charlie-puth-see-you-again-like-you-do",
@@ -17261,7 +17289,9 @@
    },
    {
     "artist": "Ellie Goulding",
-    "title": "Love Me Like You Do"
+    "title": "Love Me Like You Do",
+    "bpm": 92,
+    "key": "G♯"
    }
   ],
   "displayTitle": "See You Again Like You Do",
@@ -17281,7 +17311,9 @@
    "needsMetadata": false,
    "file": "Ellie Goulding ft. Wiz Khaliifa ft. Charlie Puth - See You Again Like You Do.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 89,
+  "key": "A#"
  },
  {
   "id": "mashups-2015-ellie-goulding-vs-demi-lovato-love-me-like-a-heart-attack-reversed",
@@ -17289,11 +17321,15 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "Love Me Like You Do"
+    "title": "Love Me Like You Do",
+    "bpm": 92,
+    "key": "G♯"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Love Me Like a Heart Attack Reversed",
@@ -17313,7 +17349,9 @@
    "needsMetadata": false,
    "file": "Ellie Goulding vs. Demi Lovato - Love Me Like a Heart Attack Reversed.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 96,
+  "key": "G#"
  },
  {
   "id": "mashups-2015-ellie-goulding-vs-madonna-vs-katy-perry-vs-kesha-vs-bruno-mars-on-my-mind-minimix",
@@ -17321,11 +17359,15 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "On My Mind"
+    "title": "On My Mind",
+    "bpm": 152,
+    "key": "C"
    },
    {
     "artist": "Madonna",
-    "title": "Bitch I'm Madonna"
+    "title": "Bitch I'm Madonna",
+    "bpm": 150,
+    "key": "D♯m"
    },
    {
     "artist": "Katy Perry",
@@ -17333,11 +17375,15 @@
    },
    {
     "artist": "Kesha",
-    "title": "TiK ToK"
+    "title": "TiK ToK",
+    "bpm": 234,
+    "key": "Dm"
    },
    {
     "artist": "Bruno Mars",
-    "title": "Locked Out of Heaven"
+    "title": "Locked Out of Heaven",
+    "bpm": 144,
+    "key": "Dm"
    }
   ],
   "displayTitle": "On My Mind Mashup",
@@ -17357,7 +17403,9 @@
    "needsMetadata": false,
    "file": "Ellie Goulding vs. Madonna vs. Katy Perry vs. Kesha vs. Bruno Mars - On My Mind Minimix.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "Gm"
  },
  {
   "id": "mashups-2015-ellie-goulding-vs-maroon-5-love-me-like-one-more-night",
@@ -17365,11 +17413,15 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "Love Me Like You Do"
+    "title": "Love Me Like You Do",
+    "bpm": 92,
+    "key": "G♯"
    },
    {
     "artist": "Maroon 5",
-    "title": "One More Night"
+    "title": "One More Night",
+    "bpm": 93,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Love Me Like One More Night",
@@ -17389,7 +17441,9 @@
    "needsMetadata": false,
    "file": "Ellie Goulding vs. Maroon 5 - Love Me Like One More Night.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 96,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-fall-out-boy-vs-david-guetta-ft-nicki-minaj-afrojack-hey-mama-centuries",
@@ -17397,7 +17451,9 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Centuries"
+    "title": "Centuries",
+    "bpm": 89,
+    "key": "Em"
    },
    {
     "artist": "David Guetta; Nicki Minaj; Afrojack; Bebe Rexha",
@@ -17421,7 +17477,9 @@
    "needsMetadata": false,
    "file": "Fall Out Boy vs. David Guetta ft. Nicki Minaj & Afrojack - Hey Mama Centuries.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 89,
+  "key": "Em"
  },
  {
   "id": "mashups-2015-fall-out-boy-vs-katy-perry-e-t-centuries",
@@ -17429,11 +17487,15 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Centuries"
+    "title": "Centuries",
+    "bpm": 89,
+    "key": "Em"
    },
    {
     "artist": "Katy Perry",
-    "title": "E.T."
+    "title": "E.T.",
+    "bpm": 150,
+    "key": "Fm"
    }
   ],
   "displayTitle": "E.T. Centuries",
@@ -17453,7 +17515,9 @@
    "needsMetadata": false,
    "file": "Fall Out Boy vs. Katy Perry - E.T. Centuries.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 89,
+  "key": "Em"
  },
  {
   "id": "mashups-2015-fall-out-boy-vs-kesha-vs-rihanna-vs-p-nk-vs-taylor-swift-uma-thurman-minimix",
@@ -17461,23 +17525,33 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Uma Thurman"
+    "title": "Uma Thurman",
+    "bpm": 149,
+    "key": "Em"
    },
    {
     "artist": "Kesha",
-    "title": "Backstabber"
+    "title": "Backstabber",
+    "bpm": 159,
+    "key": "G"
    },
    {
     "artist": "Rihanna",
-    "title": "S&M"
+    "title": "S&M",
+    "bpm": 129,
+    "key": "D♯m"
    },
    {
     "artist": "P!nk",
-    "title": "Slut Like You"
+    "title": "Slut Like You",
+    "bpm": 130,
+    "key": "Bm"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Shake It Off"
+    "title": "Shake It Off",
+    "bpm": 162,
+    "key": "G"
    }
   ],
   "displayTitle": "Uma Thurman Mashup",
@@ -17497,7 +17571,9 @@
    "needsMetadata": false,
    "file": "Fall Out Boy vs. Kesha vs. Rihanna vs. P!nk vs. Taylor Swift - Uma Thurman Minimix.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "Em"
  },
  {
   "id": "mashups-2015-fetty-wap-vs-panic-at-the-disco-i-write-trap-queens-not-tragedies-reversed",
@@ -17505,11 +17581,15 @@
   "sourceSongs": [
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    },
    {
     "artist": "Panic! at the Disco",
-    "title": "I Write Sins Not Tragedies"
+    "title": "I Write Sins Not Tragedies",
+    "bpm": 172,
+    "key": "Am"
    }
   ],
   "displayTitle": "I Write Trap Queens Not Tragedies Reversed",
@@ -17529,7 +17609,9 @@
    "needsMetadata": false,
    "file": "Fetty Wap vs. Panic! at the Disco - I Write Trap Queens Not Tragedies Reversed.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-fetty-wap-vs-the-chainsmokers-679-roses",
@@ -17537,7 +17619,9 @@
   "sourceSongs": [
    {
     "artist": "Fetty Wap",
-    "title": "679"
+    "title": "679",
+    "bpm": 190,
+    "key": "G"
    },
    {
     "artist": "The Chainsmokers; ROZES",
@@ -17561,7 +17645,9 @@
    "needsMetadata": false,
    "file": "Fetty Wap vs. The Chainsmokers - 679 Roses.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "mashups-2015-fetty-wap-vs-zedd-ft-selena-gomez-i-want-your-trap-queen",
@@ -17569,7 +17655,9 @@
   "sourceSongs": [
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    },
    {
     "artist": "Zedd; Selena Gomez",
@@ -17597,7 +17685,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "y6Nv9ifkf_w"
-  }
+  },
+  "tempo": 99,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-fifth-harmony-ft-kid-ink-vs-ashlee-simpson-vs-iggy-azalea-ft-charli-xcx-vs-britney-spears-worth-it-minimix",
@@ -17609,7 +17699,9 @@
    },
    {
     "artist": "Ashlee Simpson",
-    "title": "L.O.V.E."
+    "title": "L.O.V.E.",
+    "bpm": 191,
+    "key": "Fm"
    },
    {
     "artist": "Iggy Azalea; Charli xcx",
@@ -17617,7 +17709,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "...Baby One More Time"
+    "title": "...Baby One More Time",
+    "bpm": 92,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Worth It Mashup",
@@ -17641,7 +17735,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "eT3JFf6L-fc"
-  }
+  },
+  "tempo": 99,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-flo-rida-ft-sage-the-gemini-vs-iggy-azalea-gdfw",
@@ -17653,7 +17749,9 @@
    },
    {
     "artist": "Iggy Azalea",
-    "title": "Work"
+    "title": "Work",
+    "bpm": 140,
+    "key": "G"
    }
   ],
   "displayTitle": "GDFW",
@@ -17673,7 +17771,9 @@
    "needsMetadata": false,
    "file": "Flo Rida ft. Sage the Gemini vs. Iggy Azalea - GDFW.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 144,
+  "key": "Gm"
  },
  {
   "id": "mashups-2015-flo-rida-ft-sage-the-gemini-vs-will-i-am-ft-britney-spears-gdf-scream-shout",
@@ -17705,7 +17805,9 @@
    "needsMetadata": false,
    "file": "Flo Rida ft. Sage the Gemini vs. Will.I.Am ft Britney Spears - GDF Scream & Shout.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 144,
+  "key": "Gm"
  },
  {
   "id": "mashups-2015-gwen-stefani-vs-britney-spears-iggy-azalea-pretty-hollaback-girls",
@@ -17741,7 +17843,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "wLlbrGfUUao"
-  }
+  },
+  "tempo": 112,
+  "key": "C#m"
  },
  {
   "id": "mashups-2015-gym-class-heroes-vs-zedd-ft-selena-gomez-i-want-your-ass-back-home",
@@ -17749,7 +17853,9 @@
   "sourceSongs": [
    {
     "artist": "Gym Class Heroes",
-    "title": "Ass Back Home"
+    "title": "Ass Back Home",
+    "bpm": 130,
+    "key": "A♯"
    },
    {
     "artist": "Zedd; Selena Gomez",
@@ -17773,7 +17879,9 @@
    "needsMetadata": false,
    "file": "Gym Class Heroes vs. Zedd ft. Selena Gomez - I Want Your Ass Back Home.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "C"
  },
  {
   "id": "mashups-2015-hilary-duff-vs-britney-spears-drop-dead-beautiful-sparks",
@@ -17781,11 +17889,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Sparks"
+    "title": "Sparks",
+    "bpm": 122,
+    "key": "Bm"
    },
    {
     "artist": "Britney Spears",
-    "title": "(Drop Dead) Beautiful"
+    "title": "(Drop Dead) Beautiful",
+    "bpm": 119,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Drop Dead Beautiful Sparks",
@@ -17805,7 +17917,9 @@
    "needsMetadata": false,
    "file": "Hilary Duff vs. Britney Spears - Drop Dead Beautiful Sparks.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "B"
  },
  {
   "id": "mashups-2015-hilary-duff-vs-britney-spears-piece-of-me-with-love",
@@ -17813,11 +17927,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "With Love"
+    "title": "With Love",
+    "bpm": 121,
+    "key": "F♯m"
    },
    {
     "artist": "Britney Spears",
-    "title": "Piece of Me"
+    "title": "Piece of Me",
+    "bpm": 117,
+    "key": "B"
    }
   ],
   "displayTitle": "Piece of Me With Love",
@@ -17837,7 +17955,9 @@
    "needsMetadata": false,
    "file": "Hilary Duff vs. Britney Spears - Piece of Me With Love.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "F#"
  },
  {
   "id": "mashups-2015-iggy-azalea-ft-jennifer-hudson-vs-tove-lo-talking-trouble",
@@ -17849,7 +17969,9 @@
    },
    {
     "artist": "Tove Lo",
-    "title": "Talking Body"
+    "title": "Talking Body",
+    "bpm": 117,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Talking Trouble",
@@ -17869,7 +17991,9 @@
    "needsMetadata": false,
    "file": "Iggy Azalea ft. Jennifer Hudson vs. Tove Lo - Talking Trouble.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 108,
+  "key": "G"
  },
  {
   "id": "mashups-2015-iggy-azalea-ft-mo-vs-britney-spears-iggy-azalea-beg-for-pretty-girls",
@@ -17901,7 +18025,9 @@
    "needsMetadata": false,
    "file": "Iggy Azalea ft. Mo vs. Britney Spears & Iggy Azalea - Beg for Pretty Girls.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 103,
+  "key": "A"
  },
  {
   "id": "mashups-2015-imagine-dragons-vs-cher-lloyd-i-bet-you-back",
@@ -17909,11 +18035,15 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "I Bet My Life"
+    "title": "I Bet My Life",
+    "bpm": 107,
+    "key": "C♯"
    },
    {
     "artist": "Cher Lloyd",
-    "title": "Want U Back"
+    "title": "Want U Back",
+    "bpm": 97,
+    "key": "A"
    }
   ],
   "displayTitle": "I Bet You Back",
@@ -17933,7 +18063,9 @@
    "needsMetadata": false,
    "file": "Imagine Dragons vs. Cher Lloyd - I Bet You Back.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 108,
+  "key": "D"
  },
  {
   "id": "mashups-2015-imagine-dragons-vs-maroon-5-ft-nicki-minaj-i-bet-my-sugar",
@@ -17941,7 +18073,9 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "I Bet My Life"
+    "title": "I Bet My Life",
+    "bpm": 107,
+    "key": "C♯"
    },
    {
     "artist": "Maroon 5; Nicki Minaj",
@@ -17965,7 +18099,9 @@
    "needsMetadata": false,
    "file": "Imagine Dragons vs. Maroon 5 ft. Nicki Minaj - I Bet My Sugar.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "C#"
  },
  {
   "id": "mashups-2015-imagine-dragons-vs-owl-city-vs-avril-lavigne-vs-britney-spears-vs-miley-cyrus-vs-rihanna-trouble-minimix",
@@ -17973,27 +18109,39 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "Trouble"
+    "title": "Trouble",
+    "bpm": 159,
+    "key": "D♯"
    },
    {
     "artist": "Owl City",
-    "title": "Gold"
+    "title": "Gold",
+    "bpm": 168,
+    "key": "D"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Girlfriend"
+    "title": "Girlfriend",
+    "bpm": 81,
+    "key": "G"
    },
    {
     "artist": "Britney Spears",
-    "title": "Perfume"
+    "title": "Perfume",
+    "bpm": 79,
+    "key": "D♯"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "Rihanna",
-    "title": "You Da One"
+    "title": "You Da One",
+    "bpm": 127,
+    "key": "D♯"
    }
   ],
   "displayTitle": "Trouble Mashup",
@@ -18013,7 +18161,9 @@
    "needsMetadata": false,
    "file": "Imagine Dragons vs. Owl City vs. Avril Lavigne vs. Britney Spears vs. Miley Cyrus vs. Rihanna - Trouble Minimix.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 161,
+  "key": "D#"
  },
  {
   "id": "mashups-2015-irresistible-sins-not-tragedies",
@@ -18021,11 +18171,15 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Irresistible"
+    "title": "Irresistible",
+    "bpm": 164,
+    "key": "D"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "I Write Sins Not Tragedies"
+    "title": "I Write Sins Not Tragedies",
+    "bpm": 172,
+    "key": "Am"
    }
   ],
   "displayTitle": "Irresistible Sins Not Tragedies",
@@ -18045,7 +18199,9 @@
    "needsMetadata": false,
    "file": "Irresistible Sins Not Tragedies.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 161,
+  "key": "C#"
  },
  {
   "id": "mashups-2015-jason-derulo-vs-demi-lovato-want-to-be-cool-for-the-summer",
@@ -18053,11 +18209,15 @@
   "sourceSongs": [
    {
     "artist": "Jason Derulo",
-    "title": "Want to Want Me"
+    "title": "Want to Want Me",
+    "bpm": 112,
+    "key": "Cm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool for the Summer"
+    "title": "Cool for the Summer",
+    "bpm": 114,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Want to be Cool for the Summer",
@@ -18077,7 +18237,9 @@
    "needsMetadata": false,
    "file": "Jason Derulo vs. Demi Lovato - Want to be Cool for the Summer.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-jason-derulo-vs-nick-jonas-want-you-to-want-me-jealous",
@@ -18085,11 +18247,15 @@
   "sourceSongs": [
    {
     "artist": "Jason Derulo",
-    "title": "Want to Want Me"
+    "title": "Want to Want Me",
+    "bpm": 112,
+    "key": "Cm"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Jealous"
+    "title": "Jealous",
+    "bpm": 93,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Want You to Want Me Jealous",
@@ -18109,7 +18275,9 @@
    "needsMetadata": false,
    "file": "Jason Derulo vs. Nick Jonas - Want You to Want Me Jealous.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-jennifer-hudson-vs-aaliyah-ft-timbaland-walk-that-somebody-out",
@@ -18117,7 +18285,9 @@
   "sourceSongs": [
    {
     "artist": "Jennifer Hudson",
-    "title": "Walk It Out"
+    "title": "Walk It Out",
+    "bpm": 137,
+    "key": "Gm"
    },
    {
     "artist": "Aaliyah; Timbaland",
@@ -18141,7 +18311,9 @@
    "needsMetadata": false,
    "file": "Jennifer Hudson vs. Aaliyah ft. Timbaland - Walk That Somebody Out.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 136,
+  "key": "G"
  },
  {
   "id": "mashups-2015-jeremih-ft-yg-vs-britney-spears-iggy-azalea-dont-tell-em-pretty-girls",
@@ -18173,7 +18345,9 @@
    "needsMetadata": false,
    "file": "Jeremih ft. YG vs. Britney Spears & Iggy Azalea - Don't Tell Em Pretty Girls.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 103,
+  "key": "Dm"
  },
  {
   "id": "mashups-2015-justin-bieber-vs-katy-perry-what-do-you-mean-firework",
@@ -18181,11 +18355,15 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "What Do You Mean"
+    "title": "What Do You Mean",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "artist": "Katy Perry",
-    "title": "Firework"
+    "title": "Firework",
+    "bpm": 123,
+    "key": "G♯"
    }
   ],
   "displayTitle": "What Do You Mean Firework",
@@ -18205,7 +18383,9 @@
    "needsMetadata": false,
    "file": "Justin Bieber vs. Katy Perry - What Do You Mean Firework.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "mashups-2015-justin-timberlake-vs-rihanna-vs-destinys-child-say-my-mirror-is-da-one",
@@ -18213,15 +18393,21 @@
   "sourceSongs": [
    {
     "artist": "Justin Timberlake",
-    "title": "Mirrors"
+    "title": "Mirrors",
+    "bpm": 152,
+    "key": "Fm"
    },
    {
     "artist": "Rihanna",
-    "title": "You Da One"
+    "title": "You Da One",
+    "bpm": 127,
+    "key": "D♯"
    },
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Say My Mirror is Da One",
@@ -18241,7 +18427,9 @@
    "needsMetadata": false,
    "file": "Justin Timberlake vs. Rihanna vs. Destiny's Child - Say My Mirror is Da One.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "G#"
  },
  {
   "id": "mashups-2015-kesha-vs-ariana-grande-one-blind-time",
@@ -18249,11 +18437,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Blind"
+    "title": "Blind",
+    "bpm": 115,
+    "key": "Fm"
    },
    {
     "artist": "Ariana Grande",
-    "title": "One Last Time"
+    "title": "One Last Time",
+    "bpm": 123,
+    "key": "G♯"
    }
   ],
   "displayTitle": "One Blind Time",
@@ -18273,7 +18465,9 @@
    "needsMetadata": false,
    "file": "Kesha vs. Ariana Grande - One Blind Time.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-kesha-vs-charli-xcx-we-r-breakin-the-rules",
@@ -18285,7 +18479,9 @@
    },
    {
     "artist": "Charli xcx",
-    "title": "Break the Rules"
+    "title": "Break the Rules",
+    "bpm": 124,
+    "key": "Cm"
    }
   ],
   "displayTitle": "We R Breakin the Rules",
@@ -18305,7 +18501,9 @@
    "needsMetadata": false,
    "file": "Kesha vs. Charli XCX - We R Breakin the Rules.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 117,
+  "key": "G#"
  },
  {
   "id": "mashups-2015-lady-gaga-ft-akon-vs-charlie-puth-ft-meghan-trainor-just-dance-marvin-gaye",
@@ -18313,7 +18511,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Just Dance"
+    "title": "Just Dance",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Charlie Puth; Meghan Trainor",
@@ -18337,7 +18537,9 @@
    "needsMetadata": false,
    "file": "Lady Gaga ft. Akon vs. Charlie Puth ft. Meghan Trainor - Just Dance Marvin Gaye.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 117,
+  "key": "B"
  },
  {
   "id": "mashups-2015-lips-are-movin-to-my-first-kiss",
@@ -18345,7 +18547,9 @@
   "sourceSongs": [
    {
     "artist": "Meghan Trainor",
-    "title": "Lips Are Movin"
+    "title": "Lips Are Movin",
+    "bpm": 69,
+    "key": "G"
    },
    {
     "artist": "3OH!3; Kesha",
@@ -18373,7 +18577,9 @@
    "needsMetadata": false,
    "file": "Lips Are Movin to My First Kiss.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 92,
+  "key": "G"
  },
  {
   "id": "mashups-2015-love-myself-on-the-other-side",
@@ -18385,7 +18591,9 @@
    },
    {
     "artist": "Jason Derulo",
-    "title": "The Other Side"
+    "title": "The Other Side",
+    "bpm": 127,
+    "key": "A"
    }
   ],
   "displayTitle": "Love Myself on the Other Side",
@@ -18405,7 +18613,9 @@
    "needsMetadata": false,
    "file": "Love Myself on the Other Side.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "A#"
  },
  {
   "id": "mashups-2015-macklemore-ryan-lewis-vs-justin-timberlake-ft-jay-z-suit-tie-downtown",
@@ -18437,7 +18647,9 @@
    "needsMetadata": false,
    "file": "Macklemore & Ryan Lewis vs. Justin Timberlake ft. Jay-Z - Suit & Tie Downtown.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "Bm"
  },
  {
   "id": "mashups-2015-madonna-ft-nicki-minaj-vs-justin-timberlake-ft-timbaland-madonna-tkos-bitches",
@@ -18469,7 +18681,9 @@
    "needsMetadata": false,
    "file": "Madonna ft. Nicki Minaj vs. Justin Timberlake ft. Timbaland - Madonna TKO's Bitches.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "D#m"
  },
  {
   "id": "mashups-2015-madonna-vs-katy-perry-vs-lady-gaga-vs-britney-spears-vs-rihanna-vs-p-nk-vs-kesha-living-for-love-mega-mashup",
@@ -18477,23 +18691,33 @@
   "sourceSongs": [
    {
     "artist": "Madonna",
-    "title": "Living for Love"
+    "title": "Living for Love",
+    "bpm": 122,
+    "key": "C♯"
    },
    {
     "artist": "Katy Perry",
-    "title": "Firework"
+    "title": "Firework",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Born This Way"
+    "title": "Born This Way",
+    "bpm": 123,
+    "key": "B"
    },
    {
     "artist": "Britney Spears",
-    "title": "Break the Ice"
+    "title": "Break the Ice",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Rihanna",
-    "title": "We Found Love"
+    "title": "We Found Love",
+    "bpm": 129,
+    "key": "C♯"
    },
    {
     "artist": "P!nk",
@@ -18501,7 +18725,9 @@
    },
    {
     "artist": "Kesha",
-    "title": "Your Love Is My Drug"
+    "title": "Your Love Is My Drug",
+    "bpm": 120,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Living For Love Mashup",
@@ -18521,7 +18747,9 @@
    "needsMetadata": false,
    "file": "Madonna vs. Katy Perry vs. Lady Gaga vs. Britney Spears vs. Rihanna vs. P!nk vs. Kesha - Living For Love Mega-Mashup.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-magic-vs-zedd-ft-selena-gomez-i-want-you-to-know-youre-rude",
@@ -18529,7 +18757,9 @@
   "sourceSongs": [
    {
     "artist": "Magic!",
-    "title": "RUDE"
+    "title": "RUDE",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "artist": "Zedd; Selena Gomez",
@@ -18553,7 +18783,9 @@
    "needsMetadata": false,
    "file": "Magic! vs. Zedd ft. Selena Gomez - I Want You to Know You're Rude.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 144,
+  "key": "C#"
  },
  {
   "id": "mashups-2015-mark-ronson-ft-bruno-mars-vs-kesha-ft-3oh-3-uptown-blah-blah-blah",
@@ -18585,7 +18817,9 @@
    "needsMetadata": false,
    "file": "Mark Ronson ft. Bruno Mars vs. Kesha ft. 3OH!3 - Uptown Blah Blah Blah.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2015-meghan-trainor-vs-tove-lo-talking-lips",
@@ -18593,11 +18827,15 @@
   "sourceSongs": [
    {
     "artist": "Meghan Trainor",
-    "title": "Lips Are Movin"
+    "title": "Lips Are Movin",
+    "bpm": 69,
+    "key": "G"
    },
    {
     "artist": "Tove Lo",
-    "title": "Talking Body"
+    "title": "Talking Body",
+    "bpm": 117,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Talking Lips",
@@ -18617,7 +18855,9 @@
    "needsMetadata": false,
    "file": "Meghan Trainor vs. Tove Lo - Talking Lips.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 89,
+  "key": "G"
  },
  {
   "id": "mashups-2015-music-castle",
@@ -18625,11 +18865,15 @@
   "sourceSongs": [
    {
     "artist": "Halsey",
-    "title": "Castle"
+    "title": "Castle",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "artist": "Madonna",
-    "title": "Music"
+    "title": "Music",
+    "bpm": 117,
+    "key": "G"
    }
   ],
   "displayTitle": "Music Castle",
@@ -18653,7 +18897,9 @@
    "needsMetadata": false,
    "file": "Music Castle.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mashups-2015-my-mind-knows-what-you-did-on-the-dark",
@@ -18661,11 +18907,15 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "On My Mind"
+    "title": "On My Mind",
+    "bpm": 152,
+    "key": "C"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)"
+    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)",
+    "bpm": 151,
+    "key": "Am"
    }
   ],
   "displayTitle": "My Mind Knows What You Did On the Dark",
@@ -18685,7 +18935,9 @@
    "needsMetadata": false,
    "file": "My Mind Knows What You Did On the Dark.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "Dm"
  },
  {
   "id": "mashups-2015-nsync-vs-taylor-swift-i-know-bye-bye-bye",
@@ -18693,11 +18945,15 @@
   "sourceSongs": [
    {
     "artist": "*NSYNC",
-    "title": "Bye Bye Bye"
+    "title": "Bye Bye Bye",
+    "bpm": 86,
+    "key": "G♯m"
    },
    {
     "artist": "Taylor Swift",
-    "title": "I Know Places"
+    "title": "I Know Places",
+    "bpm": 161,
+    "key": "C"
    }
   ],
   "displayTitle": "I Know Bye Bye Bye",
@@ -18717,7 +18973,9 @@
    "needsMetadata": false,
    "file": "N'Sync vs. Taylor Swift - I Know Bye Bye Bye.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 172,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-nick-jonas-ft-tinashe-vs-ariana-grande-ft-the-weeknd-love-me-jealous",
@@ -18749,7 +19007,9 @@
    "needsMetadata": false,
    "file": "Nick Jonas ft. Tinashe vs. Ariana Grande ft. The Weeknd - Love Me Jealous.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 96,
+  "key": "C#m"
  },
  {
   "id": "mashups-2015-nick-jonas-vs-justin-timberlake-mirror-chains",
@@ -18757,11 +19017,15 @@
   "sourceSongs": [
    {
     "artist": "Nick Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    },
    {
     "artist": "Justin Timberlake",
-    "title": "Mirrors"
+    "title": "Mirrors",
+    "bpm": 152,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Mirror Chains",
@@ -18781,7 +19045,9 @@
    "needsMetadata": false,
    "file": "Nick Jonas vs. Justin Timberlake - Mirror Chains.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 152,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-nick-jonas-vs-selena-gomez-good-for-chains",
@@ -18789,11 +19055,15 @@
   "sourceSongs": [
    {
     "artist": "Nick Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Good for You"
+    "title": "Good for You",
+    "bpm": 88,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Good for Chains",
@@ -18813,7 +19083,9 @@
    "needsMetadata": false,
    "file": "Nick Jonas vs. Selena Gomez - Good for Chains.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 161,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-onerepublic-vs-andy-grammar-honey-i-lived-good",
@@ -18821,7 +19093,9 @@
   "sourceSongs": [
    {
     "artist": "OneRepublic",
-    "title": "I Lived"
+    "title": "I Lived",
+    "bpm": 119,
+    "key": "A"
    },
    {
     "artist": "Andy Grammar",
@@ -18845,7 +19119,9 @@
    "needsMetadata": false,
    "file": "OneRepublic vs. Andy Grammar - Honey, I Lived Good.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 117,
+  "key": "A"
  },
  {
   "id": "mashups-2015-onerepublic-vs-evanescence-secrets-going-under",
@@ -18853,11 +19129,15 @@
   "sourceSongs": [
    {
     "artist": "OneRepublic",
-    "title": "Secrets"
+    "title": "Secrets",
+    "bpm": 152,
+    "key": "D"
    },
    {
     "artist": "Evanescence",
-    "title": "Going Under"
+    "title": "Going Under",
+    "bpm": 87,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Secrets Going Under",
@@ -18877,7 +19157,9 @@
    "needsMetadata": false,
    "file": "OneRepublic vs. Evanescence - Secrets Going Under.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 161,
+  "key": "Bm"
  },
  {
   "id": "mashups-2015-owl-city-carly-rae-jepsen-vs-jason-derulo-want-to-want-a-good-time",
@@ -18889,7 +19171,9 @@
    },
    {
     "artist": "Jason Derulo",
-    "title": "Want to Want Me"
+    "title": "Want to Want Me",
+    "bpm": 112,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Want to Want a Good Time",
@@ -18909,7 +19193,9 @@
    "needsMetadata": false,
    "file": "Owl City & Carly Rae Jepsen vs. Jason Derulo - Want to Want a Good Time.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2015-panic-at-the-disco-vs-fetty-wap-i-write-trap-queens-not-tragedies",
@@ -18917,11 +19203,15 @@
   "sourceSongs": [
    {
     "artist": "Panic! at the Disco",
-    "title": "I Write Sins Not Tragedies"
+    "title": "I Write Sins Not Tragedies",
+    "bpm": 172,
+    "key": "Am"
    },
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    }
   ],
   "displayTitle": "I Write Trap Queens Not Tragedies",
@@ -18945,7 +19235,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "EMUXOw_5P54"
-  }
+  },
+  "tempo": 172,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-sam-smith-vs-green-day-im-not-the-only-21-guns",
@@ -18953,11 +19245,15 @@
   "sourceSongs": [
    {
     "artist": "Sam Smith",
-    "title": "I'm Not the Only One"
+    "title": "I'm Not the Only One",
+    "bpm": 83,
+    "key": "F"
    },
    {
     "artist": "Green Day",
-    "title": "21 Guns"
+    "title": "21 Guns",
+    "bpm": 80,
+    "key": "F"
    }
   ],
   "displayTitle": "I'm Not the Only 21 Guns",
@@ -18977,7 +19273,9 @@
    "needsMetadata": false,
    "file": "Sam Smith vs. Green Day - I'm Not the Only 21 Guns.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 83,
+  "key": "F"
  },
  {
   "id": "mashups-2015-selena-gomez-vs-britney-spears-im-a-good-slave-4-you",
@@ -18985,11 +19283,15 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Good For You"
+    "title": "Good For You",
+    "bpm": 88,
+    "key": "Fm"
    },
    {
     "artist": "Britney Spears",
-    "title": "I'm a Slave 4 U"
+    "title": "I'm a Slave 4 U",
+    "bpm": 110,
+    "key": "Fm"
    }
   ],
   "displayTitle": "I'm A Good Slave 4 You",
@@ -19009,7 +19311,9 @@
    "needsMetadata": false,
    "file": "Selena Gomez vs. Britney Spears - I'm A Good Slave 4 You.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 108,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-selena-gomez-vs-karmin-brokenhearted-slow-down",
@@ -19017,7 +19321,9 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Slow Down"
+    "title": "Slow Down",
+    "bpm": 127,
+    "key": "C♯m"
    },
    {
     "artist": "Karmin",
@@ -19041,7 +19347,9 @@
    "needsMetadata": false,
    "file": "Selena Gomez vs. Karmin - Brokenhearted Slow Down.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "E"
  },
  {
   "id": "mashups-2015-selena-gomez-vs-nick-jonas-good-for-chains-reversed",
@@ -19049,11 +19357,15 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Good For You"
+    "title": "Good For You",
+    "bpm": 88,
+    "key": "Fm"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Good For Chains (Reversed)",
@@ -19073,7 +19385,9 @@
    "needsMetadata": false,
    "file": "Selena Gomez vs. Nick Jonas - Good For Chains (Reversed).mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 83,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-shouldve-been-what-u-want",
@@ -19081,11 +19395,15 @@
   "sourceSongs": [
    {
     "artist": "Tori Kelly",
-    "title": "Should've Been Us"
+    "title": "Should've Been Us",
+    "bpm": 89,
+    "key": "F♯m"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Do What U Want"
+    "title": "Do What U Want",
+    "bpm": 97,
+    "key": "A"
    }
   ],
   "displayTitle": "Should've Been What U Want",
@@ -19109,7 +19427,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "3_za-ZimKWA"
-  }
+  },
+  "tempo": 96,
+  "key": "E"
  },
  {
   "id": "mashups-2015-sia-vs-meghan-trainor-elastic-bass",
@@ -19117,11 +19437,15 @@
   "sourceSongs": [
    {
     "artist": "Sia",
-    "title": "Elastic Heart"
+    "title": "Elastic Heart",
+    "bpm": 130,
+    "key": "Cm"
    },
    {
     "artist": "Meghan Trainor",
-    "title": "All About That Bass"
+    "title": "All About That Bass",
+    "bpm": 134,
+    "key": "A"
    }
   ],
   "displayTitle": "Sia vs. Meghan Trainor - Elastic Bass",
@@ -19141,7 +19465,9 @@
    "needsMetadata": false,
    "file": "Sia vs. Meghan Trainor - Elastic Bass.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "mashups-2015-something-dirrrty",
@@ -19173,7 +19499,9 @@
    "needsMetadata": false,
    "file": "Something Dirrrty.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 112,
+  "key": "A#"
  },
  {
   "id": "mashups-2015-sonique-vs-flo-rida-ft-sia-wild-ones-feels-so-good",
@@ -19181,7 +19509,9 @@
   "sourceSongs": [
    {
     "artist": "Sonique",
-    "title": "It Feels So Good"
+    "title": "It Feels So Good",
+    "bpm": 136,
+    "key": "F♯"
    },
    {
     "artist": "Flo Rida; Sia",
@@ -19205,7 +19535,9 @@
    "needsMetadata": false,
    "file": "Sonique vs. Flo Rida ft. Sia - Wild Ones Feels So Good.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 136,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-sorry-minimix",
@@ -19213,19 +19545,27 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "Sorry"
+    "title": "Sorry",
+    "bpm": 100,
+    "key": "Cm"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Lovegame"
+    "title": "Lovegame",
+    "bpm": 103,
+    "key": "F♯m"
    },
    {
     "artist": "Owl City",
-    "title": "Fireflies"
+    "title": "Fireflies",
+    "bpm": 178,
+    "key": "D♯"
    },
    {
     "artist": "Sean Kingston",
-    "title": "Me Love"
+    "title": "Me Love",
+    "bpm": 180,
+    "key": "C♯"
    },
    {
     "artist": "Rixton",
@@ -19253,7 +19593,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "1r6nJtB0eMc"
-  }
+  },
+  "tempo": 136,
+  "key": "Cm"
  },
  {
   "id": "mashups-2015-sorry-you-were-locked-away",
@@ -19265,7 +19607,9 @@
    },
    {
     "artist": "Justin Bieber",
-    "title": "Sorry"
+    "title": "Sorry",
+    "bpm": 100,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Sorry You Were Locked Away",
@@ -19289,7 +19633,9 @@
    "needsMetadata": false,
    "file": "Sorry You Were Locked Away.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "D#"
  },
  {
   "id": "mashups-2015-stone-cold-earned-it",
@@ -19297,11 +19643,15 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Stone Cold"
+    "title": "Stone Cold",
+    "bpm": 72,
+    "key": "G♯"
    },
    {
     "artist": "The Weeknd",
-    "title": "Earned It"
+    "title": "Earned It",
+    "bpm": 116,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Stone Cold Earned It",
@@ -19325,7 +19675,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "hGAdZs4vXrs"
-  }
+  },
+  "tempo": 129,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-taylor-swift-ft-kendrick-lamar-vs-david-guetta-ft-nicki-minaj-afrojack-bebe-rexha-bad-blood-mama",
@@ -19357,7 +19709,9 @@
    "needsMetadata": false,
    "file": "Taylor Swift ft. Kendrick Lamar vs. David Guetta ft. Nicki Minaj, Afrojack & Bebe Rexha - Bad Blood Mama.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 172,
+  "key": "Em"
  },
  {
   "id": "mashups-2015-the-way-i-froot",
@@ -19389,7 +19743,9 @@
    "needsMetadata": false,
    "file": "The Way I Froot.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 117,
+  "key": "G#"
  },
  {
   "id": "mashups-2015-thnks-fr-the-stars",
@@ -19397,11 +19753,15 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Stars"
+    "title": "Stars",
+    "bpm": 156,
+    "key": "Bm"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "Thnks fr th Mmrs"
+    "title": "Thnks fr th Mmrs",
+    "bpm": 154,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Thnks fr the Stars",
@@ -19425,7 +19785,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "U3NtITAXtWU"
-  }
+  },
+  "tempo": 152,
+  "key": "Bm"
  },
  {
   "id": "mashups-2015-tlc-vs-natalie-la-rose-ft-jeremih-somescrubs",
@@ -19433,7 +19795,9 @@
   "sourceSongs": [
    {
     "artist": "TLC",
-    "title": "No Scrubs"
+    "title": "No Scrubs",
+    "bpm": 92,
+    "key": "G♯m"
    },
    {
     "artist": "Natalie La Rose; Jeremih",
@@ -19457,7 +19821,9 @@
    "needsMetadata": false,
    "file": "TLC vs. Natalie La Rose ft. Jeremih - SomeScrubs.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 99,
+  "key": "Am"
  },
  {
   "id": "mashups-2015-troye-sivan-vs-avril-lavigne-hot-fun",
@@ -19469,7 +19835,9 @@
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Hot"
+    "title": "Hot",
+    "bpm": 144,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Hot Fun",
@@ -19489,7 +19857,9 @@
    "needsMetadata": false,
    "file": "Troye Sivan vs. Avril Lavigne - Hot Fun.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 103,
+  "key": "Fm"
  },
  {
   "id": "mashups-2015-troye-sivan-vs-taylor-swift-ft-kendrick-lamar-vs-fifth-harmony-bad-little-sledgehammers",
@@ -19505,7 +19875,9 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Sledgehammer"
+    "title": "Sledgehammer",
+    "bpm": 99,
+    "key": "D"
    }
   ],
   "displayTitle": "Bad Little Sledgehammers",
@@ -19525,7 +19897,9 @@
    "needsMetadata": false,
    "file": "Troye Sivan vs. Taylor Swift ft. Kendrick Lamar vs. Fifth Harmony - Bad Little Sledgehammers.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 92,
+  "key": "C"
  },
  {
   "id": "mashups-2015-walk-the-moon-vs-one-direction-shut-up-and-dance-to-the-best-song-ever",
@@ -19533,11 +19907,15 @@
   "sourceSongs": [
    {
     "artist": "Walk the Moon",
-    "title": "Shut Up and Dance"
+    "title": "Shut Up and Dance",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "artist": "One Direction",
-    "title": "Best Song Ever"
+    "title": "Best Song Ever",
+    "bpm": 117,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Shut Up and Dance to the Best Song Ever",
@@ -19557,7 +19935,9 @@
    "needsMetadata": false,
    "file": "Walk the Moon vs. One Direction - Shut Up and Dance to the Best Song Ever.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2015-wiz-khalifa-vs-ariana-grande-see-a-little-bit-of-your-heart-again",
@@ -19569,7 +19949,9 @@
    },
    {
     "artist": "Ariana Grande",
-    "title": "Just a Little Bit of Your Heart"
+    "title": "Just a Little Bit of Your Heart",
+    "bpm": 78,
+    "key": "A"
    }
   ],
   "displayTitle": "See A Little Bit of Your Heart Again",
@@ -19589,7 +19971,9 @@
    "needsMetadata": false,
    "file": "Wiz Khalifa vs. Ariana Grande - See A Little Bit of Your Heart Again.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 161,
+  "key": "A#"
  },
  {
   "id": "mashups-2015-zedd-ft-selena-gomez-vs-justin-bieber-ft-nicki-minaj-i-want-your-beauty-a-beat",
@@ -19621,7 +20005,9 @@
    "needsMetadata": false,
    "file": "Zedd ft. Selena Gomez vs. Justin Bieber ft. Nicki Minaj - I Want Your Beauty & A Beat.mp3",
    "folder": "Mashups 2015"
-  }
+  },
+  "tempo": 129,
+  "key": "Am"
  },
  {
   "id": "mashups-2016-a-yo-thurman",
@@ -19629,11 +20015,15 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "A-yo"
+    "title": "A-yo",
+    "bpm": 149,
+    "key": "G"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "Uma Thurman"
+    "title": "Uma Thurman",
+    "bpm": 149,
+    "key": "Em"
    }
   ],
   "displayTitle": "A-Yo Thurman",
@@ -19657,7 +20047,9 @@
    "needsMetadata": false,
    "file": "A-Yo Thurman.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 152,
+  "key": "C"
  },
  {
   "id": "mashups-2016-alejandro-lies",
@@ -19665,11 +20057,15 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Alejandro"
+    "title": "Alejandro",
+    "bpm": 99,
+    "key": "G"
    },
    {
     "artist": "Hilary Duff",
-    "title": "Lies"
+    "title": "Lies",
+    "bpm": 123,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Alejandro Lies",
@@ -19693,7 +20089,9 @@
    "needsMetadata": false,
    "file": "Alejandro Lies.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 99,
+  "key": "Bm"
  },
  {
   "id": "mashups-2016-birthday-confetti",
@@ -19701,11 +20099,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Confetti"
+    "title": "Confetti",
+    "bpm": 127,
+    "key": "B"
    },
    {
     "artist": "Katy Perry",
-    "title": "Birthday"
+    "title": "Birthday",
+    "bpm": 125,
+    "key": "B"
    }
   ],
   "displayTitle": "Birthday Confetti",
@@ -19725,7 +20127,9 @@
    "needsMetadata": false,
    "file": "Birthday Confetti.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 129,
+  "key": "G#m"
  },
  {
   "id": "mashups-2016-bitch-ride-madonna",
@@ -19733,7 +20137,9 @@
   "sourceSongs": [
    {
     "artist": "Twenty One Pilots",
-    "title": "Ride"
+    "title": "Ride",
+    "bpm": 76,
+    "key": "F♯"
    },
    {
     "artist": "Madonna; Nicki Minaj",
@@ -19761,7 +20167,9 @@
    "needsMetadata": false,
    "file": "Bitch Ride Madonna.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 152,
+  "key": "D#m"
  },
  {
   "id": "mashups-2016-blow-your-body",
@@ -19769,7 +20177,9 @@
   "sourceSongs": [
    {
     "artist": "Sia",
-    "title": "Move Your Body"
+    "title": "Move Your Body",
+    "bpm": 127,
+    "key": "A♯m"
    },
    {
     "artist": "Kesha",
@@ -19793,7 +20203,9 @@
    "needsMetadata": false,
    "file": "Blow Your Body.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2016-breathe-jealous-breathe-out",
@@ -19805,7 +20217,9 @@
    },
    {
     "artist": "Nick Jonas",
-    "title": "Jealous"
+    "title": "Jealous",
+    "bpm": 93,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Breathe Jealous Breathe Out",
@@ -19825,7 +20239,9 @@
    "needsMetadata": false,
    "file": "Breathe Jealous Breathe Out.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 103,
+  "key": "Bm"
  },
  {
   "id": "mashups-2016-bringmethenewyear-2016",
@@ -19841,19 +20257,27 @@
    },
    {
     "title": "Don't Wanna Know",
-    "artist": "Maroon 5"
+    "artist": "Maroon 5",
+    "bpm": 100,
+    "key": "G"
    },
    {
     "title": "Hello",
-    "artist": "Adele"
+    "artist": "Adele",
+    "bpm": 98,
+    "key": "C"
    },
    {
     "title": "YOUTH",
-    "artist": "Troye Sivan"
+    "artist": "Troye Sivan",
+    "bpm": 92,
+    "key": "G"
    },
    {
     "title": "Cheap Thrills",
-    "artist": "Sia"
+    "artist": "Sia",
+    "bpm": 89,
+    "key": "F♯m"
    },
    {
     "title": "Cold Water",
@@ -19861,7 +20285,9 @@
    },
    {
     "title": "Into You",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 107,
+    "key": "A"
    },
    {
     "title": "Just Like Fire",
@@ -19877,11 +20303,15 @@
    },
    {
     "title": "24K Magic",
-    "artist": "Bruno Mars"
+    "artist": "Bruno Mars",
+    "bpm": 108,
+    "key": "D♯"
    },
    {
     "title": "Formation",
-    "artist": "Beyonce"
+    "artist": "Beyonce",
+    "bpm": 123,
+    "key": "Fm"
    },
    {
     "title": "Cake By the Ocean",
@@ -19893,11 +20323,15 @@
    },
    {
     "title": "Hands to Myself",
-    "artist": "Selena Gomez"
+    "artist": "Selena Gomez",
+    "bpm": 111,
+    "key": "Fm"
    },
    {
     "title": "NO",
-    "artist": "Meghan Trainor"
+    "artist": "Meghan Trainor",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "title": "The Greatest",
@@ -19909,7 +20343,9 @@
    },
    {
     "title": "Send My Love (To Your New Lover)",
-    "artist": "Adele"
+    "artist": "Adele",
+    "bpm": 82,
+    "key": "F♯m"
    },
    {
     "title": "We Don't Talk Anymore",
@@ -19917,7 +20353,9 @@
    },
    {
     "title": "Sorry",
-    "artist": "Justin Bieber"
+    "artist": "Justin Bieber",
+    "bpm": 100,
+    "key": "Cm"
    },
    {
     "title": "Let Me Love You",
@@ -19925,11 +20363,15 @@
    },
    {
     "title": "Wild Things",
-    "artist": "Alessia Cara"
+    "artist": "Alessia Cara",
+    "bpm": 108,
+    "key": "C♯m"
    },
    {
     "title": "Sit Still, Look Pretty",
-    "artist": "Daya"
+    "artist": "Daya",
+    "bpm": 182,
+    "key": "D"
    },
    {
     "title": "PILLOWTALK",
@@ -19945,11 +20387,15 @@
    },
    {
     "title": "Needed Me",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "title": "7 Years",
-    "artist": "Lukas Graham"
+    "artist": "Lukas Graham",
+    "bpm": 119,
+    "key": "Gm"
    },
    {
     "title": "Can't Stop the Feeling",
@@ -19957,11 +20403,15 @@
    },
    {
     "title": "One Dance",
-    "artist": "Drake"
+    "artist": "Drake",
+    "bpm": 103,
+    "key": "C♯"
    },
    {
     "title": "Stressed Out",
-    "artist": "Twenty One Pilots"
+    "artist": "Twenty One Pilots",
+    "bpm": 86,
+    "key": "Am"
    },
    {
     "title": "Work",
@@ -19993,7 +20443,9 @@
    "needsMetadata": false,
    "file": "BRINGMETHENEWYEAR 2016.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 199,
+  "key": "Cm"
  },
  {
   "id": "mashups-2016-cant-feel-the-feeling",
@@ -20005,7 +20457,9 @@
    },
    {
     "artist": "The Weeknd",
-    "title": "Can't Feel My Face"
+    "title": "Can't Feel My Face",
+    "bpm": 108,
+    "key": "Am"
    }
   ],
   "displayTitle": "Can't Feel The Feeling",
@@ -20025,7 +20479,9 @@
    "needsMetadata": false,
    "file": "Can't Feel The Feeling.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 112,
+  "key": "F"
  },
  {
   "id": "mashups-2016-closer-from-home",
@@ -20033,7 +20489,9 @@
   "sourceSongs": [
    {
     "artist": "Fifth Harmony",
-    "title": "Work From Home"
+    "title": "Work From Home",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "artist": "The Chainsmokers; Halsey",
@@ -20061,7 +20519,9 @@
    "needsMetadata": false,
    "file": "Closer From Home.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 103,
+  "key": "G#"
  },
  {
   "id": "mashups-2016-come-get-beautiful-liars",
@@ -20073,7 +20533,9 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Come & Get It"
+    "title": "Come & Get It",
+    "bpm": 80,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Come & Get Beautiful Liars",
@@ -20097,7 +20559,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "jLFbwk3dn7Y"
-  }
+  },
+  "tempo": 92,
+  "key": "Gm"
  },
  {
   "id": "mashups-2016-cuz-i-can-ex-and-oh",
@@ -20105,7 +20569,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Cuz I Can"
+    "title": "Cuz I Can",
+    "bpm": 129,
+    "key": "D"
    },
    {
     "artist": "Elle King",
@@ -20129,7 +20595,9 @@
    "needsMetadata": false,
    "file": "Cuz I Can Ex and Oh.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 144,
+  "key": "G"
  },
  {
   "id": "mashups-2016-dont-let-me-be-the-last-to-heaven",
@@ -20141,7 +20609,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Don't Let Me Be the Last to Know"
+    "title": "Don't Let Me Be the Last to Know",
+    "bpm": 138,
+    "key": "E"
    }
   ],
   "displayTitle": "Don't Let Me Be the Last to HEAVEN",
@@ -20165,7 +20635,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "GMAvaqqDr2w"
-  }
+  },
+  "tempo": 136,
+  "key": "E"
  },
  {
   "id": "mashups-2016-dont-let-me-get-sorry",
@@ -20173,11 +20645,15 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Don't Let Me Get Me"
+    "title": "Don't Let Me Get Me",
+    "bpm": 98,
+    "key": "Cm"
    },
    {
     "artist": "Justin Bieber",
-    "title": "Sorry"
+    "title": "Sorry",
+    "bpm": 100,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Don't Let Me Get Sorry",
@@ -20197,7 +20673,9 @@
    "needsMetadata": false,
    "file": "Don't Let Me Get Sorry.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 99,
+  "key": "D#"
  },
  {
   "id": "mashups-2016-focus-of-a-lifetime",
@@ -20205,7 +20683,9 @@
   "sourceSongs": [
    {
     "artist": "Coldplay",
-    "title": "Adventure of a Lifetime"
+    "title": "Adventure of a Lifetime",
+    "bpm": 56,
+    "key": "Am"
    },
    {
     "artist": "Ariana Grande",
@@ -20229,7 +20709,9 @@
    "needsMetadata": false,
    "file": "Focus of a Lifetime.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 112,
+  "key": "C#"
  },
  {
   "id": "mashups-2016-fuck-apologies-minimix",
@@ -20241,15 +20723,21 @@
    },
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "artist": "Black Eyed Peas",
-    "title": "Where Is the Love"
+    "title": "Where Is the Love",
+    "bpm": 94,
+    "key": "F"
    },
    {
     "artist": "Green Day",
-    "title": "21 Guns"
+    "title": "21 Guns",
+    "bpm": 80,
+    "key": "F"
    }
   ],
   "displayTitle": "Fuck Apologies Mashup",
@@ -20273,7 +20761,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "4FoA0Lf1-1w"
-  }
+  },
+  "tempo": 96,
+  "key": "Dm"
  },
  {
   "id": "mashups-2016-happy-body-say",
@@ -20305,7 +20795,9 @@
    "needsMetadata": false,
    "file": "Happy Body Say.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 92,
+  "key": "Fm"
  },
  {
   "id": "mashups-2016-heavydirtyoutside",
@@ -20317,7 +20809,9 @@
    },
    {
     "artist": "Ellie Goulding",
-    "title": "Outside"
+    "title": "Outside",
+    "bpm": 128,
+    "key": "Dm"
    }
   ],
   "displayTitle": "HeavyDirtyOutside",
@@ -20337,7 +20831,9 @@
    "needsMetadata": false,
    "file": "HeavyDirtyOutside.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 65,
+  "key": "Dm"
  },
  {
   "id": "mashups-2016-hilary-duff-vs-gwen-stefani-my-baby-kind-of-lies",
@@ -20345,7 +20841,9 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "My Kind"
+    "title": "My Kind",
+    "bpm": 93,
+    "key": "Em"
    },
    {
     "artist": "Gwen Stefani",
@@ -20369,7 +20867,9 @@
    "needsMetadata": false,
    "file": "Hilary Duff vs. Gwen Stefani - My Baby Kind of Lies.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 96,
+  "key": "D"
  },
  {
   "id": "mashups-2016-hold-it-against-devotion",
@@ -20377,11 +20877,15 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "Devotion"
+    "title": "Devotion",
+    "bpm": 131,
+    "key": "Cm"
    },
    {
     "artist": "Britney Spears",
-    "title": "Hold It Against Me"
+    "title": "Hold It Against Me",
+    "bpm": 132,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Hold It Against Devotion",
@@ -20401,7 +20905,9 @@
    "needsMetadata": false,
    "file": "Hold It Against Devotion.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 129,
+  "key": "D#"
  },
  {
   "id": "mashups-2016-i-want-cold-water-that-way",
@@ -20413,7 +20919,9 @@
    },
    {
     "artist": "Backstreet Boys",
-    "title": "I Want It That Way"
+    "title": "I Want It That Way",
+    "bpm": 99,
+    "key": "A"
    }
   ],
   "displayTitle": "I Want Cold Water That Way",
@@ -20437,7 +20945,9 @@
    "needsMetadata": false,
    "file": "I Want Cold Water That Way.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 129,
+  "key": "F#m"
  },
  {
   "id": "mashups-2016-i-want-my-girl",
@@ -20445,11 +20955,15 @@
   "sourceSongs": [
    {
     "artist": "Karmin",
-    "title": "I Want It All"
+    "title": "I Want It All",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "That's My Girl"
+    "title": "That's My Girl",
+    "bpm": 202,
+    "key": "Fm"
    }
   ],
   "displayTitle": "I Want My Girl",
@@ -20469,7 +20983,9 @@
    "needsMetadata": false,
    "file": "I Want My Girl.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 117,
+  "key": "G#"
  },
  {
   "id": "mashups-2016-im-still-an-american-girl",
@@ -20501,7 +21017,9 @@
    "needsMetadata": false,
    "file": "I'm Still An American Girl.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 136,
+  "key": "D#"
  },
  {
   "id": "mashups-2016-into-your-name",
@@ -20513,7 +21031,9 @@
    },
    {
     "artist": "Ariana Grande",
-    "title": "Into You"
+    "title": "Into You",
+    "bpm": 107,
+    "key": "A"
    }
   ],
   "displayTitle": "Into Your Name",
@@ -20537,7 +21057,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "anfZQIn6DAc"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2016-lady-gaga-vs-hilary-duff-alejandro-lies-reversed",
@@ -20545,11 +21067,15 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Alejandro"
+    "title": "Alejandro",
+    "bpm": 99,
+    "key": "G"
    },
    {
     "artist": "Hilary Duff",
-    "title": "Lies"
+    "title": "Lies",
+    "bpm": 123,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Alejandro Lies Reversed",
@@ -20569,7 +21095,9 @@
    "needsMetadata": false,
    "file": "Lady Gaga vs. Hilary Duff - Alejandro Lies Reversed.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 99,
+  "key": "G"
  },
  {
   "id": "mashups-2016-love-bites-here",
@@ -20577,15 +21105,21 @@
   "sourceSongs": [
    {
     "artist": "Alessia Cara",
-    "title": "Here"
+    "title": "Here",
+    "bpm": 62,
+    "key": "C"
    },
    {
     "artist": "Sara Bareilles",
-    "title": "Love Song"
+    "title": "Love Song",
+    "bpm": 123,
+    "key": "Dm"
    },
    {
     "artist": "Troye Sivan",
-    "title": "Bite"
+    "title": "Bite",
+    "bpm": 125,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Love Bites Here",
@@ -20605,7 +21139,9 @@
    "needsMetadata": false,
    "file": "Love Bites Here.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2016-make-both-of-us-oooh",
@@ -20637,7 +21173,9 @@
    "needsMetadata": false,
    "file": "Make Both of Us (Oooh).mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 123,
+  "key": "A"
  },
  {
   "id": "mashups-2016-make-me-fly",
@@ -20673,7 +21211,9 @@
    "needsMetadata": false,
    "file": "Make Me Fly.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 161,
+  "key": "A#"
  },
  {
   "id": "mashups-2016-matts-mashup",
@@ -20685,7 +21225,9 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Worth It"
+    "title": "Worth It",
+    "bpm": 99,
+    "key": "G♯"
    },
    {
     "artist": "Lady Gaga; Beyonce",
@@ -20693,15 +21235,21 @@
    },
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool for the Summer"
+    "title": "Cool for the Summer",
+    "bpm": 114,
+    "key": "Fm"
    },
    {
     "artist": "Rihanna",
-    "title": "Cockiness"
+    "title": "Cockiness",
+    "bpm": 124,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Matt's Mashup",
@@ -20721,7 +21269,9 @@
    "needsMetadata": false,
    "file": "Matt's Mashup.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 136,
+  "key": "Fm"
  },
  {
   "id": "mashups-2016-miss-jackson-on-my-mind",
@@ -20729,11 +21279,15 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "Miss Jackson"
+    "title": "Miss Jackson",
+    "bpm": 82,
+    "key": "D"
    },
    {
     "artist": "Ellie Goulding",
-    "title": "On My Mind"
+    "title": "On My Mind",
+    "bpm": 152,
+    "key": "C"
    }
   ],
   "displayTitle": "Miss Jackson On My Mind",
@@ -20757,7 +21311,9 @@
    "needsMetadata": false,
    "file": "Miss Jackson On My Mind.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 108,
+  "key": "Dm"
  },
  {
   "id": "mashups-2016-new-romantic-aftertaste",
@@ -20769,7 +21325,9 @@
    },
    {
     "artist": "Ellie Goulding",
-    "title": "Aftertaste"
+    "title": "Aftertaste",
+    "bpm": 123,
+    "key": "C"
    }
   ],
   "displayTitle": "New Romantic Aftertaste",
@@ -20789,7 +21347,9 @@
    "needsMetadata": false,
    "file": "New Romantic Aftertaste.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "mashups-2016-no-pretty-girls",
@@ -20797,7 +21357,9 @@
   "sourceSongs": [
    {
     "artist": "Meghan Trainor",
-    "title": "NO"
+    "title": "NO",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "artist": "Britney Spears; Iggy Azalea",
@@ -20821,7 +21383,9 @@
    "needsMetadata": false,
    "file": "NO Pretty Girls.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 103,
+  "key": "A"
  },
  {
   "id": "mashups-2016-one-time-tattoo",
@@ -20829,11 +21393,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Tattoo"
+    "title": "Tattoo",
+    "bpm": 160,
+    "key": "E"
    },
    {
     "artist": "Justin Bieber",
-    "title": "One Time"
+    "title": "One Time",
+    "bpm": 145,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "One Time Tattoo",
@@ -20853,7 +21421,9 @@
    "needsMetadata": false,
    "file": "One Time Tattoo.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 161,
+  "key": "E"
  },
  {
   "id": "mashups-2016-rock-your-body-by-the-ocean",
@@ -20861,7 +21431,9 @@
   "sourceSongs": [
    {
     "artist": "Justin Timberlake",
-    "title": "Rock Your Body"
+    "title": "Rock Your Body",
+    "bpm": 99,
+    "key": "Em"
    },
    {
     "artist": "DNCE",
@@ -20885,7 +21457,9 @@
    "needsMetadata": false,
    "file": "Rock Your Body By the Ocean.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 117,
+  "key": "Em"
  },
  {
   "id": "mashups-2016-roses-to-myself",
@@ -20897,7 +21471,9 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Hands to Myself"
+    "title": "Hands to Myself",
+    "bpm": 111,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Roses to Myself",
@@ -20917,7 +21493,9 @@
    "needsMetadata": false,
    "file": "Roses to Myself.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 108,
+  "key": "D#"
  },
  {
   "id": "mashups-2016-same-old-roses",
@@ -20953,7 +21531,9 @@
    "needsMetadata": false,
    "file": "Same Old Roses.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 99,
+  "key": "D"
  },
  {
   "id": "mashups-2016-sean-paul-ft-beyonce-vs-fifth-harmony-ft-fetty-wap-baby-boy-in-my-head",
@@ -20989,7 +21569,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "P-VA_2Cq434"
-  }
+  },
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2016-set-true-colors-to-the-rain",
@@ -20997,7 +21579,9 @@
   "sourceSongs": [
    {
     "artist": "Adele",
-    "title": "Set Fire to the Rain"
+    "title": "Set Fire to the Rain",
+    "bpm": 108,
+    "key": "Dm"
    },
    {
     "artist": "Zedd; Kesha",
@@ -21021,7 +21605,9 @@
    "needsMetadata": false,
    "file": "Set True Colors to the Rain.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2016-settle-down-alive",
@@ -21029,11 +21615,15 @@
   "sourceSongs": [
    {
     "artist": "No Doubt",
-    "title": "Settle Down"
+    "title": "Settle Down",
+    "bpm": 104,
+    "key": "A"
    },
    {
     "artist": "Sia",
-    "title": "Alive"
+    "title": "Alive",
+    "bpm": 119,
+    "key": "F"
    }
   ],
   "displayTitle": "Settle Down Alive",
@@ -21053,7 +21643,9 @@
    "needsMetadata": false,
    "file": "Settle Down Alive.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 103,
+  "key": "A"
  },
  {
   "id": "mashups-2016-side-to-heart-attack",
@@ -21061,7 +21653,9 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Heart Attack"
+    "title": "Heart Attack",
+    "bpm": 172,
+    "key": "G♯"
    },
    {
     "artist": "Ariana Grande; Nicki Minaj",
@@ -21085,7 +21679,9 @@
    "needsMetadata": false,
    "file": "Side to Heart Attack.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 86,
+  "key": "F#m"
  },
  {
   "id": "mashups-2016-side-to-hell",
@@ -21093,7 +21689,9 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "What the Hell"
+    "title": "What the Hell",
+    "bpm": 152,
+    "key": "F♯m"
    },
    {
     "artist": "Ariana Grande; Nicki Minaj",
@@ -21117,7 +21715,9 @@
    "needsMetadata": false,
    "file": "Side to Hell.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 161,
+  "key": "F#m"
  },
  {
   "id": "mashups-2016-somebodys-life",
@@ -21129,7 +21729,9 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "The Life"
+    "title": "The Life",
+    "bpm": 104,
+    "key": "C"
    }
   ],
   "displayTitle": "Somebody's Life",
@@ -21149,7 +21751,9 @@
    "needsMetadata": false,
    "file": "Somebody's Life.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 103,
+  "key": "Am"
  },
  {
   "id": "mashups-2016-something-in-the-way-you-love-me-harder",
@@ -21157,7 +21761,9 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "Something in the Way You Move"
+    "title": "Something in the Way You Move",
+    "bpm": 109,
+    "key": "C♯m"
    },
    {
     "artist": "Ariana Grande; The Weeknd",
@@ -21181,7 +21787,9 @@
    "needsMetadata": false,
    "file": "Something In the Way You Love Me Harder.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 108,
+  "key": "E"
  },
  {
   "id": "mashups-2016-star-whistle-while-you-work-it",
@@ -21189,7 +21797,9 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Stars"
+    "title": "Stars",
+    "bpm": 156,
+    "key": "Bm"
    },
    {
     "artist": "Katy Tiz",
@@ -21213,7 +21823,9 @@
    "needsMetadata": false,
    "file": "Star Whistle While You Work It.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 161,
+  "key": "D"
  },
  {
   "id": "mashups-2016-starving-yourself",
@@ -21221,7 +21833,9 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "Love Yourself"
+    "title": "Love Yourself",
+    "bpm": 98,
+    "key": "E"
    },
    {
     "artist": "Hailee Steinfeld; Zedd; Grey",
@@ -21245,7 +21859,9 @@
    "needsMetadata": false,
    "file": "Starving Yourself.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 99,
+  "key": "B"
  },
  {
   "id": "mashups-2016-stressed-out-trumpets",
@@ -21253,11 +21869,15 @@
   "sourceSongs": [
    {
     "artist": "Jason Derulo",
-    "title": "Trumpets"
+    "title": "Trumpets",
+    "bpm": 82,
+    "key": "C"
    },
    {
     "artist": "Twenty One Pilots",
-    "title": "Stressed Out"
+    "title": "Stressed Out",
+    "bpm": 86,
+    "key": "Am"
    }
   ],
   "displayTitle": "Stressed Out Trumpets",
@@ -21281,7 +21901,9 @@
    "needsMetadata": false,
    "file": "Stressed Out Trumpets.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 172,
+  "key": "C"
  },
  {
   "id": "mashups-2016-super-bass",
@@ -21340,7 +21962,9 @@
    "needsMetadata": false,
    "file": "Super Pillowtalk.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 123,
+  "key": "B"
  },
  {
   "id": "mashups-2016-sweet-focus",
@@ -21348,7 +21972,9 @@
   "sourceSongs": [
    {
     "artist": "Sia",
-    "title": "Sweet Design"
+    "title": "Sweet Design",
+    "bpm": 103,
+    "key": "D♯"
    },
    {
     "artist": "Ariana Grande",
@@ -21376,7 +22002,9 @@
    "needsMetadata": false,
    "file": "Sweet Focus.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 136,
+  "key": "G#m"
  },
  {
   "id": "mashups-2016-the-greatest-l-o-v-e",
@@ -21388,7 +22016,9 @@
    },
    {
     "artist": "Ashlee Simpson",
-    "title": "L.O.V.E."
+    "title": "L.O.V.E.",
+    "bpm": 191,
+    "key": "Fm"
    }
   ],
   "displayTitle": "The Greatest L.O.V.E",
@@ -21412,7 +22042,9 @@
    "needsMetadata": false,
    "file": "The Greatest L.O.V.E.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 129,
+  "key": "G#"
  },
  {
   "id": "mashups-2016-the-one-that-made-bad-decisions",
@@ -21420,11 +22052,15 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "The One That Got Away"
+    "title": "The One That Got Away",
+    "bpm": 123,
+    "key": "E"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Bad Decisions"
+    "title": "Bad Decisions",
+    "bpm": 131,
+    "key": "Em"
    }
   ],
   "displayTitle": "The One That Made Bad Decisions",
@@ -21444,7 +22080,9 @@
    "needsMetadata": false,
    "file": "The One That Made Bad Decisions.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 136,
+  "key": "G"
  },
  {
   "id": "mashups-2016-thinking-of-ooh-la-la",
@@ -21452,7 +22090,9 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Thinking of You"
+    "title": "Thinking of You",
+    "bpm": 132,
+    "key": "F♯"
    },
    {
     "artist": "Britney Spears",
@@ -21476,7 +22116,9 @@
    "needsMetadata": false,
    "file": "Thinking of Ooh La La.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "mashups-2016-this-toothbrush-is-gonna-hurt-like-a-motherfucker",
@@ -21512,7 +22154,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "HmGIeIQNo2I"
-  }
+  },
+  "tempo": 103,
+  "key": "G"
  },
  {
   "id": "mashups-2016-treat-your-burns-better",
@@ -21520,7 +22164,9 @@
   "sourceSongs": [
    {
     "artist": "Shawn Mendes",
-    "title": "Treat You Better"
+    "title": "Treat You Better",
+    "bpm": 164,
+    "key": "A♯m"
    },
    {
     "artist": "Ellie Goulding",
@@ -21544,7 +22190,9 @@
    "needsMetadata": false,
    "file": "Treat Your Burns Better.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 112,
+  "key": "A#m"
  },
  {
   "id": "mashups-2016-true-colors-indestructible",
@@ -21552,7 +22200,9 @@
   "sourceSongs": [
    {
     "artist": "Nelly Furtado",
-    "title": "Spirit Indestructible"
+    "title": "Spirit Indestructible",
+    "bpm": 117,
+    "key": "Dm"
    },
    {
     "artist": "Zedd; Kesha",
@@ -21580,7 +22230,9 @@
    "needsMetadata": false,
    "file": "True Colors Indestructible.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 123,
+  "key": "Dm"
  },
  {
   "id": "mashups-2016-we-dont-love-harder-anymore",
@@ -21612,7 +22264,9 @@
    "needsMetadata": false,
    "file": "We Don't Love Harder Anymore.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 136,
+  "key": "F#m"
  },
  {
   "id": "mashups-2016-we-dont-talk-anymore-minimix",
@@ -21624,7 +22278,9 @@
    },
    {
     "artist": "Meghan Trainor",
-    "title": "NO"
+    "title": "NO",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "artist": "Ariana Grande; The Weeknd",
@@ -21632,11 +22288,15 @@
    },
    {
     "artist": "Justin Bieber",
-    "title": "Sorry"
+    "title": "Sorry",
+    "bpm": 100,
+    "key": "Cm"
    },
    {
     "artist": "Alessia Cara",
-    "title": "Wild Things"
+    "title": "Wild Things",
+    "bpm": 108,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "We Don't Talk Anymore Mashup",
@@ -21660,7 +22320,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "qIlDCgYRruw"
-  }
+  },
+  "tempo": 99,
+  "key": "C#m"
  },
  {
   "id": "mashups-2016-whistle-while-you-work-your-girlfriend",
@@ -21668,7 +22330,9 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "Girlfriend"
+    "title": "Girlfriend",
+    "bpm": 81,
+    "key": "G"
    },
    {
     "artist": "Katy Tiz",
@@ -21692,7 +22356,9 @@
    "needsMetadata": false,
    "file": "Whistle While You Work Your Girlfriend.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 161,
+  "key": "D"
  },
  {
   "id": "mashups-2016-wild-stars",
@@ -21700,7 +22366,9 @@
   "sourceSongs": [
    {
     "artist": "Alessia Cara",
-    "title": "Wild Things"
+    "title": "Wild Things",
+    "bpm": 108,
+    "key": "C♯m"
    },
    {
     "artist": "One Republic",
@@ -21724,7 +22392,9 @@
    "needsMetadata": false,
    "file": "Wild Stars.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 108,
+  "key": "F#m"
  },
  {
   "id": "mashups-2016-work-formation",
@@ -21732,11 +22402,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Work Bitch"
+    "title": "Work Bitch",
+    "bpm": 128,
+    "key": "A"
    },
    {
     "artist": "Beyonce",
-    "title": "Formation"
+    "title": "Formation",
+    "bpm": 123,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Work Formation",
@@ -21756,7 +22430,9 @@
    "needsMetadata": false,
    "file": "Work Formation.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 123,
+  "key": "F"
  },
  {
   "id": "mashups-2016-work-from-youth",
@@ -21764,11 +22440,15 @@
   "sourceSongs": [
    {
     "artist": "Fifth Harmony",
-    "title": "Work From Home"
+    "title": "Work From Home",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "artist": "Troye Sivan",
-    "title": "YOUTH"
+    "title": "YOUTH",
+    "bpm": 92,
+    "key": "G"
    }
   ],
   "displayTitle": "Work From YOUTH",
@@ -21792,7 +22472,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "qpUjcORrSNY"
-  }
+  },
+  "tempo": 103,
+  "key": "G"
  },
  {
   "id": "mashups-2016-yes-chains",
@@ -21800,11 +22482,15 @@
   "sourceSongs": [
    {
     "artist": "Nick Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Yes"
+    "title": "Yes",
+    "bpm": 155,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Yes, Chains",
@@ -21824,7 +22510,9 @@
    "needsMetadata": false,
    "file": "Yes, Chains.mp3",
    "folder": "Mashups 2016"
-  }
+  },
+  "tempo": 152,
+  "key": "Cm"
  },
  {
   "id": "mashups-2017-68-i-really-belong-with-you",
@@ -21832,11 +22520,14 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Belong"
+    "title": "Belong",
+    "key": "m"
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
+    "title": "I Really Like You",
+    "bpm": 123,
+    "key": "F"
    }
   ],
   "displayTitle": "I Really Belong With You",
@@ -21856,7 +22547,9 @@
    "needsMetadata": false,
    "file": "68 - I Really Belong With You.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2017-69-rebel-animals",
@@ -21864,11 +22557,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Brave Heart"
+    "title": "Brave Heart",
+    "bpm": 132,
+    "key": "G♯"
    },
    {
     "artist": "Kesha",
-    "title": "Animal"
+    "title": "Animal",
+    "bpm": 138,
+    "key": "G"
    }
   ],
   "displayTitle": "Rebel Animals",
@@ -21888,7 +22585,9 @@
    "needsMetadata": false,
    "file": "69 - Rebel Animals.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2017-70-send-my-happy-ending-to-your-new-lover",
@@ -21900,7 +22599,9 @@
    },
    {
     "artist": "Avril Lavigne",
-    "title": "My Happy Ending"
+    "title": "My Happy Ending",
+    "bpm": 172,
+    "key": "D"
    }
   ],
   "displayTitle": "Send My Happy Ending To Your New Lover",
@@ -21920,7 +22621,9 @@
    "needsMetadata": false,
    "file": "70 - Send My Happy Ending To Your New Lover.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 172,
+  "key": "D"
  },
  {
   "id": "mashups-2017-76-find-your-teenage-dream",
@@ -21932,7 +22635,9 @@
    },
    {
     "artist": "Katy Perry",
-    "title": "Teenage Dream"
+    "title": "Teenage Dream",
+    "bpm": 58,
+    "key": "A♯"
    }
   ],
   "displayTitle": "Find Your Teenage Dream",
@@ -21956,7 +22661,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "EOE58y4KwgA"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mashups-2017-all-star-in-the-usa",
@@ -21964,7 +22671,9 @@
   "sourceSongs": [
    {
     "artist": "Smash Mouth",
-    "title": "All Star"
+    "title": "All Star",
+    "bpm": 103,
+    "key": "F♯"
    },
    {
     "artist": "Miley Cyrus",
@@ -21992,7 +22701,9 @@
    "needsMetadata": false,
    "file": "All Star in the USA.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 103,
+  "key": "F#"
  },
  {
   "id": "mashups-2017-baby-dont-dance",
@@ -22004,7 +22715,9 @@
    },
    {
     "artist": "Drake",
-    "title": "One Dance"
+    "title": "One Dance",
+    "bpm": 103,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Baby Don't Dance",
@@ -22024,7 +22737,9 @@
    "needsMetadata": false,
    "file": "Baby Don't Dance.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 99,
+  "key": "A#m"
  },
  {
   "id": "mashups-2017-beautiful-havana",
@@ -22060,7 +22775,9 @@
    "needsMetadata": false,
    "file": "Beautiful Havana.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2017-bonnie-mckee-vs-melanie-martinez-bombastic-dollhouse",
@@ -22072,7 +22789,9 @@
    },
    {
     "artist": "Melanie Martinez",
-    "title": "Dollhouse"
+    "title": "Dollhouse",
+    "bpm": 130,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Bombastic Dollhouse",
@@ -22096,7 +22815,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "KhcY6lyDopo"
-  }
+  },
+  "tempo": 78,
+  "key": "E"
  },
  {
   "id": "mashups-2017-britney-spears-ft-tinashe-vs-selena-gomez-ft-gucci-mane-fetish-slumber-party",
@@ -22128,7 +22849,9 @@
    "needsMetadata": false,
    "file": "Britney Spears ft. Tinashe vs. Selena Gomez ft. Gucci Mane - Fetish Slumber Party.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 136,
+  "key": "G"
  },
  {
   "id": "mashups-2017-camila-cabello-vs-ellie-goulding-i-have-burning-questions",
@@ -22164,7 +22887,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "M6egAguU39g"
-  }
+  },
+  "tempo": 112,
+  "key": "C#"
  },
  {
   "id": "mashups-2017-cardi-b-vs-twenty-one-pilots-bodak-heathens",
@@ -22172,7 +22897,9 @@
   "sourceSongs": [
    {
     "artist": "Cardi B",
-    "title": "Bodak Yellow"
+    "title": "Bodak Yellow",
+    "bpm": 123,
+    "key": "Em"
    },
    {
     "artist": "Twenty One Pilots",
@@ -22200,7 +22927,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "061jarOhKJ8"
-  }
+  },
+  "tempo": 123,
+  "key": "Em"
  },
  {
   "id": "mashups-2017-carly-rae-jepsen-vs-hailee-steinfeld-most-girls-cut-to-the-feeling",
@@ -22236,7 +22965,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "-mz2s981B1k"
-  }
+  },
+  "tempo": 117,
+  "key": "D"
  },
  {
   "id": "mashups-2017-charli-xcx-vs-zara-larsson-it-aint-boys-fault",
@@ -22248,7 +22979,9 @@
    },
    {
     "artist": "Zara Larsson",
-    "title": "Ain't My Fault"
+    "title": "Ain't My Fault",
+    "bpm": 144,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "It Ain't Boys Fault",
@@ -22272,7 +23005,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "TNcqGPmiH7s"
-  }
+  },
+  "tempo": 144,
+  "key": "D"
  },
  {
   "id": "mashups-2017-charlie-puth-vs-lorde-attention-team",
@@ -22280,11 +23015,15 @@
   "sourceSongs": [
    {
     "artist": "Charlie Puth",
-    "title": "Attention"
+    "title": "Attention",
+    "bpm": 98,
+    "key": "D♯m"
    },
    {
     "artist": "Lorde",
-    "title": "Team"
+    "title": "Team",
+    "bpm": 100,
+    "key": "F♯"
    }
   ],
   "displayTitle": "Attention Team!",
@@ -22308,7 +23047,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Q5tnGl1DVnI"
-  }
+  },
+  "tempo": 99,
+  "key": "A#m"
  },
  {
   "id": "mashups-2017-crazy-beautiful-work-from-home",
@@ -22320,7 +23061,9 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Work From Home"
+    "title": "Work From Home",
+    "bpm": 103,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Crazy Beautiful Work From Home",
@@ -22344,7 +23087,9 @@
    "needsMetadata": false,
    "file": "Crazy Beautiful Work From Home.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 103,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-daddy-yankee-ft-luis-fonsi-vs-demi-lovato-despacito-not-sorry",
@@ -22356,7 +23101,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Sorry Not Sorry"
+    "title": "Sorry Not Sorry",
+    "bpm": 144,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Despacito Not Sorry",
@@ -22376,7 +23123,9 @@
    "needsMetadata": false,
    "file": "Daddy Yankee ft. Luis Fonsi vs. Demi Lovato - Despacito Not Sorry.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 89,
+  "key": "D"
  },
  {
   "id": "mashups-2017-demi-lovato-vs-charli-xcx-vs-maroon-5-ft-christina-aguilera-vs-pink-vs-destinys-child-sorry-not-sorry-minimix",
@@ -22384,7 +23133,9 @@
   "sourceSongs": [
    {
     "artist": "Demi Lovato",
-    "title": "Sorry Not Sorry"
+    "title": "Sorry Not Sorry",
+    "bpm": 144,
+    "key": "Bm"
    },
    {
     "artist": "Charli xcx",
@@ -22400,7 +23151,9 @@
    },
    {
     "artist": "Destiny's Child",
-    "title": "Bills, Bills, Bills"
+    "title": "Bills, Bills, Bills",
+    "bpm": 127,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Sorry Not Sorry Mashup",
@@ -22424,7 +23177,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "6P1ZGef5G0I"
-  }
+  },
+  "tempo": 144,
+  "key": "Bm"
  },
  {
   "id": "mashups-2017-dnce-vs-troye-sivan-truthfully-fools",
@@ -22436,7 +23191,9 @@
    },
    {
     "artist": "Troye Sivan",
-    "title": "Fools"
+    "title": "Fools",
+    "bpm": 87,
+    "key": "A♯"
    }
   ],
   "displayTitle": "Truthfully Fools",
@@ -22456,7 +23213,9 @@
    "needsMetadata": false,
    "file": "DNCE vs. Troye Sivan - Truthfully Fools.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 103,
+  "key": "A#"
  },
  {
   "id": "mashups-2017-echosmith-vs-miley-cyrus-cool-kids-in-malibu",
@@ -22464,11 +23223,15 @@
   "sourceSongs": [
    {
     "artist": "Echosmith",
-    "title": "Cool Kids"
+    "title": "Cool Kids",
+    "bpm": 129,
+    "key": "G♯"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Malibu"
+    "title": "Malibu",
+    "bpm": 140,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Cool Kids in Malibu",
@@ -22492,7 +23255,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "YWDvuY0nKrc"
-  }
+  },
+  "tempo": 129,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-evanescence-vs-troye-sivan-bring-my-happy-little-pill-to-life",
@@ -22500,7 +23265,9 @@
   "sourceSongs": [
    {
     "artist": "Evanescence",
-    "title": "Bring Me to Life"
+    "title": "Bring Me to Life",
+    "bpm": 192,
+    "key": "Em"
    },
    {
     "artist": "Troye Sivan",
@@ -22524,7 +23291,9 @@
    "needsMetadata": false,
    "file": "Evanescence vs. Troye Sivan - Bring My Happy Little Pill to Life.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "Em"
  },
  {
   "id": "mashups-2017-fab-minimix",
@@ -22536,19 +23305,27 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "Lovegame"
+    "title": "Lovegame",
+    "bpm": 103,
+    "key": "F♯m"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Same Old Love"
+    "title": "Same Old Love",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Jealous"
+    "title": "Jealous",
+    "bpm": 93,
+    "key": "Bm"
    },
    {
     "artist": "Hollywood Undead",
-    "title": "Coming Back Down"
+    "title": "Coming Back Down",
+    "bpm": 94,
+    "key": "D"
    }
   ],
   "displayTitle": "FAB. Minimix",
@@ -22572,7 +23349,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "pp6EF9L_HxQ"
-  }
+  },
+  "tempo": 103,
+  "key": "G"
  },
  {
   "id": "mashups-2017-fall-out-boy-vs-melanie-martinez-irresistible-soap",
@@ -22580,11 +23359,15 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Irresistible"
+    "title": "Irresistible",
+    "bpm": 164,
+    "key": "D"
    },
    {
     "artist": "Melanie Martinez",
-    "title": "Soap"
+    "title": "Soap",
+    "bpm": 168,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Irresistible Soap",
@@ -22608,7 +23391,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "D0JhoRmzroU"
-  }
+  },
+  "tempo": 161,
+  "key": "A"
  },
  {
   "id": "mashups-2017-fifth-harmony-ft-gucci-mane-vs-britney-spears-down-one-more-time",
@@ -22620,7 +23405,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "...Baby One More Time"
+    "title": "...Baby One More Time",
+    "bpm": 92,
+    "key": "Cm"
    }
   ],
   "displayTitle": "...Down One More Time",
@@ -22644,7 +23431,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "d0ZMWeREXgs"
-  }
+  },
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2017-get-the-disturbia-started",
@@ -22652,7 +23441,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Get the Party Started"
+    "title": "Get the Party Started",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Rihanna",
@@ -22676,7 +23467,9 @@
    "needsMetadata": false,
    "file": "Get the Disturbia Started.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "E"
  },
  {
   "id": "mashups-2017-gimme-more-without-me",
@@ -22684,11 +23477,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Gimme More"
+    "title": "Gimme More",
+    "bpm": 113,
+    "key": "F♯m"
    },
    {
     "artist": "Eminem",
-    "title": "Without Me"
+    "title": "Without Me",
+    "bpm": 112,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Gimme More Without Me",
@@ -22708,7 +23505,9 @@
    "needsMetadata": false,
    "file": "Gimme More Without Me.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 112,
+  "key": "D"
  },
  {
   "id": "mashups-2017-gives-you-starving-hell",
@@ -22744,7 +23543,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "tM4sxTf5lAE"
-  }
+  },
+  "tempo": 99,
+  "key": "E"
  },
  {
   "id": "mashups-2017-green-light-mix-mashup",
@@ -22752,27 +23553,39 @@
   "sourceSongs": [
    {
     "artist": "Lorde",
-    "title": "Green Light"
+    "title": "Green Light",
+    "bpm": 129,
+    "key": "F♯m"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "artist": "Madonna",
-    "title": "Living for Love"
+    "title": "Living for Love",
+    "bpm": 122,
+    "key": "C♯"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Edge of Glory"
+    "title": "Edge of Glory",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "artist": "Bastille",
-    "title": "Pompeii"
+    "title": "Pompeii",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "artist": "Linkin Park",
-    "title": "Numb"
+    "title": "Numb",
+    "bpm": 56,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Green Light Mashup",
@@ -22796,7 +23609,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "yLUPQ7NyWrk"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2017-hailee-steinfeld-vs-cheat-codes-ft-demi-lovato-no-promises-from-most-girls",
@@ -22832,7 +23647,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "knez6PUk3g8"
-  }
+  },
+  "tempo": 144,
+  "key": "A#"
  },
  {
   "id": "mashups-2017-halsey-ft-lauren-jauregui-vs-ellie-goulding-something-in-the-way-strangers-move",
@@ -22844,7 +23661,9 @@
    },
    {
     "artist": "Ellie Goulding",
-    "title": "Something in the Way You Move"
+    "title": "Something in the Way You Move",
+    "bpm": 109,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Something in the Way Strangers Move",
@@ -22864,7 +23683,9 @@
    "needsMetadata": false,
    "file": "Halsey ft. Lauren Jauregui vs. Ellie Goulding - Something in the Way Strangers Move.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 112,
+  "key": "G#m"
  },
  {
   "id": "mashups-2017-halsey-vs-madonna-ft-justin-timberlake-timbaland-now-or-4-minutes",
@@ -22872,7 +23693,9 @@
   "sourceSongs": [
    {
     "artist": "Halsey",
-    "title": "Now or Never"
+    "title": "Now or Never",
+    "bpm": 110,
+    "key": "F♯m"
    },
    {
     "artist": "Madonna; Justin Timberlake; Timbaland",
@@ -22900,7 +23723,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "h7k8n-ASMUg"
-  }
+  },
+  "tempo": 112,
+  "key": "Cm"
  },
  {
   "id": "mashups-2017-helicopter-stars",
@@ -22908,11 +23733,15 @@
   "sourceSongs": [
    {
     "artist": "Bloc Party",
-    "title": "Helicopter"
+    "title": "Helicopter",
+    "bpm": 172,
+    "key": "Bm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Stars"
+    "title": "Stars",
+    "bpm": 156,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Helicopter Stars",
@@ -22932,7 +23761,9 @@
    "needsMetadata": false,
    "file": "Helicopter Stars.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 86,
+  "key": "C#m"
  },
  {
   "id": "mashups-2017-hilary-duff-vs-carly-rae-jepsen-i-really-belong-with-you",
@@ -22940,11 +23771,14 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Belong"
+    "title": "Belong",
+    "key": "m"
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
+    "title": "I Really Like You",
+    "bpm": 123,
+    "key": "F"
    }
   ],
   "displayTitle": "I Really Belong With You",
@@ -22964,7 +23798,9 @@
    "needsMetadata": false,
    "file": "Hilary Duff vs. Carly Rae Jepsen - I Really Belong With You.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2017-hilary-duff-vs-kesha-rebel-animals",
@@ -22972,11 +23808,15 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "Brave Heart"
+    "title": "Brave Heart",
+    "bpm": 132,
+    "key": "G♯"
    },
    {
     "artist": "Kesha",
-    "title": "Animal"
+    "title": "Animal",
+    "bpm": 138,
+    "key": "G"
    }
   ],
   "displayTitle": "Rebel Animals",
@@ -22996,7 +23836,9 @@
    "needsMetadata": false,
    "file": "Hilary Duff vs. Kesha - Rebel Animals.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2017-iggy-azalea-vs-rihanna-pour-up-your-life",
@@ -23004,11 +23846,15 @@
   "sourceSongs": [
    {
     "artist": "Iggy Azalea",
-    "title": "Change Your Life"
+    "title": "Change Your Life",
+    "bpm": 132,
+    "key": "D"
    },
    {
     "artist": "Rihanna",
-    "title": "Pour It Up"
+    "title": "Pour It Up",
+    "bpm": 136,
+    "key": "D"
    }
   ],
   "displayTitle": "Pour Up Your Life",
@@ -23028,7 +23874,9 @@
    "needsMetadata": false,
    "file": "Iggy Azalea vs. Rihanna - Pour Up Your Life.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2017-imagine-dragons-vs-flo-rida-ft-kesha-believer-right-round",
@@ -23036,7 +23884,9 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "Believer"
+    "title": "Believer",
+    "bpm": 123,
+    "key": "A♯m"
    },
    {
     "artist": "Flo Rida; Kesha",
@@ -23060,7 +23910,9 @@
    "needsMetadata": false,
    "file": "Imagine Dragons vs. Flo Rida ft. Kesha - Believer Right Round.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 123,
+  "key": "Am"
  },
  {
   "id": "mashups-2017-imagine-dragons-vs-mariah-carey-we-belong-together-every-night",
@@ -23068,11 +23920,15 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "Every Night"
+    "title": "Every Night",
+    "bpm": 139,
+    "key": "C"
    },
    {
     "artist": "Mariah Carey",
-    "title": "We Belong Together"
+    "title": "We Belong Together",
+    "bpm": 69,
+    "key": "C"
    }
   ],
   "displayTitle": "We Belong Together Every Night",
@@ -23096,7 +23952,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "qzWgWvQ0GEQ"
-  }
+  },
+  "tempo": 144,
+  "key": "C"
  },
  {
   "id": "mashups-2017-into-chasing-cars",
@@ -23104,11 +23962,15 @@
   "sourceSongs": [
    {
     "artist": "Snow Patrol",
-    "title": "Chasing Cars"
+    "title": "Chasing Cars",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Into You"
+    "title": "Into You",
+    "bpm": 107,
+    "key": "A"
    }
   ],
   "displayTitle": "Into Chasing Cars",
@@ -23132,7 +23994,9 @@
    "needsMetadata": false,
    "file": "Into Chasing Cars.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 103,
+  "key": "A"
  },
  {
   "id": "mashups-2017-jet-pack-rides",
@@ -23140,11 +24004,15 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Jet Pack Blues"
+    "title": "Jet Pack Blues",
+    "bpm": 156,
+    "key": "G"
    },
    {
     "artist": "Twenty One Pilots",
-    "title": "Ride"
+    "title": "Ride",
+    "bpm": 76,
+    "key": "F♯"
    }
   ],
   "displayTitle": "Jet Pack Rides",
@@ -23168,7 +24036,9 @@
    "needsMetadata": false,
    "file": "Jet Pack Rides.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 152,
+  "key": "Em"
  },
  {
   "id": "mashups-2017-julia-michaels-vs-ariana-grande-one-last-issue",
@@ -23180,7 +24050,9 @@
    },
    {
     "artist": "Ariana Grande",
-    "title": "One Last Time"
+    "title": "One Last Time",
+    "bpm": 123,
+    "key": "G♯"
    }
   ],
   "displayTitle": "One Last Issue",
@@ -23204,7 +24076,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "QsIaxoBEBC8"
-  }
+  },
+  "tempo": 57,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-justin-bieber-vs-survivor-eye-of-the-sorry-tiger",
@@ -23212,11 +24086,15 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "Sorry"
+    "title": "Sorry",
+    "bpm": 100,
+    "key": "Cm"
    },
    {
     "artist": "Survivor",
-    "title": "Eye of the Tiger"
+    "title": "Eye of the Tiger",
+    "bpm": 108,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Eye of the Sorry Tiger",
@@ -23236,7 +24114,9 @@
    "needsMetadata": false,
    "file": "Justin Bieber vs. Survivor - Eye of the Sorry Tiger.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 136,
+  "key": "Cm"
  },
  {
   "id": "mashups-2017-keep-on-cool-girl-dancing",
@@ -23244,11 +24124,15 @@
   "sourceSongs": [
    {
     "artist": "Ellie Goulding",
-    "title": "Keep on Dancin'"
+    "title": "Keep on Dancin'",
+    "bpm": 100,
+    "key": "D"
    },
    {
     "artist": "Tove Lo",
-    "title": "Cool Girl"
+    "title": "Cool Girl",
+    "bpm": 101,
+    "key": "Am"
    }
   ],
   "displayTitle": "Keep on Cool Girl Dancing",
@@ -23272,7 +24156,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "wEIGRLCb_6E"
-  }
+  },
+  "tempo": 103,
+  "key": "Dm"
  },
  {
   "id": "mashups-2017-knee-socks-of-heathens",
@@ -23280,7 +24166,9 @@
   "sourceSongs": [
    {
     "artist": "Arctic Monkeys",
-    "title": "Knee Socks"
+    "title": "Knee Socks",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "twenty one pilots",
@@ -23308,7 +24196,9 @@
    "needsMetadata": false,
    "file": "Knee Socks of Heathens.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 99,
+  "key": "Em"
  },
  {
   "id": "mashups-2017-let-me-pity-party",
@@ -23320,7 +24210,9 @@
    },
    {
     "artist": "Melanie Martinez",
-    "title": "Pity Party"
+    "title": "Pity Party",
+    "bpm": 136,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Let Me Pity Party",
@@ -23344,7 +24236,9 @@
    "needsMetadata": false,
    "file": "Let Me Pity Party.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 144,
+  "key": "F#m"
  },
  {
   "id": "mashups-2017-linkin-park-vs-britney-spears-ft-tinashe-good-good-slumber-party",
@@ -23352,7 +24246,9 @@
   "sourceSongs": [
    {
     "artist": "Linkin Park",
-    "title": "Good Goodbye"
+    "title": "Good Goodbye",
+    "bpm": 128,
+    "key": "Am"
    },
    {
     "artist": "Britney Spears; Tinashe",
@@ -23376,7 +24272,9 @@
    "needsMetadata": false,
    "file": "Linkin Park vs. Britney Spears ft. Tinashe - Good Good Slumber Party.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "Am"
  },
  {
   "id": "mashups-2017-me-myself-circles",
@@ -23408,7 +24306,9 @@
    "needsMetadata": false,
    "file": "Me, Myself & Circles.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2017-melanie-martinez-vs-britney-spears-soap-liar",
@@ -23416,11 +24316,15 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Soap"
+    "title": "Soap",
+    "bpm": 168,
+    "key": "F♯m"
    },
    {
     "artist": "Britney Spears",
-    "title": "Liar"
+    "title": "Liar",
+    "bpm": 159,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Soap Liar",
@@ -23440,7 +24344,9 @@
    "needsMetadata": false,
    "file": "Melanie Martinez vs. Britney Spears - Soap Liar.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 83,
+  "key": "F#m"
  },
  {
   "id": "mashups-2017-moves-like-jagger-pay-my-rent",
@@ -23472,7 +24378,9 @@
    "needsMetadata": false,
    "file": "Moves Like Jagger Pay My Rent.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 112,
+  "key": "Bm"
  },
  {
   "id": "mashups-2017-muse-vs-imagine-dragons-thunder-madness",
@@ -23504,7 +24412,9 @@
    "needsMetadata": false,
    "file": "Muse vs. Imagine Dragons - Thunder Madness.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 89,
+  "key": "C"
  },
  {
   "id": "mashups-2017-never-forget-the-rude-you",
@@ -23512,7 +24422,9 @@
   "sourceSongs": [
    {
     "artist": "MAGIC!",
-    "title": "Rude"
+    "title": "Rude",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "artist": "MNEK; Zara Larsson",
@@ -23540,7 +24452,9 @@
    "needsMetadata": false,
    "file": "Never Forget the Rude You.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 144,
+  "key": "D"
  },
  {
   "id": "mashups-2017-no-for-the-weekend",
@@ -23552,7 +24466,9 @@
    },
    {
     "artist": "Meghan Trainor",
-    "title": "NO"
+    "title": "NO",
+    "bpm": 92,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "NO for the Weekend",
@@ -23576,7 +24492,9 @@
    "needsMetadata": false,
    "file": "NO for the Weekend.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 89,
+  "key": "C#m"
  },
  {
   "id": "mashups-2017-noah-cyrus-vs-miley-cyrus-stay-together-in-malibu",
@@ -23588,7 +24506,9 @@
    },
    {
     "artist": "Miley Cyrus",
-    "title": "Malibu"
+    "title": "Malibu",
+    "bpm": 140,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Stay Together in Malibu",
@@ -23608,7 +24528,9 @@
    "needsMetadata": false,
    "file": "Noah Cyrus vs. Miley Cyrus - Stay Together in Malibu.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 72,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-p-nk-vs-fifth-harmony-ft-gucci-mane-dont-let-me-get-down",
@@ -23616,7 +24538,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Don't Let Me Get Me"
+    "title": "Don't Let Me Get Me",
+    "bpm": 98,
+    "key": "Cm"
    },
    {
     "artist": "Fifth Harmony; Gucci Mane",
@@ -23644,7 +24568,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "QBRnVDhcbUg"
-  }
+  },
+  "tempo": 99,
+  "key": "D#"
  },
  {
   "id": "mashups-2017-r-kelly-vs-justin-bieber-what-does-your-ignition-mean",
@@ -23652,11 +24578,15 @@
   "sourceSongs": [
    {
     "artist": "R. Kelly",
-    "title": "Ignition (Remix)"
+    "title": "Ignition (Remix)",
+    "bpm": 132,
+    "key": "G♯"
    },
    {
     "artist": "Justin Bieber",
-    "title": "What Do You Mean"
+    "title": "What Do You Mean",
+    "bpm": 125,
+    "key": "Fm"
    }
   ],
   "displayTitle": "What Does Your Ignition Mean",
@@ -23676,7 +24606,9 @@
    "needsMetadata": false,
    "file": "R. Kelly vs. Justin Bieber - What Does Your Ignition Mean.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 66,
+  "key": "Fm"
  },
  {
   "id": "mashups-2017-rihanna-vs-troye-sivan-kiss-happy-little-pills-better",
@@ -23684,7 +24616,9 @@
   "sourceSongs": [
    {
     "artist": "Rihanna",
-    "title": "Kiss It Better"
+    "title": "Kiss It Better",
+    "bpm": 95,
+    "key": "D♯m"
    },
    {
     "artist": "Troye Sivan",
@@ -23712,7 +24646,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "d6y2YgMMAz4"
-  }
+  },
+  "tempo": 96,
+  "key": "G"
  },
  {
   "id": "mashups-2017-roots-applause",
@@ -23724,7 +24660,9 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "Applause"
+    "title": "Applause",
+    "bpm": 139,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Roots Applause",
@@ -23748,7 +24686,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "tLb-t3-V35M"
-  }
+  },
+  "tempo": 161,
+  "key": "Gm"
  },
  {
   "id": "mashups-2017-see-you-again-at-my-best-mixed",
@@ -23784,7 +24724,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "NUDXY2wvdR0"
-  }
+  },
+  "tempo": 172,
+  "key": "A#"
  },
  {
   "id": "mashups-2017-selena-gomez-vs-linkin-park-numb-liar",
@@ -23796,7 +24738,9 @@
    },
    {
     "artist": "Linkin Park",
-    "title": "Numb"
+    "title": "Numb",
+    "bpm": 56,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Numb Liar",
@@ -23820,7 +24764,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "ANT5-WmO1pY"
-  }
+  },
+  "tempo": 123,
+  "key": "A"
  },
  {
   "id": "mashups-2017-shape-of-you-mega-mashup",
@@ -23828,7 +24774,9 @@
   "sourceSongs": [
    {
     "artist": "Ed Sheeran",
-    "title": "Shape of You"
+    "title": "Shape of You",
+    "bpm": 96,
+    "key": "C♯m"
    },
    {
     "artist": "Charlie Puth; Selena Gomez",
@@ -23848,11 +24796,15 @@
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "Alessia Cara",
-    "title": "Wild Things"
+    "title": "Wild Things",
+    "bpm": 108,
+    "key": "C♯m"
    },
    {
     "artist": "The Chainsmokers; ROZES",
@@ -23880,7 +24832,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "kLyu2_mIU-w"
-  }
+  },
+  "tempo": 136,
+  "key": "F#m"
  },
  {
   "id": "mashups-2017-slumber-party-is-what-you-came-for",
@@ -23912,7 +24866,9 @@
    "needsMetadata": false,
    "file": "Slumber Party is What You Came For.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 136,
+  "key": "G"
  },
  {
   "id": "mashups-2017-so-good-wide-awake",
@@ -23920,7 +24876,9 @@
   "sourceSongs": [
    {
     "artist": "Zara Larsson",
-    "title": "So Good"
+    "title": "So Good",
+    "bpm": 82,
+    "key": "C"
    },
    {
     "artist": "Katy Perry",
@@ -23948,7 +24906,9 @@
    "needsMetadata": false,
    "file": "So Good Wide Awake.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 161,
+  "key": "G"
  },
  {
   "id": "mashups-2017-some-nights-it-aint-me",
@@ -23956,7 +24916,9 @@
   "sourceSongs": [
    {
     "artist": "fun.",
-    "title": "Some Nights"
+    "title": "Some Nights",
+    "bpm": 132,
+    "key": "C"
    },
    {
     "artist": "Kygo; Selena Gomez",
@@ -23984,7 +24946,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "qZfIMkiuRTw"
-  }
+  },
+  "tempo": 108,
+  "key": "F"
  },
  {
   "id": "mashups-2017-stay-closer",
@@ -24024,7 +24988,9 @@
    "needsMetadata": false,
    "file": "Stay Closer.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 103,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-stutter-starboy",
@@ -24056,7 +25022,9 @@
    "needsMetadata": false,
    "file": "Stutter Starboy.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 96,
+  "key": "A#"
  },
  {
   "id": "mashups-2017-swalla-work",
@@ -24092,7 +25060,9 @@
    "needsMetadata": false,
    "file": "Swalla Work.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 99,
+  "key": "C#"
  },
  {
   "id": "mashups-2017-taylor-swift-vs-three-days-grace-we-are-never-ever-in-pain-together",
@@ -24100,11 +25070,15 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "We Are Never Ever Getting Back Together"
+    "title": "We Are Never Ever Getting Back Together",
+    "bpm": 86,
+    "key": "G"
    },
    {
     "artist": "Three Days Grace",
-    "title": "Pain"
+    "title": "Pain",
+    "bpm": 161,
+    "key": "G"
    }
   ],
   "displayTitle": "We Are Never Ever in Pain Together",
@@ -24128,7 +25102,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "O2ML45t-j_4"
-  }
+  },
+  "tempo": 86,
+  "key": "G"
  },
  {
   "id": "mashups-2017-the-body-cure-says",
@@ -24160,7 +25136,9 @@
    "needsMetadata": false,
    "file": "The Body Cure Says.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 99,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-the-chainsmokers-vs-the-killers-break-up-with-mr-brightside-every-night",
