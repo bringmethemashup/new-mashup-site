@@ -25146,11 +25146,15 @@
   "sourceSongs": [
    {
     "artist": "The Chainsmokers",
-    "title": "Break Up Every Night"
+    "title": "Break Up Every Night",
+    "bpm": 149,
+    "key": "C♯"
    },
    {
     "artist": "The Killers",
-    "title": "Mr. Brightside"
+    "title": "Mr. Brightside",
+    "bpm": 148,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Break Up With Mr. Brightside Every Night",
@@ -25174,7 +25178,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "0E0Q9C0Maxg"
-  }
+  },
+  "tempo": 152,
+  "key": "C#"
  },
  {
   "id": "mashups-2017-the-days-at-home",
@@ -25182,7 +25188,9 @@
   "sourceSongs": [
    {
     "artist": "Phillip Phillips",
-    "title": "Home"
+    "title": "Home",
+    "bpm": 123,
+    "key": "C"
    },
    {
     "artist": "Avicii",
@@ -25206,7 +25214,9 @@
    "needsMetadata": false,
    "file": "The Days at Home.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "mashups-2017-trap-queen-slumber-party",
@@ -25214,7 +25224,9 @@
   "sourceSongs": [
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    },
    {
     "artist": "Britney Spears; Tinashe",
@@ -25242,7 +25254,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "1CT17BFnKPU"
-  }
+  },
+  "tempo": 99,
+  "key": "Am"
  },
  {
   "id": "mashups-2017-what-do-you-mean-by-superlove",
@@ -25250,7 +25264,9 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "What Do You Mean"
+    "title": "What Do You Mean",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "artist": "Tinashe Superlove",
@@ -25274,7 +25290,9 @@
    "needsMetadata": false,
    "file": "What Do You Mean by Superlove.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 89,
+  "key": "G#"
  },
  {
   "id": "mashups-2017-youth-body-say",
@@ -25282,7 +25300,9 @@
   "sourceSongs": [
    {
     "artist": "Troye Sivan",
-    "title": "YOUTH"
+    "title": "YOUTH",
+    "bpm": 92,
+    "key": "G"
    },
    {
     "artist": "Demi Lovato",
@@ -25310,7 +25330,9 @@
    "needsMetadata": false,
    "file": "YOUTH Body Say.mp3",
    "folder": "Mashups 2017"
-  }
+  },
+  "tempo": 92,
+  "key": "G#"
  },
  {
   "id": "mashups-2018-all-for-both-of-us",
@@ -25322,7 +25344,9 @@
    },
    {
     "artist": "Janet Jackson",
-    "title": "All For You"
+    "title": "All For You",
+    "bpm": 112,
+    "key": "D"
    }
   ],
   "displayTitle": "All For Both of Us",
@@ -25346,7 +25370,9 @@
    "needsMetadata": false,
    "file": "All For Both of Us.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 123,
+  "key": "G"
  },
  {
   "id": "mashups-2018-animals-in-my-head",
@@ -25354,11 +25380,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Animal"
+    "title": "Animal",
+    "bpm": 138,
+    "key": "G"
    },
    {
     "artist": "Ashley Tisdale",
-    "title": "Voices In My Head"
+    "title": "Voices In My Head",
+    "bpm": 135,
+    "key": "D"
    }
   ],
   "displayTitle": "Animals In My Head",
@@ -25382,7 +25412,9 @@
    "needsMetadata": false,
    "file": "Animals In My Head.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "mashups-2018-ariana-grande-vs-gorillaz-god-is-a-feel-good-woman",
@@ -25390,11 +25422,15 @@
   "sourceSongs": [
    {
     "artist": "Ariana Grande",
-    "title": "God Is a Woman"
+    "title": "God Is a Woman",
+    "bpm": 144,
+    "key": "D♯m"
    },
    {
     "artist": "Gorillaz",
-    "title": "Feel Good Inc"
+    "title": "Feel Good Inc",
+    "bpm": 136,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "God Is a Feel Good Woman",
@@ -25418,7 +25454,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "oxtlun9lvf0"
-  }
+  },
+  "tempo": 144,
+  "key": "G#"
  },
  {
   "id": "mashups-2018-as-long-as-he-loves-u-not",
@@ -25430,7 +25468,9 @@
    },
    {
     "artist": "Dream",
-    "title": "He Loves U Not"
+    "title": "He Loves U Not",
+    "bpm": 156,
+    "key": "C♯"
    }
   ],
   "displayTitle": "As Long As He Loves U Not",
@@ -25454,7 +25494,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "q8loX-ENc7w"
-  }
+  },
+  "tempo": 103,
+  "key": "Cm"
  },
  {
   "id": "mashups-2018-beyonce-vs-panic-at-the-disco-high-hopes-for-a-countdown",
@@ -25462,11 +25504,15 @@
   "sourceSongs": [
    {
     "artist": "Beyonce",
-    "title": "Countdown"
+    "title": "Countdown",
+    "bpm": 167,
+    "key": "F"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "High Hopes"
+    "title": "High Hopes",
+    "bpm": 160,
+    "key": "Dm"
    }
   ],
   "displayTitle": "High Hopes for a Countdown",
@@ -25490,7 +25536,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Y6DwaoddbiI"
-  }
+  },
+  "tempo": 172,
+  "key": "Dm"
  },
  {
   "id": "mashups-2018-black-widow-goes-apeshit",
@@ -25526,7 +25574,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "kf73fARHyJY"
-  }
+  },
+  "tempo": 161,
+  "key": "Em"
  },
  {
   "id": "mashups-2018-body-like-a-tik-tok",
@@ -25534,11 +25584,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "TiK ToK"
+    "title": "TiK ToK",
+    "bpm": 234,
+    "key": "Dm"
    },
    {
     "artist": "Sam Hunt",
-    "title": "Body Like a Back Road"
+    "title": "Body Like a Back Road",
+    "bpm": 99,
+    "key": "F"
    }
   ],
   "displayTitle": "Body Like a TiK ToK",
@@ -25562,7 +25616,9 @@
    "needsMetadata": false,
    "file": "Body Like a TiK ToK.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2018-call-me-in-the-middle",
@@ -25570,7 +25626,9 @@
   "sourceSongs": [
    {
     "artist": "Carly Rae Jepsen",
-    "title": "Call Me Maybe"
+    "title": "Call Me Maybe",
+    "bpm": 117,
+    "key": "G"
    },
    {
     "artist": "Zedd; Maren Morris; Grey",
@@ -25598,7 +25656,9 @@
    "needsMetadata": false,
    "file": "Call Me In the Middle.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 117,
+  "key": "G"
  },
  {
   "id": "mashups-2018-calvin-harris-vs-troye-sivan-this-is-what-you-bloom-for",
@@ -25610,7 +25670,9 @@
    },
    {
     "artist": "Troye Sivan",
-    "title": "Bloom"
+    "title": "Bloom",
+    "bpm": 120,
+    "key": "C"
    }
   ],
   "displayTitle": "This Is What You Bloom For",
@@ -25630,7 +25692,9 @@
    "needsMetadata": false,
    "file": "Calvin Harris vs. Troye Sivan - This Is What You Bloom For.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 123,
+  "key": "Am"
  },
  {
   "id": "mashups-2018-charli-xcx-vs-panic-at-the-disco-this-is-boys-gospel",
@@ -25642,7 +25706,9 @@
    },
    {
     "artist": "Panic! at the Disco",
-    "title": "This is Gospel"
+    "title": "This is Gospel",
+    "bpm": 78,
+    "key": "G"
    }
   ],
   "displayTitle": "This Is Boy's Gospel",
@@ -25662,7 +25728,9 @@
    "needsMetadata": false,
    "file": "Charli XCX vs. Panic! at the Disco - This Is Boy's Gospel.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 152,
+  "key": "D"
  },
  {
   "id": "mashups-2018-coldplay-vs-avril-lavigne-head-above-paradise",
@@ -25670,11 +25738,15 @@
   "sourceSongs": [
    {
     "artist": "Coldplay",
-    "title": "Paradise"
+    "title": "Paradise",
+    "bpm": 136,
+    "key": "F"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Head Above Water"
+    "title": "Head Above Water",
+    "bpm": 129,
+    "key": "F"
    }
   ],
   "displayTitle": "Head Above Paradise",
@@ -25694,7 +25766,9 @@
    "needsMetadata": false,
    "file": "Coldplay vs. Avril Lavigne - Head Above Paradise.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 136,
+  "key": "C"
  },
  {
   "id": "mashups-2018-david-guetta-ft-sia-vs-celine-dion-titanium-ashes",
@@ -25730,7 +25804,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "MTb2uuLwJQg"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2018-death-of-a-bachelor-mashup",
@@ -25738,23 +25814,33 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "Death of a Bachelor"
+    "title": "Death of a Bachelor",
+    "bpm": 139,
+    "key": "C"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "He Like That"
+    "title": "He Like That",
+    "bpm": 147,
+    "key": "C"
    },
    {
     "artist": "Britney Spears",
-    "title": "Slumber Party"
+    "title": "Slumber Party",
+    "bpm": 135,
+    "key": "C"
    },
    {
     "artist": "Mariah Carey",
-    "title": "We Belong Together"
+    "title": "We Belong Together",
+    "bpm": 69,
+    "key": "C"
    },
    {
     "artist": "Amy Winehouse",
-    "title": "Rehab"
+    "title": "Rehab",
+    "bpm": 72,
+    "key": "C"
    }
   ],
   "displayTitle": "Death of a Bachelor Mashup",
@@ -25778,7 +25864,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "5DFMQ7Bc_Iw"
-  }
+  },
+  "tempo": 144,
+  "key": "Dm"
  },
  {
   "id": "mashups-2018-feeling-this-graffiti",
@@ -25814,7 +25902,9 @@
    "needsMetadata": false,
    "file": "Feeling This Graffiti.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "mashups-2018-found-a-good-time",
@@ -25850,7 +25940,9 @@
    "needsMetadata": false,
    "file": "Found A Good Time.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2018-genius-the-mashup",
@@ -25862,19 +25954,27 @@
    },
    {
     "artist": "Adele",
-    "title": "Send My Love (To Your New Lover)"
+    "title": "Send My Love (To Your New Lover)",
+    "bpm": 82,
+    "key": "F♯m"
    },
    {
     "artist": "Rihanna",
-    "title": "Umbrella"
+    "title": "Umbrella",
+    "bpm": 174,
+    "key": "C♯"
    },
    {
     "artist": "Imagine Dragons",
-    "title": "Radioactive"
+    "title": "Radioactive",
+    "bpm": 68,
+    "key": "Bm"
    },
    {
     "artist": "The Killers",
-    "title": "Mr. Brightside"
+    "title": "Mr. Brightside",
+    "bpm": 148,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Genius - The Mashup",
@@ -25898,7 +25998,9 @@
    "needsMetadata": false,
    "file": "Genius - The Mashup.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 161,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-gimme-more-lone-diggers",
@@ -25910,7 +26012,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Gimme More"
+    "title": "Gimme More",
+    "bpm": 113,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Gimme More Lone Diggers",
@@ -25934,7 +26038,9 @@
    "needsMetadata": false,
    "file": "Gimme More Lone Diggers.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 123,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-girls-are-the-reason",
@@ -25942,7 +26048,9 @@
   "sourceSongs": [
    {
     "artist": "Hoobastank",
-    "title": "The Reason"
+    "title": "The Reason",
+    "bpm": 166,
+    "key": "E"
    },
    {
     "artist": "Rita Ora; Charli XCX; Bebe Rexha; Cardi B",
@@ -25970,7 +26078,9 @@
    "needsMetadata": false,
    "file": "Girls Are the Reason.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 92,
+  "key": "C#m"
  },
  {
   "id": "mashups-2018-high-hopes-mashup",
@@ -25978,23 +26088,33 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "High Hopes"
+    "title": "High Hopes",
+    "bpm": 160,
+    "key": "Dm"
    },
    {
     "artist": "Beyonce",
-    "title": "Countdown"
+    "title": "Countdown",
+    "bpm": 167,
+    "key": "F"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)"
+    "title": "My Songs Know What You Did in the Dark (Light 'Em Up)",
+    "bpm": 151,
+    "key": "Am"
    },
    {
     "artist": "Ellie Goulding",
-    "title": "On My Mind"
+    "title": "On My Mind",
+    "bpm": 152,
+    "key": "C"
    },
    {
     "artist": "Bruno Mars",
-    "title": "Locked Out of Heaven"
+    "title": "Locked Out of Heaven",
+    "bpm": 144,
+    "key": "Dm"
    },
    {
     "artist": "Gabbie Hanna",
@@ -26022,7 +26142,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "MXunq_NYHfo"
-  }
+  },
+  "tempo": 161,
+  "key": "Dm"
  },
  {
   "id": "mashups-2018-i-dont-give-a-down",
@@ -26030,11 +26152,15 @@
   "sourceSongs": [
    {
     "artist": "Fifth Harmony",
-    "title": "Down"
+    "title": "Down",
+    "bpm": 101,
+    "key": "G♯"
    },
    {
     "artist": "Dua Lipa",
-    "title": "IDGAF"
+    "title": "IDGAF",
+    "bpm": 96,
+    "key": "G"
    }
   ],
   "displayTitle": "I Don't Give a Down",
@@ -26058,7 +26184,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "EEH75QfVh90"
-  }
+  },
+  "tempo": 129,
+  "key": "Em"
  },
  {
   "id": "mashups-2018-i-wanna-go-back",
@@ -26070,7 +26198,9 @@
    },
    {
     "artist": "Bowling For Soup",
-    "title": "1985"
+    "title": "1985",
+    "bpm": 119,
+    "key": "E"
    },
    {
     "artist": "Anne-Marie",
@@ -26078,7 +26208,9 @@
    },
    {
     "artist": "Prince",
-    "title": "1999"
+    "title": "1999",
+    "bpm": 117,
+    "key": "F"
    },
    {
     "artist": "Jay Sean",
@@ -26086,7 +26218,9 @@
    },
    {
     "artist": "Jonas Brothers",
-    "title": "Year 3000"
+    "title": "Year 3000",
+    "bpm": 106,
+    "key": "B"
    }
   ],
   "displayTitle": "I Wanna Go Back",
@@ -26110,7 +26244,9 @@
    "needsMetadata": false,
    "file": "I Wanna Go Back.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 123,
+  "key": "G"
  },
  {
   "id": "mashups-2018-i-want-girls-like-you-to-know",
@@ -26146,7 +26282,9 @@
    "needsMetadata": false,
    "file": "I Want Girls Like You To Know.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 129,
+  "key": "Am"
  },
  {
   "id": "mashups-2018-im-a-bottled-up-mess",
@@ -26154,7 +26292,9 @@
   "sourceSongs": [
    {
     "artist": "Bebe Rexha",
-    "title": "I'm a Mess"
+    "title": "I'm a Mess",
+    "bpm": 96,
+    "key": "Bm"
    },
    {
     "artist": "Dinah Jane; Ty Dolla $ign; Mark E. Bassy",
@@ -26182,7 +26322,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "CRF1eViGVB4"
-  }
+  },
+  "tempo": 99,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-if-youre-over-being-solo",
@@ -26190,7 +26332,9 @@
   "sourceSongs": [
    {
     "artist": "Years & Years",
-    "title": "If You're Over Me"
+    "title": "If You're Over Me",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "artist": "Clean Bandit; Demi Lovato",
@@ -26218,7 +26362,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "apfN9JDGp7Q"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2018-imagine-dragons-vs-clean-bandit-ft-demi-lovato-its-time-to-do-it-solo",
@@ -26226,7 +26372,9 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "It's Time"
+    "title": "It's Time",
+    "bpm": 105,
+    "key": "D"
    },
    {
     "artist": "Clean Bandit; Demi Lovato",
@@ -26254,7 +26402,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "5l18BUSE10M"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2018-its-gonna-be-my-throne",
@@ -26262,11 +26412,15 @@
   "sourceSongs": [
    {
     "artist": "*NSYNC",
-    "title": "It's Gonna Be Me"
+    "title": "It's Gonna Be Me",
+    "bpm": 83,
+    "key": "Cm"
    },
    {
     "artist": "Bring Me The Horizon",
-    "title": "Throne"
+    "title": "Throne",
+    "bpm": 144,
+    "key": "Cm"
    }
   ],
   "displayTitle": "It's Gonna Be My Throne",
@@ -26290,7 +26444,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "LjGslCumN0w"
-  }
+  },
+  "tempo": 83,
+  "key": "F"
  },
  {
   "id": "mashups-2018-kesha-vs-macklemore-ft-skylar-grey-glorious-kids",
@@ -26298,7 +26454,9 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Crazy Kids"
+    "title": "Crazy Kids",
+    "bpm": 128,
+    "key": "Cm"
    },
    {
     "artist": "Macklemore; Skylar Grey",
@@ -26322,7 +26480,9 @@
    "needsMetadata": false,
    "file": "Kesha vs. Macklemore ft. Skylar Grey - Glorious Kids.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "mashups-2018-lady-gaga-vs-pussycat-dolls-just-buttons",
@@ -26330,11 +26490,15 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Just Dance"
+    "title": "Just Dance",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Pussycat Dolls",
-    "title": "Buttons"
+    "title": "Buttons",
+    "bpm": 51,
+    "key": "D"
    }
   ],
   "displayTitle": "Just Buttons",
@@ -26358,7 +26522,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "QYtQSi8I3i0"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2018-linkin-park-vs-kesha-praying-symphony",
@@ -26366,7 +26532,9 @@
   "sourceSongs": [
    {
     "artist": "Linkin Park",
-    "title": "Battle Symphony"
+    "title": "Battle Symphony",
+    "bpm": 149,
+    "key": "A♯"
    },
    {
     "artist": "Kesha",
@@ -26394,7 +26562,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "6MAAWxCTTFU"
-  }
+  },
+  "tempo": 152,
+  "key": "Gm"
  },
  {
   "id": "mashups-2018-little-mix-ft-nicki-minaj-vs-aaliyah-ft-timbaland-are-you-that-woman-like-me",
@@ -26430,7 +26600,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "8rR67_knU20"
-  }
+  },
+  "tempo": 152,
+  "key": "D#m"
  },
  {
   "id": "mashups-2018-love-me-like-a-back-road",
@@ -26438,11 +26610,15 @@
   "sourceSongs": [
    {
     "artist": "Sam Hunt",
-    "title": "Body Like a Back Road"
+    "title": "Body Like a Back Road",
+    "bpm": 99,
+    "key": "F"
    },
    {
     "artist": "Britney Spears",
-    "title": "Love Me Down"
+    "title": "Love Me Down",
+    "bpm": 91,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Love Me Like a Back Road",
@@ -26466,7 +26642,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "5Str8eDDQeU"
-  }
+  },
+  "tempo": 99,
+  "key": "F"
  },
  {
   "id": "mashups-2018-love-you-like-how-long",
@@ -26474,11 +26652,15 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Love You Like a Love Song"
+    "title": "Love You Like a Love Song",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Charlie Puth",
-    "title": "How Long"
+    "title": "How Long",
+    "bpm": 112,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Love You Like How Long",
@@ -26502,7 +26684,9 @@
    "needsMetadata": false,
    "file": "Love You Like How Long.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 117,
+  "key": "C#"
  },
  {
   "id": "mashups-2018-lovefeels",
@@ -26510,7 +26694,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Lovegame"
+    "title": "Lovegame",
+    "bpm": 103,
+    "key": "F♯m"
    },
    {
     "artist": "Calvin Harris; Pharrell; Katy Perry",
@@ -26538,7 +26724,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "u7DScfKHhbA"
-  }
+  },
+  "tempo": 103,
+  "key": "G#m"
  },
  {
   "id": "mashups-2018-madonna-vs-hollywood-undead-bad-moon-another-day",
@@ -26546,11 +26734,15 @@
   "sourceSongs": [
    {
     "artist": "Madonna",
-    "title": "Die Another Day"
+    "title": "Die Another Day",
+    "bpm": 123,
+    "key": "Cm"
    },
    {
     "artist": "Hollywood Undead",
-    "title": "Bad Moon"
+    "title": "Bad Moon",
+    "bpm": 130,
+    "key": "A"
    }
   ],
   "displayTitle": "Bad Moon Another Day",
@@ -26570,7 +26762,9 @@
    "needsMetadata": false,
    "file": "Madonna vs. Hollywood Undead - Bad Moon Another Day.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2018-marina-the-diamonds-vs-shawn-mendes-theres-a-heartbreaker-holding-me-back",
@@ -26606,7 +26800,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "bscyD94kkPk"
-  }
+  },
+  "tempo": 144,
+  "key": "Em"
  },
  {
   "id": "mashups-2018-meant-to-be-minimix",
@@ -26622,7 +26818,9 @@
    },
    {
     "artist": "Imagine Dragon",
-    "title": "Whatever It Takes"
+    "title": "Whatever It Takes",
+    "bpm": 68,
+    "key": "A♯m"
    },
    {
     "artist": "Noah Cyrus; Labrinth",
@@ -26650,7 +26848,9 @@
    "needsMetadata": false,
    "file": "Meant to Be Minimix.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 152,
+  "key": "Gm"
  },
  {
   "id": "mashups-2018-mr-genius",
@@ -26662,7 +26862,9 @@
    },
    {
     "artist": "The Killers",
-    "title": "Mr. Brightside"
+    "title": "Mr. Brightside",
+    "bpm": 148,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Mr. Genius",
@@ -26682,7 +26884,9 @@
    "needsMetadata": false,
    "file": "Mr. Genius.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 161,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-my-my-my-dont-lie",
@@ -26694,7 +26898,9 @@
    },
    {
     "artist": "Troye Sivan",
-    "title": "My My My"
+    "title": "My My My",
+    "bpm": 102,
+    "key": "C♯"
    }
   ],
   "displayTitle": "My My My Don't Lie",
@@ -26718,7 +26924,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "ytChvsVYqPA"
-  }
+  },
+  "tempo": 103,
+  "key": "A#m"
  },
  {
   "id": "mashups-2018-my-playboy-style-name",
@@ -26726,7 +26934,9 @@
   "sourceSongs": [
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "Clean Bandit; Charli XCX; Bhad Bhabie",
@@ -26754,7 +26964,9 @@
    "needsMetadata": false,
    "file": "My Playboy Style Name.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 76,
+  "key": "Em"
  },
  {
   "id": "mashups-2018-never-be-what-you-came-for",
@@ -26766,7 +26978,9 @@
    },
    {
     "artist": "Camila Cabello",
-    "title": "Never Be the Same"
+    "title": "Never Be the Same",
+    "bpm": 129,
+    "key": "C"
    }
   ],
   "displayTitle": "Never Be What You Came For",
@@ -26790,7 +27004,9 @@
    "needsMetadata": false,
    "file": "Never Be What You Came For.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 129,
+  "key": "Am"
  },
  {
   "id": "mashups-2018-never-too-black-yellow",
@@ -26802,7 +27018,9 @@
    },
    {
     "artist": "Three Days Grace",
-    "title": "Never Too Late"
+    "title": "Never Too Late",
+    "bpm": 76,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Never Too Black & Yellow",
@@ -26826,7 +27044,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "42xMFl4uKmM"
-  }
+  },
+  "tempo": 161,
+  "key": "Gm"
  },
  {
   "id": "mashups-2018-new-sexyback-rules",
@@ -26834,11 +27054,15 @@
   "sourceSongs": [
    {
     "artist": "Justin Timberlake",
-    "title": "SexyBack"
+    "title": "SexyBack",
+    "bpm": 117,
+    "key": "Gm"
    },
    {
     "artist": "Dua Lipa",
-    "title": "New Rules"
+    "title": "New Rules",
+    "bpm": 117,
+    "key": "Am"
    }
   ],
   "displayTitle": "New SexyBack Rules",
@@ -26862,7 +27086,9 @@
    "needsMetadata": false,
    "file": "New SexyBack Rules.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 117,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-no-tears-left-dj-got-us-falling-in-love",
@@ -26874,7 +27100,9 @@
    },
    {
     "artist": "Ariana Grande",
-    "title": "No Tears Left to Cry"
+    "title": "No Tears Left to Cry",
+    "bpm": 123,
+    "key": "Am"
    }
   ],
   "displayTitle": "No Tears Left, DJ Got Us Falling in Love",
@@ -26898,7 +27126,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "_ivhzYe2ZtY"
-  }
+  },
+  "tempo": 117,
+  "key": "Am"
  },
  {
   "id": "mashups-2018-p-nk-ft-lilly-allen-vs-jesse-mccartney-true-beautiful-soul",
@@ -26910,7 +27140,9 @@
    },
    {
     "artist": "Jesse McCartney",
-    "title": "Beautiful Soul"
+    "title": "Beautiful Soul",
+    "bpm": 89,
+    "key": "A"
    }
   ],
   "displayTitle": "True Beautiful Soul",
@@ -26934,7 +27166,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "IC2TJQw3WsQ"
-  }
+  },
+  "tempo": 96,
+  "key": "A"
  },
  {
   "id": "mashups-2018-panic-at-the-disco-vs-wiz-khalifa-no-sleep-on-saturday-night",
@@ -26942,11 +27176,15 @@
   "sourceSongs": [
    {
     "artist": "Panic! at the Disco",
-    "title": "Say Amen (Saturday Night)"
+    "title": "Say Amen (Saturday Night)",
+    "bpm": 167,
+    "key": "F♯m"
    },
    {
     "artist": "Wiz Khalifa",
-    "title": "No Sleep"
+    "title": "No Sleep",
+    "bpm": 161,
+    "key": "A"
    }
   ],
   "displayTitle": "No Sleep on Saturday Night",
@@ -26970,7 +27208,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Xx7Dgozwtx8"
-  }
+  },
+  "tempo": 172,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-remember-the-chains",
@@ -26978,11 +27218,15 @@
   "sourceSongs": [
    {
     "artist": "Fort Minor",
-    "title": "Remember the Name"
+    "title": "Remember the Name",
+    "bpm": 84,
+    "key": "G♯"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Remember the Chains",
@@ -27006,7 +27250,9 @@
    "needsMetadata": false,
    "file": "Remember the Chains.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 112,
+  "key": "Cm"
  },
  {
   "id": "mashups-2018-rihanna-vs-lauv-i-like-my-name-better",
@@ -27018,7 +27264,9 @@
    },
    {
     "artist": "Lauv",
-    "title": "I Like Me Better"
+    "title": "I Like Me Better",
+    "bpm": 91,
+    "key": "A"
    }
   ],
   "displayTitle": "I Like My Name Better",
@@ -27042,7 +27290,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "1IV6OdqTlVE"
-  }
+  },
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "mashups-2018-rude-love-lies",
@@ -27050,7 +27300,9 @@
   "sourceSongs": [
    {
     "title": "Rude",
-    "artist": "MAGIC!"
+    "artist": "MAGIC!",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "title": "Love Lies",
@@ -27078,7 +27330,9 @@
    "needsMetadata": false,
    "file": "Rude Love Lies.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 144,
+  "key": "F#"
  },
  {
   "id": "mashups-2018-same-old-love-in-my-mind",
@@ -27086,7 +27340,9 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "Same Old Love"
+    "title": "Same Old Love",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "Maty Noyes",
@@ -27110,7 +27366,9 @@
    "needsMetadata": false,
    "file": "Same Old Love In My Mind.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 103,
+  "key": "Cm"
  },
  {
   "id": "mashups-2018-say-my-name",
@@ -27118,11 +27376,15 @@
   "sourceSongs": [
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "Tove Styrke",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 164,
+    "key": "D"
    }
   ],
   "displayTitle": "Say My Name",
@@ -27146,7 +27408,9 @@
    "needsMetadata": false,
    "file": "Say My Name.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 78,
+  "key": "D"
  },
  {
   "id": "mashups-2018-say-my-name-v4",
@@ -27154,11 +27418,15 @@
   "sourceSongs": [
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "Tove Styrke",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 164,
+    "key": "D"
    }
   ],
   "displayTitle": "Say My Name",
@@ -27182,7 +27450,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "LZy0r9LrQ3k"
-  }
+  },
+  "tempo": 78,
+  "key": "D"
  },
  {
   "id": "mashups-2018-see-you-again-at-the-pity-party",
@@ -27190,11 +27460,15 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Pity Party"
+    "title": "Pity Party",
+    "bpm": 136,
+    "key": "F♯m"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "See You Again"
+    "title": "See You Again",
+    "bpm": 138,
+    "key": "Am"
    }
   ],
   "displayTitle": "See You Again at the Pity Party",
@@ -27218,7 +27492,9 @@
    "needsMetadata": false,
    "file": "See You Again at the Pity Party.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 136,
+  "key": "A"
  },
  {
   "id": "mashups-2018-send-my-love-to-your-new-genius",
@@ -27230,7 +27506,9 @@
    },
    {
     "artist": "Adele",
-    "title": "Send My Love (To Your New Lover)"
+    "title": "Send My Love (To Your New Lover)",
+    "bpm": 82,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Send My Love To Your New Genius",
@@ -27250,7 +27528,9 @@
    "needsMetadata": false,
    "file": "Send My Love To Your New Genius.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 161,
+  "key": "F#m"
  },
  {
   "id": "mashups-2018-should-i-stay-or-should-i-switch",
@@ -27258,7 +27538,9 @@
   "sourceSongs": [
    {
     "artist": "The Clash",
-    "title": "Should I Stay or Should I Go"
+    "title": "Should I Stay or Should I Go",
+    "bpm": 113,
+    "key": "D"
    },
    {
     "artist": "Iggy Azalea; Anitta",
@@ -27286,7 +27568,9 @@
    "needsMetadata": false,
    "file": "Should I Stay Or Should I Switch.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 112,
+  "key": "D"
  },
  {
   "id": "mashups-2018-soap-shrug",
@@ -27294,7 +27578,9 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Soap"
+    "title": "Soap",
+    "bpm": 168,
+    "key": "F♯m"
    },
    {
     "artist": "Christina Grimmie",
@@ -27322,7 +27608,9 @@
    "needsMetadata": false,
    "file": "Soap Shrug.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 83,
+  "key": "Bm"
  },
  {
   "id": "mashups-2018-step-on-up-now-or-never",
@@ -27330,7 +27618,9 @@
   "sourceSongs": [
    {
     "artist": "Halsey",
-    "title": "Now or Never"
+    "title": "Now or Never",
+    "bpm": 110,
+    "key": "F♯m"
    },
    {
     "artist": "Ariana Grande",
@@ -27358,7 +27648,9 @@
    "needsMetadata": false,
    "file": "Step on Up Now or Never.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 112,
+  "key": "C"
  },
  {
   "id": "mashups-2018-tell-clint-eastwood-you-love-me",
@@ -27366,11 +27658,15 @@
   "sourceSongs": [
    {
     "artist": "Gorillaz",
-    "title": "Clint Eastwood"
+    "title": "Clint Eastwood",
+    "bpm": 83,
+    "key": "D♯m"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Tell Me You Love Me"
+    "title": "Tell Me You Love Me",
+    "bpm": 82,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Tell Clint Eastwood You Love Me",
@@ -27394,7 +27690,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "j4e-Rk7Bkzs"
-  }
+  },
+  "tempo": 172,
+  "key": "D#"
  },
  {
   "id": "mashups-2018-thats-my-woman",
@@ -27406,7 +27704,9 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "That's My Girl"
+    "title": "That's My Girl",
+    "bpm": 202,
+    "key": "Fm"
    }
   ],
   "displayTitle": "That's My Woman",
@@ -27430,7 +27730,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "3o7y1Fa52Jo"
-  }
+  },
+  "tempo": 117,
+  "key": "G#"
  },
  {
   "id": "mashups-2018-the-bottled-up-one",
@@ -27442,7 +27744,9 @@
    },
    {
     "artist": "The Chainsmokers",
-    "title": "The One"
+    "title": "The One",
+    "bpm": 99,
+    "key": "D"
    }
   ],
   "displayTitle": "The Bottled Up One",
@@ -27466,7 +27770,9 @@
    "needsMetadata": false,
    "file": "The Bottled Up One.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 99,
+  "key": "D"
  },
  {
   "id": "mashups-2018-the-title-wherever-i-go",
@@ -27474,7 +27780,9 @@
   "sourceSongs": [
    {
     "artist": "Meghan Trainor",
-    "title": "Title"
+    "title": "Title",
+    "bpm": 89,
+    "key": "F"
    },
    {
     "artist": "Miley Cyrus; Hannah Montana",
@@ -27498,7 +27806,9 @@
    "needsMetadata": false,
    "file": "The Title Wherever I Go.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 89,
+  "key": "F"
  },
  {
   "id": "mashups-2018-this-is-paris",
@@ -27506,7 +27816,9 @@
   "sourceSongs": [
    {
     "title": "Paris",
-    "artist": "The Chainsmokers"
+    "artist": "The Chainsmokers",
+    "bpm": 99,
+    "key": "D"
    },
    {
     "title": "This Is Me",
@@ -27534,7 +27846,9 @@
    "needsMetadata": false,
    "file": "This Is Paris.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 99,
+  "key": "D"
  },
  {
   "id": "mashups-2018-unwell-halo",
@@ -27542,11 +27856,15 @@
   "sourceSongs": [
    {
     "title": "Unwell",
-    "artist": "Matchbox Twenty"
+    "artist": "Matchbox Twenty",
+    "bpm": 80,
+    "key": "A"
    },
    {
     "title": "Halo",
-    "artist": "Beyoncé"
+    "artist": "Beyoncé",
+    "bpm": 81,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Unwell Halo",
@@ -27570,7 +27888,9 @@
    "needsMetadata": false,
    "file": "Unwell Halo.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 81,
+  "key": "A"
  },
  {
   "id": "mashups-2018-what-about-the-weekend-v2",
@@ -27578,11 +27898,15 @@
   "sourceSongs": [
    {
     "artist": "Coldplay",
-    "title": "Hymn For the Weekend"
+    "title": "Hymn For the Weekend",
+    "bpm": 89,
+    "key": "Cm"
    },
    {
     "artist": "Brandy",
-    "title": "What About Us?"
+    "title": "What About Us?",
+    "bpm": 185,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "What About the Weekend",
@@ -27606,7 +27930,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "gr5ep585joc"
-  }
+  },
+  "tempo": 92,
+  "key": "Cm"
  },
  {
   "id": "mashups-2018-whatever-it-takes-to-be-fergalicious",
@@ -27614,11 +27940,15 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "Whatever It Takes"
+    "title": "Whatever It Takes",
+    "bpm": 68,
+    "key": "A♯m"
    },
    {
     "artist": "Fergie",
-    "title": "Fergalicious"
+    "title": "Fergalicious",
+    "bpm": 129,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "Whatever It Takes to be Fergalicious",
@@ -27638,7 +27968,9 @@
    "needsMetadata": false,
    "file": "Whatever It Takes to be Fergalicious.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 129,
+  "key": "G#m"
  },
  {
   "id": "mashups-2018-without-wolves",
@@ -27674,7 +28006,9 @@
    "needsMetadata": false,
    "file": "Without Wolves.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 129,
+  "key": "D"
  },
  {
   "id": "mashups-2018-woman-like-tik-tik-boom",
@@ -27710,7 +28044,9 @@
    "needsMetadata": false,
    "file": "Woman Like Tik Tik Boom.mp3",
    "folder": "Mashups 2018"
-  }
+  },
+  "tempo": 152,
+  "key": "Fm"
  },
  {
   "id": "mashups-2019-bury-a-close-friend",
@@ -27722,7 +28058,9 @@
    },
    {
     "artist": "Billie Eilish",
-    "title": "bury a friend"
+    "title": "bury a friend",
+    "bpm": 122,
+    "key": "Gm"
    }
   ],
   "displayTitle": "bury a close friend",
@@ -27746,7 +28084,9 @@
    "needsMetadata": false,
    "file": "bury a close friend.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "mashups-2019-confident-waves-are-here",
@@ -27758,11 +28098,15 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Confident"
+    "title": "Confident",
+    "bpm": 130,
+    "key": "D♯"
    },
    {
     "artist": "Alessia Cara",
-    "title": "Here"
+    "title": "Here",
+    "bpm": 62,
+    "key": "C"
    }
   ],
   "displayTitle": "Confident Waves Are Here",
@@ -27786,7 +28130,9 @@
    "needsMetadata": false,
    "file": "Confident Waves Are Here.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 123,
+  "key": "Dm"
  },
  {
   "id": "mashups-2019-curious-mashup",
@@ -27798,7 +28144,9 @@
    },
    {
     "artist": "Paramore",
-    "title": "Ain't It Fun"
+    "title": "Ain't It Fun",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "artist": "Anne-Marie",
@@ -27806,7 +28154,9 @@
    },
    {
     "artist": "Ariana Grande",
-    "title": "Be Alright"
+    "title": "Be Alright",
+    "bpm": 108,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Curious Mashup",
@@ -27826,7 +28176,9 @@
    "needsMetadata": false,
    "file": "Curious Mashup.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 103,
+  "key": "C#m"
  },
  {
   "id": "mashups-2019-dont-be-so-hard-on-yourself-ma-i-made-it",
@@ -27834,11 +28186,15 @@
   "sourceSongs": [
    {
     "artist": "Jess Glynne",
-    "title": "Don't Be So Hard on Yourself"
+    "title": "Don't Be So Hard on Yourself",
+    "bpm": 120,
+    "key": "F♯"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "Hey Look Ma, I Made It"
+    "title": "Hey Look Ma, I Made It",
+    "bpm": 108,
+    "key": "F"
    }
   ],
   "displayTitle": "Don't Be So Hard on Yourself Ma, I Made It",
@@ -27862,7 +28218,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "ojTRvgC1aY0"
-  }
+  },
+  "tempo": 117,
+  "key": "F#"
  },
  {
   "id": "mashups-2019-dumb-blonde-mashup",
@@ -27874,7 +28232,9 @@
    },
    {
     "artist": "Gwen Stefani",
-    "title": "Hollaback Girl"
+    "title": "Hollaback Girl",
+    "bpm": 112,
+    "key": "A♯m"
    },
    {
     "artist": "Britney Spears; Iggy Azalea",
@@ -27882,11 +28242,15 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Bo$$"
+    "title": "Bo$$",
+    "bpm": 103,
+    "key": "A"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "Victorious"
+    "title": "Victorious",
+    "bpm": 110,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Dumb Blonde Mashup",
@@ -27910,7 +28274,9 @@
    "needsMetadata": false,
    "file": "Dumb Blonde Mashup.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 112,
+  "key": "C#"
  },
  {
   "id": "mashups-2019-easier-no-more",
@@ -27922,7 +28288,9 @@
    },
    {
     "artist": "5 Seconds of Summer",
-    "title": "Easier"
+    "title": "Easier",
+    "bpm": 89,
+    "key": "F"
    }
   ],
   "displayTitle": "Easier, No More",
@@ -27946,7 +28314,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "_d3LDNvVGlE"
-  }
+  },
+  "tempo": 117,
+  "key": "Am"
  },
  {
   "id": "mashups-2019-gimme-tik-tok",
@@ -27954,11 +28324,15 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "TiK ToK"
+    "title": "TiK ToK",
+    "bpm": 234,
+    "key": "Dm"
    },
    {
     "artist": "BANKS",
-    "title": "Gimme"
+    "title": "Gimme",
+    "bpm": 113,
+    "key": "D"
    }
   ],
   "displayTitle": "Gimme Tik Tok",
@@ -27978,7 +28352,9 @@
    "needsMetadata": false,
    "file": "Gimme Tik Tok.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2019-girls-girls-boys-mashup",
@@ -27990,11 +28366,15 @@
    },
    {
     "artist": "P!nk",
-    "title": "Get the Party Started"
+    "title": "Get the Party Started",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Ashlee Simpson",
-    "title": "Outta My Head (Ay Ya Ya)"
+    "title": "Outta My Head (Ay Ya Ya)",
+    "bpm": 137,
+    "key": "Fm"
    },
    {
     "artist": "Marina & the Diamonds",
@@ -28002,7 +28382,9 @@
    },
    {
     "artist": "Hilary Duff",
-    "title": "Sparks"
+    "title": "Sparks",
+    "bpm": 122,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Girls Girls Boys Mashup",
@@ -28026,7 +28408,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "xCrBnq-YMck"
-  }
+  },
+  "tempo": 144,
+  "key": "F#m"
  },
  {
   "id": "mashups-2019-give-the-coming-light-to-me",
@@ -28062,7 +28446,9 @@
    "needsMetadata": false,
    "file": "Give The Coming Light to Me.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 112,
+  "key": "G#m"
  },
  {
   "id": "mashups-2019-he-loves-broken-girls-not",
@@ -28074,7 +28460,9 @@
    },
    {
     "artist": "Dream",
-    "title": "He Loves U Not"
+    "title": "He Loves U Not",
+    "bpm": 156,
+    "key": "C♯"
    }
   ],
   "displayTitle": "He Loves Broken Girls...Not",
@@ -28094,7 +28482,9 @@
    "needsMetadata": false,
    "file": "He Loves Broken Girls...Not.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 172,
+  "key": "F#m"
  },
  {
   "id": "mashups-2019-high-hopes-for-love-like-this",
@@ -28106,7 +28496,9 @@
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "High Hopes"
+    "title": "High Hopes",
+    "bpm": 160,
+    "key": "Dm"
    }
   ],
   "displayTitle": "High Hopes for Love Like This",
@@ -28130,7 +28522,9 @@
    "needsMetadata": false,
    "file": "High Hopes for Love Like This.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 161,
+  "key": "F"
  },
  {
   "id": "mashups-2019-how-do-you-sleep-mashup",
@@ -28138,23 +28532,33 @@
   "sourceSongs": [
    {
     "artist": "Sam Smith",
-    "title": "How Do You Sleep"
+    "title": "How Do You Sleep",
+    "bpm": 110,
+    "key": "C♯m"
    },
    {
     "artist": "Ariana Grande",
-    "title": "break up with your girlfriend, i'm bored"
+    "title": "break up with your girlfriend, i'm bored",
+    "bpm": 84,
+    "key": "Fm"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "We Can't Stop"
+    "title": "We Can't Stop",
+    "bpm": 80,
+    "key": "C♯m"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "LA Devotee"
+    "title": "LA Devotee",
+    "bpm": 175,
+    "key": "A"
    },
    {
     "artist": "Hoobastank",
-    "title": "The Reason"
+    "title": "The Reason",
+    "bpm": 166,
+    "key": "E"
    }
   ],
   "displayTitle": "How Do You Sleep Mashup",
@@ -28174,7 +28578,9 @@
    "needsMetadata": false,
    "file": "How Do You Sleep Mashup.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 112,
+  "key": "E"
  },
  {
   "id": "mashups-2019-i-dont-care-mashup",
@@ -28186,11 +28592,15 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Sledgehammer"
+    "title": "Sledgehammer",
+    "bpm": 99,
+    "key": "D"
    },
    {
     "artist": "Nelly",
-    "title": "Just a Dream"
+    "title": "Just a Dream",
+    "bpm": 89,
+    "key": "D♯m"
    },
    {
     "artist": "Nicki Minaj; Ariana Grande",
@@ -28222,7 +28632,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Q41e6dXn5Qc"
-  }
+  },
+  "tempo": 136,
+  "key": "F#"
  },
  {
   "id": "mashups-2019-i-wanna-go-back-time-travel-edition",
@@ -28238,11 +28650,15 @@
    },
    {
     "artist": "Bowling for Soup",
-    "title": "1985"
+    "title": "1985",
+    "bpm": 119,
+    "key": "E"
    },
    {
     "artist": "Prince",
-    "title": "1999"
+    "title": "1999",
+    "bpm": 117,
+    "key": "F"
    },
    {
     "artist": "Anne-Marie",
@@ -28250,7 +28666,9 @@
    },
    {
     "artist": "Jonas Brothers",
-    "title": "Year 3000"
+    "title": "Year 3000",
+    "bpm": 106,
+    "key": "B"
    }
   ],
   "displayTitle": "I Wanna Go Back (Time Travel Edition)",
@@ -28274,7 +28692,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Vv8qJOkbXys"
-  }
+  },
+  "tempo": 123,
+  "key": "Bm"
  },
  {
   "id": "mashups-2019-i-want-ur-drugs-the-internet",
@@ -28282,11 +28702,15 @@
   "sourceSongs": [
    {
     "artist": "Cher Lloyd",
-    "title": "Want U Back"
+    "title": "Want U Back",
+    "bpm": 97,
+    "key": "A"
    },
    {
     "artist": "Lauv",
-    "title": "Drugs & the Internet"
+    "title": "Drugs & the Internet",
+    "bpm": 89,
+    "key": "D"
    }
   ],
   "displayTitle": "I Want Ur Drugs & the Internet",
@@ -28306,7 +28730,9 @@
    "needsMetadata": false,
    "file": "I Want Ur Drugs & the Internet.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 99,
+  "key": "D"
  },
  {
   "id": "mashups-2019-im-a-real-boyfriend",
@@ -28342,7 +28768,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "aK820gZhrF8"
-  }
+  },
+  "tempo": 96,
+  "key": "A#m"
  },
  {
   "id": "mashups-2019-im-so-tired-of-a-thousand-miles",
@@ -28354,7 +28782,9 @@
    },
    {
     "artist": "Vanessa Carlton",
-    "title": "A Thousand Miles"
+    "title": "A Thousand Miles",
+    "bpm": 96,
+    "key": "B"
    }
   ],
   "displayTitle": "i'm so tired of a thousand miles",
@@ -28378,7 +28808,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "WEC_k4j8Eg8"
-  }
+  },
+  "tempo": 103,
+  "key": "B"
  },
  {
   "id": "mashups-2019-im-the-blue-guy-if-i-were-green-i-would-die",
@@ -28386,11 +28818,15 @@
   "sourceSongs": [
    {
     "artist": "Eiffel 65",
-    "title": "Blue (Da Ba Dee)"
+    "title": "Blue (Da Ba Dee)",
+    "bpm": 128,
+    "key": "Gm"
    },
    {
     "artist": "Billie Eilish",
-    "title": "bad guy"
+    "title": "bad guy",
+    "bpm": 136,
+    "key": "Gm"
    }
   ],
   "displayTitle": "I'm the Blue Guy (If I Were Green I Would Die)",
@@ -28410,7 +28846,9 @@
    "needsMetadata": false,
    "file": "I'm the Blue Guy (If I Were Green I Would Die).mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "mashups-2019-ignore-my-daddy-issues",
@@ -28418,11 +28856,15 @@
   "sourceSongs": [
    {
     "title": "Ignore Me",
-    "artist": "Betty Who"
+    "artist": "Betty Who",
+    "bpm": 101,
+    "key": "A"
    },
    {
     "title": "Daddy Issues",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 99,
+    "key": "A"
    }
   ],
   "displayTitle": "Ignore My Daddy Issues",
@@ -28446,7 +28888,9 @@
    "needsMetadata": false,
    "file": "Ignore My Daddy Issues.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 136,
+  "key": "A"
  },
  {
   "id": "mashups-2019-imagine-dragons-vs-kelly-clarkson-zero-heartbeat-song",
@@ -28454,11 +28898,15 @@
   "sourceSongs": [
    {
     "artist": "Imagine Dragons",
-    "title": "Zero"
+    "title": "Zero",
+    "bpm": 89,
+    "key": "F♯"
    },
    {
     "artist": "Kelly Clarkson",
-    "title": "Heartbeat Song"
+    "title": "Heartbeat Song",
+    "bpm": 149,
+    "key": "F♯"
    }
   ],
   "displayTitle": "Zero Heartbeat Song",
@@ -28482,7 +28930,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "kYZNn77XkQI"
-  }
+  },
+  "tempo": 89,
+  "key": "F#"
  },
  {
   "id": "mashups-2019-independent-angels",
@@ -28514,7 +28964,9 @@
    "needsMetadata": false,
    "file": "Independent Angels.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 99,
+  "key": "A"
  },
  {
   "id": "mashups-2019-juice-mashup",
@@ -28522,7 +28974,9 @@
   "sourceSongs": [
    {
     "artist": "Lizzo",
-    "title": "Juice"
+    "title": "Juice",
+    "bpm": 119,
+    "key": "C"
    },
    {
     "artist": "Katy Perry; Snoop Dogg",
@@ -28534,11 +28988,15 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Love You Like a Love Song"
+    "title": "Love You Like a Love Song",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Dua Lipa",
-    "title": "Blow Your Mind (Mwah)"
+    "title": "Blow Your Mind (Mwah)",
+    "bpm": 108,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Juice Mashup",
@@ -28558,7 +29016,9 @@
    "needsMetadata": false,
    "file": "Juice Mashup.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2019-liars-talk-that-talk",
@@ -28566,11 +29026,15 @@
   "sourceSongs": [
    {
     "title": "Talk That Talk",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 83,
+    "key": "D"
    },
    {
     "title": "Liar",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 159,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Liars Talk That Talk",
@@ -28594,7 +29058,9 @@
    "needsMetadata": false,
    "file": "Liars Talk That Talk.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 172,
+  "key": "D"
  },
  {
   "id": "mashups-2019-life-scars-dont-go-breaking-official-hearts",
@@ -28602,19 +29068,27 @@
   "sourceSongs": [
    {
     "artist": "Charli xcx",
-    "title": "Official"
+    "title": "Official",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "The Life"
+    "title": "The Life",
+    "bpm": 104,
+    "key": "C"
    },
    {
     "artist": "Backstreet Boys",
-    "title": "Don't Go Breaking My Heart"
+    "title": "Don't Go Breaking My Heart",
+    "bpm": 94,
+    "key": "C"
    },
    {
     "artist": "Alessia Cara",
-    "title": "Scars to Your Beautiful"
+    "title": "Scars to Your Beautiful",
+    "bpm": 96,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Life Scars Don't Go Breaking Official Hearts",
@@ -28634,7 +29108,9 @@
    "needsMetadata": false,
    "file": "Life Scars Don't Go Breaking Official Hearts.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 96,
+  "key": "C"
  },
  {
   "id": "mashups-2019-living-proof-of-bad-blood",
@@ -28642,11 +29118,15 @@
   "sourceSongs": [
    {
     "artist": "Camila Cabello",
-    "title": "Living Proof"
+    "title": "Living Proof",
+    "bpm": 77,
+    "key": "G"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Bad Blood"
+    "title": "Bad Blood",
+    "bpm": 86,
+    "key": "G"
    }
   ],
   "displayTitle": "Living Proof of Bad Blood",
@@ -28666,7 +29146,9 @@
    "needsMetadata": false,
    "file": "Living Proof of Bad Blood.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 112,
+  "key": "G"
  },
  {
   "id": "mashups-2019-medicine-grenades",
@@ -28674,11 +29156,15 @@
   "sourceSongs": [
    {
     "artist": "Bruno Mars",
-    "title": "Grenade"
+    "title": "Grenade",
+    "bpm": 112,
+    "key": "Dm"
    },
    {
     "artist": "Bring Me The Horizon",
-    "title": "Medicine"
+    "title": "Medicine",
+    "bpm": 96,
+    "key": "C"
    }
   ],
   "displayTitle": "Medicine Grenades",
@@ -28702,7 +29188,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Dxk_Wx303cA"
-  }
+  },
+  "tempo": 112,
+  "key": "F"
  },
  {
   "id": "mashups-2019-melanie-martinez-vs-jimmy-eat-world-the-middle-soap",
@@ -28710,11 +29198,15 @@
   "sourceSongs": [
    {
     "artist": "Melanie Martinez",
-    "title": "Soap"
+    "title": "Soap",
+    "bpm": 168,
+    "key": "F♯m"
    },
    {
     "artist": "Jimmy Eat World",
-    "title": "The Middle"
+    "title": "The Middle",
+    "bpm": 161,
+    "key": "D"
    }
   ],
   "displayTitle": "The Middle Soap",
@@ -28734,7 +29226,9 @@
    "needsMetadata": false,
    "file": "Melanie Martinez vs. Jimmy Eat World - The Middle Soap.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 83,
+  "key": "F#m"
  },
  {
   "id": "mashups-2019-my-own-climbing-rose",
@@ -28742,7 +29236,9 @@
   "sourceSongs": [
    {
     "title": "My Own Worst Enemy",
-    "artist": "Lit"
+    "artist": "Lit",
+    "bpm": 103,
+    "key": "E"
    },
    {
     "title": "Roses",
@@ -28774,7 +29270,9 @@
    "needsMetadata": false,
    "file": "My Own Climbing Rose.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 103,
+  "key": "E"
  },
  {
   "id": "mashups-2019-no-drug-like-me-mashup",
@@ -28782,23 +29280,33 @@
   "sourceSongs": [
    {
     "artist": "Carly Rae Jepsen",
-    "title": "No Drug Like Me"
+    "title": "No Drug Like Me",
+    "bpm": 134,
+    "key": "Am"
    },
    {
     "artist": "Britney Spears",
-    "title": "Slumber Party"
+    "title": "Slumber Party",
+    "bpm": 135,
+    "key": "C"
    },
    {
     "artist": "Maroon 5",
-    "title": "Girls Like You"
+    "title": "Girls Like You",
+    "bpm": 123,
+    "key": "C"
    },
    {
     "artist": "Troye Sivan",
-    "title": "Bloom"
+    "title": "Bloom",
+    "bpm": 120,
+    "key": "C"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Marry the Night"
+    "title": "Marry the Night",
+    "bpm": 131,
+    "key": "C"
    }
   ],
   "displayTitle": "No Drug Like Me Mashup",
@@ -28818,7 +29326,9 @@
    "needsMetadata": false,
    "file": "No Drug Like Me Mashup.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 136,
+  "key": "C"
  },
  {
   "id": "mashups-2019-oh-my-g-u-y",
@@ -28830,7 +29340,9 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "G.U.Y."
+    "title": "G.U.Y.",
+    "bpm": 112,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Oh My G.U.Y.",
@@ -28850,7 +29362,9 @@
    "needsMetadata": false,
    "file": "Oh My G.U.Y..mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 103,
+  "key": "Cm"
  },
  {
   "id": "mashups-2019-queens-everywhere-mashup",
@@ -28862,11 +29376,15 @@
    },
    {
     "artist": "Far East Movement",
-    "title": "Like a G6"
+    "title": "Like a G6",
+    "bpm": 129,
+    "key": "D♯"
    },
    {
     "artist": "Fergie",
-    "title": "Fergalicious"
+    "title": "Fergalicious",
+    "bpm": 129,
+    "key": "G♯m"
    },
    {
     "artist": "Missy Elliott; Ciara; Fat Man Scoop",
@@ -28894,7 +29412,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "eJF5lWeC2N4"
-  }
+  },
+  "tempo": 136,
+  "key": "A#m"
  },
  {
   "id": "mashups-2019-rock-my-mothers-daughter",
@@ -28902,7 +29422,9 @@
   "sourceSongs": [
    {
     "artist": "Aaliyah",
-    "title": "Rock the Boat"
+    "title": "Rock the Boat",
+    "bpm": 93,
+    "key": "Cm"
    },
    {
     "artist": "Miley Cyrus",
@@ -28930,7 +29452,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "vXDRUyTOBpY"
-  }
+  },
+  "tempo": 92,
+  "key": "G#"
  },
  {
   "id": "mashups-2019-seventeen-mashup",
@@ -28938,19 +29462,27 @@
   "sourceSongs": [
    {
     "artist": "Troye Sivan",
-    "title": "Seventeen"
+    "title": "Seventeen",
+    "bpm": 118,
+    "key": "E"
    },
    {
     "artist": "Lana Del Rey",
-    "title": "Summertime Sadness"
+    "title": "Summertime Sadness",
+    "bpm": 61,
+    "key": "C♯m"
    },
    {
     "artist": "Sheryl Crow",
-    "title": "Soak Up the Sun"
+    "title": "Soak Up the Sun",
+    "bpm": 117,
+    "key": "E"
    },
    {
     "artist": "Kesha",
-    "title": "C'mon"
+    "title": "C'mon",
+    "bpm": 129,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Seventeen Mashup",
@@ -28974,7 +29506,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "dxiSWbA_TUE"
-  }
+  },
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "mashups-2019-solo-motivation",
@@ -28986,7 +29520,9 @@
    },
    {
     "artist": "Jason Derulo",
-    "title": "Ridin' Solo"
+    "title": "Ridin' Solo",
+    "bpm": 89,
+    "key": "A"
    }
   ],
   "displayTitle": "Solo Motivation",
@@ -29010,7 +29546,9 @@
    "needsMetadata": false,
    "file": "Solo Motivation.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 89,
+  "key": "A"
  },
  {
   "id": "mashups-2019-sucker-mashup-mixed",
@@ -29018,7 +29556,9 @@
   "sourceSongs": [
    {
     "artist": "Jonas Brothers",
-    "title": "Sucker"
+    "title": "Sucker",
+    "bpm": 68,
+    "key": "C♯m"
    },
    {
     "artist": "Diplo; Ellie Goulding",
@@ -29026,11 +29566,15 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Piece of Me"
+    "title": "Piece of Me",
+    "bpm": 117,
+    "key": "B"
    },
    {
     "artist": "Madonna",
-    "title": "Hung Up"
+    "title": "Hung Up",
+    "bpm": 123,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Sucker Mashup",
@@ -29054,7 +29598,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Ief0z9C8Lyk"
-  }
+  },
+  "tempo": 136,
+  "key": "C#m"
  },
  {
   "id": "mashups-2019-sweet-but-psycho-minimix-mixed",
@@ -29070,11 +29616,15 @@
    },
    {
     "artist": "MAGIC!",
-    "title": "Rude"
+    "title": "Rude",
+    "bpm": 72,
+    "key": "C♯"
    },
    {
     "artist": "Melanie Martinez",
-    "title": "Sippy Cup"
+    "title": "Sippy Cup",
+    "bpm": 136,
+    "key": "F"
    }
   ],
   "displayTitle": "Sweet But Psycho Minimix",
@@ -29098,7 +29648,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "2BLpI97p12c"
-  }
+  },
+  "tempo": 136,
+  "key": "C#"
  },
  {
   "id": "mashups-2019-taylor-swift-ft-brandon-urie-vs-hollywood-undead-gotta-let-me-go",
@@ -29134,7 +29686,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "t0LiLPIIXp8"
-  }
+  },
+  "tempo": 185,
+  "key": "Am"
  },
  {
   "id": "mashups-2019-teeth-mashup",
@@ -29142,19 +29696,27 @@
   "sourceSongs": [
    {
     "artist": "5 Seconds of Summer",
-    "title": "Teeth"
+    "title": "Teeth",
+    "bpm": 136,
+    "key": "D♯m"
    },
    {
     "artist": "Jonas Brothers",
-    "title": "Sucker"
+    "title": "Sucker",
+    "bpm": 68,
+    "key": "C♯m"
    },
    {
     "artist": "Rihanna",
-    "title": "S&M"
+    "title": "S&M",
+    "bpm": 129,
+    "key": "D♯m"
    },
    {
     "artist": "Britney Spears",
-    "title": "Piece of Me"
+    "title": "Piece of Me",
+    "bpm": 117,
+    "key": "B"
    }
   ],
   "displayTitle": "Teeth Mashup",
@@ -29174,7 +29736,9 @@
    "needsMetadata": false,
    "file": "Teeth Mashup.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 136,
+  "key": "D#m"
  },
  {
   "id": "mashups-2019-this-is-how-blood-breaks",
@@ -29182,11 +29746,15 @@
   "sourceSongs": [
    {
     "artist": "Shawn Mendes",
-    "title": "In My Blood"
+    "title": "In My Blood",
+    "bpm": 70,
+    "key": "F"
    },
    {
     "artist": "Rob Thomas",
-    "title": "This Is How a Heart Breaks"
+    "title": "This Is How a Heart Breaks",
+    "bpm": 139,
+    "key": "C"
    }
   ],
   "displayTitle": "This is How Blood Breaks",
@@ -29210,7 +29778,9 @@
    "needsMetadata": false,
    "file": "This is How Blood Breaks.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 144,
+  "key": "Dm"
  },
  {
   "id": "mashups-2019-toxic-sugar-honey-ice-tea",
@@ -29218,11 +29788,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Toxic"
+    "title": "Toxic",
+    "bpm": 144,
+    "key": "Cm"
    },
    {
     "artist": "Bring Me The Horizon",
-    "title": "sugar honey ice & tea"
+    "title": "sugar honey ice & tea",
+    "bpm": 147,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Toxic Sugar Honey Ice & Tea",
@@ -29246,7 +29820,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "fapEQlDpnYo"
-  }
+  },
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2019-walk-my-boyfriend-home",
@@ -29254,11 +29830,15 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "Boyfriend"
+    "title": "Boyfriend",
+    "bpm": 96,
+    "key": "A♯m"
    },
    {
     "artist": "P!nk",
-    "title": "Walk Me Home"
+    "title": "Walk Me Home",
+    "bpm": 89,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Walk My Boyfriend Home",
@@ -29278,7 +29858,9 @@
    "needsMetadata": false,
    "file": "Walk My Boyfriend Home.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 96,
+  "key": "Fm"
  },
  {
   "id": "mashups-2019-wow-mashup",
@@ -29286,7 +29868,9 @@
   "sourceSongs": [
    {
     "artist": "Post Malone",
-    "title": "Wow"
+    "title": "Wow",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "Destiny's Child",
@@ -29294,11 +29878,15 @@
    },
    {
     "artist": "Tinashe",
-    "title": "2 On"
+    "title": "2 On",
+    "bpm": 101,
+    "key": "A"
    },
    {
     "artist": "Madonna",
-    "title": "American Life"
+    "title": "American Life",
+    "bpm": 103,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Wow Mashup",
@@ -29322,7 +29910,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Vt0IvXTfOs4"
-  }
+  },
+  "tempo": 99,
+  "key": "F#m"
  },
  {
   "id": "mashups-2019-you-need-to-calm-your-new-lover",
@@ -29330,11 +29920,15 @@
   "sourceSongs": [
    {
     "artist": "Adele",
-    "title": "Send My Love (To Your New Lover)"
+    "title": "Send My Love (To Your New Lover)",
+    "bpm": 82,
+    "key": "F♯m"
    },
    {
     "artist": "Taylor Swift",
-    "title": "You Need to Calm Down"
+    "title": "You Need to Calm Down",
+    "bpm": 86,
+    "key": "D"
    }
   ],
   "displayTitle": "You Need to Calm Your New Lover",
@@ -29354,7 +29948,9 @@
    "needsMetadata": false,
    "file": "You Need to Calm Your New Lover.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 172,
+  "key": "Bm"
  },
  {
   "id": "mashups-2019-you-should-see-me-in-a-toxic-crown",
@@ -29362,11 +29958,15 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Toxic"
+    "title": "Toxic",
+    "bpm": 144,
+    "key": "Cm"
    },
    {
     "artist": "Billie Eilish",
-    "title": "you should see me in a crown"
+    "title": "you should see me in a crown",
+    "bpm": 76,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "you should see me in a toxic crown",
@@ -29386,7 +29986,9 @@
    "needsMetadata": false,
    "file": "you should see me in a toxic crown.mp3",
    "folder": "Mashups 2019"
-  }
+  },
+  "tempo": 144,
+  "key": "Am"
  },
  {
   "id": "mashups-2020-acapella-mashup",
@@ -29394,7 +29996,9 @@
   "sourceSongs": [
    {
     "artist": "Karmin",
-    "title": "Acapella"
+    "title": "Acapella",
+    "bpm": 172,
+    "key": "D"
    },
    {
     "artist": "Lil Nas X; Billy Ray Cyrus",
@@ -29406,11 +30010,15 @@
    },
    {
     "artist": "Twenty One Pilots",
-    "title": "Lane Boy"
+    "title": "Lane Boy",
+    "bpm": 161,
+    "key": "G"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "I Write Sins Not Tragedies"
+    "title": "I Write Sins Not Tragedies",
+    "bpm": 172,
+    "key": "Am"
    }
   ],
   "displayTitle": "Acapella Mashup",
@@ -29434,7 +30042,9 @@
    "needsMetadata": false,
    "file": "Acapella Mashup.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 172,
+  "key": "D"
  },
  {
   "id": "mashups-2020-adore-you-mashup",
@@ -29446,19 +30056,27 @@
    },
    {
     "artist": "Troye Sivan",
-    "title": "Lucky Strike"
+    "title": "Lucky Strike",
+    "bpm": 103,
+    "key": "D"
    },
    {
     "artist": "Shawn Mendes",
-    "title": "Stitches"
+    "title": "Stitches",
+    "bpm": 144,
+    "key": "C♯"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Jealous"
+    "title": "Jealous",
+    "bpm": 93,
+    "key": "Bm"
    },
    {
     "artist": "Charlie Puth",
-    "title": "Attention"
+    "title": "Attention",
+    "bpm": 98,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Adore You Mashup",
@@ -29482,7 +30100,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Co6_arYZGeE"
-  }
+  },
+  "tempo": 99,
+  "key": "Cm"
  },
  {
   "id": "mashups-2020-adore-your-circles",
@@ -29490,11 +30110,15 @@
   "sourceSongs": [
    {
     "artist": "Miley Cyrus",
-    "title": "Adore You"
+    "title": "Adore You",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "artist": "Post Malone",
-    "title": "Circles"
+    "title": "Circles",
+    "bpm": 117,
+    "key": "C"
    }
   ],
   "displayTitle": "Adore Your Circles",
@@ -29518,7 +30142,9 @@
    "needsMetadata": false,
    "file": "Adore Your Circles.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 81,
+  "key": "C"
  },
  {
   "id": "mashups-2020-adore-your-second-chance",
@@ -29530,7 +30156,9 @@
    },
    {
     "artist": "Shinedown",
-    "title": "Second Chance"
+    "title": "Second Chance",
+    "bpm": 100,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Adore Your Second Chance",
@@ -29550,7 +30178,9 @@
    "needsMetadata": false,
    "file": "Adore Your Second Chance.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 99,
+  "key": "Cm"
  },
  {
   "id": "mashups-2020-all-night-long-mashup-with-teeth",
@@ -29562,7 +30192,9 @@
    },
    {
     "artist": "5 Seconds of Summer",
-    "title": "Teeth"
+    "title": "Teeth",
+    "bpm": 136,
+    "key": "D♯m"
    },
    {
     "artist": "Twentyonepilots",
@@ -29570,11 +30202,15 @@
    },
    {
     "artist": "Hilary Duff",
-    "title": "With Love"
+    "title": "With Love",
+    "bpm": 121,
+    "key": "F♯m"
    },
    {
     "artist": "Ariana Grande",
-    "title": "bad idea"
+    "title": "bad idea",
+    "bpm": 136,
+    "key": "C♯"
    }
   ],
   "displayTitle": "All Night Long Mashup with Teeth",
@@ -29594,7 +30230,9 @@
    "needsMetadata": false,
    "file": "All Night Long Mashup with Teeth.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 144,
+  "key": "Dm"
  },
  {
   "id": "mashups-2020-all-the-good-girls-blow-ya-mind",
@@ -29606,7 +30244,9 @@
    },
    {
     "artist": "Billie Eilish",
-    "title": "all the good girls go to hell"
+    "title": "all the good girls go to hell",
+    "bpm": 92,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "All The Good Girls Blow Ya Mind",
@@ -29630,7 +30270,9 @@
    "needsMetadata": false,
    "file": "All The Good Girls Blow Ya Mind.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 89,
+  "key": "G#m"
  },
  {
   "id": "mashups-2020-all-the-truth-hurts",
@@ -29666,7 +30308,9 @@
    "needsMetadata": false,
    "file": "All the Truth Hurts.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 161,
+  "key": "Am"
  },
  {
   "id": "mashups-2020-another-one-breaks-my-heart",
@@ -29674,11 +30318,15 @@
   "sourceSongs": [
    {
     "artist": "Dua Lipa",
-    "title": "Break My Heart"
+    "title": "Break My Heart",
+    "bpm": 112,
+    "key": "Em"
    },
    {
     "artist": "Queen",
-    "title": "Another One Bites the Dust"
+    "title": "Another One Bites the Dust",
+    "bpm": 112,
+    "key": "Em"
    }
   ],
   "displayTitle": "Another One Breaks My Heart",
@@ -29702,7 +30350,9 @@
    "needsMetadata": false,
    "file": "Another One Breaks My Heart.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 112,
+  "key": "Em"
  },
  {
   "id": "mashups-2020-backstabbing-willow",
@@ -29710,7 +30360,9 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "Backstabber"
+    "title": "Backstabber",
+    "bpm": 159,
+    "key": "G"
    },
    {
     "artist": "Taylor Swift",
@@ -29734,7 +30386,9 @@
    "needsMetadata": false,
    "file": "Backstabbing Willow.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 161,
+  "key": "C"
  },
  {
   "id": "mashups-2020-break-the-sweet-melody",
@@ -29742,7 +30396,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Break the Ice"
+    "title": "Break the Ice",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Little Mix",
@@ -29770,7 +30426,9 @@
    "needsMetadata": false,
    "file": "Break the Sweet Melody.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "mashups-2020-champagne-problems",
@@ -29778,15 +30436,21 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "Champagne Problems"
+    "title": "Champagne Problems",
+    "bpm": 108,
+    "key": "A♯"
    },
    {
     "artist": "Nick Jonas",
-    "title": "Champagne Problems"
+    "title": "Champagne Problems",
+    "bpm": 107,
+    "key": "Gm"
    },
    {
     "artist": "Meghan Trainor",
-    "title": "Champagne Problems"
+    "title": "Champagne Problems",
+    "bpm": 109,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Champagne Problems",
@@ -29810,7 +30474,9 @@
    "needsMetadata": false,
    "file": "Champagne Problems.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 112,
+  "key": "D#"
  },
  {
   "id": "mashups-2020-do-it-like-a-girl",
@@ -29822,7 +30488,9 @@
    },
    {
     "artist": "Lizzo",
-    "title": "Like a Girl"
+    "title": "Like a Girl",
+    "bpm": 144,
+    "key": "D"
    }
   ],
   "displayTitle": "Do It Like a Girl",
@@ -29846,7 +30514,9 @@
    "needsMetadata": false,
    "file": "Do It Like a Girl.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 92,
+  "key": "D"
  },
  {
   "id": "mashups-2020-dont-threaten-me-with-droppin-it-low",
@@ -29854,7 +30524,9 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "Don't Threaten Me With a Good Time"
+    "title": "Don't Threaten Me With a Good Time",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "artist": "Ester Dean; Chris Brown",
@@ -29882,7 +30554,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "JvCyAhm6fYE"
-  }
+  },
+  "tempo": 92,
+  "key": "C#m"
  },
  {
   "id": "mashups-2020-down-but-psycho",
@@ -29894,7 +30568,9 @@
    },
    {
     "artist": "Jay Sean",
-    "title": "Down"
+    "title": "Down",
+    "bpm": 132,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Down But Psycho",
@@ -29914,7 +30590,9 @@
    "needsMetadata": false,
    "file": "Down But Psycho.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "mashups-2020-drop-that-kitty-minimix-mixed",
@@ -29930,7 +30608,9 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Same Old Love"
+    "title": "Same Old Love",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "Clean Bandit; Demi Lovato",
@@ -29958,7 +30638,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "wwEgROwOGQQ"
-  }
+  },
+  "tempo": 108,
+  "key": "Bm"
  },
  {
   "id": "mashups-2020-gimme-mashup",
@@ -29966,15 +30648,21 @@
   "sourceSongs": [
    {
     "artist": "BANKS",
-    "title": "Gimme"
+    "title": "Gimme",
+    "bpm": 113,
+    "key": "D"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Angel"
+    "title": "Angel",
+    "bpm": 124,
+    "key": "C♯m"
    },
    {
     "artist": "Adele",
-    "title": "Set Fire to the Rain"
+    "title": "Set Fire to the Rain",
+    "bpm": 108,
+    "key": "Dm"
    },
    {
     "artist": "Katy Perry",
@@ -30002,7 +30690,9 @@
    "needsMetadata": false,
    "file": "Gimme Mashup.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2020-gimme-more-love-songs",
@@ -30010,11 +30700,15 @@
   "sourceSongs": [
    {
     "artist": "Sara Bareilles",
-    "title": "Love Song"
+    "title": "Love Song",
+    "bpm": 123,
+    "key": "Dm"
    },
    {
     "artist": "BANKS",
-    "title": "Gimme"
+    "title": "Gimme",
+    "bpm": 113,
+    "key": "D"
    }
   ],
   "displayTitle": "Gimme More Love Songs",
@@ -30034,7 +30728,9 @@
    "needsMetadata": false,
    "file": "Gimme More Love Songs.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 123,
+  "key": "Dm"
  },
  {
   "id": "mashups-2020-good-as-candy-house-party",
@@ -30042,11 +30738,14 @@
   "sourceSongs": [
    {
     "artist": "Aaron Carter",
-    "title": "I Want Candy"
+    "title": "I Want Candy",
+    "key": "m"
    },
    {
     "artist": "Sam Hunt",
-    "title": "House Party"
+    "title": "House Party",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "artist": "Lizzo; Ariana Grande",
@@ -30074,7 +30773,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "3YxZqiKpNts"
-  }
+  },
+  "tempo": 112,
+  "key": "D#"
  },
  {
   "id": "mashups-2020-hey-why-miss-you-sometimes-mashup-mixed",
@@ -30090,7 +30791,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "(You Drive Me) Crazy"
+    "title": "(You Drive Me) Crazy",
+    "bpm": 103,
+    "key": "Cm"
    },
    {
     "artist": "All-American Rejects",
@@ -30098,7 +30801,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool for the Summer"
+    "title": "Cool for the Summer",
+    "bpm": 114,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Hey Why (Miss You Sometimes) Mashup",
@@ -30122,7 +30827,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "CgS1h7lM4dc"
-  }
+  },
+  "tempo": 103,
+  "key": "Cm"
  },
  {
   "id": "mashups-2020-hot-girl-bummer-mashup-mixed",
@@ -30130,19 +30837,27 @@
   "sourceSongs": [
    {
     "artist": "Blackbear",
-    "title": "Hot Girl Bummer"
+    "title": "Hot Girl Bummer",
+    "bpm": 129,
+    "key": "F♯m"
    },
    {
     "artist": "Britney Spears",
-    "title": "Gimme More"
+    "title": "Gimme More",
+    "bpm": 113,
+    "key": "F♯m"
    },
    {
     "artist": "Kesha",
-    "title": "Take It Off"
+    "title": "Take It Off",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "artist": "Rihanna",
-    "title": "Needed Me"
+    "title": "Needed Me",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "artist": "David Guetta; Kelly Rowland",
@@ -30170,7 +30885,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "gsODnj2hshs"
-  }
+  },
+  "tempo": 129,
+  "key": "F#m"
  },
  {
   "id": "mashups-2020-i-like-wonderwalls-better",
@@ -30178,11 +30895,15 @@
   "sourceSongs": [
    {
     "artist": "Lauv",
-    "title": "I Like Me Better"
+    "title": "I Like Me Better",
+    "bpm": 91,
+    "key": "A"
    },
    {
     "artist": "Oasis",
-    "title": "Wonderwall"
+    "title": "Wonderwall",
+    "bpm": 87,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "I Like Wonderwalls Better",
@@ -30206,7 +30927,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "PlryYBNUyS4"
-  }
+  },
+  "tempo": 92,
+  "key": "A"
  },
  {
   "id": "mashups-2020-i-love-all-about-me",
@@ -30242,7 +30965,9 @@
    "needsMetadata": false,
    "file": "I Love All About Me.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 161,
+  "key": "D#m"
  },
  {
   "id": "mashups-2020-i-want-you-to-swim-in-the-stars-retimed",
@@ -30278,7 +31003,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "h3fCCz039sk"
-  }
+  },
+  "tempo": 136,
+  "key": "A#m"
  },
  {
   "id": "mashups-2020-i-write-trap-queens-not-tragedies-2020-updated",
@@ -30286,11 +31013,15 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "I Write Sins Not Tragedies"
+    "title": "I Write Sins Not Tragedies",
+    "bpm": 172,
+    "key": "Am"
    },
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    }
   ],
   "displayTitle": "I Write Trap Queens Not Tragedies (2020 Updated)",
@@ -30310,7 +31041,9 @@
    "needsMetadata": false,
    "file": "I Write Trap Queens Not Tragedies (2020 Updated).mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 172,
+  "key": "C"
  },
  {
   "id": "mashups-2020-la-forever",
@@ -30318,11 +31051,15 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "LA Devotee"
+    "title": "LA Devotee",
+    "bpm": 175,
+    "key": "A"
    },
    {
     "artist": "Charli xcx",
-    "title": "Forever"
+    "title": "Forever",
+    "bpm": 87,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "LA Forever",
@@ -30342,7 +31079,9 @@
    "needsMetadata": false,
    "file": "LA Forever.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 89,
+  "key": "E"
  },
  {
   "id": "mashups-2020-levitating-the-ultimate-desired-remix",
@@ -30378,7 +31117,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "6SaY0i3N4Vs"
-  }
+  },
+  "tempo": 103,
+  "key": "E"
  },
  {
   "id": "mashups-2020-levitating-mashup",
@@ -30386,19 +31127,27 @@
   "sourceSongs": [
    {
     "artist": "Dua Lipa",
-    "title": "Levitating"
+    "title": "Levitating",
+    "bpm": 103,
+    "key": "Bm"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Style"
+    "title": "Style",
+    "bpm": 96,
+    "key": "D"
    },
    {
     "artist": "Hilary Duff",
-    "title": "My Kind"
+    "title": "My Kind",
+    "bpm": 93,
+    "key": "Em"
    },
    {
     "artist": "Troye Sivan",
-    "title": "My My My"
+    "title": "My My My",
+    "bpm": 102,
+    "key": "C♯"
    },
    {
     "artist": "Christina Grimmie",
@@ -30426,7 +31175,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "7OQCZBpYxJo"
-  }
+  },
+  "tempo": 103,
+  "key": "E"
  },
  {
   "id": "mashups-2020-like-a-virgin-prisoner",
@@ -30438,7 +31189,9 @@
    },
    {
     "artist": "Madonna",
-    "title": "Like a Virgin"
+    "title": "Like a Virgin",
+    "bpm": 117,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "Like a Virgin Prisoner",
@@ -30462,7 +31215,9 @@
    "needsMetadata": false,
    "file": "Like a Virgin Prisoner.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 129,
+  "key": "D#m"
  },
  {
   "id": "mashups-2020-me-against-the-sour-candy",
@@ -30498,7 +31253,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "5oZYPrOKC84"
-  }
+  },
+  "tempo": 117,
+  "key": "Am"
  },
  {
   "id": "mashups-2020-meant-to-calm-down-mixed",
@@ -30510,7 +31267,9 @@
    },
    {
     "artist": "Taylor Swift",
-    "title": "You Need to Calm Down"
+    "title": "You Need to Calm Down",
+    "bpm": 86,
+    "key": "D"
    }
   ],
   "displayTitle": "Meant to Calm Down",
@@ -30534,7 +31293,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "v6z4huvEi_M"
-  }
+  },
+  "tempo": 152,
+  "key": "D"
  },
  {
   "id": "mashups-2020-monsters-one-more-time",
@@ -30542,7 +31303,9 @@
   "sourceSongs": [
    {
     "title": "...Baby One More Time",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 92,
+    "key": "Cm"
    },
    {
     "title": "Monsters",
@@ -30570,7 +31333,9 @@
    "needsMetadata": false,
    "file": "Monsters One More Time.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 92,
+  "key": "Cm"
  },
  {
   "id": "mashups-2020-my-exs-best-friends-telephone",
@@ -30606,7 +31371,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "AYFVZBO-Vt8"
-  }
+  },
+  "tempo": 123,
+  "key": "Fm"
  },
  {
   "id": "mashups-2020-my-oh-my-from-am-to-pm",
@@ -30614,7 +31381,9 @@
   "sourceSongs": [
    {
     "artist": "Christina Milian",
-    "title": "AM to PM"
+    "title": "AM to PM",
+    "bpm": 105,
+    "key": "Cm"
    },
    {
     "artist": "Camilla Cabello; DaBaby",
@@ -30642,7 +31411,9 @@
    "needsMetadata": false,
    "file": "My Oh My from AM to PM.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 103,
+  "key": "Cm"
  },
  {
   "id": "mashups-2020-nice-to-overprotect-ya-mixed",
@@ -30654,7 +31425,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Overprotected"
+    "title": "Overprotected",
+    "bpm": 99,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Nice to Overprotect Ya",
@@ -30678,7 +31451,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "EIUnrYJQ2rQ"
-  }
+  },
+  "tempo": 129,
+  "key": "Em"
  },
  {
   "id": "mashups-2020-not-the-end-of-the-world-mixed",
@@ -30686,19 +31461,27 @@
   "sourceSongs": [
    {
     "artist": "Katy Perry",
-    "title": "Not the End of the World"
+    "title": "Not the End of the World",
+    "bpm": 161,
+    "key": "Dm"
    },
    {
     "artist": "Britney Spears",
-    "title": "Till the World Ends"
+    "title": "Till the World Ends",
+    "bpm": 131,
+    "key": "G♯"
    },
    {
     "artist": "Ariana Grande",
-    "title": "One Last Time"
+    "title": "One Last Time",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "artist": "Kesha",
-    "title": "Die Young"
+    "title": "Die Young",
+    "bpm": 128,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Not the End of the World Mashup",
@@ -30722,7 +31505,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "ZXuHLu5tHp4"
-  }
+  },
+  "tempo": 161,
+  "key": "Dm"
  },
  {
   "id": "mashups-2020-party-for-daisies",
@@ -30730,11 +31515,15 @@
   "sourceSongs": [
    {
     "artist": "Carly Rae Jepsen",
-    "title": "Party For One"
+    "title": "Party For One",
+    "bpm": 123,
+    "key": "F♯"
    },
    {
     "artist": "Katy Perry",
-    "title": "Daisies"
+    "title": "Daisies",
+    "bpm": 122,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Party for Daisies",
@@ -30758,7 +31547,9 @@
    "needsMetadata": false,
    "file": "Party for Daisies.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 123,
+  "key": "F#"
  },
  {
   "id": "mashups-2020-physical-mashup",
@@ -30766,7 +31557,9 @@
   "sourceSongs": [
    {
     "artist": "Dua Lipa",
-    "title": "Physical"
+    "title": "Physical",
+    "bpm": 144,
+    "key": "C"
    },
    {
     "artist": "Jennifer Lopez; Iggy Azalea",
@@ -30774,15 +31567,21 @@
    },
    {
     "artist": "Madonna",
-    "title": "Girl Gone Wild"
+    "title": "Girl Gone Wild",
+    "bpm": 129,
+    "key": "G♯m"
    },
    {
     "artist": "Miley Cyrus",
-    "title": "See You Again"
+    "title": "See You Again",
+    "bpm": 138,
+    "key": "Am"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Marry the Night"
+    "title": "Marry the Night",
+    "bpm": 131,
+    "key": "C"
    }
   ],
   "displayTitle": "Physical Mashup",
@@ -30806,7 +31605,9 @@
    "needsMetadata": false,
    "file": "Physical Mashup.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 144,
+  "key": "Am"
  },
  {
   "id": "mashups-2020-rain-on-me-mixed",
@@ -30822,11 +31623,15 @@
    },
    {
     "artist": "Kesha",
-    "title": "Die Young"
+    "title": "Die Young",
+    "bpm": 128,
+    "key": "C♯m"
    },
    {
     "artist": "Rihanna",
-    "title": "Where Have You Been"
+    "title": "Where Have You Been",
+    "bpm": 129,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Rain On Me Mashup",
@@ -30850,7 +31655,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "rRPxSNfc-qY"
-  }
+  },
+  "tempo": 123,
+  "key": "C#m"
  },
  {
   "id": "mashups-2020-react-mashup",
@@ -30862,11 +31669,15 @@
    },
    {
     "artist": "Justin Timberlake",
-    "title": "Like I Love You"
+    "title": "Like I Love You",
+    "bpm": 114,
+    "key": "A♯m"
    },
    {
     "artist": "Dua Lipa",
-    "title": "New Rules"
+    "title": "New Rules",
+    "bpm": 117,
+    "key": "Am"
    },
    {
     "artist": "Nelly Furtado; Timbaland",
@@ -30874,7 +31685,9 @@
    },
    {
     "artist": "Charlie Puth",
-    "title": "The Way I Am"
+    "title": "The Way I Am",
+    "bpm": 117,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "React Mashup",
@@ -30898,7 +31711,9 @@
    "needsMetadata": false,
    "file": "React Mashup.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 117,
+  "key": "A#m"
  },
  {
   "id": "mashups-2020-say-so-mashup",
@@ -30906,7 +31721,9 @@
   "sourceSongs": [
    {
     "artist": "Doja Cat",
-    "title": "Say So"
+    "title": "Say So",
+    "bpm": 56,
+    "key": "Bm"
    },
    {
     "artist": "Clean Bandit; Demi Lovato",
@@ -30918,7 +31735,9 @@
    },
    {
     "artist": "Rick Astley",
-    "title": "Never Gonna Give You Up"
+    "title": "Never Gonna Give You Up",
+    "bpm": 112,
+    "key": "A♯m"
    },
    {
     "artist": "Dinah Jane; Ty Dolla $ign; Mark E Bassy",
@@ -30946,7 +31765,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "gOsazbpgEMg"
-  }
+  },
+  "tempo": 112,
+  "key": "D"
  },
  {
   "id": "mashups-2020-say-something-mashup-mixed",
@@ -30962,7 +31783,9 @@
    },
    {
     "artist": "Dua Lipa",
-    "title": "Hallucinate"
+    "title": "Hallucinate",
+    "bpm": 123,
+    "key": "A♯m"
    },
    {
     "artist": "Kim Petras",
@@ -30990,7 +31813,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "Dv4U6-PYQAM"
-  }
+  },
+  "tempo": 108,
+  "key": "Gm"
  },
  {
   "id": "mashups-2020-shut-up-minimix-bep-kesha-pink-adele-charlie-puth",
@@ -30998,23 +31823,33 @@
   "sourceSongs": [
    {
     "artist": "Black Eyed Peas",
-    "title": "Shut Up"
+    "title": "Shut Up",
+    "bpm": 112,
+    "key": "D"
    },
    {
     "artist": "Kesha",
-    "title": "Blah Blah Blah"
+    "title": "Blah Blah Blah",
+    "bpm": 120,
+    "key": "A♯"
    },
    {
     "artist": "Charlie Puth",
-    "title": "How Long"
+    "title": "How Long",
+    "bpm": 112,
+    "key": "C♯m"
    },
    {
     "artist": "Adele",
-    "title": "Set Fire to the Rain"
+    "title": "Set Fire to the Rain",
+    "bpm": 108,
+    "key": "Dm"
    },
    {
     "artist": "P!nk",
-    "title": "Most Girl"
+    "title": "Most Girl",
+    "bpm": 97,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Shut Up Minimix",
@@ -31034,7 +31869,9 @@
    "needsMetadata": false,
    "file": "Shut Up Minimix (BEP, Kesha, Pink, Adele, Charlie Puth).mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2020-thats-what-i-shut-up",
@@ -31070,7 +31907,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "8f5VUKXdiR8"
-  }
+  },
+  "tempo": 136,
+  "key": "G"
  },
  {
   "id": "mashups-2020-the-one-mashup-version-2",
@@ -31078,7 +31917,9 @@
   "sourceSongs": [
    {
     "artist": "Betty Who",
-    "title": "The One"
+    "title": "The One",
+    "bpm": 97,
+    "key": "G♯"
    },
    {
     "artist": "Britney Spears",
@@ -31086,15 +31927,21 @@
    },
    {
     "artist": "Jennifer Lopez",
-    "title": "Love Don't Cost a Thing"
+    "title": "Love Don't Cost a Thing",
+    "bpm": 99,
+    "key": "Em"
    },
    {
     "artist": "Aaliyah",
-    "title": "Try Again"
+    "title": "Try Again",
+    "bpm": 93,
+    "key": "C♯m"
    },
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "artist": "*NSYNC",
@@ -31110,7 +31957,9 @@
    },
    {
     "artist": "Backstreet Boys",
-    "title": "Larger Than Life"
+    "title": "Larger Than Life",
+    "bpm": 108,
+    "key": "Cm"
    }
   ],
   "displayTitle": "The One Mashup (Version 2)",
@@ -31130,7 +31979,9 @@
    "needsMetadata": false,
    "file": "The One Mashup Version 2.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 99,
+  "key": "C#"
  },
  {
   "id": "mashups-2020-torn-medicine",
@@ -31138,11 +31989,15 @@
   "sourceSongs": [
    {
     "artist": "Bring Me The Horizon",
-    "title": "Medicine"
+    "title": "Medicine",
+    "bpm": 96,
+    "key": "C"
    },
    {
     "artist": "Natalie Imbruglia",
-    "title": "Torn"
+    "title": "Torn",
+    "bpm": 96,
+    "key": "F"
    }
   ],
   "displayTitle": "Torn Medicine",
@@ -31166,7 +32021,9 @@
    "needsMetadata": false,
    "file": "Torn Medicine.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 129,
+  "key": "Dm"
  },
  {
   "id": "mashups-2020-touch-my-irresistible-body",
@@ -31174,11 +32031,15 @@
   "sourceSongs": [
    {
     "artist": "Mariah Carey",
-    "title": "Touch My Body"
+    "title": "Touch My Body",
+    "bpm": 78,
+    "key": "Bm"
    },
    {
     "artist": "Fall Out Boy",
-    "title": "Irresistible"
+    "title": "Irresistible",
+    "bpm": 164,
+    "key": "D"
    }
   ],
   "displayTitle": "Touch My Irresistible Body",
@@ -31202,7 +32063,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "rMDofP75ek0"
-  }
+  },
+  "tempo": 161,
+  "key": "F#m"
  },
  {
   "id": "mashups-2020-whats-your-fantasy-for-a-wap",
@@ -31210,7 +32073,9 @@
   "sourceSongs": [
    {
     "artist": "Ludacris",
-    "title": "What's Your Fantasy"
+    "title": "What's Your Fantasy",
+    "bpm": 140,
+    "key": "A"
    },
    {
     "artist": "Cardi B; Megan Thee Stallion",
@@ -31238,7 +32103,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "qTiyVEoG878"
-  }
+  },
+  "tempo": 92,
+  "key": "Gm"
  },
  {
   "id": "mashups-2020-yummy-rings",
@@ -31246,11 +32113,15 @@
   "sourceSongs": [
    {
     "title": "Yummy",
-    "artist": "Justin Bieber"
+    "artist": "Justin Bieber",
+    "bpm": 145,
+    "key": "Gm"
    },
    {
     "title": "7 Rings",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 70,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Yummy Rings",
@@ -31274,7 +32145,9 @@
    "needsMetadata": false,
    "file": "Yummy Rings.mp3",
    "folder": "Mashups 2020"
-  }
+  },
+  "tempo": 144,
+  "key": "G"
  },
  {
   "id": "mashups-2021-bad-to-you-with-dua",
@@ -31302,7 +32175,9 @@
    "needsMetadata": false,
    "file": "Bad To You with Dua.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 144,
+  "key": "Gm"
  },
  {
   "id": "mashups-2021-beautiful-montero",
@@ -31334,7 +32209,9 @@
    "needsMetadata": false,
    "file": "Beautiful Montero.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 92,
+  "key": "G#m"
  },
  {
   "id": "mashups-2021-cant-hold-industry-baby",
@@ -31370,7 +32247,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "epD1brNj-_0"
-  }
+  },
+  "tempo": 144,
+  "key": "Em"
  },
  {
   "id": "mashups-2021-come-back-to-the-blinding-light-fixed",
@@ -31378,11 +32257,15 @@
   "sourceSongs": [
    {
     "artist": "The Weeknd",
-    "title": "Blinding Lights"
+    "title": "Blinding Lights",
+    "bpm": 172,
+    "key": "Cm"
    },
    {
     "artist": "Player",
-    "title": "Baby Come Back"
+    "title": "Baby Come Back",
+    "bpm": 156,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Come Back to the Blinding Light",
@@ -31402,7 +32285,9 @@
    "needsMetadata": false,
    "file": "Come Back to the Blinding Light (Fixed).mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 103,
+  "key": "A#"
  },
  {
   "id": "mashups-2021-enigma-mashup-bmtm-pride-solo-version",
@@ -31410,15 +32295,21 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Enigma"
+    "title": "Enigma",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "artist": "Gloria Gaynor",
-    "title": "I Will Survive"
+    "title": "I Will Survive",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "artist": "The Weeknd",
-    "title": "Can't Feel My Face"
+    "title": "Can't Feel My Face",
+    "bpm": 108,
+    "key": "Am"
    },
    {
     "artist": "The Commodores",
@@ -31442,7 +32333,9 @@
    "needsMetadata": false,
    "file": "Enigma Mashup (BMTM Pride Solo Version).mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2021-exaholic-sacrifice",
@@ -31474,7 +32367,9 @@
    "needsMetadata": false,
    "file": "Exaholic Sacrifice.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "mashups-2021-get-outta-my-way-mashup",
@@ -31482,19 +32377,27 @@
   "sourceSongs": [
    {
     "artist": "Kylie Minogue",
-    "title": "Get Outta My Way"
+    "title": "Get Outta My Way",
+    "bpm": 127,
+    "key": "F♯m"
    },
    {
     "artist": "Nicole Scherzinger",
-    "title": "Don't Hold Your Breath"
+    "title": "Don't Hold Your Breath",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Neon Lights"
+    "title": "Neon Lights",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "artist": "Troye Sivan",
-    "title": "Bloom"
+    "title": "Bloom",
+    "bpm": 120,
+    "key": "C"
    },
    {
     "artist": "Carly Rae Jepsen",
@@ -31502,7 +32405,9 @@
    },
    {
     "artist": "Dua Lipa",
-    "title": "Love Again"
+    "title": "Love Again",
+    "bpm": 117,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Get Outta My Way Mashup",
@@ -31522,7 +32427,9 @@
    "needsMetadata": false,
    "file": "Get Outta My Way Mashup.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "mashups-2021-get-the-rumors-started",
@@ -31530,7 +32437,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Get the Party Started"
+    "title": "Get the Party Started",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Lizzo; Cardi B",
@@ -31558,7 +32467,9 @@
    "needsMetadata": false,
    "file": "Get the Rumors Started.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 129,
+  "key": "E"
  },
  {
   "id": "mashups-2021-give-monsters-what-i-want",
@@ -31590,7 +32501,9 @@
    "needsMetadata": false,
    "file": "Give Monsters What I Want.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 89,
+  "key": "Cm"
  },
  {
   "id": "mashups-2021-good-ones-mashup-mixed",
@@ -31602,11 +32515,15 @@
    },
    {
     "artist": "MUNA",
-    "title": "Number One Fan"
+    "title": "Number One Fan",
+    "bpm": 124,
+    "key": "A"
    },
    {
     "artist": "Ariana Grande",
-    "title": "No Tears Left to Cry"
+    "title": "No Tears Left to Cry",
+    "bpm": 123,
+    "key": "Am"
    },
    {
     "artist": "Cobra Starship; Sabi",
@@ -31642,7 +32559,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "RvsZ1Af6n8I"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mashups-2021-hey-look-ma-i-34-35d",
@@ -31650,7 +32569,9 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "Hey Look Ma, I Made It"
+    "title": "Hey Look Ma, I Made It",
+    "bpm": 108,
+    "key": "F"
    },
    {
     "artist": "Ariana Grande",
@@ -31678,7 +32599,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "nnefekp4_F4"
-  }
+  },
+  "tempo": 108,
+  "key": "F"
  },
  {
   "id": "mashups-2021-hurts-like-ice-cream-retimed",
@@ -31714,7 +32637,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "3-S5fhgrO3Y"
-  }
+  },
+  "tempo": 78,
+  "key": "C#m"
  },
  {
   "id": "mashups-2021-i-wanna-be-in-a-bad-mood",
@@ -31726,7 +32651,9 @@
    },
    {
     "artist": "Willa Ford",
-    "title": "I Wanna Be Bad"
+    "title": "I Wanna Be Bad",
+    "bpm": 180,
+    "key": "Am"
    }
   ],
   "displayTitle": "I Wanna Be In a Bad Mood",
@@ -31750,7 +32677,9 @@
    "needsMetadata": false,
    "file": "I Wanna Be In a Bad Mood.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 89,
+  "key": "C"
  },
  {
   "id": "mashups-2021-i-want-beautiful-mistakes-that-way",
@@ -31758,7 +32687,9 @@
   "sourceSongs": [
    {
     "artist": "Backstreet Boys",
-    "title": "I Want It That Way"
+    "title": "I Want It That Way",
+    "bpm": 99,
+    "key": "A"
    },
    {
     "artist": "Maroon 5; Megan Thee Stallion",
@@ -31786,7 +32717,9 @@
    "needsMetadata": false,
    "file": "I Want Beautiful Mistakes That Way.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 99,
+  "key": "Gm"
  },
  {
   "id": "mashups-2021-im-ready-mashup-mixed",
@@ -31798,15 +32731,21 @@
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "Miss Jackson"
+    "title": "Miss Jackson",
+    "bpm": 82,
+    "key": "D"
    },
    {
     "artist": "Katy Perry",
-    "title": "Not the End of the World"
+    "title": "Not the End of the World",
+    "bpm": 161,
+    "key": "Dm"
    },
    {
     "artist": "Kesha",
-    "title": "Tonight"
+    "title": "Tonight",
+    "bpm": 150,
+    "key": "F"
    }
   ],
   "displayTitle": "I'm Ready Mashup",
@@ -31826,7 +32765,9 @@
    "needsMetadata": false,
    "file": "I'm Ready Mashup Mixed.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 152,
+  "key": "Dm"
  },
  {
   "id": "mashups-2021-ice-cream-girlfriend",
@@ -31834,7 +32775,9 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "Girlfriend"
+    "title": "Girlfriend",
+    "bpm": 81,
+    "key": "G"
    },
    {
     "artist": "BLACKPINK; Selena Gomez",
@@ -31858,7 +32801,9 @@
    "needsMetadata": false,
    "file": "Ice Cream Girlfriend.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 161,
+  "key": "C#m"
  },
  {
   "id": "mashups-2021-if-u-seek-miss-murder",
@@ -31866,11 +32811,15 @@
   "sourceSongs": [
    {
     "title": "If U Seek Amy",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 129,
+    "key": "Em"
    },
    {
     "title": "Miss Murder",
-    "artist": "AFI"
+    "artist": "AFI",
+    "bpm": 143,
+    "key": "G♯"
    }
   ],
   "displayTitle": "If U Seek Miss Murder",
@@ -31894,7 +32843,9 @@
    "needsMetadata": false,
    "file": "If U Seek Miss Murder.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 136,
+  "key": "Em"
  },
  {
   "id": "mashups-2021-its-gonna-be-may-mashup",
@@ -31902,23 +32853,33 @@
   "sourceSongs": [
    {
     "artist": "*NSYNC",
-    "title": "It's Gonna Be Me"
+    "title": "It's Gonna Be Me",
+    "bpm": 83,
+    "key": "Cm"
    },
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "NIck Jonas",
-    "title": "Chains"
+    "title": "Chains",
+    "bpm": 76,
+    "key": "Cm"
    },
    {
     "artist": "The Weeknd",
-    "title": "Blinding Lights"
+    "title": "Blinding Lights",
+    "bpm": 172,
+    "key": "Cm"
    },
    {
     "artist": "Dream",
-    "title": "He Loves U Not"
+    "title": "He Loves U Not",
+    "bpm": 156,
+    "key": "C♯"
    }
   ],
   "displayTitle": "It's Gonna Be May Mashup",
@@ -31942,7 +32903,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "XwNR7rhTPHk"
-  }
+  },
+  "tempo": 83,
+  "key": "F"
  },
  {
   "id": "mashups-2021-kiss-me-more-mashup-mixed",
@@ -31962,11 +32925,15 @@
    },
    {
     "artist": "Nicole Scherzinger",
-    "title": "Don't Hold Your Breath"
+    "title": "Don't Hold Your Breath",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "artist": "Maroon 5",
-    "title": "Misery"
+    "title": "Misery",
+    "bpm": 103,
+    "key": "Em"
    }
   ],
   "displayTitle": "Kiss Me More Mashup",
@@ -31986,7 +32953,9 @@
    "needsMetadata": false,
    "file": "Kiss Me More Mashup Mixed.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 112,
+  "key": "G#"
  },
  {
   "id": "mashups-2021-look-what-the-hand-made-me-do",
@@ -31998,7 +32967,9 @@
    },
    {
     "title": "Look What You Made Me Do",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 128,
+    "key": "Am"
    }
   ],
   "displayTitle": "Look What the Hand Made Me Do",
@@ -32022,7 +32993,9 @@
    "needsMetadata": false,
    "file": "Look What the Hand Made Me Do.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "mashups-2021-map-of-the-911",
@@ -32030,11 +33003,15 @@
   "sourceSongs": [
    {
     "artist": "Muse",
-    "title": "Map of the Problematique"
+    "title": "Map of the Problematique",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "artist": "Lady Gaga",
-    "title": "911"
+    "title": "911",
+    "bpm": 117,
+    "key": "F"
    }
   ],
   "displayTitle": "Map of the 911",
@@ -32054,7 +33031,9 @@
    "needsMetadata": false,
    "file": "Map of the 911.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 123,
+  "key": "Cm"
  },
  {
   "id": "mashups-2021-monsters-one-more-time-reversed",
@@ -32066,7 +33045,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "...Baby One More Time"
+    "title": "...Baby One More Time",
+    "bpm": 92,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Monsters One More Time (Reversed)",
@@ -32086,7 +33067,9 @@
    "needsMetadata": false,
    "file": "Monsters One More Time (Reversed).mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 89,
+  "key": "Cm"
  },
  {
   "id": "mashups-2021-montero-mashup",
@@ -32098,15 +33081,21 @@
    },
    {
     "artist": "TLC",
-    "title": "No Scrubs"
+    "title": "No Scrubs",
+    "bpm": 92,
+    "key": "G♯m"
    },
    {
     "artist": "My Chemical Romance",
-    "title": "Na Na Na"
+    "title": "Na Na Na",
+    "bpm": 166,
+    "key": "G♯m"
    },
    {
     "artist": "Billie Eilish",
-    "title": "All the Good Girls Go to Hell"
+    "title": "All the Good Girls Go to Hell",
+    "bpm": 92,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "Montero Mashup",
@@ -32126,7 +33115,9 @@
    "needsMetadata": false,
    "file": "Montero Mashup.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 117,
+  "key": "G#m"
  },
  {
   "id": "mashups-2021-my-humps-wap-booty-milkshakes",
@@ -32134,7 +33125,9 @@
   "sourceSongs": [
    {
     "artist": "Black Eyed Peas",
-    "title": "My Humps"
+    "title": "My Humps",
+    "bpm": 123,
+    "key": "E"
    },
    {
     "artist": "Cardi B; Megan Thee Stallion",
@@ -32166,7 +33159,9 @@
    "needsMetadata": false,
    "file": "My Humps, WAP, Booty & Milkshakes.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 123,
+  "key": "G#m"
  },
  {
   "id": "mashups-2021-plastic-hearts-mashup",
@@ -32178,11 +33173,15 @@
    },
    {
     "artist": "Green Day",
-    "title": "Holiday"
+    "title": "Holiday",
+    "bpm": 82,
+    "key": "G"
    },
    {
     "artist": "Demi Lovato",
-    "title": "La La Land"
+    "title": "La La Land",
+    "bpm": 172,
+    "key": "F♯m"
    },
    {
     "artist": "Hall & Oats",
@@ -32190,7 +33189,9 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Come & Get It"
+    "title": "Come & Get It",
+    "bpm": 80,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Plastic Hearts Mashup",
@@ -32210,7 +33211,9 @@
    "needsMetadata": false,
    "file": "Plastic Hearts Mashup.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 89,
+  "key": "F#m"
  },
  {
   "id": "mashups-2021-potential-bloody-valentine",
@@ -32218,7 +33221,9 @@
   "sourceSongs": [
    {
     "artist": "Aly & AJ",
-    "title": "Potential Breakup Song"
+    "title": "Potential Breakup Song",
+    "bpm": 158,
+    "key": "F♯m"
    },
    {
     "artist": "Machine Gun Kelly",
@@ -32246,7 +33251,9 @@
    "needsMetadata": false,
    "file": "Potential Bloody Valentine.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 78,
+  "key": "C#m"
  },
  {
   "id": "mashups-2021-prima-donna-mashup-mixed",
@@ -32258,11 +33265,15 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "Bad Romance"
+    "title": "Bad Romance",
+    "bpm": 234,
+    "key": "Am"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Break Free"
+    "title": "Break Free",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "artist": "Madonna; Justin Timbalake; Timabaland",
@@ -32274,11 +33285,15 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Gimme More"
+    "title": "Gimme More",
+    "bpm": 113,
+    "key": "F♯m"
    },
    {
     "artist": "Kesha",
-    "title": "Take It Off"
+    "title": "Take It Off",
+    "bpm": 125,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Prima Donna Mashup",
@@ -32298,7 +33313,9 @@
    "needsMetadata": false,
    "file": "Prima Donna Mashup Mixed.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 129,
+  "key": "Gm"
  },
  {
   "id": "mashups-2021-real-groove-mashup-mixed",
@@ -32310,19 +33327,27 @@
    },
    {
     "artist": "Karmin",
-    "title": "I Want It All"
+    "title": "I Want It All",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Kesha",
-    "title": "Take It Off"
+    "title": "Take It Off",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "artist": "Katy Perry",
-    "title": "Tucked"
+    "title": "Tucked",
+    "bpm": 123,
+    "key": "G"
    },
    {
     "artist": "Madonna",
-    "title": "Living for Love"
+    "title": "Living for Love",
+    "bpm": 122,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Real Groove Mashup Mixed",
@@ -32342,7 +33367,9 @@
    "needsMetadata": false,
    "file": "Real Groove Mashup Mixed.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "mashups-2021-sacrifice-the-megamix",
@@ -32354,7 +33381,9 @@
    },
    {
     "artist": "Daft Punk",
-    "title": "One More Time"
+    "title": "One More Time",
+    "bpm": 122,
+    "key": "D"
    },
    {
     "artist": "Pussycat Dolls",
@@ -32366,23 +33395,33 @@
    },
    {
     "artist": "Hilary Duff",
-    "title": "Sparks"
+    "title": "Sparks",
+    "bpm": 122,
+    "key": "Bm"
    },
    {
     "artist": "Dua Lipa",
-    "title": "Don't Start Now"
+    "title": "Don't Start Now",
+    "bpm": 123,
+    "key": "Bm"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Look At Her Now"
+    "title": "Look At Her Now",
+    "bpm": 77,
+    "key": "A♯m"
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool For the Summer"
+    "title": "Cool For the Summer",
+    "bpm": 114,
+    "key": "Fm"
    },
    {
     "artist": "Walk the Moon",
-    "title": "Shut Up and Dance"
+    "title": "Shut Up and Dance",
+    "bpm": 129,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Sacrifice - The Megamix",
@@ -32406,7 +33445,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "https://www.youtube.com/watch?v=6s-cs9sGjQA"
-  }
+  },
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "mashups-2021-sacrifice-collab",
@@ -32429,7 +33470,9 @@
    "needsMetadata": true,
    "file": "sacrifice collab.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "mashups-2021-sacrifice-part-1",
@@ -32452,7 +33495,9 @@
    "needsMetadata": true,
    "file": "sacrifice part 1.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 123,
+  "key": "E"
  },
  {
   "id": "mashups-2021-somebody-to-tell-me-old-habits-die-hard",
@@ -32460,7 +33505,9 @@
   "sourceSongs": [
    {
     "artist": "Allie X",
-    "title": "Old Habits Die Hard"
+    "title": "Old Habits Die Hard",
+    "bpm": 173,
+    "key": "C♯m"
    },
    {
     "artist": "Tyler Glenn",
@@ -32484,7 +33531,9 @@
    "needsMetadata": false,
    "file": "Somebody to Tell Me Old Habits Die Hard.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 117,
+  "key": "C#m"
  },
  {
   "id": "mashups-2021-the-beast-ghost-bites",
@@ -32524,7 +33573,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "xoEVRBsisyI"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2021-toxic-mercy",
@@ -32532,7 +33583,9 @@
   "sourceSongs": [
    {
     "title": "Toxic",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 144,
+    "key": "Cm"
    },
    {
     "title": "Have Mercy",
@@ -32560,7 +33613,9 @@
    "needsMetadata": false,
    "file": "Toxic Mercy.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 144,
+  "key": "C#m"
  },
  {
   "id": "mashups-2021-want-to-be-cool-for-the-summer-extended-mixed",
@@ -32568,7 +33623,9 @@
   "sourceSongs": [
    {
     "artist": "Jason Derulo",
-    "title": "Want to Want Me"
+    "title": "Want to Want Me",
+    "bpm": 112,
+    "key": "Cm"
    },
    {
     "artist": "Justin Timberlake",
@@ -32580,11 +33637,15 @@
    },
    {
     "artist": "Jess Glynne",
-    "title": "Hold My Hand"
+    "title": "Hold My Hand",
+    "bpm": 122,
+    "key": "C"
    },
    {
     "artist": "Hilary Duff",
-    "title": "Sparks"
+    "title": "Sparks",
+    "bpm": 122,
+    "key": "Bm"
    },
    {
     "artist": "Sia",
@@ -32612,7 +33673,9 @@
    "needsMetadata": false,
    "file": "Want to be Cool for the Summer Extended Mixed.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 112,
+  "key": "Cm"
  },
  {
   "id": "mashups-2021-were-good-ooh-la-la",
@@ -32644,7 +33707,9 @@
    "needsMetadata": false,
    "file": "We're Good Ooh La La.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "mashups-2021-what-the-hell-good-4-u",
@@ -32652,7 +33717,9 @@
   "sourceSongs": [
    {
     "title": "What the Hell",
-    "artist": "Avril Lavigne"
+    "artist": "Avril Lavigne",
+    "bpm": 152,
+    "key": "F♯m"
    },
    {
     "title": "good 4 u",
@@ -32680,7 +33747,9 @@
    "needsMetadata": false,
    "file": "What the Hell, good 4 u.mp3",
    "folder": "Mashups 2021"
-  }
+  },
+  "tempo": 152,
+  "key": "F#m"
  },
  {
   "id": "mashups-2022-a-second-to-go-your-own-way",
