@@ -33757,7 +33757,9 @@
   "sourceSongs": [
    {
     "artist": "Fleetwood Mac",
-    "title": "Go Your Own Way"
+    "title": "Go Your Own Way",
+    "bpm": 136,
+    "key": "F"
    },
    {
     "artist": "Kylie Minogue; Years & Years",
@@ -33781,7 +33783,9 @@
    "needsMetadata": false,
    "file": "A Second to Go Your Own Way.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 136,
+  "key": "F"
  },
  {
   "id": "mashups-2022-ay-boys",
@@ -33813,7 +33817,9 @@
    "needsMetadata": false,
    "file": "Ay Boys.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 144,
+  "key": "D"
  },
  {
   "id": "mashups-2022-big-energy-mashup-2022-pride-bmtm-solo-version",
@@ -33825,19 +33831,27 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Work From Home"
+    "title": "Work From Home",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "artist": "Janet Jackson",
-    "title": "All For You"
+    "title": "All For You",
+    "bpm": 112,
+    "key": "D"
    },
    {
     "artist": "Smash Mouth",
-    "title": "All Star"
+    "title": "All Star",
+    "bpm": 103,
+    "key": "F♯"
    },
    {
     "artist": "Dua Lipa",
-    "title": "IDGAF"
+    "title": "IDGAF",
+    "bpm": 96,
+    "key": "G"
    }
   ],
   "displayTitle": "Big Energy Mashup (2022 Pride - BMTM Solo Version)",
@@ -33857,7 +33871,9 @@
    "needsMetadata": false,
    "file": "Big Energy Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 108,
+  "key": "Em"
  },
  {
   "id": "mashups-2022-candy-left-and-right",
@@ -33865,7 +33881,9 @@
   "sourceSongs": [
    {
     "artist": "Mandy Moore",
-    "title": "Candy"
+    "title": "Candy",
+    "bpm": 99,
+    "key": "G"
    },
    {
     "artist": "Charlie Puth; Jung Kook",
@@ -33893,7 +33911,9 @@
    "needsMetadata": false,
    "file": "Candy Left and Right.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 99,
+  "key": "Dm"
  },
  {
   "id": "mashups-2022-case-of-the-jealous-ex",
@@ -33905,7 +33925,9 @@
    },
    {
     "title": "Case of the Ex (Whatcha Gonna Do)",
-    "artist": "Mya"
+    "artist": "Mya",
+    "bpm": 98,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Case of the Jealous Ex",
@@ -33929,7 +33951,9 @@
    "needsMetadata": false,
    "file": "Case of the Jealous Ex.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 99,
+  "key": "C#m"
  },
  {
   "id": "mashups-2022-celebrity-skin-of-my-teeth",
@@ -33937,7 +33961,9 @@
   "sourceSongs": [
    {
     "artist": "Hole",
-    "title": "Celebrity Skin"
+    "title": "Celebrity Skin",
+    "bpm": 134,
+    "key": "A"
    },
    {
     "artist": "Demi Lovato",
@@ -33965,7 +33991,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "urc31U9EChQ"
-  }
+  },
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "mashups-2022-circus-mashup-2022-pride-bmtm-solo-version",
@@ -33973,15 +34001,21 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Circus"
+    "title": "Circus",
+    "bpm": 112,
+    "key": "F♯m"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Into You"
+    "title": "Into You",
+    "bpm": 107,
+    "key": "A"
    },
    {
     "artist": "Dua Lipa",
-    "title": "Love Again"
+    "title": "Love Again",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "artist": "Kesha",
@@ -33989,7 +34023,9 @@
    },
    {
     "artist": "Michael Jackson",
-    "title": "Billie Jean"
+    "title": "Billie Jean",
+    "bpm": 116,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Circus Mashup (2022 Pride - BMTM Solo Version)",
@@ -34009,7 +34045,9 @@
    "needsMetadata": false,
    "file": "Circus Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 117,
+  "key": "F#m"
  },
  {
   "id": "mashups-2022-come-along-together",
@@ -34041,7 +34079,9 @@
    "needsMetadata": false,
    "file": "Come Along Together.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 144,
+  "key": "E"
  },
  {
   "id": "mashups-2022-do-me-mashup-2022-pride-bmtm-solo-version",
@@ -34053,7 +34093,9 @@
    },
    {
     "artist": "Zendaya",
-    "title": "Replay"
+    "title": "Replay",
+    "bpm": 140,
+    "key": "F♯m"
    },
    {
     "artist": "Kelly Clarkson",
@@ -34061,11 +34103,15 @@
    },
    {
     "artist": "Melanie Martinez",
-    "title": "Pity Party"
+    "title": "Pity Party",
+    "bpm": 136,
+    "key": "F♯m"
    },
    {
     "artist": "Taylor Swift",
-    "title": "Wildest Dreams"
+    "title": "Wildest Dreams",
+    "bpm": 72,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Do Me Mashup (2022 Pride - BMTM Solo Version)",
@@ -34085,7 +34131,9 @@
    "needsMetadata": false,
    "file": "Do Me Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 136,
+  "key": "A"
  },
  {
   "id": "mashups-2022-dont-start-now-mashup-2022-pride-bmtm-solo-version",
@@ -34093,7 +34141,9 @@
   "sourceSongs": [
    {
     "artist": "Dua Lipa",
-    "title": "Don't Start Now"
+    "title": "Don't Start Now",
+    "bpm": 123,
+    "key": "Bm"
    },
    {
     "artist": "Rihanna",
@@ -34101,7 +34151,9 @@
    },
    {
     "artist": "P!nk",
-    "title": "Get the Party Started"
+    "title": "Get the Party Started",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Charli xcx; Troye Sivan",
@@ -34133,7 +34185,9 @@
    "needsMetadata": false,
    "file": "Don't Start Now Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 123,
+  "key": "D"
  },
  {
   "id": "mashups-2022-dont-threaten-me-with-pink-venom",
@@ -34141,7 +34195,9 @@
   "sourceSongs": [
    {
     "artist": "Panic! At the Disco",
-    "title": "Don't Threaten Me With a Good Time"
+    "title": "Don't Threaten Me With a Good Time",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "artist": "BLACKPINK",
@@ -34165,7 +34221,9 @@
    "needsMetadata": false,
    "file": "Don't Threaten Me With Pink Venom.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 92,
+  "key": "C#m"
  },
  {
   "id": "mashups-2022-dreaming-what-i-want",
@@ -34201,7 +34259,9 @@
    "needsMetadata": false,
    "file": "Dreaming What I Want.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 89,
+  "key": "E"
  },
  {
   "id": "mashups-2022-easy-on-me-mashup-2022-pride-bmtm-solo-version",
@@ -34213,7 +34273,9 @@
    },
    {
     "artist": "Shawn Mendes",
-    "title": "In My Blood"
+    "title": "In My Blood",
+    "bpm": 70,
+    "key": "F"
    },
    {
     "artist": "Katy Perry",
@@ -34221,11 +34283,15 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Here We Go Again"
+    "title": "Here We Go Again",
+    "bpm": 142,
+    "key": "F"
    },
    {
     "artist": "Avril Lavigne",
-    "title": "Head Above Water"
+    "title": "Head Above Water",
+    "bpm": 129,
+    "key": "F"
    }
   ],
   "displayTitle": "Easy On Me Mashup (2022 Pride - BMTM Solo Version)",
@@ -34245,7 +34311,9 @@
    "needsMetadata": false,
    "file": "Easy On Me Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 144,
+  "key": "F"
  },
  {
   "id": "mashups-2022-girl-like-me-mashup",
@@ -34261,15 +34329,21 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "G.U.Y."
+    "title": "G.U.Y.",
+    "bpm": 112,
+    "key": "Fm"
    },
    {
     "artist": "Madonna",
-    "title": "Die Another Day"
+    "title": "Die Another Day",
+    "bpm": 123,
+    "key": "Cm"
    },
    {
     "artist": "Rihanna",
-    "title": "Cockiness"
+    "title": "Cockiness",
+    "bpm": 124,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Girl Like Me Mashup",
@@ -34289,7 +34363,9 @@
    "needsMetadata": false,
    "file": "Girl Like Me Mashup.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 123,
+  "key": "Cm"
  },
  {
   "id": "mashups-2022-happy-ending",
@@ -34297,7 +34373,9 @@
   "sourceSongs": [
    {
     "artist": "Avril Lavigne",
-    "title": "My Happy Ending"
+    "title": "My Happy Ending",
+    "bpm": 172,
+    "key": "D"
    },
    {
     "artist": "Demi Lovato",
@@ -34325,7 +34403,9 @@
    "needsMetadata": false,
    "file": "Happy Ending.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 172,
+  "key": "D"
  },
  {
   "id": "mashups-2022-hold-me-closer-mashup",
@@ -34341,7 +34421,9 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "Free Woman"
+    "title": "Free Woman",
+    "bpm": 58,
+    "key": "Am"
    },
    {
     "artist": "Years & Years; Kylie Minogue",
@@ -34373,7 +34455,9 @@
    "needsMetadata": false,
    "file": "Hold Me Closer Mashup.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "mashups-2022-i-love-it-when-you-hate-21-guns",
@@ -34381,7 +34465,9 @@
   "sourceSongs": [
    {
     "artist": "Green Day",
-    "title": "21 Guns"
+    "title": "21 Guns",
+    "bpm": 80,
+    "key": "F"
    },
    {
     "artist": "Avril Lavigne; Blackbear",
@@ -34405,7 +34491,9 @@
    "needsMetadata": false,
    "file": "I Love It When You Hate 21 Guns.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 83,
+  "key": "F"
  },
  {
   "id": "mashups-2022-im-a-messy-piece-of-me",
@@ -34413,7 +34501,9 @@
   "sourceSongs": [
    {
     "artist": "Ashlee Simpson",
-    "title": "Pieces of Me"
+    "title": "Pieces of Me",
+    "bpm": 174,
+    "key": "D"
    },
    {
     "artist": "Avril Lavigne; YUNGBLUD",
@@ -34441,7 +34531,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "_Jd_GXBPKs0"
-  }
+  },
+  "tempo": 172,
+  "key": "D"
  },
  {
   "id": "mashups-2022-its-not-u-its-me-mashup",
@@ -34457,11 +34549,15 @@
    },
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "Britney Spears",
-    "title": "Hold It Against Me"
+    "title": "Hold It Against Me",
+    "bpm": 132,
+    "key": "Cm"
    },
    {
     "artist": "Chloe",
@@ -34485,7 +34581,9 @@
    "needsMetadata": false,
    "file": "it's not u it's me Mashup.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 152,
+  "key": "Cm"
  },
  {
   "id": "mashups-2022-me-myself-i-mashup",
@@ -34501,7 +34599,9 @@
    },
    {
     "artist": "Bruno Mars",
-    "title": "24K Magic"
+    "title": "24K Magic",
+    "bpm": 108,
+    "key": "D♯"
    },
    {
     "artist": "Kim Petras",
@@ -34525,7 +34625,9 @@
    "needsMetadata": false,
    "file": "Me Myself & I Mashup.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 112,
+  "key": "A"
  },
  {
   "id": "mashups-2022-music-mashup-2022-pride-bmtm-solo-version",
@@ -34533,7 +34635,9 @@
   "sourceSongs": [
    {
     "artist": "Madonna",
-    "title": "Music"
+    "title": "Music",
+    "bpm": 117,
+    "key": "G"
    },
    {
     "artist": "Christina Aguilera",
@@ -34569,7 +34673,9 @@
    "needsMetadata": false,
    "file": "Music Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 117,
+  "key": "Gm"
  },
  {
   "id": "mashups-2022-never-gonna-teenage-dream-again",
@@ -34577,7 +34683,9 @@
   "sourceSongs": [
    {
     "title": "Teenage Dream",
-    "artist": "Katy Perry"
+    "artist": "Katy Perry",
+    "bpm": 58,
+    "key": "A♯"
    },
    {
     "title": "Never Gonna Not Dance Again",
@@ -34605,7 +34713,9 @@
    "needsMetadata": false,
    "file": "Never Gonna Teenage Dream Again.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 117,
+  "key": "A#"
  },
  {
   "id": "mashups-2022-no-lovegame-ideas",
@@ -34613,7 +34723,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Lovegame"
+    "title": "Lovegame",
+    "bpm": 103,
+    "key": "F♯m"
    },
    {
     "artist": "MUNA",
@@ -34641,7 +34753,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "O34rI3ZYZxU"
-  }
+  },
+  "tempo": 103,
+  "key": "E"
  },
  {
   "id": "mashups-2022-oops-i-did-pink-venom-again",
@@ -34677,7 +34791,9 @@
    "needsMetadata": false,
    "file": "Oops I Did Pink Venom Again.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 96,
+  "key": "G#m"
  },
  {
   "id": "mashups-2022-plastic-faith-in-me",
@@ -34713,7 +34829,9 @@
    "needsMetadata": false,
    "file": "Plastic Faith In Me.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 89,
+  "key": "F#m"
  },
  {
   "id": "mashups-2022-ready-for-it-mashup-2022-pride-bmtm-solo-version",
@@ -34721,15 +34839,21 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "Ready For It"
+    "title": "Ready For It",
+    "bpm": 160,
+    "key": "Em"
    },
    {
     "artist": "Kesha",
-    "title": "Backstabber"
+    "title": "Backstabber",
+    "bpm": 159,
+    "key": "G"
    },
    {
     "artist": "Madonna",
-    "title": "Bitch I'm Madonna"
+    "title": "Bitch I'm Madonna",
+    "bpm": 150,
+    "key": "D♯m"
    },
    {
     "artist": "P!nk",
@@ -34737,7 +34861,9 @@
    },
    {
     "artist": "The Carters",
-    "title": "APESHIT"
+    "title": "APESHIT",
+    "bpm": 160,
+    "key": "D"
    }
   ],
   "displayTitle": "Ready For It Mashup (2022 Pride - BMTM Solo Version)",
@@ -34757,7 +34883,9 @@
    "needsMetadata": false,
    "file": "Ready For It Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 161,
+  "key": "Em"
  },
  {
   "id": "mashups-2022-real-groove-baby-mixed",
@@ -34793,7 +34921,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "ZTl-I1MGoN4"
-  }
+  },
+  "tempo": 129,
+  "key": "Fm"
  },
  {
   "id": "mashups-2022-sleepwalking-fireflies",
@@ -34801,7 +34931,9 @@
   "sourceSongs": [
    {
     "artist": "Owl City",
-    "title": "Fireflies"
+    "title": "Fireflies",
+    "bpm": 178,
+    "key": "D♯"
    },
    {
     "artist": "All Time Low",
@@ -34829,7 +34961,9 @@
    "needsMetadata": false,
    "file": "Sleepwalking Fireflies.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 89,
+  "key": "D#"
  },
  {
   "id": "mashups-2022-sweetest-disturbia",
@@ -34865,7 +34999,9 @@
    "needsMetadata": false,
    "file": "Sweetest Disturbia.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 123,
+  "key": "D"
  },
  {
   "id": "mashups-2022-take-my-anti-hero",
@@ -34897,7 +35033,9 @@
    "needsMetadata": false,
    "file": "Take My Anti-Hero.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 99,
+  "key": "E"
  },
  {
   "id": "mashups-2022-taste-so-good-minimix",
@@ -34909,7 +35047,9 @@
    },
    {
     "artist": "Dua Lipa",
-    "title": "Levitating"
+    "title": "Levitating",
+    "bpm": 103,
+    "key": "Bm"
    },
    {
     "artist": "Little Mix",
@@ -34941,7 +35081,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "mye2nklPjuY"
-  }
+  },
+  "tempo": 108,
+  "key": "Bm"
  },
  {
   "id": "mashups-2022-thats-what-i-want-mashup-2022-pride-bmtm-solo-version",
@@ -34981,7 +35123,9 @@
    "needsMetadata": false,
    "file": "That's What I Want Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 172,
+  "key": "C#m"
  },
  {
   "id": "mashups-2022-unholy-mashup",
@@ -34993,15 +35137,21 @@
    },
    {
     "artist": "Rihanna",
-    "title": "Pour It Up"
+    "title": "Pour It Up",
+    "bpm": 136,
+    "key": "D"
    },
    {
     "artist": "Britney Spears",
-    "title": "Freakshow"
+    "title": "Freakshow",
+    "bpm": 131,
+    "key": "Bm"
    },
    {
     "artist": "Beyonce",
-    "title": "Formation"
+    "title": "Formation",
+    "bpm": 123,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Unholy Mashup",
@@ -35025,7 +35175,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "XH8BOU-r7j0"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2022-used-to-know-me-mashup-2022-pride-bmtm-solo-version",
@@ -35037,7 +35189,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Break The Ice"
+    "title": "Break The Ice",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Sam Smith; Normani",
@@ -35045,7 +35199,9 @@
    },
    {
     "artist": "Katy Perry",
-    "title": "Swish Swish"
+    "title": "Swish Swish",
+    "bpm": 119,
+    "key": "Fm"
    },
    {
     "artist": "Doja Cat & SZA",
@@ -35069,7 +35225,9 @@
    "needsMetadata": false,
    "file": "Used to Know Me Mashup (2022 Pride - BMTM Solo Version).mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "mashups-2022-want-u-back-mashup",
@@ -35077,7 +35235,9 @@
   "sourceSongs": [
    {
     "artist": "Cher Lloyd",
-    "title": "Want U Back"
+    "title": "Want U Back",
+    "bpm": 97,
+    "key": "A"
    },
    {
     "artist": "Olivia O'Brien; FLETCHER",
@@ -35085,7 +35245,9 @@
    },
    {
     "artist": "Bebe Rexha",
-    "title": "I'm A Mess"
+    "title": "I'm A Mess",
+    "bpm": 96,
+    "key": "Bm"
    },
    {
     "artist": "Dinah Jane; Ty Dolla $ign; Mark E Bassy",
@@ -35097,7 +35259,9 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Same Old Love"
+    "title": "Same Old Love",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "artist": "Jennifer Lopez; Ja Rule",
@@ -35121,7 +35285,9 @@
    "needsMetadata": false,
    "file": "Want U Back Mashup.mp3",
    "folder": "Mashups 2022"
-  }
+  },
+  "tempo": 99,
+  "key": "B"
  },
  {
   "id": "mashups-2023-34-35-mashup-mixed",
@@ -35137,7 +35303,9 @@
    },
    {
     "artist": "Jennifer Lopez",
-    "title": "I'm Real"
+    "title": "I'm Real",
+    "bpm": 83,
+    "key": "Bm"
    },
    {
     "artist": "Charlie Puth",
@@ -35167,7 +35335,9 @@
    "file": "34+35 Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 112,
+  "key": "C"
  },
  {
   "id": "mashups-2023-a-year-without-satellites",
@@ -35175,7 +35345,9 @@
   "sourceSongs": [
    {
     "artist": "Selena Gomez",
-    "title": "A Year Without Rain"
+    "title": "A Year Without Rain",
+    "bpm": 117,
+    "key": "Dm"
    },
    {
     "artist": "Bebe Rexha; Snoop Dogg",
@@ -35199,7 +35371,9 @@
    "needsMetadata": false,
    "file": "A Year Without Satellites.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2023-apologize-to-ms-jackson",
@@ -35207,11 +35381,15 @@
   "sourceSongs": [
    {
     "artist": "Hollywood Undead",
-    "title": "Apologize"
+    "title": "Apologize",
+    "bpm": 177,
+    "key": "D"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "Miss Jackson"
+    "title": "Miss Jackson",
+    "bpm": 82,
+    "key": "D"
    }
   ],
   "displayTitle": "Apologize to Ms. Jackson",
@@ -35235,7 +35413,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "X-sMidVkamg"
-  }
+  },
+  "tempo": 89,
+  "key": "D"
  },
  {
   "id": "mashups-2023-blah-idea-right",
@@ -35267,7 +35447,9 @@
    "needsMetadata": false,
    "file": "blah idea right.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 129,
+  "key": "F"
  },
  {
   "id": "mashups-2023-body-do-telephone",
@@ -35299,7 +35481,9 @@
    "needsMetadata": false,
    "file": "Body Do Telephone.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 123,
+  "key": "Fm"
  },
  {
   "id": "mashups-2023-cuff-it-mashup-mixed",
@@ -35319,11 +35503,15 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "Babylon"
+    "title": "Babylon",
+    "bpm": 117,
+    "key": "D"
    },
    {
     "artist": "Dua Lipa",
-    "title": "Break My Heart"
+    "title": "Break My Heart",
+    "bpm": 112,
+    "key": "Em"
    }
   ],
   "displayTitle": "Cuff It Mashup (Solo Version)",
@@ -35345,7 +35533,9 @@
    "file": "Cuff It Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "A"
  },
  {
   "id": "mashups-2023-cut-the-applause",
@@ -35353,7 +35543,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Applause"
+    "title": "Applause",
+    "bpm": 139,
+    "key": "Gm"
    },
    {
     "artist": "Tori Kelly",
@@ -35377,7 +35569,9 @@
    "needsMetadata": false,
    "file": "cut the applause.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 144,
+  "key": "Gm"
  },
  {
   "id": "mashups-2023-death-by-handstand",
@@ -35409,7 +35603,9 @@
    "needsMetadata": false,
    "file": "Death by Handstand.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 92,
+  "key": "D#m"
  },
  {
   "id": "mashups-2023-easy-mixed-mashup",
@@ -35421,7 +35617,9 @@
    },
    {
     "artist": "Kesha",
-    "title": "Animal"
+    "title": "Animal",
+    "bpm": 138,
+    "key": "G"
    },
    {
     "artist": "Panic! At the Disco",
@@ -35429,7 +35627,9 @@
    },
    {
     "artist": "Charli xcx",
-    "title": "Silver Cross"
+    "title": "Silver Cross",
+    "bpm": 134,
+    "key": "D"
    },
    {
     "artist": "Hilary Duff",
@@ -35455,7 +35655,9 @@
    "file": "Easy Mixed Mashup.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-greedy-after-dark",
@@ -35487,7 +35689,9 @@
    "needsMetadata": false,
    "file": "Greedy After Dark.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 117,
+  "key": "G#m"
  },
  {
   "id": "mashups-2023-human-touch-mashup-mixed",
@@ -35495,7 +35699,9 @@
   "sourceSongs": [
    {
     "artist": "Betty Who",
-    "title": "Human Touch"
+    "title": "Human Touch",
+    "bpm": 102,
+    "key": "Bm"
    },
    {
     "artist": "Charlie Puth",
@@ -35503,11 +35709,15 @@
    },
    {
     "artist": "Dua Lipa",
-    "title": "Levitating"
+    "title": "Levitating",
+    "bpm": 103,
+    "key": "Bm"
    },
    {
     "artist": "Troye Sivan",
-    "title": "My My My"
+    "title": "My My My",
+    "bpm": 102,
+    "key": "C♯"
    },
    {
     "artist": "Harry Styles",
@@ -35533,7 +35743,9 @@
    "file": "Human Touch Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2023-i-wanna-dance-with-somebody-mashup-mixed",
@@ -35541,15 +35753,21 @@
   "sourceSongs": [
    {
     "artist": "Whitney Houston",
-    "title": "I Wanna Dance With Somebody"
+    "title": "I Wanna Dance With Somebody",
+    "bpm": 117,
+    "key": "F♯"
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Didn't Just Come Here to Dance"
+    "title": "I Didn't Just Come Here to Dance",
+    "bpm": 122,
+    "key": "D♯m"
    },
    {
     "artist": "Cher",
-    "title": "Believe"
+    "title": "Believe",
+    "bpm": 110,
+    "key": "A♯"
    },
    {
     "artist": "Kylie Minogue; Years & Years",
@@ -35557,7 +35775,9 @@
    },
    {
     "artist": "Kesha",
-    "title": "Your Love is My Drug"
+    "title": "Your Love is My Drug",
+    "bpm": 120,
+    "key": "C♯"
    }
   ],
   "displayTitle": "I Wanna Dance With Somebody Mashup (Solo Version)",
@@ -35579,7 +35799,9 @@
    "file": "I Wanna Dance With Somebody Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "F#"
  },
  {
   "id": "mashups-2023-judas-mashup-mixed",
@@ -35587,15 +35809,21 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Judas"
+    "title": "Judas",
+    "bpm": 131,
+    "key": "Cm"
    },
    {
     "artist": "Rihanna",
-    "title": "Where Have You Been"
+    "title": "Where Have You Been",
+    "bpm": 129,
+    "key": "Cm"
    },
    {
     "artist": "Britney Spears",
-    "title": "Till the World Ends"
+    "title": "Till the World Ends",
+    "bpm": 131,
+    "key": "G♯"
    },
    {
     "artist": "David Guetta",
@@ -35625,7 +35853,9 @@
    "file": "Judas Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-late-night-talking-mashup-mixed",
@@ -35641,7 +35871,9 @@
    },
    {
     "artist": "Maroon 5",
-    "title": "What Lovers Do"
+    "title": "What Lovers Do",
+    "bpm": 109,
+    "key": "Fm"
    },
    {
     "artist": "Troye Sivan; Ariana Grande",
@@ -35671,7 +35903,9 @@
    "file": "Late Night Talking Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "A#"
  },
  {
   "id": "mashups-2023-like-a-virgin-mashup-mixed",
@@ -35679,23 +35913,33 @@
   "sourceSongs": [
    {
     "artist": "Madonna",
-    "title": "Like a Virgin"
+    "title": "Like a Virgin",
+    "bpm": 117,
+    "key": "D♯m"
    },
    {
     "artist": "Cyndi Lauper",
-    "title": "Girls Just Wanna Have Fun"
+    "title": "Girls Just Wanna Have Fun",
+    "bpm": 120,
+    "key": "E"
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "I Really Like You"
+    "title": "I Really Like You",
+    "bpm": 123,
+    "key": "F"
    },
    {
     "artist": "La Roux",
-    "title": "Bulletproof"
+    "title": "Bulletproof",
+    "bpm": 123,
+    "key": "D♯m"
    },
    {
     "artist": "Rihanna",
-    "title": "We Found Love"
+    "title": "We Found Love",
+    "bpm": 129,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Like A Virgin Mashup",
@@ -35717,7 +35961,9 @@
    "file": "Like A Virgin Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "D#m"
  },
  {
   "id": "mashups-2023-love-cut-again",
@@ -35725,7 +35971,9 @@
   "sourceSongs": [
    {
     "artist": "Dua Lipa",
-    "title": "Love Again"
+    "title": "Love Again",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "artist": "Tori Kelly",
@@ -35749,7 +35997,9 @@
    "needsMetadata": false,
    "file": "Love Cut Again.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 136,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-made-you-look-mashup-mixed",
@@ -35761,11 +36011,15 @@
    },
    {
     "artist": "Melanie Martinez",
-    "title": "Sippy Cup"
+    "title": "Sippy Cup",
+    "bpm": 136,
+    "key": "F"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Break Free"
+    "title": "Break Free",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "artist": "Cobra Starship; Sabi",
@@ -35795,7 +36049,9 @@
    "file": "Made You Look Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 144,
+  "key": "A#"
  },
  {
   "id": "mashups-2023-make-me-feel-mashup-mixed",
@@ -35803,23 +36059,33 @@
   "sourceSongs": [
    {
     "artist": "Janelle Monae",
-    "title": "Make Me Feel"
+    "title": "Make Me Feel",
+    "bpm": 115,
+    "key": "C♯"
    },
    {
     "artist": "Justin Timberlake",
-    "title": "SexyBack"
+    "title": "SexyBack",
+    "bpm": 117,
+    "key": "Gm"
    },
    {
     "artist": "Dua Lipa",
-    "title": "Future Nostalgia"
+    "title": "Future Nostalgia",
+    "bpm": 117,
+    "key": "G"
    },
    {
     "artist": "Lizzo",
-    "title": "Juice"
+    "title": "Juice",
+    "bpm": 119,
+    "key": "C"
    },
    {
     "artist": "Pussycat Dolls",
-    "title": "When I Grow Up"
+    "title": "When I Grow Up",
+    "bpm": 117,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Make Me Feel Mashup",
@@ -35841,7 +36107,9 @@
    "file": "Make Me Feel Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "F#"
  },
  {
   "id": "mashups-2023-mamma-mia-mashup-mixed",
@@ -35849,11 +36117,15 @@
   "sourceSongs": [
    {
     "artist": "ABBA",
-    "title": "Mamma Mia"
+    "title": "Mamma Mia",
+    "bpm": 136,
+    "key": "D"
    },
    {
     "artist": "Walk the Moon",
-    "title": "Shut Up and Dance"
+    "title": "Shut Up and Dance",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "artist": "Megan Thee Stallion; Dua Lipa",
@@ -35865,7 +36137,9 @@
    },
    {
     "artist": "Nicki Minaj",
-    "title": "Starships"
+    "title": "Starships",
+    "bpm": 123,
+    "key": "D"
    }
   ],
   "displayTitle": "Mamma Mia Mashup (Solo Version)",
@@ -35887,7 +36161,9 @@
    "file": "Mamma Mia Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "mashups-2023-million-dollar-baby-mashup-mixed",
@@ -35899,11 +36175,15 @@
    },
    {
     "artist": "Selena Gomez",
-    "title": "Round & Round"
+    "title": "Round & Round",
+    "bpm": 127,
+    "key": "A♯"
    },
    {
     "artist": "Madonna",
-    "title": "Hung Up"
+    "title": "Hung Up",
+    "bpm": 123,
+    "key": "Dm"
    },
    {
     "artist": "Lady Gaga; Ariana Grande",
@@ -35911,7 +36191,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "I Wanna Go"
+    "title": "I Wanna Go",
+    "bpm": 130,
+    "key": "F"
    }
   ],
   "displayTitle": "Million Dollar Baby Mashup (Solo Version)",
@@ -35933,7 +36215,9 @@
    "file": "Million Dollar Baby Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 136,
+  "key": "Dm"
  },
  {
   "id": "mashups-2023-mind-your-thique",
@@ -35969,7 +36253,9 @@
    "needsMetadata": false,
    "file": "Mind Your Thique.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 129,
+  "key": "G#m"
  },
  {
   "id": "mashups-2023-monsters-in-the-sky",
@@ -36005,7 +36291,9 @@
    "needsMetadata": false,
    "file": "Monsters In the Sky.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 83,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-music-of-my-exes",
@@ -36013,7 +36301,9 @@
   "sourceSongs": [
    {
     "artist": "Madonna",
-    "title": "Music"
+    "title": "Music",
+    "bpm": 117,
+    "key": "G"
    },
    {
     "artist": "Tate McRae",
@@ -36041,7 +36331,9 @@
    "needsMetadata": false,
    "file": "Music of My Exes.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "mashups-2023-never-be-the-ooh-la-la",
@@ -36073,7 +36365,9 @@
    "needsMetadata": false,
    "file": "Never Be The Ooh La La.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "mashups-2023-one-of-your-girls-are-blind",
@@ -36109,7 +36403,9 @@
    "needsMetadata": false,
    "file": "One Of Your Girls Are Blind.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2023-only-girl-in-the-world-mashup-mixed",
@@ -36121,7 +36417,9 @@
    },
    {
     "artist": "Dua Lipa",
-    "title": "Don't Start Now"
+    "title": "Don't Start Now",
+    "bpm": 123,
+    "key": "Bm"
    },
    {
     "artist": "Demi Lovato",
@@ -36133,7 +36431,9 @@
    },
    {
     "artist": "Hilary Duff",
-    "title": "Sparks"
+    "title": "Sparks",
+    "bpm": 122,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Only Girl In the World Mashup (Solo Version)",
@@ -36155,7 +36455,9 @@
    "file": "Only Girl In the World Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 123,
+  "key": "Bm"
  },
  {
   "id": "mashups-2023-padam-padam-mashup-mixed",
@@ -36167,11 +36469,15 @@
    },
    {
     "artist": "Rihanna",
-    "title": "Cockiness"
+    "title": "Cockiness",
+    "bpm": 124,
+    "key": "G♯"
    },
    {
     "artist": "Backstreet Boys",
-    "title": "Larger Than Life"
+    "title": "Larger Than Life",
+    "bpm": 108,
+    "key": "Cm"
    },
    {
     "artist": "Nicki Minaj",
@@ -36179,7 +36485,9 @@
    },
    {
     "artist": "Lady Gaga",
-    "title": "911"
+    "title": "911",
+    "bpm": 117,
+    "key": "F"
    }
   ],
   "displayTitle": "Padam Padam Mashup",
@@ -36201,7 +36509,9 @@
    "file": "Padam Padam Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 129,
+  "key": "C"
  },
  {
   "id": "mashups-2023-peaches-boyfriend",
@@ -36209,7 +36519,9 @@
   "sourceSongs": [
    {
     "artist": "Justin Bieber",
-    "title": "Boyfriend"
+    "title": "Boyfriend",
+    "bpm": 96,
+    "key": "A♯m"
    },
    {
     "artist": "Jack Black",
@@ -36233,7 +36545,9 @@
    "needsMetadata": false,
    "file": "Peaches + Boyfriend.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 96,
+  "key": "Fm"
  },
  {
   "id": "mashups-2023-psycho-mashup-mixed",
@@ -36245,7 +36559,9 @@
    },
    {
     "artist": "Karmin",
-    "title": "Acapella"
+    "title": "Acapella",
+    "bpm": 172,
+    "key": "D"
    },
    {
     "artist": "Twentyonepilots",
@@ -36253,11 +36569,15 @@
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "I Write Sins Not Tragedies"
+    "title": "I Write Sins Not Tragedies",
+    "bpm": 172,
+    "key": "Am"
    },
    {
     "artist": "Billie Eilish",
-    "title": "you should see me in a crown"
+    "title": "you should see me in a crown",
+    "bpm": 76,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Psycho Mashup (Solo Version)",
@@ -36279,7 +36599,9 @@
    "file": "Psycho Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 161,
+  "key": "Am"
  },
  {
   "id": "mashups-2023-remember-the-acid",
@@ -36287,7 +36609,9 @@
   "sourceSongs": [
    {
     "artist": "Fort Minor",
-    "title": "Remember the Name"
+    "title": "Remember the Name",
+    "bpm": 84,
+    "key": "G♯"
    },
    {
     "artist": "Kesha",
@@ -36311,7 +36635,9 @@
    "needsMetadata": false,
    "file": "Remember the Acid.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-river-mashup-mixed",
@@ -36323,19 +36649,27 @@
    },
    {
     "artist": "Pat Benatar",
-    "title": "Hit Me with Your Best Shot"
+    "title": "Hit Me with Your Best Shot",
+    "bpm": 127,
+    "key": "E"
    },
    {
     "artist": "Lady Gaga",
-    "title": "Just Dance"
+    "title": "Just Dance",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "artist": "Hilary Duff",
-    "title": "With Love"
+    "title": "With Love",
+    "bpm": 121,
+    "key": "F♯m"
    },
    {
     "artist": "Kesha",
-    "title": "C'Mon"
+    "title": "C'Mon",
+    "bpm": 129,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "River Mashup (Solo Version)",
@@ -36357,7 +36691,9 @@
    "file": "River Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2023-rose-colored-style",
@@ -36365,7 +36701,9 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "Style"
+    "title": "Style",
+    "bpm": 96,
+    "key": "D"
    },
    {
     "artist": "Miley Cyrus",
@@ -36389,7 +36727,9 @@
    "needsMetadata": false,
    "file": "Rose Colored Style.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 96,
+  "key": "D"
  },
  {
   "id": "mashups-2023-rumors-mashup-mixed",
@@ -36397,19 +36737,27 @@
   "sourceSongs": [
    {
     "artist": "Lindsay Lohan",
-    "title": "Rumors"
+    "title": "Rumors",
+    "bpm": 115,
+    "key": "A♯m"
    },
    {
     "artist": "BANKS",
-    "title": "Gimme"
+    "title": "Gimme",
+    "bpm": 113,
+    "key": "D"
    },
    {
     "artist": "Ariana Grande",
-    "title": "Greedy"
+    "title": "Greedy",
+    "bpm": 108,
+    "key": "C♯"
    },
    {
     "artist": "Pussycat Dolls",
-    "title": "Buttons"
+    "title": "Buttons",
+    "bpm": 51,
+    "key": "D"
    },
    {
     "artist": "Liam Payne; Quavo",
@@ -36435,7 +36783,9 @@
    "file": "Rumors Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 112,
+  "key": "D#m"
  },
  {
   "id": "mashups-2023-s-m-alone",
@@ -36443,7 +36793,9 @@
   "sourceSongs": [
    {
     "artist": "Rihanna",
-    "title": "S&M"
+    "title": "S&M",
+    "bpm": 129,
+    "key": "D♯m"
    },
    {
     "artist": "Kim Petras; Nicki Minaj",
@@ -36467,7 +36819,9 @@
    "needsMetadata": false,
    "file": "S&M Alone.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 136,
+  "key": "G#"
  },
  {
   "id": "mashups-2023-say-violet-chemistry-right",
@@ -36475,7 +36829,9 @@
   "sourceSongs": [
    {
     "title": "Say It Right",
-    "artist": "Nelly Furtado"
+    "artist": "Nelly Furtado",
+    "bpm": 117,
+    "key": "C♯"
    },
    {
     "title": "Violet Chemistry",
@@ -36503,7 +36859,9 @@
    "needsMetadata": false,
    "file": "Say Violet Chemistry Right.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "mashups-2023-stars-are-blind-mashup-mixed",
@@ -36511,15 +36869,21 @@
   "sourceSongs": [
    {
     "artist": "Paris Hilton",
-    "title": "Stars Are Blind"
+    "title": "Stars Are Blind",
+    "bpm": 102,
+    "key": "D"
    },
    {
     "artist": "The Chainsmokers",
-    "title": "Paris"
+    "title": "Paris",
+    "bpm": 99,
+    "key": "D"
    },
    {
     "artist": "Britney Spears",
-    "title": "Lucky"
+    "title": "Lucky",
+    "bpm": 95,
+    "key": "G♯"
    },
    {
     "artist": "Lindsay Lohan",
@@ -36549,7 +36913,9 @@
    "file": "Stars Are Blind Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "mashups-2023-still-officially-got-it",
@@ -36557,7 +36923,9 @@
   "sourceSongs": [
    {
     "artist": "Charli xcx",
-    "title": "Official"
+    "title": "Official",
+    "bpm": 92,
+    "key": "C♯m"
    },
    {
     "artist": "Troye Sivan",
@@ -36581,7 +36949,9 @@
    "needsMetadata": false,
    "file": "Still Officially Got It.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 96,
+  "key": "F"
  },
  {
   "id": "mashups-2023-take-my-pynk",
@@ -36593,7 +36963,9 @@
    },
    {
     "artist": "Janelle Monae",
-    "title": "Pynk"
+    "title": "Pynk",
+    "bpm": 100,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Take My Pynk",
@@ -36613,7 +36985,9 @@
    "needsMetadata": false,
    "file": "Take My Pynk.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 99,
+  "key": "D#"
  },
  {
   "id": "mashups-2023-treat-me-mashup-mixed",
@@ -36625,7 +36999,9 @@
    },
    {
     "artist": "Fergie",
-    "title": "London Bridge"
+    "title": "London Bridge",
+    "bpm": 90,
+    "key": "C♯"
    },
    {
     "artist": "BLACKPINK",
@@ -36633,11 +37009,15 @@
    },
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "artist": "3LW",
-    "title": "No More (Baby I'ma Do Right)"
+    "title": "No More (Baby I'ma Do Right)",
+    "bpm": 88,
+    "key": "Dm"
    }
   ],
   "displayTitle": "Treat Me Mashup (Solo Version)",
@@ -36659,7 +37039,9 @@
    "file": "Treat Me Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 96,
+  "key": "Dm"
  },
  {
   "id": "mashups-2023-trustfall-mashup-mixed",
@@ -36671,15 +37053,21 @@
    },
    {
     "artist": "Robyn",
-    "title": "Dancing on My Own"
+    "title": "Dancing on My Own",
+    "bpm": 117,
+    "key": "Cm"
    },
    {
     "artist": "Katy Perry",
-    "title": "Firework"
+    "title": "Firework",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "artist": "Madonna",
-    "title": "Living for Love"
+    "title": "Living for Love",
+    "bpm": 122,
+    "key": "C♯"
    },
    {
     "artist": "MUNA",
@@ -36705,7 +37093,9 @@
    "file": "Trustfall Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "mashups-2023-trustfalling-on-my-own",
@@ -36713,7 +37103,9 @@
   "sourceSongs": [
    {
     "artist": "Robyn",
-    "title": "Dancing on My Own"
+    "title": "Dancing on My Own",
+    "bpm": 117,
+    "key": "Cm"
    },
    {
     "artist": "P!nk",
@@ -36741,7 +37133,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "waovLRmmcCk"
-  }
+  },
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "mashups-2023-turn-my-rush-on",
@@ -36773,7 +37167,9 @@
    "needsMetadata": false,
    "file": "Turn My Rush On.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-we-belong-together-mashup",
@@ -36781,15 +37177,21 @@
   "sourceSongs": [
    {
     "artist": "Mariah Carey",
-    "title": "We Belong Together"
+    "title": "We Belong Together",
+    "bpm": 69,
+    "key": "C"
    },
    {
     "artist": "Bruno Mars",
-    "title": "That's What I Like"
+    "title": "That's What I Like",
+    "bpm": 136,
+    "key": "A♯m"
    },
    {
     "artist": "Tegan and Sara",
-    "title": "Closer"
+    "title": "Closer",
+    "bpm": 136,
+    "key": "C"
    },
    {
     "artist": "Fifth Harmony",
@@ -36797,7 +37199,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Slumber Party"
+    "title": "Slumber Party",
+    "bpm": 135,
+    "key": "C"
    }
   ],
   "displayTitle": "We Belong Together Mashup (Solo Version)",
@@ -36819,7 +37223,9 @@
    "file": "We Belong Together Mashup.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 144,
+  "key": "C"
  },
  {
   "id": "mashups-2023-we-r-who-we-r-mashup-mixed",
@@ -36839,7 +37245,9 @@
    },
    {
     "artist": "Demi Lovato",
-    "title": "Cool for the Summer"
+    "title": "Cool for the Summer",
+    "bpm": 114,
+    "key": "Fm"
    },
    {
     "artist": "Bebe Rexha",
@@ -36865,7 +37273,9 @@
    "file": "We R Who We R Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "D#"
  },
  {
   "id": "mashups-2023-what-i-want-mashup-mixed",
@@ -36877,15 +37287,21 @@
    },
    {
     "artist": "Karmin",
-    "title": "I Want It All"
+    "title": "I Want It All",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Kesha",
-    "title": "Take It Off"
+    "title": "Take It Off",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "artist": "Breathe Carolina",
-    "title": "Blackout"
+    "title": "Blackout",
+    "bpm": 122,
+    "key": "F♯"
    },
    {
     "artist": "Kylie Minogue",
@@ -36915,7 +37331,9 @@
    "file": "What I Want Mashup Mixed.mp3",
    "folder": "Mashups 2023"
   },
-  "specialAlbum": "Pride Mashup Collab Album 2023"
+  "specialAlbum": "Pride Mashup Collab Album 2023",
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2023-wish-i-could-forget-rivers",
@@ -36947,7 +37365,9 @@
    "needsMetadata": false,
    "file": "Wish I Could Forget Rivers.mp3",
    "folder": "Mashups 2023"
-  }
+  },
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "mashups-2024-360-mashup-mixed",
@@ -36987,7 +37407,9 @@
    "needsMetadata": false,
    "file": "360 Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2024-boss-bitch-mashup-mixed",
@@ -37031,7 +37453,9 @@
    "needsMetadata": false,
    "file": "Boss Bitch Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 129,
+  "key": "D#"
  },
  {
   "id": "mashups-2024-bye-mashup",
@@ -37043,15 +37467,21 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Anticipating"
+    "title": "Anticipating",
+    "bpm": 111,
+    "key": "C"
    },
    {
     "artist": "Panic! At the Disco",
-    "title": "Hey Look Ma, I Made It"
+    "title": "Hey Look Ma, I Made It",
+    "bpm": 108,
+    "key": "F"
    },
    {
     "artist": "Jennifer Lopez",
-    "title": "I'm Real"
+    "title": "I'm Real",
+    "bpm": 83,
+    "key": "Bm"
    }
   ],
   "displayTitle": "bye Mashup",
@@ -37071,7 +37501,9 @@
    "needsMetadata": false,
    "file": "bye Mashup.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 112,
+  "key": "F"
  },
  {
   "id": "mashups-2024-delusional-crush",
@@ -37083,7 +37515,9 @@
    },
    {
     "artist": "David Archuleta",
-    "title": "Crush"
+    "title": "Crush",
+    "bpm": 162,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Delusional Crush",
@@ -37103,7 +37537,9 @@
    "needsMetadata": false,
    "file": "Delusional Crush.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 78,
+  "key": "D#"
  },
  {
   "id": "mashups-2024-espresso-mashup-mixed",
@@ -37115,19 +37551,27 @@
    },
    {
     "artist": "Jennifer Lopez",
-    "title": "Jenny From the Block"
+    "title": "Jenny From the Block",
+    "bpm": 100,
+    "key": "F♯"
    },
    {
     "artist": "Katy Perry",
-    "title": "This is How We Do"
+    "title": "This is How We Do",
+    "bpm": 96,
+    "key": "Am"
    },
    {
     "artist": "Tove Lo",
-    "title": "Cool Girl"
+    "title": "Cool Girl",
+    "bpm": 101,
+    "key": "Am"
    },
    {
     "artist": "Christina Aguilera",
-    "title": "Your Body"
+    "title": "Your Body",
+    "bpm": 103,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "Espresso Mashup",
@@ -37147,7 +37591,9 @@
    "needsMetadata": false,
    "file": "Espresso Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 103,
+  "key": "A"
  },
  {
   "id": "mashups-2024-exes-cut-good-music",
@@ -37163,7 +37609,9 @@
    },
    {
     "artist": "Madonna",
-    "title": "Music"
+    "title": "Music",
+    "bpm": 117,
+    "key": "G"
    }
   ],
   "displayTitle": "Exes Cut Good Music",
@@ -37183,7 +37631,9 @@
    "needsMetadata": false,
    "file": "Exes Cut Good Music.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "mashups-2024-exes-mashup-mixed",
@@ -37195,7 +37645,9 @@
    },
    {
     "artist": "Kesha",
-    "title": "Crazy Kids"
+    "title": "Crazy Kids",
+    "bpm": 128,
+    "key": "Cm"
    },
    {
     "artist": "will.i.am; Britney Spears",
@@ -37227,7 +37679,9 @@
    "needsMetadata": false,
    "file": "Exes Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "mashups-2024-exes-positions",
@@ -37259,7 +37713,9 @@
    "needsMetadata": false,
    "file": "Exes Positions.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 144,
+  "key": "Dm"
  },
  {
   "id": "mashups-2024-gameboy-mashup-mixed",
@@ -37271,7 +37727,9 @@
    },
    {
     "artist": "Mariah Carey",
-    "title": "Touch My Body"
+    "title": "Touch My Body",
+    "bpm": 78,
+    "key": "Bm"
    },
    {
     "artist": "Fall Out Boy",
@@ -37303,7 +37761,9 @@
    "needsMetadata": false,
    "file": "Gameboy Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 83,
+  "key": "Em"
  },
  {
   "id": "mashups-2024-hollywood-maria",
@@ -37311,7 +37771,9 @@
   "sourceSongs": [
    {
     "artist": "Madonna",
-    "title": "Hollywood"
+    "title": "Hollywood",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "artist": "Dua Lipa",
@@ -37335,7 +37797,9 @@
    "needsMetadata": false,
    "file": "Hollywood Maria.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 129,
+  "key": "E"
  },
  {
   "id": "mashups-2024-its-okay-im-bringing-sexyback",
@@ -37343,7 +37807,9 @@
   "sourceSongs": [
    {
     "artist": "Justin Timberlake",
-    "title": "SexyBack"
+    "title": "SexyBack",
+    "bpm": 117,
+    "key": "Gm"
    },
    {
     "artist": "Tate McRae",
@@ -37367,7 +37833,9 @@
    "needsMetadata": false,
    "file": "it's okay i'm bringing sexyback.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 117,
+  "key": "Bm"
  },
  {
   "id": "mashups-2024-its-okay-with-love",
@@ -37375,7 +37843,9 @@
   "sourceSongs": [
    {
     "artist": "Hilary Duff",
-    "title": "With Love"
+    "title": "With Love",
+    "bpm": 121,
+    "key": "F♯m"
    },
    {
     "artist": "Tate McRae",
@@ -37403,7 +37873,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "qw8cBf6A5mY"
-  }
+  },
+  "tempo": 123,
+  "key": "F#"
  },
  {
   "id": "mashups-2024-joyride-another-day",
@@ -37415,7 +37887,9 @@
    },
    {
     "artist": "Madonna",
-    "title": "Die Another Day"
+    "title": "Die Another Day",
+    "bpm": 123,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Joyride Another Day",
@@ -37439,7 +37913,9 @@
    "needsMetadata": false,
    "file": "Joyride Another Day.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "mashups-2024-love-on-mashup",
@@ -37459,7 +37935,9 @@
    },
    {
     "artist": "Carly Rae Jepsen",
-    "title": "Boy Problems"
+    "title": "Boy Problems",
+    "bpm": 112,
+    "key": "D"
    }
   ],
   "displayTitle": "Love On Mashup",
@@ -37479,7 +37957,9 @@
    "needsMetadata": false,
    "file": "Love On Mashup.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 117,
+  "key": "C"
  },
  {
   "id": "mashups-2024-midnight-circus-cowboy",
@@ -37487,7 +37967,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Circus"
+    "title": "Circus",
+    "bpm": 112,
+    "key": "F♯m"
    },
    {
     "artist": "JADE",
@@ -37511,7 +37993,9 @@
    "needsMetadata": false,
    "file": "Midnight Circus Cowboy.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 117,
+  "key": "Gm"
  },
  {
   "id": "mashups-2024-morning-after-dark-mashup",
@@ -37555,7 +38039,9 @@
    "needsMetadata": false,
    "file": "Morning After Dark Mashup.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 117,
+  "key": "G#m"
  },
  {
   "id": "mashups-2024-my-kink-is-cruel-summer",
@@ -37563,7 +38049,9 @@
   "sourceSongs": [
    {
     "title": "Cruel Summer",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 84,
+    "key": "A"
    },
    {
     "title": "My Kink is Karma",
@@ -37591,7 +38079,9 @@
    "needsMetadata": false,
    "file": "My Kink is Cruel Summer.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 86,
+  "key": "A"
  },
  {
   "id": "mashups-2024-my-oh-my-stay-the-night",
@@ -37623,7 +38113,9 @@
    "needsMetadata": false,
    "file": "My Oh My Stay the Night.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 129,
+  "key": "G#"
  },
  {
   "id": "mashups-2024-obsessed-mashup-mixed",
@@ -37631,7 +38123,9 @@
   "sourceSongs": [
    {
     "artist": "Mariah Carey",
-    "title": "Obsessed"
+    "title": "Obsessed",
+    "bpm": 86,
+    "key": "Cm"
    },
    {
     "artist": "Miley Cyrus",
@@ -37639,15 +38133,21 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Overprotected"
+    "title": "Overprotected",
+    "bpm": 99,
+    "key": "Cm"
    },
    {
     "artist": "Selena Gomez",
-    "title": "Good For You"
+    "title": "Good For You",
+    "bpm": 88,
+    "key": "Fm"
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Down"
+    "title": "Down",
+    "bpm": 101,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Obsessed Mashup",
@@ -37667,7 +38167,9 @@
    "needsMetadata": false,
    "file": "Obsessed Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 92,
+  "key": "Dm"
  },
  {
   "id": "mashups-2024-please-please-please-work-from-home",
@@ -37675,7 +38177,9 @@
   "sourceSongs": [
    {
     "title": "Work From Home",
-    "artist": "Fifth Harmony"
+    "artist": "Fifth Harmony",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "title": "Please Please Please",
@@ -37703,7 +38207,9 @@
    "needsMetadata": false,
    "file": "Please Please Please Work From Home.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 103,
+  "key": "A"
  },
  {
   "id": "mashups-2024-rush-mashup-mixed",
@@ -37719,15 +38225,21 @@
    },
    {
     "artist": "Whitney Houston",
-    "title": "It's Not Right But It's Okay"
+    "title": "It's Not Right But It's Okay",
+    "bpm": 127,
+    "key": "C♯"
    },
    {
     "artist": "Destiny's Child",
-    "title": "Say My Name"
+    "title": "Say My Name",
+    "bpm": 138,
+    "key": "Cm"
    },
    {
     "artist": "Lady Gaga",
-    "title": "G.U.Y."
+    "title": "G.U.Y.",
+    "bpm": 112,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Rush Mashup",
@@ -37747,7 +38259,9 @@
    "needsMetadata": false,
    "file": "Rush Mashup Mixed.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "mashups-2024-taboo-toxic-rockstar",
@@ -37755,7 +38269,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Toxic"
+    "title": "Toxic",
+    "bpm": 144,
+    "key": "Cm"
    },
    {
     "artist": "LISA",
@@ -37783,7 +38299,9 @@
    "needsMetadata": false,
    "file": "Taboo Toxic Rockstar.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2024-touch-my-gameboy",
@@ -37795,7 +38313,9 @@
    },
    {
     "artist": "Mariah Carey",
-    "title": "Touch My Body"
+    "title": "Touch My Body",
+    "bpm": 78,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Touch My Gameboy",
@@ -37815,7 +38335,9 @@
    "needsMetadata": false,
    "file": "Touch My Gameboy.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 83,
+  "key": "Em"
  },
  {
   "id": "mashups-2024-toxic-rockstar",
@@ -37823,7 +38345,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Toxic"
+    "title": "Toxic",
+    "bpm": 144,
+    "key": "Cm"
    },
    {
     "artist": "LISA",
@@ -37847,7 +38371,9 @@
    "needsMetadata": false,
    "file": "Toxic Rockstar.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2024-toxic-taboo",
@@ -37855,7 +38381,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "Toxic"
+    "title": "Toxic",
+    "bpm": 144,
+    "key": "Cm"
    },
    {
     "artist": "Kylie Minogue",
@@ -37879,7 +38407,9 @@
    "needsMetadata": false,
    "file": "Toxic Taboo.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "mashups-2024-training-season-mashup",
@@ -37891,11 +38421,15 @@
    },
    {
     "artist": "Nicole Scherzinger",
-    "title": "Don't Hold Your Breath"
+    "title": "Don't Hold Your Breath",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "artist": "Britney Spears",
-    "title": "Break the Ice"
+    "title": "Break the Ice",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "artist": "Kylie Minogue",
@@ -37923,7 +38457,9 @@
    "needsMetadata": false,
    "file": "Training Season Mashup.mp3",
    "folder": "Mashups 2024"
-  }
+  },
+  "tempo": 123,
+  "key": "F"
  },
  {
   "id": "mashups-2025-2-my-my-mys",
@@ -37931,7 +38467,9 @@
   "sourceSongs": [
    {
     "artist": "Troye Sivan",
-    "title": "My My My"
+    "title": "My My My",
+    "bpm": 102,
+    "key": "C♯"
    },
    {
     "artist": "Tate McRae",
@@ -37955,7 +38493,9 @@
    "needsMetadata": false,
    "file": "2 my my mys.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 103,
+  "key": "C#"
  },
  {
   "id": "mashups-2025-actually-beverly-hills",
@@ -37963,7 +38503,9 @@
   "sourceSongs": [
    {
     "title": "Beverly Hills",
-    "artist": "Weezer"
+    "artist": "Weezer",
+    "bpm": 87,
+    "key": "F"
    },
    {
     "title": "Actually Romantic",
@@ -37991,7 +38533,9 @@
    "needsMetadata": false,
    "file": "Actually Beverly Hills.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 86,
+  "key": "A"
  },
  {
   "id": "mashups-2025-am-i-a-plastic-box",
@@ -37999,7 +38543,9 @@
   "sourceSongs": [
    {
     "title": "Am I Wrong",
-    "artist": "Nico & Vinz"
+    "artist": "Nico & Vinz",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "title": "Am I Wrong",
@@ -38027,7 +38573,9 @@
    "needsMetadata": false,
    "file": "Am I A Plastic Box.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "mashups-2025-bloodonmycheck-v2",
@@ -38035,7 +38583,9 @@
   "sourceSongs": [
    {
     "artist": "FLO",
-    "title": "Check"
+    "title": "Check",
+    "bpm": 113,
+    "key": "A♯m"
    },
    {
     "artist": "Tate McRae",
@@ -38059,7 +38609,9 @@
    "needsMetadata": false,
    "file": "Bloodonmycheck v2.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 144,
+  "key": "Em"
  },
  {
   "id": "mashups-2025-boy-crazy-apologies",
@@ -38067,7 +38619,9 @@
   "sourceSongs": [
    {
     "artist": "Hollywood Undead",
-    "title": "Apologize"
+    "title": "Apologize",
+    "bpm": 177,
+    "key": "D"
    },
    {
     "artist": "Kesha; JADE",
@@ -38091,7 +38645,9 @@
    "needsMetadata": false,
    "file": "Boy Crazy Apologies.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 89,
+  "key": "G#m"
  },
  {
   "id": "mashups-2025-case-of-the-nahs",
@@ -38099,7 +38655,9 @@
   "sourceSongs": [
    {
     "title": "Case of the Ex",
-    "artist": "Mya"
+    "artist": "Mya",
+    "bpm": 98,
+    "key": "C♯m"
    },
    {
     "title": "Nah",
@@ -38127,7 +38685,9 @@
    "needsMetadata": false,
    "file": "Case of the Nahs.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 99,
+  "key": "D#m"
  },
  {
   "id": "mashups-2025-dear-the-one-god",
@@ -38135,7 +38695,9 @@
   "sourceSongs": [
    {
     "artist": "Betty Who",
-    "title": "The One"
+    "title": "The One",
+    "bpm": 97,
+    "key": "G♯"
    },
    {
     "artist": "Tate McRae",
@@ -38159,7 +38721,9 @@
    "needsMetadata": false,
    "file": "Dear The One God.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 99,
+  "key": "A#"
  },
  {
   "id": "mashups-2025-dumbstruck-in-1999",
@@ -38195,7 +38759,9 @@
    "needsMetadata": false,
    "file": "Dumbstruck in 1999.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 129,
+  "key": "Bm"
  },
  {
   "id": "mashups-2025-dynamite-heat",
@@ -38231,7 +38797,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "PlMz6yDXUoo"
-  }
+  },
+  "tempo": 117,
+  "key": "F#m"
  },
  {
   "id": "mashups-2025-fame-is-a-slumber-party",
@@ -38239,7 +38807,9 @@
   "sourceSongs": [
    {
     "title": "Slumber Party",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 135,
+    "key": "C"
    },
    {
     "title": "Fame Is a Gun",
@@ -38267,7 +38837,9 @@
    "needsMetadata": false,
    "file": "Fame is a Slumber Party.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 136,
+  "key": "Fm"
  },
  {
   "id": "mashups-2025-gorgeous-in-the-woods",
@@ -38275,7 +38847,9 @@
   "sourceSongs": [
    {
     "title": "Out of the Woods",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 92,
+    "key": "G"
    },
    {
     "title": "Gorgeous",
@@ -38303,7 +38877,9 @@
    "needsMetadata": false,
    "file": "Gorgeous In the Woods.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "mashups-2025-heavy-metal-french-girls",
@@ -38311,7 +38887,9 @@
   "sourceSongs": [
    {
     "title": "Heavy Metal Lover",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 115,
+    "key": "C♯"
    },
    {
     "title": "French Girls",
@@ -38339,7 +38917,9 @@
    "needsMetadata": false,
    "file": "Heavy Metal French Girls.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "mashups-2025-i-got-that-sports-car",
@@ -38375,7 +38955,9 @@
    "needsMetadata": false,
    "file": "I Got That Sports Car.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 112,
+  "key": "A"
  },
  {
   "id": "mashups-2025-i-wanna-go-tit-for-tat",
@@ -38387,7 +38969,9 @@
    },
    {
     "title": "I Wanna Be Bad",
-    "artist": "Willa Ford"
+    "artist": "Willa Ford",
+    "bpm": 180,
+    "key": "Am"
    }
   ],
   "displayTitle": "I Wanna Go Tit for Tat",
@@ -38411,7 +38995,9 @@
    "needsMetadata": false,
    "file": "I Wanna Go Tit for Tat.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 172,
+  "key": "Em"
  },
  {
   "id": "mashups-2025-im-a-out-of-body-slave-4-u",
@@ -38419,7 +39005,9 @@
   "sourceSongs": [
    {
     "artist": "Britney Spears",
-    "title": "I'm a Slave 4 U"
+    "title": "I'm a Slave 4 U",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "artist": "Khalid",
@@ -38443,7 +39031,9 @@
    "needsMetadata": false,
    "file": "I'm a Out of Body Slave 4 U.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 112,
+  "key": "A"
  },
  {
   "id": "mashups-2025-if-my-heart-was-padam",
@@ -38479,7 +39069,9 @@
    "needsMetadata": false,
    "file": "If My Heart was Padam.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 129,
+  "key": "C"
  },
  {
   "id": "mashups-2025-jdfr",
@@ -38515,7 +39107,9 @@
    "needsMetadata": false,
    "file": "JDFR.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 144,
+  "key": "Gm"
  },
  {
   "id": "mashups-2025-jealous-tik-tok-type",
@@ -38523,7 +39117,9 @@
   "sourceSongs": [
    {
     "artist": "Kesha",
-    "title": "TiK ToK"
+    "title": "TiK ToK",
+    "bpm": 234,
+    "key": "Dm"
    },
    {
     "artist": "Doja Cat",
@@ -38551,7 +39147,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "2GzucbGJ5SU"
-  }
+  },
+  "tempo": 117,
+  "key": "Dm"
  },
  {
   "id": "mashups-2025-jet-packs-in-my-bag",
@@ -38559,7 +39157,9 @@
   "sourceSongs": [
    {
     "artist": "Fall Out Boy",
-    "title": "Jet Pack Blues"
+    "title": "Jet Pack Blues",
+    "bpm": 156,
+    "key": "G"
    },
    {
     "artist": "FLO",
@@ -38583,7 +39183,9 @@
    "needsMetadata": false,
    "file": "Jet Packs in my Bag.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 152,
+  "key": "Em"
  },
  {
   "id": "mashups-2025-just-keep-watching-bills-bills-bills",
@@ -38619,7 +39221,9 @@
    "needsMetadata": false,
    "file": "Just Keep Watching Bills Bills Bills.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 129,
+  "key": "Bm"
  },
  {
   "id": "mashups-2025-mad-stereo-hearts",
@@ -38655,7 +39259,9 @@
    "needsMetadata": false,
    "file": "Mad Stereo Hearts.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 89,
+  "key": "F#m"
  },
  {
   "id": "mashups-2025-miss-goodies-possessive",
@@ -38663,7 +39269,9 @@
   "sourceSongs": [
    {
     "artist": "Ciara",
-    "title": "Goodies"
+    "title": "Goodies",
+    "bpm": 102,
+    "key": "Fm"
    },
    {
     "artist": "Tate McRae",
@@ -38691,7 +39299,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "dzwrnc7I6Cc"
-  }
+  },
+  "tempo": 103,
+  "key": "Dm"
  },
  {
   "id": "mashups-2025-most-sports-car-girls",
@@ -38699,7 +39309,9 @@
   "sourceSongs": [
    {
     "artist": "P!nk",
-    "title": "Most Girls"
+    "title": "Most Girls",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "artist": "Tate McRae",
@@ -38723,7 +39335,9 @@
    "needsMetadata": false,
    "file": "Most Sports Car Girls.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 108,
+  "key": "Dm"
  },
  {
   "id": "mashups-2025-mystical-come-clean",
@@ -38735,7 +39349,9 @@
    },
    {
     "title": "Come Clean",
-    "artist": "Hilary Duff"
+    "artist": "Hilary Duff",
+    "bpm": 118,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "Mystical Come Clean",
@@ -38759,7 +39375,9 @@
    "needsMetadata": false,
    "file": "Mystical Come Clean.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 117,
+  "key": "B"
  },
  {
   "id": "mashups-2025-mystical-timber",
@@ -38795,7 +39413,9 @@
    "needsMetadata": false,
    "file": "Mystical Timber.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 129,
+  "key": "B"
  },
  {
   "id": "mashups-2025-no-im-not-larger-than-life",
@@ -38803,7 +39423,9 @@
   "sourceSongs": [
    {
     "artist": "Backstreet Boys",
-    "title": "Larger Than Life"
+    "title": "Larger Than Life",
+    "bpm": 108,
+    "key": "Cm"
    },
    {
     "artist": "Tate McRae",
@@ -38831,7 +39453,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "AmrfvUNNt6M"
-  }
+  },
+  "tempo": 108,
+  "key": "Cm"
  },
  {
   "id": "mashups-2025-nobodys-lovegame",
@@ -38839,7 +39463,9 @@
   "sourceSongs": [
    {
     "artist": "Lady Gaga",
-    "title": "Lovegame"
+    "title": "Lovegame",
+    "bpm": 103,
+    "key": "F♯m"
    },
    {
     "artist": "Tate McRae",
@@ -38867,7 +39493,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "AgZ6zitsIVE"
-  }
+  },
+  "tempo": 112,
+  "key": "F#m"
  },
  {
   "id": "mashups-2025-only-hot-sexy-girl-in-the-world",
@@ -38903,7 +39531,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "dw97Wdn0KnU"
-  }
+  },
+  "tempo": 123,
+  "key": "G"
  },
  {
   "id": "mashups-2025-party-freqency-anthem",
@@ -38911,7 +39541,9 @@
   "sourceSongs": [
    {
     "artist": "LMFAO",
-    "title": "Party Rock Anthem"
+    "title": "Party Rock Anthem",
+    "bpm": 129,
+    "key": "Fm"
    },
    {
     "artist": "Demi Lovato",
@@ -38939,7 +39571,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "My6GXW0gIZI"
-  }
+  },
+  "tempo": 129,
+  "key": "Fm"
  },
  {
   "id": "mashups-2025-potential-breakup-song-all-night",
@@ -38947,7 +39581,9 @@
   "sourceSongs": [
    {
     "artist": "Aly & AJ",
-    "title": "Potential Breakup Song"
+    "title": "Potential Breakup Song",
+    "bpm": 158,
+    "key": "F♯m"
    },
    {
     "artist": "Demi Lovato",
@@ -38975,7 +39611,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "XaqFk_dLmZA"
-  }
+  },
+  "tempo": 78,
+  "key": "A#"
  },
  {
   "id": "mashups-2025-raise-your-manchild",
@@ -39011,7 +39649,9 @@
    "needsMetadata": false,
    "file": "Raise Your Manchild.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "mashups-2025-red-flag-mashup-mixed",
@@ -39031,7 +39671,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Hold It Against Me"
+    "title": "Hold It Against Me",
+    "bpm": 132,
+    "key": "Cm"
    },
    {
     "artist": "JADE",
@@ -39055,7 +39697,9 @@
    "needsMetadata": false,
    "file": "RED FLAG Mashup Mixed.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 152,
+  "key": "D#"
  },
  {
   "id": "mashups-2025-romeos-sports-car",
@@ -39091,7 +39735,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "U0_PNA3pmsk"
-  }
+  },
+  "tempo": 108,
+  "key": "D"
  },
  {
   "id": "mashups-2025-shut-up-sports-car",
@@ -39099,7 +39745,9 @@
   "sourceSongs": [
    {
     "artist": "Black Eyed Peas",
-    "title": "Shut Up"
+    "title": "Shut Up",
+    "bpm": 112,
+    "key": "D"
    },
    {
     "artist": "Tate McRae",
@@ -39123,7 +39771,9 @@
    "needsMetadata": false,
    "file": "Shut Up Sports Car.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 112,
+  "key": "D"
  },
  {
   "id": "mashups-2025-signs-from-work",
@@ -39135,7 +39785,9 @@
    },
    {
     "artist": "Fifth Harmony",
-    "title": "Work From Home"
+    "title": "Work From Home",
+    "bpm": 103,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Signs from Work",
@@ -39155,7 +39807,9 @@
    "needsMetadata": false,
    "file": "Signs from Work.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 112,
+  "key": "A"
  },
  {
   "id": "mashups-2025-sports-car-extended",
@@ -39183,7 +39837,9 @@
    "needsMetadata": false,
    "file": "sports car extended.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 108,
+  "key": "A"
  },
  {
   "id": "mashups-2025-this-is-what-3-dance-for",
@@ -39219,7 +39875,9 @@
    "needsMetadata": false,
    "file": "This is What 3 Dance For.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 68,
+  "key": "Fm"
  },
  {
   "id": "mashups-2025-touch-on-it",
@@ -39255,7 +39913,9 @@
    "needsMetadata": false,
    "file": "Touch On It.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 112,
+  "key": "Fm"
  },
  {
   "id": "mashups-2025-unusual-box",
@@ -39267,7 +39927,9 @@
    },
    {
     "artist": "Britney Spears",
-    "title": "Unusual You"
+    "title": "Unusual You",
+    "bpm": 123,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Unusual Box",
@@ -39291,7 +39953,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "8-c2W4mp8Jw"
-  }
+  },
+  "tempo": 123,
+  "key": "D#"
  },
  {
   "id": "mashups-2025-where-is-my-prerogative",
@@ -39327,7 +39991,9 @@
    "needsMetadata": false,
    "file": "Where Is My Prerogative.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 117,
+  "key": "A#m"
  },
  {
   "id": "mashups-2025-wildest-purple-lace-bra",
@@ -39335,7 +40001,9 @@
   "sourceSongs": [
    {
     "artist": "Taylor Swift",
-    "title": "Wildest Dreams"
+    "title": "Wildest Dreams",
+    "bpm": 72,
+    "key": "G♯"
    },
    {
     "artist": "Tate McRae",
@@ -39359,7 +40027,9 @@
    "needsMetadata": false,
    "file": "wildest purple lace bra.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 144,
+  "key": "G#"
  },
  {
   "id": "mashups-2025-yes-baby-another-day",
@@ -39367,7 +40037,9 @@
   "sourceSongs": [
    {
     "title": "Die Another Day",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 123,
+    "key": "Cm"
    },
    {
     "title": "Yes Baby",
@@ -39395,7 +40067,9 @@
    "needsMetadata": false,
    "file": "Yes Baby Another Day.mp3",
    "folder": "Mashups 2025"
-  }
+  },
+  "tempo": 66,
+  "key": "B"
  },
  {
   "id": "mashups-2026-bad-enough-pov",
@@ -39431,7 +40105,9 @@
    "needsMetadata": false,
    "file": "Bad Enough POV.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 136,
+  "key": "D#"
  },
  {
   "id": "mashups-2026-club-song-in-the-sports-car",
@@ -39463,7 +40139,9 @@
    "needsMetadata": false,
    "file": "Club Song in the sports car.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 117,
+  "key": "D"
  },
  {
   "id": "mashups-2026-just-keep-watching-my-new-religion",
@@ -39495,7 +40173,9 @@
    "needsMetadata": false,
    "file": "Just Keep Watching My New Religion.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 129,
+  "key": "Bm"
  },
  {
   "id": "mashups-2026-late-night-creme-brulee",
@@ -39531,7 +40211,9 @@
    "needsMetadata": false,
    "file": "Late Night Creme Brulee.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 117,
+  "key": "F"
  },
  {
   "id": "mashups-2026-move-thirst-traps-along",
@@ -39567,7 +40249,9 @@
    "needsMetadata": false,
    "file": "Move Thirst Traps Along.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 152,
+  "key": "D#"
  },
  {
   "id": "mashups-2026-somebody-that-we-dont-talk",
@@ -39603,7 +40287,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "N5LVzMbJXds"
-  }
+  },
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "mashups-2026-too-much-is-what-i-like",
@@ -39639,7 +40325,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "IgaN1sjcldg"
-  }
+  },
+  "tempo": 136,
+  "key": "G#"
  },
  {
   "id": "mashups-2026-trap-gabriela",
@@ -39651,7 +40339,9 @@
    },
    {
     "artist": "Fetty Wap",
-    "title": "Trap Queen"
+    "title": "Trap Queen",
+    "bpm": 148,
+    "key": "G"
    }
   ],
   "displayTitle": "Trap Gabriela",
@@ -39675,7 +40365,9 @@
   "video": {
    "type": "youtube",
    "sourceId": "08yyDe74P7M"
-  }
+  },
+  "tempo": 99,
+  "key": "Am"
  },
  {
   "id": "mashups-2026-walking-on-superscars",
@@ -39683,7 +40375,9 @@
   "sourceSongs": [
    {
     "title": "Walking on Air",
-    "artist": "Katy Perry"
+    "artist": "Katy Perry",
+    "bpm": 128,
+    "key": "F♯m"
    },
    {
     "title": "SUPERSCAR",
@@ -39711,7 +40405,9 @@
    "needsMetadata": false,
    "file": "Walking on Superscars.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 129,
+  "key": "F#m"
  },
  {
   "id": "mashups-2026-we-found-maturity",
@@ -39719,7 +40415,9 @@
   "sourceSongs": [
    {
     "title": "We Found Love",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 129,
+    "key": "C♯"
    },
    {
     "title": "Mature",
@@ -39747,7 +40445,9 @@
    "needsMetadata": false,
    "file": "We Found Maturity.mp3",
    "folder": "Mashups 2026"
-  }
+  },
+  "tempo": 86,
+  "key": "C#"
  },
  {
   "id": "sub-jump-hysteria-tk7fi",
@@ -39769,7 +40469,9 @@
   ],
   "displayTitle": "Jump Hysteria",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 144,
+  "key": "Gm"
  },
  {
   "id": "sub-leak-it-mashup-17ohf",
@@ -39800,7 +40502,9 @@
   "displayTitle": "Leak It Mashup",
   "mashupArtist": "Bring Me The Mashup",
   "specialAlbum": "Multi-Song Mashups",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 117,
+  "key": "D"
  },
  {
   "id": "sub-like-i-leak-it-jjxkb",
@@ -39817,12 +40521,16 @@
    },
    {
     "title": "Like I Love You",
-    "artist": "Justin Timberlake"
+    "artist": "Justin Timberlake",
+    "bpm": 114,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Like I Leak It",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 117,
+  "key": "E"
  },
  {
   "id": "sub-love-rush-controller-n6p9d",
@@ -39844,7 +40552,9 @@
   ],
   "displayTitle": "Love Rush Controller",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 123,
+  "key": "Gm"
  },
  {
   "id": "sub-love-you-like-weather-for-tennis-w9znc",
@@ -39861,12 +40571,16 @@
    },
    {
     "title": "Love You Like a Love Song",
-    "artist": "Selena Gomez"
+    "artist": "Selena Gomez",
+    "bpm": 117,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Love You Like Weather For Tennis",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 117,
+  "key": "C#"
  },
  {
   "id": "sub-sweet-controller-23boi",
@@ -39883,12 +40597,16 @@
    },
    {
     "title": "Sweet Dreams",
-    "artist": "Eurythmics"
+    "artist": "Eurythmics",
+    "bpm": 128,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Sweet Controller",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "sub-uncanny-body-1vqt6",
@@ -39905,12 +40623,16 @@
    },
    {
     "title": "Touch My Body",
-    "artist": "Mariah Carey"
+    "artist": "Mariah Carey",
+    "bpm": 78,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Uncanny Body",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-05"
+  "dateAdded": "2026-07-05",
+  "tempo": 78,
+  "key": "Cm"
  },
  {
   "id": "sub-34-35-mashup-collab-ft-justinbeats-1guaq",
@@ -39931,7 +40653,9 @@
    },
    {
     "title": "I'm Real",
-    "artist": "Jennifer Lopez"
+    "artist": "Jennifer Lopez",
+    "bpm": 83,
+    "key": "Bm"
    },
    {
     "title": "Small Talk",
@@ -39939,7 +40663,9 @@
    },
    {
     "title": "How Long",
-    "artist": "Charlie Puth"
+    "artist": "Charlie Puth",
+    "bpm": 112,
+    "key": "C♯m"
    },
    {
     "title": "Pretty Girls",
@@ -39951,11 +40677,15 @@
    },
    {
     "title": "Set Fire to the Rain",
-    "artist": "Adele"
+    "artist": "Adele",
+    "bpm": 108,
+    "key": "Dm"
    },
    {
     "title": "Love You Like a Love Song",
-    "artist": "Selena Gomez"
+    "artist": "Selena Gomez",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "title": "Cuff It",
@@ -39967,17 +40697,23 @@
    },
    {
     "title": "XS",
-    "artist": "Rina Sawayama"
+    "artist": "Rina Sawayama",
+    "bpm": 117,
+    "key": "Dm"
    },
    {
     "title": "Leave Me Lonely",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 90,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "34 + 35 Mashup Collab (ft. JustinBeats)",
   "mashupArtist": "Bring Me The Mashup; JustinBeats",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 112,
+  "key": "C"
  },
  {
   "id": "sub-cuff-it-collab-ft-chrispy-mashups-8glms",
@@ -40002,11 +40738,15 @@
    },
    {
     "title": "Babylon",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 117,
+    "key": "D"
    },
    {
     "title": "Break My Heart",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 112,
+    "key": "Em"
    },
    {
     "title": "Genetics",
@@ -40018,11 +40758,15 @@
    },
    {
     "title": "XS",
-    "artist": "Rina Sawayama"
+    "artist": "Rina Sawayama",
+    "bpm": 117,
+    "key": "Dm"
    },
    {
     "title": "Juice",
-    "artist": "Lizzo"
+    "artist": "Lizzo",
+    "bpm": 119,
+    "key": "C"
    },
    {
     "title": "Set Me Free",
@@ -40030,17 +40774,23 @@
    },
    {
     "title": "Wasabi",
-    "artist": "Little Mix"
+    "artist": "Little Mix",
+    "bpm": 114,
+    "key": "D"
    },
    {
     "title": "Strip",
-    "artist": "Little Mix"
+    "artist": "Little Mix",
+    "bpm": 123,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Cuff It Collab (ft. Chrispy Mashups)",
   "mashupArtist": "Bring Me The Mashup; Chrispy Mashups",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "A"
  },
  {
   "id": "sub-easy-collab-ft-david-santiego-vasquez-rtioo",
@@ -40057,7 +40807,9 @@
    },
    {
     "title": "Animal",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 138,
+    "key": "G"
    },
    {
     "title": "Girls/Girls/Boys",
@@ -40065,7 +40817,9 @@
    },
    {
     "title": "Silver Cross",
-    "artist": "Charli xcx"
+    "artist": "Charli xcx",
+    "bpm": 134,
+    "key": "D"
    },
    {
     "title": "This Is What Dreams Are Made Of",
@@ -40081,7 +40835,9 @@
    },
    {
     "title": "Dueles",
-    "artist": "Jesse & Joy"
+    "artist": "Jesse & Joy",
+    "bpm": 142,
+    "key": "D"
    },
    {
     "title": "One of Us",
@@ -40091,7 +40847,9 @@
   "displayTitle": "Easy Collab (ft. David Santiego Vasquez)",
   "mashupArtist": "Bring Me The Mashup; David Santeigo Vasquez",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 144,
+  "key": "Cm"
  },
  {
   "id": "sub-girl-like-me-collab-ft-steezyjerry-7i51e",
@@ -40112,15 +40870,21 @@
    },
    {
     "title": "G.U.Y.",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 112,
+    "key": "Fm"
    },
    {
     "title": "Die Another Day",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 123,
+    "key": "Cm"
    },
    {
     "title": "Cockiness",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 124,
+    "key": "G♯"
    },
    {
     "title": "abcedfu",
@@ -40132,7 +40896,9 @@
    },
    {
     "title": "Counting Stars",
-    "artist": "OneRepublic"
+    "artist": "OneRepublic",
+    "bpm": 123,
+    "key": "C♯m"
    },
    {
     "title": "Baby",
@@ -40148,7 +40914,9 @@
    },
    {
     "title": "Running Up That Hill",
-    "artist": "Kate Bush"
+    "artist": "Kate Bush",
+    "bpm": 108,
+    "key": "Cm"
    },
    {
     "title": "Bad Habits",
@@ -40162,7 +40930,9 @@
   "displayTitle": "Girl Like Me Collab (ft. SteezyJerry)",
   "mashupArtist": "Bring Me The Mashup; SteezyJerry",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 123,
+  "key": "Cm"
  },
  {
   "id": "sub-hold-me-closer-collab-ft-dylanglc-56qr6",
@@ -40191,7 +40961,9 @@
    },
    {
     "title": "Free Woman",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 58,
+    "key": "Am"
    },
    {
     "title": "Die For You",
@@ -40199,11 +40971,15 @@
    },
    {
     "title": "Die For You",
-    "artist": "The Weeknd"
+    "artist": "The Weeknd",
+    "bpm": 66,
+    "key": "C"
    },
    {
     "title": "Am I Wrong",
-    "artist": "Nico & Vinz"
+    "artist": "Nico & Vinz",
+    "bpm": 117,
+    "key": "G♯"
    },
    {
     "title": "Flowers",
@@ -40211,15 +40987,21 @@
    },
    {
     "title": "Cardigan",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 130,
+    "key": "Cm"
    },
    {
     "title": "No Tears Left to Cry",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 123,
+    "key": "Am"
    },
    {
     "title": "Don't You Worry Child",
-    "artist": "Swedish House Mafia"
+    "artist": "Swedish House Mafia",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "title": "Good Time",
@@ -40229,7 +41011,9 @@
   "displayTitle": "Hold Me Closer Collab (ft. DylanGLC)",
   "mashupArtist": "Bring Me The Mashup; DylanGLC",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 123,
+  "key": "C"
  },
  {
   "id": "sub-human-touch-collab-ft-alexzn-kgucq",
@@ -40242,11 +41026,15 @@
   "sourceSongs": [
    {
     "title": "Human Touch",
-    "artist": "Betty Who"
+    "artist": "Betty Who",
+    "bpm": 102,
+    "key": "Bm"
    },
    {
     "title": "Levitating",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 103,
+    "key": "Bm"
    },
    {
     "title": "Left & Right",
@@ -40258,15 +41046,21 @@
    },
    {
     "title": "My My My",
-    "artist": "Troye Sivan"
+    "artist": "Troye Sivan",
+    "bpm": 102,
+    "key": "C♯"
    },
    {
     "title": "Alejandro",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 99,
+    "key": "G"
    },
    {
     "title": "Graveyard",
-    "artist": "Halsey"
+    "artist": "Halsey",
+    "bpm": 92,
+    "key": "G"
    },
    {
     "title": "Telepatia",
@@ -40280,7 +41074,9 @@
   "displayTitle": "Human Touch Collab (ft. Alexzn)",
   "mashupArtist": "Bring Me The Mashup; Alexzn",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 103,
+  "key": "D"
  },
  {
   "id": "sub-i-want-to-dance-with-somebody-collab-ft-dj-j-brew-9rlnv",
@@ -40297,15 +41093,21 @@
   "sourceSongs": [
    {
     "title": "I Wanna Dance With Somebody",
-    "artist": "Whitney Houston"
+    "artist": "Whitney Houston",
+    "bpm": 117,
+    "key": "F♯"
    },
    {
     "title": "I Didn't Just Come Here to Dance",
-    "artist": "Carly Rae Jepsen"
+    "artist": "Carly Rae Jepsen",
+    "bpm": 122,
+    "key": "D♯m"
    },
    {
     "title": "Believe",
-    "artist": "Cher"
+    "artist": "Cher",
+    "bpm": 110,
+    "key": "A♯"
    },
    {
     "title": "A Second to Midnight",
@@ -40313,15 +41115,21 @@
    },
    {
     "title": "Your Love Is My Drug",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 120,
+    "key": "C♯"
    },
    {
     "title": "Call Me Maybe",
-    "artist": "Carly Rae Jepsen"
+    "artist": "Carly Rae Jepsen",
+    "bpm": 117,
+    "key": "G"
    },
    {
     "title": "22",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 103,
+    "key": "G"
    },
    {
     "title": "California Gurls",
@@ -40329,17 +41137,23 @@
    },
    {
     "title": "Girls Just Wanna Have Fun",
-    "artist": "Cyndi Lauper"
+    "artist": "Cyndi Lauper",
+    "bpm": 120,
+    "key": "E"
    },
    {
     "title": "Like a Virgin",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 117,
+    "key": "D♯m"
    }
   ],
   "displayTitle": "I Want to Dance With Somebody Collab (ft. DJ J-Brew)",
   "mashupArtist": "Bring Me The Mashup; DJ J-Brew",
   "specialAlbum": "Pride Mashup Collab Album 2023",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "A#m"
  },
  {
   "id": "sub-judas-collab-ft-rick-mashups-tpax9",
@@ -40352,19 +41166,27 @@
   "sourceSongs": [
    {
     "title": "Judas",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 131,
+    "key": "Cm"
    },
    {
     "title": "Where Have You Been",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 129,
+    "key": "Cm"
    },
    {
     "title": "Till the World Ends",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 131,
+    "key": "G♯"
    },
    {
     "title": "It's Not Right But It's Okay",
-    "artist": "Whitney Houston"
+    "artist": "Whitney Houston",
+    "bpm": 127,
+    "key": "C♯"
    },
    {
     "title": "Turn Me On",
@@ -40372,7 +41194,9 @@
    },
    {
     "title": "Wet",
-    "artist": "Nicole Scherzinger"
+    "artist": "Nicole Scherzinger",
+    "bpm": 125,
+    "key": "A♯m"
    },
    {
     "title": "Call Me",
@@ -40384,7 +41208,9 @@
    },
    {
     "title": "XS",
-    "artist": "Rina Sawayama"
+    "artist": "Rina Sawayama",
+    "bpm": 117,
+    "key": "Dm"
    },
    {
     "title": "2 Die 4",
@@ -40394,7 +41220,9 @@
   "displayTitle": "Judas Collab (ft. Rick Mashups)",
   "mashupArtist": "Bring Me The Mashup; Rick Mashups",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 129,
+  "key": "Cm"
  },
  {
   "id": "sub-kiss-me-more-collab-ft-joseph-james-6q8z9",
@@ -40411,7 +41239,9 @@
    },
    {
     "title": "24K Magic",
-    "artist": "Bruno Mars"
+    "artist": "Bruno Mars",
+    "bpm": 108,
+    "key": "D♯"
    },
    {
     "title": "Cuff It",
@@ -40431,11 +41261,15 @@
    },
    {
     "title": "Work From Home",
-    "artist": "Fifth Harmony"
+    "artist": "Fifth Harmony",
+    "bpm": 103,
+    "key": "G♯"
    },
    {
     "title": "Hotter Than Hell",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 110,
+    "key": "D♯m"
    },
    {
     "title": "(Blow Me) One Last Kiss",
@@ -40443,21 +41277,29 @@
    },
    {
     "title": "Misery",
-    "artist": "Maroon 5"
+    "artist": "Maroon 5",
+    "bpm": 103,
+    "key": "Em"
    },
    {
     "title": "Don't Hold Your Breath",
-    "artist": "Nicole Scherzinger"
+    "artist": "Nicole Scherzinger",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "title": "All You Wanted",
-    "artist": "Michelle Branch"
+    "artist": "Michelle Branch",
+    "bpm": 96,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Kiss Me More Collab (ft. Joseph James)",
   "mashupArtist": "Bring Me The Mashup; Joseph James",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 112,
+  "key": "G#"
  },
  {
   "id": "sub-late-night-talking-collab-ft-lewis-wake-n459f",
@@ -40478,7 +41320,9 @@
    },
    {
     "title": "What Lovers Do",
-    "artist": "Maroon 5"
+    "artist": "Maroon 5",
+    "bpm": 109,
+    "key": "Fm"
    },
    {
     "title": "Dance to This",
@@ -40490,11 +41334,15 @@
    },
    {
     "title": "Poker Face",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 234,
+    "key": "G♯m"
    },
    {
     "title": "Teenage Dream",
-    "artist": "Katy Perry"
+    "artist": "Katy Perry",
+    "bpm": 58,
+    "key": "A♯"
    },
    {
     "title": "Wrong Turn",
@@ -40502,7 +41350,9 @@
    },
    {
     "title": "Into You",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 107,
+    "key": "A"
    },
    {
     "title": "Nothin' On You",
@@ -40512,7 +41362,9 @@
   "displayTitle": "Late Night Talking Collab (ft. Lewis Wake)",
   "mashupArtist": "Bring Me The Mashup; Lewis Wake",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "A#"
  },
  {
   "id": "sub-made-you-look-collab-ft-jhonatan-vg-be8sf",
@@ -40529,11 +41381,15 @@
    },
    {
     "title": "Sippy Cup",
-    "artist": "Melanie Martinez"
+    "artist": "Melanie Martinez",
+    "bpm": 136,
+    "key": "F"
    },
    {
     "title": "Break Free",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "title": "Dirty Little Secret",
@@ -40545,19 +41401,27 @@
    },
    {
     "title": "Peacock",
-    "artist": "Katy Perry"
+    "artist": "Katy Perry",
+    "bpm": 139,
+    "key": "C"
    },
    {
     "title": "MANiCURE",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 138,
+    "key": "F♯m"
    },
    {
     "title": "Glad You Came",
-    "artist": "The Wanted"
+    "artist": "The Wanted",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "title": "All About That Bass",
-    "artist": "Meghan Trainor"
+    "artist": "Meghan Trainor",
+    "bpm": 134,
+    "key": "A"
    },
    {
     "title": "Superbass",
@@ -40565,7 +41429,9 @@
    },
    {
     "title": "Work",
-    "artist": "Iggy Azalea"
+    "artist": "Iggy Azalea",
+    "bpm": 140,
+    "key": "G"
    },
    {
     "title": "lowercase",
@@ -40575,7 +41441,9 @@
   "displayTitle": "Made You Look Collab (ft. Jhonatan VG)",
   "mashupArtist": "Bring Me The Mashup; Jhonatan VG",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 96,
+  "key": "A#"
  },
  {
   "id": "sub-mamma-mia-collab-ft-inanimate-mashups-vzu4d",
@@ -40588,7 +41456,9 @@
   "sourceSongs": [
    {
     "title": "Mamma Mia",
-    "artist": "ABBA"
+    "artist": "ABBA",
+    "bpm": 136,
+    "key": "D"
    },
    {
     "title": "Shup Up and Dance",
@@ -40604,29 +41474,41 @@
    },
    {
     "title": "Starships",
-    "artist": "Nicki Minaj"
+    "artist": "Nicki Minaj",
+    "bpm": 123,
+    "key": "D"
    },
    {
     "title": "Say So",
-    "artist": "Doja Cat"
+    "artist": "Doja Cat",
+    "bpm": 56,
+    "key": "Bm"
    },
    {
     "title": "Paparazzi",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "title": "ICU",
-    "artist": "Phoebe Bridgers"
+    "artist": "Phoebe Bridgers",
+    "bpm": 133,
+    "key": "D"
    },
    {
     "title": "Helena",
-    "artist": "My Chemical Romance"
+    "artist": "My Chemical Romance",
+    "bpm": 123,
+    "key": "E"
    }
   ],
   "displayTitle": "Mamma Mia Collab (ft. Inanimate Mashups)",
   "mashupArtist": "Bring Me The Mashup; Inanimate Mashups",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 136,
+  "key": "D"
  },
  {
   "id": "sub-million-dollar-baby-ft-mixmstrstel-ut1gg",
@@ -40643,11 +41525,15 @@
    },
    {
     "title": "Hung Up",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 123,
+    "key": "Dm"
    },
    {
     "title": "Round & Round",
-    "artist": "Selena Gomez"
+    "artist": "Selena Gomez",
+    "bpm": 127,
+    "key": "A♯"
    },
    {
     "title": "Rain On Me",
@@ -40655,29 +41541,41 @@
    },
    {
     "title": "I Wanna Go",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 130,
+    "key": "F"
    },
    {
     "title": "This Kiss",
-    "artist": "Carly Rae Jepsen"
+    "artist": "Carly Rae Jepsen",
+    "bpm": 127,
+    "key": "C"
    },
    {
     "title": "Separate Ways",
-    "artist": "Journey"
+    "artist": "Journey",
+    "bpm": 129,
+    "key": "Em"
    },
    {
     "title": "Caribbean Queen",
-    "artist": "Billy Ocean"
+    "artist": "Billy Ocean",
+    "bpm": 113,
+    "key": "Dm"
    },
    {
     "title": "heavydirtysoul",
-    "artist": "Twenty One Pilots"
+    "artist": "Twenty One Pilots",
+    "bpm": 129,
+    "key": "Gm"
    }
   ],
   "displayTitle": "Million Dollar Baby (ft. MixmstrStel)",
   "mashupArtist": "Bring Me The Mashup; MixmstrStel",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 136,
+  "key": "Dm"
  },
  {
   "id": "sub-only-girl-in-the-world-collab-ft-iwillbattle-ew2ro",
@@ -40694,7 +41592,9 @@
    },
    {
     "title": "Don't Start Now",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 123,
+    "key": "Bm"
    },
    {
     "title": "Skin of My Teeth",
@@ -40706,15 +41606,21 @@
    },
    {
     "title": "Sparks",
-    "artist": "Hilary Duff"
+    "artist": "Hilary Duff",
+    "bpm": 122,
+    "key": "Bm"
    },
    {
     "title": "Wasabi",
-    "artist": "Little Mix"
+    "artist": "Little Mix",
+    "bpm": 114,
+    "key": "D"
    },
    {
     "title": "Get the Party Started",
-    "artist": "P!nk"
+    "artist": "P!nk",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "title": "Slut Pop",
@@ -40728,7 +41634,9 @@
   "displayTitle": "Only Girl in the World Collab (ft. iWillBattle)",
   "mashupArtist": "Bring Me The Mashup; iWillBattle",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 123,
+  "key": "F#m"
  },
  {
   "id": "sub-psycho-collab-ft-lukas-mashups-zg3mn",
@@ -40745,23 +41653,33 @@
    },
    {
     "title": "I Know Places",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 161,
+    "key": "C"
    },
    {
     "title": "Acapella",
-    "artist": "Karmin"
+    "artist": "Karmin",
+    "bpm": 172,
+    "key": "D"
    },
    {
     "title": "Lane Boy",
-    "artist": "Twenty One Pilots"
+    "artist": "Twenty One Pilots",
+    "bpm": 161,
+    "key": "G"
    },
    {
     "title": "I Write Sins Not Tragedies",
-    "artist": "Panic! At the Disco"
+    "artist": "Panic! At the Disco",
+    "bpm": 172,
+    "key": "Am"
    },
    {
     "title": "you should see me in a crown",
-    "artist": "Billie Eilish"
+    "artist": "Billie Eilish",
+    "bpm": 76,
+    "key": "C♯m"
    },
    {
     "title": "M.I.L.F.$.",
@@ -40773,21 +41691,29 @@
    },
    {
     "title": "Alphabet Boy",
-    "artist": "Melanie Martinez"
+    "artist": "Melanie Martinez",
+    "bpm": 154,
+    "key": "C"
    },
    {
     "title": "Up",
-    "artist": "Cardi B"
+    "artist": "Cardi B",
+    "bpm": 123,
+    "key": "G"
    },
    {
     "title": "Started",
-    "artist": "Iggy Azalea"
+    "artist": "Iggy Azalea",
+    "bpm": 165,
+    "key": "Bm"
    }
   ],
   "displayTitle": "Psycho Collab (ft. Lukas Mashups)",
   "mashupArtist": "Bring Me The Mashup; Lukas Mashups",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 161,
+  "key": "Am"
  },
  {
   "id": "sub-river-collab-ft-adamusic-5yv1r",
@@ -40804,15 +41730,21 @@
    },
    {
     "title": "Hit Me With Your Best Shot",
-    "artist": "Pat Benatar"
+    "artist": "Pat Benatar",
+    "bpm": 127,
+    "key": "E"
    },
    {
     "title": "Just Dance",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 117,
+    "key": "C♯m"
    },
    {
     "title": "C'mon",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "title": "Alien Superstar",
@@ -40828,21 +41760,29 @@
    },
    {
     "title": "Till the World Ends",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 131,
+    "key": "G♯"
    },
    {
     "title": "Slow Down",
-    "artist": "Selena Gomez"
+    "artist": "Selena Gomez",
+    "bpm": 127,
+    "key": "C♯m"
    },
    {
     "title": "Where Have You Been",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 129,
+    "key": "Cm"
    }
   ],
   "displayTitle": "River Collab (ft. Adamusic)",
   "mashupArtist": "Bring Me The Mashup; Adamusic",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "sub-treat-me-collab-ft-arininflux-oxyg5",
@@ -40859,7 +41799,9 @@
    },
    {
     "title": "London Bridge",
-    "artist": "Fergie"
+    "artist": "Fergie",
+    "bpm": 90,
+    "key": "C♯"
    },
    {
     "title": "Pink Venom",
@@ -40867,11 +41809,15 @@
    },
    {
     "title": "Most Girls",
-    "artist": "P!nk"
+    "artist": "P!nk",
+    "bpm": 97,
+    "key": "Bm"
    },
    {
     "title": "No More (Baby I'ma Do Right)",
-    "artist": "3LW"
+    "artist": "3LW",
+    "bpm": 88,
+    "key": "Dm"
    },
    {
     "title": "Therefore I Am",
@@ -40879,15 +41825,21 @@
    },
    {
     "title": "Crazy In Love",
-    "artist": "Beyonce"
+    "artist": "Beyonce",
+    "bpm": 102,
+    "key": "Gm"
    },
    {
     "title": "STFU",
-    "artist": "Rina Sawayama"
+    "artist": "Rina Sawayama",
+    "bpm": 99,
+    "key": "Dm"
    },
    {
     "title": "Good In Bed",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 96,
+    "key": "F"
    },
    {
     "title": "Girls in the Hood",
@@ -40895,17 +41847,23 @@
    },
    {
     "title": "Everybody's Fool",
-    "artist": "Evanescence"
+    "artist": "Evanescence",
+    "bpm": 95,
+    "key": "Dm"
    },
    {
     "title": "Heart Attack",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 172,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Treat Me Collab (ft. ArininFlux)",
   "mashupArtist": "Bring Me The Mashup; ArininFlux",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 96,
+  "key": "Dm"
  },
  {
   "id": "sub-trustfall-collab-ft-dj-horny-on-main-q5hlt",
@@ -40922,15 +41880,21 @@
    },
    {
     "title": "Dancing on My Own",
-    "artist": "Robyn"
+    "artist": "Robyn",
+    "bpm": 117,
+    "key": "Cm"
    },
    {
     "title": "Firework",
-    "artist": "Katy Perry"
+    "artist": "Katy Perry",
+    "bpm": 123,
+    "key": "G♯"
    },
    {
     "title": "Living for Love",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 122,
+    "key": "C♯"
    },
    {
     "title": "What I Want",
@@ -40938,21 +41902,29 @@
    },
    {
     "title": "Heavy Metal Lover",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 115,
+    "key": "C♯"
    },
    {
     "title": "The Edge of Glory",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "title": "Autumn Goodbye",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 122,
+    "key": "G♯"
    }
   ],
   "displayTitle": "Trustfall Collab (ft. DJ Horny on Main)",
   "mashupArtist": "Bring Me The Mashup; DJ Horny on Main",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "sub-unholy-collab-ft-adriana-a-rf431",
@@ -40969,33 +41941,47 @@
    },
    {
     "title": "Pour It Up",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 136,
+    "key": "D"
    },
    {
     "title": "Freakshow",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 131,
+    "key": "Bm"
    },
    {
     "title": "Formation",
-    "artist": "Beyonce"
+    "artist": "Beyonce",
+    "bpm": 123,
+    "key": "Fm"
    },
    {
     "title": "Sin",
-    "artist": "Nine Inch Nails"
+    "artist": "Nine Inch Nails",
+    "bpm": 128,
+    "key": "B"
    },
    {
     "title": "Don't Phunk With My Heart",
-    "artist": "Black Eyed Peas"
+    "artist": "Black Eyed Peas",
+    "bpm": 130,
+    "key": "Fm"
    },
    {
     "title": "Take It Off",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 125,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Unholy Collab (ft. Adriana A)",
   "mashupArtist": "Bring Me The Mashup; Adriana A",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 129,
+  "key": "C#m"
  },
  {
   "id": "sub-want-u-back-collab-ft-marc-johnce-f0m9a",
@@ -41008,7 +41994,9 @@
   "sourceSongs": [
    {
     "title": "Want U Back",
-    "artist": "Cher Lloyd"
+    "artist": "Cher Lloyd",
+    "bpm": 97,
+    "key": "A"
    },
    {
     "title": "Bitch Back",
@@ -41016,11 +42004,15 @@
    },
    {
     "title": "I'm a Mess",
-    "artist": "Bebe Rexha"
+    "artist": "Bebe Rexha",
+    "bpm": 96,
+    "key": "Bm"
    },
    {
     "title": "Same Old Love",
-    "artist": "Selena Gomez"
+    "artist": "Selena Gomez",
+    "bpm": 99,
+    "key": "Bm"
    },
    {
     "title": "Bottled Up",
@@ -41040,15 +42032,21 @@
    },
    {
     "title": "(You Drive Me) Crazy",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 103,
+    "key": "Cm"
    },
    {
     "title": "The Greatest",
-    "artist": "Sia"
+    "artist": "Sia",
+    "bpm": 169,
+    "key": "Bm"
    },
    {
     "title": "Anywhere",
-    "artist": "Rita Ora"
+    "artist": "Rita Ora",
+    "bpm": 106,
+    "key": "Bm"
    },
    {
     "title": "I Feel It Coming",
@@ -41056,17 +42054,23 @@
    },
    {
     "title": "Levitating",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 103,
+    "key": "Bm"
    },
    {
     "title": "Girl You Know It's True",
-    "artist": "Milli Vanilli"
+    "artist": "Milli Vanilli",
+    "bpm": 99,
+    "key": "A♯m"
    }
   ],
   "displayTitle": "Want U Back Collab (ft. Marc Johnce)",
   "mashupArtist": "Bring Me The Mashup; Marc Johnce",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 99,
+  "key": "B"
  },
  {
   "id": "sub-we-belong-together-collab-ft-soulfulari-lzd8k",
@@ -41079,15 +42083,21 @@
   "sourceSongs": [
    {
     "title": "We Belong Together",
-    "artist": "Mariah Carey"
+    "artist": "Mariah Carey",
+    "bpm": 69,
+    "key": "C"
    },
    {
     "title": "That's What I Like",
-    "artist": "Bruno Mars"
+    "artist": "Bruno Mars",
+    "bpm": 136,
+    "key": "A♯m"
    },
    {
     "title": "Slumber Party",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 135,
+    "key": "C"
    },
    {
     "title": "Closer",
@@ -41095,7 +42105,9 @@
    },
    {
     "title": "He Like That",
-    "artist": "Fifth Harmony"
+    "artist": "Fifth Harmony",
+    "bpm": 147,
+    "key": "C"
    },
    {
     "title": "Just Look Up",
@@ -41103,15 +42115,21 @@
    },
    {
     "title": "Lifetime",
-    "artist": "Usher"
+    "artist": "Usher",
+    "bpm": 136,
+    "key": "Am"
    },
    {
     "title": "We Ride",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 78,
+    "key": "Fm"
    },
    {
     "title": "I Stay In Love",
-    "artist": "Mariah Carey"
+    "artist": "Mariah Carey",
+    "bpm": 129,
+    "key": "C♯"
    },
    {
     "title": "You're Mine Eternal",
@@ -41121,7 +42139,9 @@
   "displayTitle": "We Belong Together Collab (ft. SoulfulAri)",
   "mashupArtist": "Bring Me The Mashup; SoulfulAri",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 144,
+  "key": "C"
  },
  {
   "id": "sub-we-r-who-we-r-collab-ft-titus-jones-rhdmd",
@@ -41150,19 +42170,27 @@
    },
    {
     "title": "Cool for the Summer",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 114,
+    "key": "Fm"
    },
    {
     "title": "Till the World Ends",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 131,
+    "key": "G♯"
    },
    {
     "title": "Starships",
-    "artist": "Nicki Minaj"
+    "artist": "Nicki Minaj",
+    "bpm": 123,
+    "key": "D"
    },
    {
     "title": "C'mon",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 129,
+    "key": "C♯m"
    },
    {
     "title": "Alien Superstar",
@@ -41170,13 +42198,17 @@
    },
    {
     "title": "Gimme More",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 113,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "We R Who We R Collab (ft. Titus Jones)",
   "mashupArtist": "Bring Me The Mashup; Titus Jones",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "sub-what-i-want-collab-ft-stormwalker-mashups-khum3",
@@ -41193,15 +42225,21 @@
    },
    {
     "title": "I Want It All",
-    "artist": "Karmin"
+    "artist": "Karmin",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "title": "Take It Off",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "title": "Blackout",
-    "artist": "Breathe Carolina"
+    "artist": "Breathe Carolina",
+    "bpm": 122,
+    "key": "F♯"
    },
    {
     "title": "Real Groove",
@@ -41209,7 +42247,9 @@
    },
    {
     "title": "Primadonna",
-    "artist": "Marina"
+    "artist": "Marina",
+    "bpm": 127,
+    "key": "Em"
    },
    {
     "title": "Used to Know Me",
@@ -41217,11 +42257,15 @@
    },
    {
     "title": "Stranger Than EArth",
-    "artist": "Purity Ring"
+    "artist": "Purity Ring",
+    "bpm": 126,
+    "key": "F♯"
    },
    {
     "title": "Crazy Over You",
-    "artist": "BLACKPINK"
+    "artist": "BLACKPINK",
+    "bpm": 117,
+    "key": "Em"
    },
    {
     "title": "Lovesick (Remedy)",
@@ -41229,11 +42273,15 @@
    },
    {
     "title": "Break My Heart",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 112,
+    "key": "Em"
    },
    {
     "title": "Juice",
-    "artist": "Lizzo"
+    "artist": "Lizzo",
+    "bpm": 119,
+    "key": "C"
    },
    {
     "title": "lowercase",
@@ -41243,7 +42291,9 @@
   "displayTitle": "What I Want Collab (ft. stormwalker mashups)",
   "mashupArtist": "Bring Me The Mashup; stormwalker mashups",
   "specialAlbum": "Pride Mashup Collab Album 2023; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "Cm"
  },
  {
   "id": "sub-circus-collab-ft-dylanglc-p93qc",
@@ -41256,15 +42306,21 @@
   "sourceSongs": [
    {
     "title": "Circus",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 112,
+    "key": "F♯m"
    },
    {
     "title": "Into You",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 107,
+    "key": "A"
    },
    {
     "title": "Love Again",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "title": "Woman",
@@ -41272,15 +42328,21 @@
    },
    {
     "title": "Billie Jean",
-    "artist": "Michael Jackson"
+    "artist": "Michael Jackson",
+    "bpm": 116,
+    "key": "F♯m"
    },
    {
     "title": "Don't",
-    "artist": "Ed Sheeran"
+    "artist": "Ed Sheeran",
+    "bpm": 103,
+    "key": "G"
    },
    {
     "title": "22",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 103,
+    "key": "G"
    },
    {
     "title": "Supalonely",
@@ -41288,7 +42350,9 @@
    },
    {
     "title": "Finesse",
-    "artist": "Bruno Mars"
+    "artist": "Bruno Mars",
+    "bpm": 104,
+    "key": "Fm"
    },
    {
     "title": "Work From Home",
@@ -41304,11 +42368,15 @@
    },
    {
     "title": "Into You",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 107,
+    "key": "A"
    },
    {
     "title": "Love Me Like You Do",
-    "artist": "Ellie Goulding"
+    "artist": "Ellie Goulding",
+    "bpm": 92,
+    "key": "G♯"
    },
    {
     "title": "Kiss Me More",
@@ -41322,7 +42390,9 @@
   "displayTitle": "Circus Collab (ft. DylanGLC)",
   "mashupArtist": "Bring Me The Mashup; DylanGLC",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "F#m"
  },
  {
   "id": "sub-ready-for-it-collab-ft-joseph-james-vqbzn",
@@ -41335,7 +42405,9 @@
   "sourceSongs": [
    {
     "title": "Ready For It",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 160,
+    "key": "Em"
    },
    {
     "title": "Bitch I'm Madonna",
@@ -41343,7 +42415,9 @@
    },
    {
     "title": "Backstabber",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 159,
+    "key": "G"
    },
    {
     "title": "APESHIT",
@@ -41363,11 +42437,15 @@
    },
    {
     "title": "Up",
-    "artist": "Cardi B"
+    "artist": "Cardi B",
+    "bpm": 123,
+    "key": "G"
    },
    {
     "title": "Uma Thurman",
-    "artist": "Fall Out Boy"
+    "artist": "Fall Out Boy",
+    "bpm": 149,
+    "key": "Em"
    },
    {
     "title": "Bad Blood",
@@ -41383,21 +42461,29 @@
    },
    {
     "title": "Ride",
-    "artist": "Twenty One Pilots"
+    "artist": "Twenty One Pilots",
+    "bpm": 76,
+    "key": "F♯"
    },
    {
     "title": "Power",
-    "artist": "Little Mix"
+    "artist": "Little Mix",
+    "bpm": 173,
+    "key": "G"
    },
    {
     "title": "Cherry Bomb",
-    "artist": "NCT 127"
+    "artist": "NCT 127",
+    "bpm": 78,
+    "key": "m"
    }
   ],
   "displayTitle": "Ready For It Collab (ft. Joseph James)",
   "mashupArtist": "Bring Me The Mashup; Joseph James",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 161,
+  "key": "Em"
  },
  {
   "id": "sub-that-s-what-i-want-collab-ft-adamusic-335x0",
@@ -41426,7 +42512,9 @@
    },
    {
     "title": "Up",
-    "artist": "Cardi B"
+    "artist": "Cardi B",
+    "bpm": 123,
+    "key": "G"
    },
    {
     "title": "t r a n s p a r e n t s o u l",
@@ -41434,17 +42522,23 @@
    },
    {
     "title": "break up with your girlfriend, i'm bored",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 84,
+    "key": "Fm"
    },
    {
     "title": "Blinding Lights",
-    "artist": "The Weeknd"
+    "artist": "The Weeknd",
+    "bpm": 172,
+    "key": "Cm"
    }
   ],
   "displayTitle": "That's What I Want Collab (ft. Adamusic)",
   "mashupArtist": "Bring Me The Mashup; Adamusic",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 89,
+  "key": "E"
  },
  {
   "id": "sub-used-to-know-me-collab-ft-titus-jones-qvib1",
@@ -41461,7 +42555,9 @@
    },
    {
     "title": "Break the Ice",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 117,
+    "key": "Fm"
    },
    {
     "title": "Swish Swish",
@@ -41477,29 +42573,41 @@
    },
    {
     "title": "Pound the Alarm",
-    "artist": "Nicki Minaj"
+    "artist": "Nicki Minaj",
+    "bpm": 123,
+    "key": "C♯m"
    },
    {
     "title": "Take It Off",
-    "artist": "Kesha"
+    "artist": "Kesha",
+    "bpm": 125,
+    "key": "Fm"
    },
    {
     "title": "Love Again",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "title": "I Wanna Dance With Somebody",
-    "artist": "Whitney Houston"
+    "artist": "Whitney Houston",
+    "bpm": 117,
+    "key": "F♯"
    },
    {
     "title": "Paparazzi",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 117,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Used to Know Me Collab (ft. Titus Jones)",
   "mashupArtist": "Bring Me The Mashup; Titus Jones",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "Fm"
  },
  {
   "id": "sub-don-t-start-now-collab-ft-smadaleinad-1ctx3",
@@ -41512,7 +42620,9 @@
   "sourceSongs": [
    {
     "title": "Don't Start Now",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 123,
+    "key": "Bm"
    },
    {
     "title": "Disturbia",
@@ -41520,7 +42630,9 @@
    },
    {
     "title": "Get the Party Started",
-    "artist": "P!nk"
+    "artist": "P!nk",
+    "bpm": 129,
+    "key": "Bm"
    },
    {
     "title": "1999",
@@ -41536,11 +42648,15 @@
    },
    {
     "title": "Say So",
-    "artist": "Doja Cat"
+    "artist": "Doja Cat",
+    "bpm": 56,
+    "key": "Bm"
    },
    {
     "title": "She Wolf",
-    "artist": "Shakira"
+    "artist": "Shakira",
+    "bpm": 123,
+    "key": "G"
    },
    {
     "title": "Up N Down",
@@ -41548,11 +42664,15 @@
    },
    {
     "title": "Lovegame",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 103,
+    "key": "F♯m"
    },
    {
     "title": "Starships",
-    "artist": "Nicki Minaj"
+    "artist": "Nicki Minaj",
+    "bpm": 123,
+    "key": "D"
    },
    {
     "title": "Blow",
@@ -41562,7 +42682,9 @@
   "displayTitle": "Don't Start Now Collab (ft. Smadaleinad)",
   "mashupArtist": "Bring Me The Mashup; Smadaleinad",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 123,
+  "key": "Bm"
  },
  {
   "id": "sub-enigma-collab-ft-mixmstrstel-cssyi",
@@ -41575,15 +42697,21 @@
   "sourceSongs": [
    {
     "title": "Enigma",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "title": "I Will Survive",
-    "artist": "Gloria Gaynor"
+    "artist": "Gloria Gaynor",
+    "bpm": 117,
+    "key": "C"
    },
    {
     "title": "Can't Feel My Face",
-    "artist": "The Weeknd"
+    "artist": "The Weeknd",
+    "bpm": 108,
+    "key": "Am"
    },
    {
     "title": "Brick House",
@@ -41595,17 +42723,23 @@
    },
    {
     "title": "New Rules",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 117,
+    "key": "Am"
    },
    {
     "title": "I Got You",
-    "artist": "Bebe Rexha"
+    "artist": "Bebe Rexha",
+    "bpm": 97,
+    "key": "Am"
    }
   ],
   "displayTitle": "Enigma Collab (ft. MixmstrStel)",
   "mashupArtist": "Bring Me The Mashup; MixmstrStel",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 117,
+  "key": "Am"
  },
  {
   "id": "sub-get-outta-my-way-collab-ft-marc-johnce-qnb63",
@@ -41618,19 +42752,27 @@
   "sourceSongs": [
    {
     "title": "Get Outta My Way",
-    "artist": "Kylie Minogue"
+    "artist": "Kylie Minogue",
+    "bpm": 127,
+    "key": "F♯m"
    },
    {
     "title": "Don't Hold Your Breath",
-    "artist": "Nicole Scherzinger"
+    "artist": "Nicole Scherzinger",
+    "bpm": 110,
+    "key": "Fm"
    },
    {
     "title": "Neon Lights",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "title": "Bloom",
-    "artist": "Troye Sivan"
+    "artist": "Troye Sivan",
+    "bpm": 120,
+    "key": "C"
    },
    {
     "title": "Cut to the Feeling",
@@ -41638,11 +42780,15 @@
    },
    {
     "title": "Love Again",
-    "artist": "Dua Lipa"
+    "artist": "Dua Lipa",
+    "bpm": 117,
+    "key": "F♯m"
    },
    {
     "title": "The Edge of Glory",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 129,
+    "key": "A"
    },
    {
     "title": "In the Dark",
@@ -41654,11 +42800,15 @@
    },
    {
     "title": "Dancing Queen",
-    "artist": "ABBA"
+    "artist": "ABBA",
+    "bpm": 99,
+    "key": "A"
    },
    {
     "title": "What About Us",
-    "artist": "P!nk"
+    "artist": "P!nk",
+    "bpm": 113,
+    "key": "G♯"
    },
    {
     "title": "The Motto",
@@ -41668,7 +42818,9 @@
   "displayTitle": "Get Outta My Way Collab (ft. Marc Johnce)",
   "mashupArtist": "Bring Me The Mashup; Marc Johnce",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 129,
+  "key": "A"
  },
  {
   "id": "sub-do-me-collab-ft-chrispy-mashups-5k5hm",
@@ -41685,7 +42837,9 @@
    },
    {
     "title": "Replay",
-    "artist": "Zendaya"
+    "artist": "Zendaya",
+    "bpm": 140,
+    "key": "F♯m"
    },
    {
     "title": "Catch My Breath",
@@ -41693,15 +42847,21 @@
    },
    {
     "title": "Pity Party",
-    "artist": "Melanie Martinez"
+    "artist": "Melanie Martinez",
+    "bpm": 136,
+    "key": "F♯m"
    },
    {
     "title": "Wildest Dreams",
-    "artist": "Taylor Swift"
+    "artist": "Taylor Swift",
+    "bpm": 72,
+    "key": "G♯"
    },
    {
     "title": "Neon Lights",
-    "artist": "Demi Lovato"
+    "artist": "Demi Lovato",
+    "bpm": 125,
+    "key": "A"
    },
    {
     "title": "Girl Front",
@@ -41717,7 +42877,9 @@
    },
    {
     "title": "Wrecking Ball",
-    "artist": "Miley Cyrus"
+    "artist": "Miley Cyrus",
+    "bpm": 117,
+    "key": "F"
    },
    {
     "title": "Latch",
@@ -41731,7 +42893,9 @@
   "displayTitle": "Do Me Collab (ft. Chrispy Mashups)",
   "mashupArtist": "Bring Me The Mashup; Chrispy Mashups",
   "specialAlbum": "Pride Mashup Collab Album 2022; Multi-Song Mashups",
-  "dateAdded": "2026-07-06"
+  "dateAdded": "2026-07-06",
+  "tempo": 136,
+  "key": "A"
  },
  {
   "id": "sub-danceteria-mashup-pzcev",
@@ -41756,7 +42920,9 @@
    },
    {
     "title": "Get Naked",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 115,
+    "key": "F♯m"
    },
    {
     "title": "I'm Actually Kinda Famous",
@@ -41770,7 +42936,9 @@
   "displayTitle": "Danceteria Mashup",
   "mashupArtist": "Bring Me The Mashup",
   "specialAlbum": "Multi-Song Mashups",
-  "dateAdded": "2026-07-07"
+  "dateAdded": "2026-07-07",
+  "tempo": 117,
+  "key": "Gm"
  },
  {
   "id": "sub-i-wanna-fuck-the-tit-36rii",
@@ -41783,7 +42951,9 @@
   "sourceSongs": [
    {
     "title": "I Wanna Be Bad",
-    "artist": "Willa Ford"
+    "artist": "Willa Ford",
+    "bpm": 180,
+    "key": "Am"
    },
    {
     "title": "Fuck the DJ",
@@ -41796,7 +42966,9 @@
   ],
   "displayTitle": "I  Wanna Fuck the Tit",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-10"
+  "dateAdded": "2026-07-10",
+  "tempo": 185,
+  "key": "Em"
  },
  {
   "id": "sub-yes-origami-tavlz",
@@ -41818,7 +42990,9 @@
   ],
   "displayTitle": "yes ORIGAMI!",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-10"
+  "dateAdded": "2026-07-10",
+  "tempo": 136,
+  "key": "F#m"
  },
  {
   "id": "sub-red-pinky-up-2mjv0",
