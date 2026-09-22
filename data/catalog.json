@@ -43014,7 +43014,9 @@
   ],
   "displayTitle": "Red Pinky Up",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-11"
+  "dateAdded": "2026-07-11",
+  "tempo": 152,
+  "key": "G#m"
  },
  {
   "id": "sub-sympathy-is-a-burn-h2jge",
@@ -43036,7 +43038,9 @@
   ],
   "displayTitle": "Sympathy is a Burn",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-12"
+  "dateAdded": "2026-07-12",
+  "tempo": 129,
+  "key": "D#"
  },
  {
   "id": "sub-milk-mashup-st1c8",
@@ -43061,7 +43065,9 @@
    },
    {
     "title": "Prima Donna",
-    "artist": "Christina Aguilera"
+    "artist": "Christina Aguilera",
+    "bpm": 129,
+    "key": "Gm"
    },
    {
     "title": "exes",
@@ -43069,13 +43075,17 @@
    },
    {
     "title": "Hot Mess",
-    "artist": "Ashley Tisdale"
+    "artist": "Ashley Tisdale",
+    "bpm": 140,
+    "key": "D"
    }
   ],
   "displayTitle": "MILK Mashup",
   "mashupArtist": "Bring Me The Mashup",
   "specialAlbum": "Multi-Song Mashups",
-  "dateAdded": "2026-07-12"
+  "dateAdded": "2026-07-12",
+  "tempo": 136,
+  "key": "Gm"
  },
  {
   "id": "sub-reverse-thong-gnng7",
@@ -43097,7 +43107,9 @@
   ],
   "displayTitle": "Reverse Thong",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-13"
+  "dateAdded": "2026-07-13",
+  "tempo": 123,
+  "key": "D#m"
  },
  {
   "id": "sub-anticipating-midnight-6e8fw",
@@ -43114,12 +43126,16 @@
    },
    {
     "title": "Anticipating",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 111,
+    "key": "C"
    }
   ],
   "displayTitle": "Anticipating Midnight",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-13"
+  "dateAdded": "2026-07-13",
+  "tempo": 112,
+  "key": "F"
  },
  {
   "id": "sub-rude-cure-9cmg5",
@@ -43136,12 +43152,16 @@
    },
    {
     "title": "Rude",
-    "artist": "MAGIC!"
+    "artist": "MAGIC!",
+    "bpm": 72,
+    "key": "C♯"
    }
   ],
   "displayTitle": "Rude Cure",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-13"
+  "dateAdded": "2026-07-13",
+  "tempo": 144,
+  "key": "C#"
  },
  {
   "id": "sub-gimme-more-low-rise-jeans-gfkim",
@@ -43158,12 +43178,16 @@
    },
    {
     "title": "Gimme More",
-    "artist": "Britney Spears"
+    "artist": "Britney Spears",
+    "bpm": 113,
+    "key": "F♯m"
    }
   ],
   "displayTitle": "Gimme More Low Rise Jeans",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-14"
+  "dateAdded": "2026-07-14",
+  "tempo": 112,
+  "key": "F#m"
  },
  {
   "id": "sub-how-bad-for-all-you-wanted-1m3mk",
@@ -43176,7 +43200,9 @@
   "sourceSongs": [
    {
     "title": "All You Wanted",
-    "artist": "Michelle Branch"
+    "artist": "Michelle Branch",
+    "bpm": 96,
+    "key": "G♯"
    },
    {
     "title": "How Bad Do U Want me",
@@ -43185,7 +43211,9 @@
   ],
   "displayTitle": "How Bad for All You Wanted",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-16"
+  "dateAdded": "2026-07-16",
+  "tempo": 123,
+  "key": "G#"
  },
  {
   "id": "sub-crank-up-the-leaks-4ntp4",
@@ -43198,7 +43226,9 @@
   "sourceSongs": [
    {
     "title": "Crank It Up",
-    "artist": "Ashley Tisdale"
+    "artist": "Ashley Tisdale",
+    "bpm": 114,
+    "key": "G"
    },
    {
     "title": "Leak It",
@@ -43207,7 +43237,9 @@
   ],
   "displayTitle": "Crank Up the Leaks",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-16"
+  "dateAdded": "2026-07-16",
+  "tempo": 117,
+  "key": "D"
  },
  {
   "id": "sub-speed-bottoms-up-o3rz0",
@@ -43224,12 +43256,16 @@
    },
    {
     "title": "Bottoms Up",
-    "artist": "Keke Palmer"
+    "artist": "Keke Palmer",
+    "bpm": 160,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Speed Bottoms Up",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-16"
+  "dateAdded": "2026-07-16",
+  "tempo": 172,
+  "key": "G#"
  },
  {
   "id": "sub-dancing-on-the-honey-y4fy1",
@@ -43251,7 +43287,9 @@
   ],
   "displayTitle": "Dancing on the Honey",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-07-18"
+  "dateAdded": "2026-07-18",
+  "tempo": 117,
+  "key": "G#"
  },
  {
   "id": "sub-say-my-animal-0ddvl",
@@ -43268,12 +43306,16 @@
    },
    {
     "title": "Say My Name",
-    "artist": "Destiny's Child"
+    "artist": "Destiny's Child",
+    "bpm": 138,
+    "key": "Cm"
    }
   ],
   "displayTitle": "Say My Animal",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-01"
+  "dateAdded": "2026-08-01",
+  "tempo": 76,
+  "key": "Fm"
  },
  {
   "id": "sub-we-found-brand-new-chanel-9wauz",
@@ -43290,12 +43332,16 @@
    },
    {
     "title": "We Found Love",
-    "artist": "Rihanna"
+    "artist": "Rihanna",
+    "bpm": 129,
+    "key": "C♯"
    }
   ],
   "displayTitle": "We Found Brand New Chanel$",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-01"
+  "dateAdded": "2026-08-01",
+  "tempo": 129,
+  "key": "F#"
  },
  {
   "id": "sub-old-technology-of-the-whole-world-kyx5h",
@@ -43317,7 +43363,9 @@
   ],
   "displayTitle": "Old Technology of the Whole World",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-02"
+  "dateAdded": "2026-08-02",
+  "tempo": 129,
+  "key": "F#m"
  },
  {
   "id": "sub-do-somethin-remedied-1loyk",
@@ -43339,7 +43387,9 @@
   ],
   "displayTitle": "Do Somethin' Remedied",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-02"
+  "dateAdded": "2026-08-02",
+  "tempo": 129,
+  "key": "Em"
  },
  {
   "id": "sub-just-dance-to-me-ni60i",
@@ -43356,12 +43406,16 @@
    },
    {
     "title": "Just Dance",
-    "artist": "Lady Gaga"
+    "artist": "Lady Gaga",
+    "bpm": 117,
+    "key": "C♯m"
    }
   ],
   "displayTitle": "Just Dance to Me",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-09"
+  "dateAdded": "2026-08-09",
+  "tempo": 117,
+  "key": "B"
  },
  {
   "id": "sub-be-my-big-feelings-xwd9x",
@@ -43374,7 +43428,9 @@
   "sourceSongs": [
    {
     "title": "Be My Baby",
-    "artist": "Ariana Grande"
+    "artist": "Ariana Grande",
+    "bpm": 144,
+    "key": "D♯m"
    },
    {
     "title": "Big Feelings",
@@ -43383,7 +43439,9 @@
   ],
   "displayTitle": "be my big feelings",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-09"
+  "dateAdded": "2026-08-09",
+  "tempo": 144,
+  "key": "D#"
  },
  {
   "id": "sub-don-t-leave-me-on-the-dance-floor-mashup-v1-gvqcb",
@@ -43414,7 +43472,9 @@
   "displayTitle": "Don't Leave Me on the Dance Floor Mashup v1",
   "mashupArtist": "Bring Me The Mashup",
   "specialAlbum": "Multi-Song Mashups",
-  "dateAdded": "2026-08-09"
+  "dateAdded": "2026-08-09",
+  "tempo": 117,
+  "key": "A#"
  },
  {
   "id": "sub-don-t-leave-me-on-the-dance-floor-mashup-v2-55oq4",
@@ -43441,7 +43501,9 @@
   "displayTitle": "Don't Leave Me on the Dance Floor Mashup v2",
   "mashupArtist": "Bring Me The Mashup",
   "specialAlbum": "Multi-Song Mashups",
-  "dateAdded": "2026-08-09"
+  "dateAdded": "2026-08-09",
+  "tempo": 117,
+  "key": "A#"
  },
  {
   "id": "sub-booty-trap-kgqil",
@@ -43463,7 +43525,9 @@
   ],
   "displayTitle": "Booty Trap",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-08-29"
+  "dateAdded": "2026-08-29",
+  "tempo": 152,
+  "key": "F#"
  },
  {
   "id": "sub-hung-houdini-persuades-1pe7w",
@@ -43480,7 +43544,9 @@
    },
    {
     "title": "Hung Up",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 123,
+    "key": "Dm"
    },
    {
     "title": "Houdini",
@@ -43490,7 +43556,9 @@
   "displayTitle": "Hung Houdini Persuades",
   "mashupArtist": "Bring Me The Mashup",
   "specialAlbum": "Multi-Song Mashups",
-  "dateAdded": "2026-09-11"
+  "dateAdded": "2026-09-11",
+  "tempo": 123,
+  "key": "Dm"
  },
  {
   "id": "sub-ain-t-underneath-it-all-dipxd",
@@ -43507,12 +43575,16 @@
    },
    {
     "title": "Underneath It All",
-    "artist": "No Doubt"
+    "artist": "No Doubt",
+    "bpm": 138,
+    "key": "E"
    }
   ],
   "displayTitle": "Ain't Underneath It All",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-09-12"
+  "dateAdded": "2026-09-12",
+  "tempo": 136,
+  "key": "E"
  },
  {
   "id": "sub-mean-spell-dpmg5",
@@ -43534,7 +43606,9 @@
   ],
   "displayTitle": "Mean Spell",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-09-12"
+  "dateAdded": "2026-09-12",
+  "tempo": 70,
+  "key": "G#m"
  },
  {
   "id": "sub-he-talks-to-animals-not-v23zv",
@@ -43560,7 +43634,9 @@
   ],
   "displayTitle": "He Talks to Animals Not",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-09-12"
+  "dateAdded": "2026-09-12",
+  "tempo": 152,
+  "key": "Cm"
  },
  {
   "id": "sub-boys-said-she-said-61b0l",
@@ -43582,6 +43658,8 @@
   ],
   "displayTitle": "Boys Said She Said",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-09-13"
+  "dateAdded": "2026-09-13",
+  "tempo": 117,
+  "key": "Dm"
  }
 ]
