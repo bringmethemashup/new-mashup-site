@@ -105,11 +105,12 @@ header.topbar {
 #search-clear:hover { opacity: 1; }
 
 nav.tabs { display: flex; gap: 4px; }
-.tab {
+.tab, .tab-link {
   padding: 9px 16px; border-radius: 999px; font-size: 13.5px; font-weight: 600;
   color: var(--text-dim); transition: all .25s var(--ease-out);
 }
-.tab:hover { color: var(--text); background: var(--bg-soft); }
+.tab:hover, .tab-link:hover { color: var(--text); background: var(--bg-soft); }
+.tab-link { text-decoration: none; white-space: nowrap; }
 .tab.active { color: #fff; background: var(--accent); box-shadow: 0 4px 18px var(--glow-a); }
 
 .iconbtn {
