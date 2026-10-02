@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audio Converter — Bring Me The Mashup</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎛️</text></svg>">
+<style>
+  body { overflow: auto; }
+  .wrap { max-width: 820px; margin: 0 auto; padding: 24px 20px 90px; }
+  h1 { font-size: 24px; letter-spacing: -.02em; margin: 8px 0 4px; }
+  .sub { color: var(--text-dim); font-size: 13.5px; margin: 0 0 18px; line-height: 1.5; }
+  a.back { color: var(--text-dim); text-decoration: none; font-size: 13px; }
+  .card { border: 1px solid var(--line); background: var(--bg-elev); border-radius: 18px; padding: 20px; margin: 16px 0; }
+  #drop { border: 2px dashed var(--line); border-radius: 16px; padding: 34px 16px; text-align: center; cursor: pointer; color: var(--text-dim); transition: all .2s; }
+  #drop:hover, #drop.over { border-color: var(--accent); color: var(--text); background: var(--bg-soft); }
+  #drop b { display: block; font-size: 16px; color: var(--text); margin-bottom: 4px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+  .f label { display: block; font-size: 11.5px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 5px; }
+  .f select { width: 100%; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg); color: var(--text); outline: none; font-size: 14px; box-sizing: border-box; }
+  .f select:focus { border-color: var(--accent); }
+  .chip { padding: 9px 16px; border-radius: 999px; font-weight: 700; font-size: 13px; background: var(--bg-soft); color: var(--text); border: none; cursor: pointer; }
+  .chip.primary { background: var(--accent); color: #fff; }
+  .chip:disabled { opacity: .45; cursor: not-allowed; }
+  .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; margin-top: 16px; }
+  .note { font-size: 12.5px; color: var(--text-dim); line-height: 1.55; background: var(--bg-soft); border-radius: 12px; padding: 12px 16px; margin: 14px 0; }
+  .note.err { background: #b3261e22; color: #e4573d; }
+  .note.ok { background: #1e8e3e22; color: #34a853; }
+  .hidden { display: none !important; }
+  .file { display: flex; gap: 10px; align-items: center; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; }
+  .file .t { flex: 1; min-width: 0; }
+  .file .t b { display: block; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .file .t span { font-size: 12px; color: var(--text-dim); }
+  .dim { color: var(--text-dim); }
+  .warn { font-size: 11.5px; color: #d99a2b; margin-top: 3px; }
+  .x { background: none; border: none; color: var(--text-dim); cursor: pointer; font-size: 14px; padding: 4px 8px; }
+  .pill { font-size: 10.5px; font-weight: 800; letter-spacing: .04em; padding: 3px 9px; border-radius: 99px; white-space: nowrap; }
+  .pill.ok2 { background: #1e8e3e22; color: #34a853; }
+  .pill.work { background: #b3862622; color: #d99a2b; }
+  .pill.bad { background: #b3261e22; color: #e4573d; max-width: 160px; overflow: hidden; text-overflow: ellipsis; }
+  #empty { text-align: center; color: var(--text-dim); font-size: 13px; padding: 6px 0 0; }
+</style>
+</head>
+<body>
+<div id="ambient"></div>
+<div class="wrap">
+  <a class="back" href="index.html">‹ Back to the site</a>
+  <h1>Audio Converter</h1>
+  <p class="sub">Convert audio to MP3, WAV, FLAC, AAC, OGG or AIFF and pick the quality. It all runs in your browser — nothing is uploaded.</p>
+
+  <div class="card">
+    <div id="drop"><b>Drop audio files here</b>or click to choose (batch OK, up to ~100 MB each)</div>
+    <input id="pick" type="file" accept="audio/*,.mp3,.wav,.flac,.m4a,.aac,.ogg,.opus,.aif,.aiff,.wma,.mp4,.webm" multiple hidden>
+    <div id="status" class="note hidden"></div>
+    <div id="list" style="margin-top:14px"></div>
+    <div id="empty">No files yet.</div>
+  </div>
+
+  <div class="card">
+    <div class="grid">
+      <div class="f"><label for="fmt">Convert to</label><select id="fmt"></select></div>
+      <div class="f" id="q-wrap"><label for="q">Quality (bitrate)</label><select id="q"></select></div>
+      <div class="f" id="depth-wrap"><label for="depth">Bit depth</label><select id="depth"></select></div>
+      <div class="f hidden" id="flac-wrap"><label for="flaclvl">FLAC compression</label>
+        <select id="flaclvl"><option value="5">Standard (5)</option><option value="0">Fastest (0)</option><option value="8">Smallest (8)</option><option value="12">Max (12, slow)</option></select></div>
+      <div class="f"><label for="rate">Sample rate</label>
+        <select id="rate"><option value="keep">Keep original</option><option value="44100">44.1 kHz</option><option value="48000">48 kHz</option><option value="96000">96 kHz</option></select></div>
+      <div class="f"><label for="ch">Channels</label>
+        <select id="ch"><option value="keep">Keep original</option><option value="2">Stereo</option><option value="1">Mono</option></select></div>
+    </div>
+    <div class="actions">
+      <button class="chip hidden" id="clear">Clear all</button>
+      <button class="chip hidden" id="zip">Download all (ZIP)</button>
+      <button class="chip primary" id="go" disabled>Convert</button>
+    </div>
+  </div>
+
+  <div class="note">Tip for mashups: WAV (24-bit) or FLAC keeps full quality for editing. Converting a lossy file (MP3/AAC) to WAV/FLAC won’t bring back lost quality — it only makes the file bigger. Audio only; video files have their audio track extracted.</div>
+</div>
+<script type="module" src="js/converter.js"></script>
+</body>
+</html>

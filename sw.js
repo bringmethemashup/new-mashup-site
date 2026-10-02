@@ -8,7 +8,7 @@
  *    last-known catalog when offline.
  *  - Audio streams / Supabase API calls: never intercepted (network only).
  */
-const VERSION = 'bmtm-v52'; // bump whenever shell files change — forces every client to refetch
+const VERSION = 'bmtm-v53'; // bump whenever shell files change — forces every client to refetch
 const SHELL = [
   './',
   './index.html',
@@ -25,6 +25,14 @@ const SHELL = [
   './js/config.js',
   './js/trackform.js',
   './js/ytmeta.js',
+  './converter.html',
+  './js/converter.js',
+  './js/vendor/ffmpeg/index.js',
+  './js/vendor/ffmpeg/classes.js',
+  './js/vendor/ffmpeg/const.js',
+  './js/vendor/ffmpeg/errors.js',
+  './js/vendor/ffmpeg/utils.js',
+  './js/vendor/ffmpeg/worker.js',
   './manifest.webmanifest',
   './icons/icon-192.png',
   './icons/icon-512.png',
