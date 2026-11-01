@@ -43682,7 +43682,9 @@
   ],
   "displayTitle": "Don't Let the Peace Down",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-05"
+  "dateAdded": "2026-10-05",
+  "tempo": 108,
+  "key": "B"
  },
  {
   "id": "sub-chase-the-melatonin-jbq2b",
@@ -43704,7 +43706,9 @@
   ],
   "displayTitle": "Chase the Melatonin",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-05"
+  "dateAdded": "2026-10-05",
+  "tempo": 136,
+  "key": "Cm"
  },
  {
   "id": "sub-nobody-s-zero-5on47",
@@ -43721,12 +43725,16 @@
    },
    {
     "title": "Nobody's Home",
-    "artist": "Avril Lavigne"
+    "artist": "Avril Lavigne",
+    "bpm": 92,
+    "key": "Fm"
    }
   ],
   "displayTitle": "Nobody's Zero",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-05"
+  "dateAdded": "2026-10-05",
+  "tempo": 92,
+  "key": "G#"
  },
  {
   "id": "sub-not-greedy-i-love-you-zcsom",
@@ -43748,7 +43756,9 @@
   ],
   "displayTitle": "Not Greedy, I Love You",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-05"
+  "dateAdded": "2026-10-05",
+  "tempo": 112,
+  "key": "F#m"
  },
  {
   "id": "sub-break-my-canada-dry-wl5g5",
@@ -43770,7 +43780,9 @@
   ],
   "displayTitle": "Break My Canada Dry",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-10"
+  "dateAdded": "2026-10-10",
+  "tempo": 117,
+  "key": "C#"
  },
  {
   "id": "sub-we-re-not-attaboy-nt749",
@@ -43792,7 +43804,9 @@
   ],
   "displayTitle": "We're Not Attaboy",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-10"
+  "dateAdded": "2026-10-10",
+  "tempo": 112,
+  "key": "Gm"
  },
  {
   "id": "sub-do-parties-kig57",
@@ -43814,7 +43828,9 @@
   ],
   "displayTitle": "Do Parties",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-10"
+  "dateAdded": "2026-10-10",
+  "tempo": 123,
+  "key": "Cm"
  },
  {
   "id": "sub-she-ll-never-be-espresso-mg21j",
@@ -43836,7 +43852,9 @@
   ],
   "displayTitle": "She'll Never Be Espresso",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-10"
+  "dateAdded": "2026-10-10",
+  "tempo": 108,
+  "key": "A"
  },
  {
   "id": "sub-girl-gone-housewife-ls9pu",
@@ -43853,11 +43871,15 @@
    },
    {
     "title": "Girl Gone Wild",
-    "artist": "Madonna"
+    "artist": "Madonna",
+    "bpm": 129,
+    "key": "G♯m"
    }
   ],
   "displayTitle": "Girl Gone Housewife",
   "mashupArtist": "Bring Me The Mashup",
-  "dateAdded": "2026-10-27"
+  "dateAdded": "2026-10-27",
+  "tempo": 129,
+  "key": "G#m"
  }
 ]
