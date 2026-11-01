@@ -43661,5 +43661,203 @@
   "dateAdded": "2026-09-13",
   "tempo": 117,
   "key": "Dm"
+ },
+ {
+  "id": "sub-don-t-let-the-peace-down-vc0x5",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZ8aLQJZeAPws686pEy4pKCSHKNLifTC0zy0"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "The Peace",
+    "artist": "underscores"
+   },
+   {
+    "title": "Don't Let Me Down",
+    "artist": "The Chainsmokers; Daya"
+   }
+  ],
+  "displayTitle": "Don't Let the Peace Down",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-05"
+ },
+ {
+  "id": "sub-chase-the-melatonin-jbq2b",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZSaLQJZpzhu12JqEh0k9MNscnrA0uRahfIy"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "Melantonin",
+    "artist": "Tinashe"
+   },
+   {
+    "title": "Chase It (Mm Da Da)",
+    "artist": "Bebe Rexha"
+   }
+  ],
+  "displayTitle": "Chase the Melatonin",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-05"
+ },
+ {
+  "id": "sub-nobody-s-zero-5on47",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZWaLQJZQnRd0i5dCER2xWmEwszz4X0eSLMX"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "Patient Zero",
+    "artist": "Taylor Swift"
+   },
+   {
+    "title": "Nobody's Home",
+    "artist": "Avril Lavigne"
+   }
+  ],
+  "displayTitle": "Nobody's Zero",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-05"
+ },
+ {
+  "id": "sub-not-greedy-i-love-you-zcsom",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZ9rLQJZpqBszFKNUqjG9JwPR8pysfBGAbm7"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "No Labels, I Love You",
+    "artist": "Carly Rae Jepsen"
+   },
+   {
+    "title": "Greedy",
+    "artist": "Tate McRae"
+   }
+  ],
+  "displayTitle": "Not Greedy, I Love You",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-05"
+ },
+ {
+  "id": "sub-break-my-canada-dry-wl5g5",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZTQGYJZ3XMNFI6FzgRFvDWSW3npoYo7j6Xy"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "Canada Dry",
+    "artist": "Troye Sivan"
+   },
+   {
+    "title": "BREAK MY SOUL",
+    "artist": "Beyonce"
+   }
+  ],
+  "displayTitle": "Break My Canada Dry",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-10"
+ },
+ {
+  "id": "sub-we-re-not-attaboy-nt749",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZPQGYJZPm5hWkmopV0a3WGkphdRAb33b9Q7"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "Attaboy!",
+    "artist": "Jae Stephens"
+   },
+   {
+    "title": "We're Not Like",
+    "artist": "Tate McRae"
+   }
+  ],
+  "displayTitle": "We're Not Attaboy",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-10"
+ },
+ {
+  "id": "sub-do-parties-kig57",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZCQGYJZIVA5XUJzxVjkXCAEU61jazCx2ts7"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "Party",
+    "artist": "Troye Sivan"
+   },
+   {
+    "title": "Do It!",
+    "artist": "underscores"
+   }
+  ],
+  "displayTitle": "Do Parties",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-10"
+ },
+ {
+  "id": "sub-she-ll-never-be-espresso-mg21j",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZxQGYJZeYEwDNBATipsBWLIdtmqGQKoM5iy"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "She'll Never Be Me",
+    "artist": "Britney Spears"
+   },
+   {
+    "title": "Espresso",
+    "artist": "Sabrina Carpenter"
+   }
+  ],
+  "displayTitle": "She'll Never Be Espresso",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-10"
+ },
+ {
+  "id": "sub-girl-gone-housewife-ls9pu",
+  "year": "2026",
+  "audio": {
+   "type": "pcloud",
+   "publicLink": "https://u.pcloud.link/publink/show?code=XZcx0hJZJCd5NEoYaUz9JgVdj5oBGzoFI4XV"
+  },
+  "isOwnUpload": true,
+  "sourceSongs": [
+   {
+    "title": "Housewive",
+    "artist": "Tate McRae"
+   },
+   {
+    "title": "Girl Gone Wild",
+    "artist": "Madonna"
+   }
+  ],
+  "displayTitle": "Girl Gone Housewife",
+  "mashupArtist": "Bring Me The Mashup",
+  "dateAdded": "2026-10-27"
  }
 ]
